@@ -44,7 +44,7 @@ function App() {
         <Router>
       <Routes>
         <Route path="/" element={  <Signin />} />
-        <Route path="/signuo" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/qrpage" element={<Qrpage />} />
         
         <Route path="/forgetpassword" element={   <ForgetPassword />} />
