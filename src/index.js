@@ -5,14 +5,22 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from './Theme/theme';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ChakraProvider theme={theme}>
+        {/* <Router> */}
+             <App />
+        {/* </Router> */}
+       
+      </ChakraProvider>
+    
     </Provider>
   </React.StrictMode>
 );

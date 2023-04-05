@@ -1,0 +1,46 @@
+.tab-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1025px;
+}
+.tab-details h2 {
+  font-size: 115px;
+  color: #7BB564;
+  font-weight: 900;
+}
+.tab-details .upper {
+  font-size: 30px;
+  font-weight: 200;
+}
+.tab-details p {
+  font-size: 57px;
+  font-weight: 300;
+}
+.tab-details .lower {
+  font-size: 47px;
+  font-weight: 300;
+}
+.tab-details input {
+  font-size: 41px !important;
+  height: auto;
+  border-color: none !important;
+  padding: 7px 0px 10px 20px;
+  font-weight: inherit;
+}
+.tab-details .details-btn {
+  width: 100%;
+  color: #7BB564;
+  margin: 102px 0px;
+}
+.tab-details .details-btn button {
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 73px 95px 69px 170px;
+  border-radius: 111110px;
+}/*# sourceMappingURL=details.css.map */

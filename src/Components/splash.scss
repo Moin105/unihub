@@ -1,0 +1,13 @@
+.splash-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo{
+        width: 263px;
+        height: 87px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

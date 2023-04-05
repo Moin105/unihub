@@ -1,0 +1,122 @@
+.footer {
+  display: flex;
+  background-color: #a1b086;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 212px;
+  .container {
+    max-width: 1920px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    .diver {
+        display: flex;
+    justify-content: space-between;
+      .left {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        h3{
+                    font-size: 52px;
+                    font-family: 'Circular Spotify Text';
+                    margin-bottom: 44px; 
+        }
+       ul{
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        flex-direction: column;
+
+        li{font-size: 40px;
+            font-family: 'Circular Spotify Text';
+            font-weight:300;
+            text-align: left;
+        }
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        h3{
+         font-size: 52px;
+         font-family: 'Circular Spotify Text';
+         margin-bottom: 44px;
+        }
+       ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        
+        li{font-size: 40px;
+            text-align: left;
+            font-family: 'Circular Spotify Text';
+            font-weight:300;
+          
+        }
+        }
+      }
+    }
+    .divner {
+        display: flex;
+    justify-content: space-between;
+      .left {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        h3{
+         font-size: 52px;
+         font-family: 'Circular Spotify Text';
+         margin-bottom: 44px;
+        }
+       ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+    
+        li{font-size: 40px;
+            font-family: 'Circular Spotify Text';
+            font-weight:300;
+          
+        }
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        .media-accounts{
+            display: flex;
+            justify-content: space-around;
+            figure{
+                  width: 108px;
+                  height: 108px;
+              img{
+                 width: 100%;
+                 height: 100%;
+                 object-fit: none;
+              }
+            }
+        }
+        h3{
+         font-size: 52px;
+         font-family: 'Circular Spotify Text';
+         margin-bottom: 44px;
+        }
+       ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        li{font-size: 40px;
+            font-family: 'Circular Spotify Text';
+            font-weight:300;
+          
+        }
+        }
+      }
+    }
+  }
+}
