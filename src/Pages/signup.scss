@@ -118,3 +118,131 @@
         }
     }
 }
+@media only screen and (max-width: 1550px) {
+    .signup-page{
+        display: flex;
+        // align-items: center;
+        background: #F8F6F5 0% 0% no-repeat padding-box;
+        justify-content: center;
+        height: 100vh;
+        .container{
+            max-width: 650px;
+            width: 100%;
+            /* height: 100%; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin:20px 0px;
+            .headu{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             h2{
+                margin-top: 45px;
+                margin-bottom: 24px;
+                font-size: 45px;
+             }
+                figure{ 
+                     width: 223px;
+                        height: 67px;
+                    img{
+                      width: 100%;
+                      height: 100%;
+                    }
+                }
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                 gap: 20px;
+                 align-items: center;
+                .input-container{
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    max-width: 550px;
+                input{
+                    width: 100%;
+                    flex: 1;
+                    font-size:  28px;
+                    background-color: white;
+                    max-width: 550px;
+                    border-radius: 333px;
+                    border: none;
+                    outline: none;
+                    color: #6F6F6F;
+                    padding: 24px 0px 19px 69px;
+                }   
+                .downspan{
+                    // font-family:' Circular Spotify Text';
+                    font-size: 16px;
+                    font-weight: 300;
+                }
+                .icon{
+    
+                }  
+                }
+                .forgetti-password{
+                    color: #91B375;
+                    font-size: 20px;
+                    margin: -25px;
+                    text-align: end;
+                    width: 100%;
+               }
+               .btn{
+                 font-size: 28px;    padding: 11px 80px 5px 80px;
+
+                 background-color: #91B375;
+                 color: #FFFFFF;border: none;
+                 border-radius: 2222px;
+                 font-family: 'Circular Spotify Text';
+                 width: fit-content;
+               }
+               .continue{
+                  margin-top: -20px;
+                  text-align: center;
+                  margin-bottom: 23px;
+                  font-size: 26px;
+               }
+            }
+            .media-newhub{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                .media-accounts{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    gap:20px;
+                    figure{
+                          width: 60px;
+                          height: 60px;
+                          margin-bottom: 20px;
+                      img{
+                         width: 100%;
+                         height: 100%;
+                         object-fit: scale-down;
+                      }
+                    }
+                }
+                .upspan{
+                    // font-family:' Circular Spotify Text';
+                    font-size: 16px;
+                    font-weight: 300;
+                }
+           
+                .new-to-unihub{
+                    font-size: 24px;
+                    text-align: center;
+                    color: black;
+                    margin: 0;
+                    span{
+                      color: #91B375;
+                    }
+                }
+            }
+        }
+    }
+}
