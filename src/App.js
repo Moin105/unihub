@@ -11,6 +11,7 @@ import OrderPlaced from "./Pages/OrderPlaced";
 import BookServices from "./Pages/BookServices";
 import Qrpage from "./Pages/Qrpage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BookCleaner from "./Pages/BookCleaner";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path="/orderplaced" element={ <OrderPlaced />} />
         <Route path="/bookservices" element={  <BookServices />} />
         <Route path="/Home" element={ <Home />} /> 
+        <Route path="/bookcleaner" element={<BookCleaner/>}/>
     
       </Routes>
     </Router>

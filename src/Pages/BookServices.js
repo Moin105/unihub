@@ -8,7 +8,7 @@ import ServiceTag from '../Components/ServiceTag'
 import storage from  '../Images/storage.png'
 import cleaner from  '../Images/cleaner.png'
 import moveout from  '../Images/moveout.png'
-
+import { Link } from 'react-router-dom'
 import servicetag from  '../Images/servicetag.png'
 import './details.css'
 import './BookServices'
@@ -24,7 +24,7 @@ function BookServices() {
                   <p classNmae='pixer'>Checkout our services provided by one expert <br></br> vendors and select the needed one.</p>
              <div className='servicebook-container'>
                <ServiceTag icon={storage} name="Book a Storage"/>
-               <ServiceTag icon={cleaner} name="Cleaner"/>
+               <Link to="/bookcleaner"><ServiceTag icon={cleaner} name="Cleaner"/></Link>
                <ServiceTag icon={moveout} name="Moveout"/>
             </div>     
             </div>
