@@ -23,9 +23,9 @@ function BookServices() {
                   <h2>Book A Service</h2>   
                   <p classNmae='pixer'>Checkout our services provided by one expert <br></br> vendors and select the needed one.</p>
              <div className='servicebook-container'>
-               <ServiceTag icon={storage} name="Book a Storage"/>
+             <Link to="/bookstorage"> <ServiceTag icon={storage} name="Book a Storage"/></Link>
                <Link to="/bookcleaner"><ServiceTag icon={cleaner} name="Cleaner"/></Link>
-               <ServiceTag icon={moveout} name="Moveout"/>
+               <Link to="/bookmoveout">    <ServiceTag icon={moveout} name="Moveout"/></Link>
             </div>     
             </div>
       </div>

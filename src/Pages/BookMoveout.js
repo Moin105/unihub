@@ -13,15 +13,15 @@ import {
   Box,
   Button,SimpleGrid
 } from "@chakra-ui/react";
-import cleaner from './../Images/storages.png'
+import cleaner from './../Images/moveouts.png'
 import { MdArrowForward } from "react-icons/md";
-function BookStorage() {
+function BookMoveout() {
   return (
     <div className='bookcleaner'>
       <Header/>
            <div className='wrapper'>
               <h2>
-              Book A Storage
+              Book Moveout
               </h2>
               <figure>
                  <img src={cleaner}/>
@@ -69,4 +69,4 @@ function BookStorage() {
   )
 }
 
-export default BookStorage
+export default BookMoveout

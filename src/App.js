@@ -12,6 +12,8 @@ import BookServices from "./Pages/BookServices";
 import Qrpage from "./Pages/Qrpage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BookCleaner from "./Pages/BookCleaner";
+import BookStorage from "./Pages/BookStorage";
+import BookMoveout from "./Pages/BookMoveout";
 
 function App() {
   return (
@@ -54,7 +56,9 @@ function App() {
         <Route path="/bookservices" element={  <BookServices />} />
         <Route path="/Home" element={ <Home />} /> 
         <Route path="/bookcleaner" element={<BookCleaner/>}/>
-    
+        <Route path="/bookstorage" element={<BookStorage/>}/>
+        <Route path="/bookmoveout" element={<BookMoveout/>}/>
+
       </Routes>
     </Router>
     </div>
