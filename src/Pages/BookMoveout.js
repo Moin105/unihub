@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import cleaner from './../Images/moveouts.png'
 import { MdArrowForward } from "react-icons/md";
+import { Link } from 'react-router-dom'
 function BookMoveout() {
   return (
     <div className='bookcleaner'>
@@ -52,7 +53,7 @@ function BookMoveout() {
         </Box>
       </FormControl>
                   <div className="wallet-btn">
-        <Button
+     <Link to="/servicehub">   <Button
           rightIcon={<MdArrowForward />}
           bg="#7BB564"
           color={"white"}
@@ -61,7 +62,7 @@ function BookMoveout() {
 
         >
           Subscribe
-        </Button>
+        </Button></Link>
       </div>
            </div>
           <Footer/> 

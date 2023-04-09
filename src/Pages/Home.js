@@ -21,7 +21,7 @@ function Home() {
     <React.Fragment>
       <div className="home-page">
         <Header/>
-        <div className="wrapper">
+        <div className="wrapper"> 
       {/* <ChakraProvider theme={theme}> */}
         <Tabs  w="100%"  mt="10"  isFitted>
           <TabList  display="flex" >

@@ -25,9 +25,9 @@ function Details() {
               <Link to="/bookservices"><ServiceTag icon={bookas} name="Book a Service"/>
               </Link> 
               
-               <ServiceTag icon={marketplace} name="Marketplace"/>
+              <Link to="/marketplace">   <ServiceTag icon={marketplace} name="Marketplace"/></Link>
                <ServiceTag icon={events} name="Events"/>
-               <ServiceTag icon={hub} name="HUB"/>
+              <Link to="/servicehub"><ServiceTag icon={hub} name="HUB"/></Link> 
             </div>     
             </div>
       </div>

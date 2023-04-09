@@ -1,0 +1,88 @@
+.itempage{
+    display: flex;
+    // align-items: center;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .wrapper{
+        width: 100%;
+        max-width: 1550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4{
+            color: #7BB564;
+            font-size: 115px;
+        }
+        h5{
+            color: #7BB564;
+            font-size: 72px;
+        }
+        .itemcontainer{
+            display: flex;
+            flex-direction: column;
+            .item-row{
+                display: flex;
+                justify-content: space-between;
+                .price{
+                    font-size: 40px;
+                }
+                .price-number{
+                    color: #7BB564;
+                    font-size: 40px;
+                }
+            }
+            figure{
+                width: 950px;
+                height: 438px;
+                border-radius: 19px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .quantity-container{
+            display: flex;
+            flex-direction: column;
+            p{
+            font-size: 33px;text-align: left;
+            }
+            .quantity{
+                font-size: 40px;
+                display: flex;
+                justify-content: flex-start;
+                gap: 40px;
+                align-items:center ;
+
+                 p{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;    padding: 25px 50px;
+
+                    justify-content: center;
+                    border: 1px solid #7BB564;
+                    color:#868E96 ;
+                    background: #FAFAFA 0% 0% no-repeat padding-box;
+                 }
+            }
+        } .wallet-btn{
+            width: 100%;
+            color: #7BB564;
+            margin: 0 auto;
+            /* margin: 102px 0px; */
+            max-width: 790px;
+            button{
+              font-size: 40px;
+              font-weight: 600;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 73px 95px 69px 170px ;
+              border-radius: 111110px;
+            }
+      }
+    }
+}

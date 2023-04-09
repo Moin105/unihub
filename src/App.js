@@ -14,7 +14,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BookCleaner from "./Pages/BookCleaner";
 import BookStorage from "./Pages/BookStorage";
 import BookMoveout from "./Pages/BookMoveout";
-
+import ServiceHub from './Pages/ServiceHub'
+import MarketPlace from "./Pages/MarketPlace";
+import ItemPage from "./Pages/ItemPage";
+import SellerDetails from "./Pages/SellerDetails";
 function App() {
   return (
     <div className="App">
@@ -58,7 +61,11 @@ function App() {
         <Route path="/bookcleaner" element={<BookCleaner/>}/>
         <Route path="/bookstorage" element={<BookStorage/>}/>
         <Route path="/bookmoveout" element={<BookMoveout/>}/>
-
+        <Route path="/servicehub" element={<ServiceHub/>}/>
+        <Route path="/marketplace" element={<MarketPlace/>}/>
+        <Route path="/itemdetail" element={<ItemPage/>}/>
+        <Route path="/sellerdetails" element={<SellerDetails/>}/>
+        
       </Routes>
     </Router>
     </div>

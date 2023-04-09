@@ -1,0 +1,36 @@
+.sellerdetails{
+    display: flex;
+    // align-items: center;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .wrapper{
+        width: 100%;
+        max-width: 1550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        .seller{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0px 0px 0px ;
+            figure{
+                width: 366px;
+                height: 366px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            h3{
+                font-size: 51px;
+            }
+
+        }
+    }
+
+}
