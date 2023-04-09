@@ -1,0 +1,67 @@
+.messages {
+  display: flex;
+  background: #F8F6F5 0% 0% no-repeat padding-box;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.messages .wrapper {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  max-width: 1550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.messages .wrapper h4 {
+  font-size: 143px;
+}
+.messages .wrapper p {
+  color: #000000;
+  opacity: 0.4;
+  font-size: 58px;
+}
+.messages .wrapper .messenger-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 100px 0px 0px 0px;
+}
+.messages .wrapper .messenger-container .messenger-box {
+  display: flex;
+  gap: 70px;
+}
+.messages .wrapper .messenger-container .messenger-box .figure {
+  width: 255px;
+  height: 255px;
+}
+.messages .wrapper .messenger-container .messenger-box .figure img {
+  width: 100%;
+  height: 100%;
+}
+.messages .wrapper .messenger-container .messenger-box .upper-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.messages .wrapper .messenger-container .messenger-box .upper-row p {
+  font-size: 76px;
+  opacity: 1;
+}
+.messages .wrapper .messenger-container .messenger-box .upper-row span {
+  font-size: 62px;
+  opacity: 0.3;
+}
+.messages .wrapper .messenger-container .messenger-box .name-message {
+  display: flex;
+  text-align: left;
+  width: 100%;
+  flex-direction: column;
+}
+.messages .wrapper .messenger-container .messenger-box .name-message p {
+  font-size: 58px;
+}/*# sourceMappingURL=message.css.map */

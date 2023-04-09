@@ -18,6 +18,9 @@ import ServiceHub from './Pages/ServiceHub'
 import MarketPlace from "./Pages/MarketPlace";
 import ItemPage from "./Pages/ItemPage";
 import SellerDetails from "./Pages/SellerDetails";
+import SellerPage from "./Pages/SellerPage";
+import Event from "./Pages/Event";
+import Messages from "./Pages/Messages";
 function App() {
   return (
     <div className="App">
@@ -62,10 +65,14 @@ function App() {
         <Route path="/bookstorage" element={<BookStorage/>}/>
         <Route path="/bookmoveout" element={<BookMoveout/>}/>
         <Route path="/servicehub" element={<ServiceHub/>}/>
+        <Route path="/event" element={<Event/>}/>
+        /        <Route path="/messages" element={<Messages/>}/>
+
         <Route path="/marketplace" element={<MarketPlace/>}/>
         <Route path="/itemdetail" element={<ItemPage/>}/>
         <Route path="/sellerdetails" element={<SellerDetails/>}/>
-        
+        <Route path="/sellerpage" element={<SellerPage/>}/>
+
       </Routes>
     </Router>
     </div>

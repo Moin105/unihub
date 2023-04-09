@@ -8,6 +8,7 @@ import books from "./../Images/books.png";
 import item from "./../Images/item.png";
 import "./marketplace.css";
 import { Link } from "react-router-dom";
+import servicetag from './../Images/servicetag.png'
 function MarketPlace() {
   return (
     <div className="marketplace">

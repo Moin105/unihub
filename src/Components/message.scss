@@ -1,0 +1,74 @@
+.messages{
+    display: flex;
+    // align-items: center;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    .wrapper{
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        max-width: 1550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        h4{
+            font-size: 143px; 
+        }
+        p{
+            color: #000000;
+            opacity: 0.4;
+            font-size: 58px;
+        }
+     .messenger-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 100px 0px 0px 0px;
+        .messenger-box{
+            display: flex;
+            gap: 70px;
+            .figure{
+                width: 255px;
+                height: 255px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .upper-row{
+               display: flex;
+               width: 100%;
+               justify-content: space-between;
+               align-items: center;
+               p{
+                font-size: 76px;
+                opacity: 1;
+               }
+               span{
+                font-size: 62px;
+                opacity: 0.3;
+               }
+            //    flex-direction: column;  
+            }
+            .name-message{
+                display: flex;
+                // justify-content: space-between;
+                // align-items: center;
+                text-align: left;
+                width: 100%;
+                flex-direction: column;
+                p{
+                   font-size: 58px;
+                }
+            }
+
+        }
+
+     }
+    }
+}
