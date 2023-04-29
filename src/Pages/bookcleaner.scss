@@ -93,7 +93,7 @@
             align-items: center;
 
             h2{
-                font-size: 56px;
+                font-size: 48px;
                 margin: 30px 0px ;
                 color:#7BB564;font-weight: 900;
             }
@@ -107,24 +107,26 @@
                 }
             }
             .form-control{
-                width: 785px;
-                margin: 20px 0px;
-                .input-container{
-                    margin: 10px;
-
-                    label{
-                        font-size: 18px;
-                        margin: 0;
-                    }
-                    input{
-                        font-size: 24px !important;
-                        height: auto;
-                        border-color: none !important;
-                        padding: 7px 0px 10px 20px;
-                        font-weight: inherit;
-                    }
-                }
+        width: 520px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        .input-container{
+            margin: 16px 25px;
+            border-radius: 16px;
+            label{
+                font-size: 18px;
+                margin: 0;
             }
+             input{
+            font-size: 24px !important;
+            height: auto;
+            border-color: none !important;
+            padding: 7px 0px 10px 20px;
+            font-weight: inherit;
+        }
+        }
+    }
             .card-cleaner{
                 display: flex;
                 flex-direction: column;
@@ -134,7 +136,8 @@
                 align-self: flex-start;
                 
                 h4{
-                    font-size: 32px;
+                    font-size: 24px;
+                    margin: 20px 0px 10px;
                     
                 }
                 ul {
@@ -144,38 +147,39 @@
                     flex-direction: column;
                 }
                 ul li{
-                     font-size: 24px;
+                     font-size: 20px;
                       text-align: initial;
                       margin: 10px 0px 0px 0px;
                      color: #707070;
                 }
     
             }p{
-                font-size: 30px;
+                font-size: 20px;
                 text-align: initial;
                color: #707070;
             }
             h1{
-                font-size: 56px;
+                font-size: 38px;
+                margin: 30px 0px;
             }
             .tag-label{
                 font-size:27px ;
             }
             .wallet-btn{
                 width: 100%;
-              color: #7BB564;
-              margin: 30px 0px ;
-              button{
-                font-size: 24px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 50px 45px 50px 75px;
-                border-radius: 111110px;
-                width: 400px;
-               margin: 0 auto 20px auto;
-              }
+            color: #7BB564;
+            margin: 25px 0px ;
+            button{
+              font-size: 23px;
+              font-weight: 600;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 35px 45px 35px 65px;
+              border-radius: 111110px;
+              width: 400px;
+              margin: 0 auto;
+            }
           }
         }
         

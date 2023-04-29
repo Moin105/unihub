@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin:100px;
     max-width: 1025px;
    
     h2{
@@ -18,13 +19,13 @@
        }
     .upper{
    font-size :30px;
-    font-weight: 200;
+    font-weight: 500;
 }
     p{
-        font-size: 57px;  font-weight: 300;
+        font-size: 57px;  font-weight: 500;
     }
     .lower{
-        font-size: 39px;  font-weight: 300;
+        font-size: 39px;  font-weight: 500;
     }
     input{
         font-size: 41px !important;
@@ -58,7 +59,7 @@
         max-width: 1025px;
        
         h2{
-         font-size: 56px;
+         font-size: 48px;
          color: #7BB564;
          font-weight: 900;
         }
@@ -69,12 +70,17 @@
            }
         .upper{
        font-size :24px;
-        font-weight: 200;
+        font-weight: 500;
+        color: #707070;
     }
     .form-control{
-        width: 700px;
+        width: 520px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
         .input-container{
-            margin: 10px;
+            margin: 16px 25px;
+            border-radius: 16px;
             label{
                 font-size: 18px;
                 margin: 0;
@@ -84,9 +90,9 @@
         p{
             font-size: 18px;
             margin: 20px 0px 20px 0px;
-            font-weight: 300;     }
+            font-weight: 500;     }
         .lower{
-            font-size: 22px;  font-weight: 300;
+            font-size: 22px;  font-weight: 500;color: #707070;
         }
         input{
             font-size: 24px !important;
@@ -96,20 +102,20 @@
             font-weight: inherit;
         }
         .wallet-btn{
-              width: 100%;
-              color: #7BB564;
-              margin: 102px 0px ;
-              button{
-                font-size: 24px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 50px 45px 50px 75px;
-                border-radius: 111110px;
-                width: 400px;
-               margin: 0 auto 20px auto;
-              }
+            width: 100%;
+            color: #7BB564;
+            margin: 25px 0px ;
+            button{
+              font-size: 23px;
+              font-weight: 600;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 35px 45px 35px 65px;
+              border-radius: 111110px;
+              width: 400px;
+              margin: 0 auto;
+            }
         }
     }
 }

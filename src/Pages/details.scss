@@ -186,13 +186,13 @@
                     margin-bottom: 30px;
                 }
                 h2{
-                    font-size: 56px;
+                    font-size: 48px;
                 color: #7BB564;
                 margin-bottom: 70px;
                 font-weight: 900;
                 }
                 h3{
-                      font-size: 56px;    margin-bottom: 70px;
+                      font-size: 48px;    margin-bottom: 70px;
                 }
               
                 .servicetags-container{
@@ -217,13 +217,13 @@
                     justify-content: center;
                     flex-direction: column;
                     figure{
-                        width: 165px;
-                        height: 164px;
+                        width: 125px;
+                        height: 124px;
                         margin: 0;
-                        img{width: 100%;height: 100%;}
+                        img{width: 100%;height: 100%;object-fit: contain;}
                     }
                     p{
-                      font-size: 36px;
+                      font-size: 24px;
                       font-family: 'Circular Spotify Text';
                       text-align: center;
                       font-weight: 300;
@@ -244,12 +244,12 @@
             width: 100%;
             flex-direction: column;
             h2{
-                font-size: 56px;
+                font-size: 36px;
                 margin-bottom: 0;
                 font-family: 'Circular Spotify Text';
             }
             p{
-                font-size: 24px;
+                font-size: 20px;
                 font-family: "Circular Spotify Text";
                 text-align: left;
                 width: 90%;
@@ -272,31 +272,32 @@
                 width: 100%;
                 flex-direction: column;
                 h2{
-                    font-size: 56px;
+                    font-size: 36px;
                     margin-bottom: 0;
                     font-family: 'Circular Spotify Text';
                 }
                 .reviewers-container{
                     display: flex;
-                    flex: 1;
+                    flex: 1 1;
                     justify-content: space-around;
                     width: 100%;
+                    margin: 23px 0px;
                     .review-card{
                         background-color: #EDEFEA;
                         padding: 27px 26px 27px 26px;
                         display: flex;
-                        width: 30%;
+                        width: 23%;
                         flex-direction: column;
                         border-radius: 45px;
                         align-items: center;
                         justify-content: center;
                         .circle{
-                            width: 120px;
-                            height: 120px;
+                            width: 100px;
+                            height: 100px;
                             figure{
                                 margin: 0;
-                                width: 120px;
-                                height: 120px;
+                                width: 100px;
+                            height: 100px;
                                 img{
                                     width: 100%;
                                     height: 100%;
@@ -305,7 +306,7 @@
                         }
                         h5{
                             margin: 21px 0px 16px 0px;
-                            font-size: 28px;
+                            font-size: 22px;
                             font-family: 'Circular Spotify Text';
                         }
                         figure{

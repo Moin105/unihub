@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: 100px;
     max-width: 1025px;
    
     h2{
@@ -13,13 +14,13 @@
     }
     .upper{
    font-size :30px;
-    font-weight: 200;
+    font-weight: 400;
 }
     p{
-        font-size: 57px;  font-weight: 300;
+        font-size: 57px;  font-weight: 400;
     }
     .lower{
-        font-size: 30px;  font-weight: 300;
+        font-size: 30px;  font-weight: 400;
     }
     input{
         font-size: 41px !important;
@@ -53,13 +54,13 @@
         max-width: 1025px;
        
         h2{
-         font-size: 56px;
+         font-size: 48px;
          color: #7BB564;
          font-weight: 900;
         }
         .upper{
-       font-size :24px;
-        font-weight: 200;
+       font-size :20px;
+        font-weight: 500;
     }
     .form-control{
         width: 700px;
@@ -85,20 +86,20 @@
             font-weight: inherit;
         }
         .tickets-btn{
-              width: 100%;
-              color: #7BB564;
-              margin: 30px 0px ;
-              button{
-                font-size: 24px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 50px 45px 50px 75px;
-                border-radius: 111110px;
-                width: 400px;
-               margin: 0 auto 20px auto;
-              }
+            width: 100%;
+            color: #7BB564;
+            margin: 25px 0px ;
+            button{
+              font-size: 23px;
+              font-weight: 600;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 35px 45px 35px 65px;
+              border-radius: 111110px;
+              width: 400px;
+              margin: 0 auto;
+            }
         }
     }
 }

@@ -185,13 +185,13 @@
     margin-bottom: 30px;
   }
   .details-page .our-services .wrapper h2 {
-    font-size: 56px;
+    font-size: 48px;
     color: #7BB564;
     margin-bottom: 70px;
     font-weight: 900;
   }
   .details-page .our-services .wrapper h3 {
-    font-size: 56px;
+    font-size: 48px;
     margin-bottom: 70px;
   }
   .details-page .our-services .wrapper .servicetags-container {
@@ -215,16 +215,18 @@
     flex-direction: column;
   }
   .details-page .our-services .wrapper .servicetag-box figure {
-    width: 165px;
-    height: 164px;
+    width: 125px;
+    height: 124px;
     margin: 0;
   }
   .details-page .our-services .wrapper .servicetag-box figure img {
     width: 100%;
     height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .details-page .our-services .wrapper .servicetag-box p {
-    font-size: 36px;
+    font-size: 24px;
     font-family: "Circular Spotify Text";
     text-align: center;
     font-weight: 300;
@@ -244,12 +246,12 @@
     flex-direction: column;
   }
   .details-page .whatwedo .wrapper h2 {
-    font-size: 56px;
+    font-size: 36px;
     margin-bottom: 0;
     font-family: "Circular Spotify Text";
   }
   .details-page .whatwedo .wrapper p {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Circular Spotify Text";
     text-align: left;
     width: 90%;
@@ -272,34 +274,35 @@
     flex-direction: column;
   }
   .details-page .our-reviews .wrapper h2 {
-    font-size: 56px;
+    font-size: 36px;
     margin-bottom: 0;
     font-family: "Circular Spotify Text";
   }
   .details-page .our-reviews .wrapper .reviewers-container {
     display: flex;
-    flex: 1;
+    flex: 1 1;
     justify-content: space-around;
     width: 100%;
+    margin: 23px 0px;
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card {
     background-color: #EDEFEA;
     padding: 27px 26px 27px 26px;
     display: flex;
-    width: 30%;
+    width: 23%;
     flex-direction: column;
     border-radius: 45px;
     align-items: center;
     justify-content: center;
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card .circle {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card .circle figure {
     margin: 0;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card .circle figure img {
     width: 100%;
@@ -307,7 +310,7 @@
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card h5 {
     margin: 21px 0px 16px 0px;
-    font-size: 28px;
+    font-size: 22px;
     font-family: "Circular Spotify Text";
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card figure {
