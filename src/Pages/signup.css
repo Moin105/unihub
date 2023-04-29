@@ -268,7 +268,7 @@
     margin-top: 10px;
     margin-bottom: 24px;
     font-size: 36px;
-    font-weight: 900;
+    font-weight: 500;
   }
   .signup-page .container .headu figure {
     width: 140px;
@@ -303,15 +303,16 @@
   .signup-page .container form .input-container input {
     width: 100%;
     flex: 1 1;
-    font-size: 18px;
+    font-size: 19px;
     background-color: white;
     border-radius: 333px;
     border: none;
-    max-width: 455px;
-    margin: 0 auto;
+    font-weight: 200;
+    max-width: 400px;
     outline: none;
     color: #6F6F6F;
-    padding: 22px 0px 19px 35px;
+    padding: 13px 0px 10px 20px;
+    margin: 0 auto;
   }
   .signup-page .container form .downspan {
     font-size: 16px !important;
@@ -405,7 +406,7 @@
     margin-top: 18px;
     margin-bottom: 0px;
     font-size: 42px;
-    font-weight: 900;
+    font-weight: 500;
   }
   .signup-page .container .headu figure {
     width: 150px;
@@ -432,13 +433,16 @@
   .signup-page .container form .input-container input {
     width: 100%;
     flex: 1 1;
-    font-size: 22px;
+    font-size: 19px;
     background-color: white;
     border-radius: 333px;
     border: none;
+    font-weight: 200;
+    max-width: 400px;
     outline: none;
     color: #6F6F6F;
-    padding: 22px 0px 19px 35px;
+    padding: 13px 0px 10px 20px;
+    margin: 0 auto;
   }
   .signup-page .container form .input-container .downspan {
     font-size: 16px;
@@ -452,7 +456,7 @@
     width: 100%;
   }
   .signup-page .container form .btn {
-    font-size: 24px;
+    font-size: 18px;
     padding: 10px 60px 5px 60px;
     background-color: #91B375;
     color: #FFFFFF;
@@ -481,7 +485,7 @@
     gap: 20px;
   }
   .signup-page .container .media-newhub .media-accounts figure {
-    width: 60px;
+    width: 35px;
     height: 60px;
     margin-bottom: 20px;
   }
@@ -496,7 +500,7 @@
     font-weight: 300;
   }
   .signup-page .container .media-newhub .new-to-unihub {
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
     color: black;
     margin: 0;
