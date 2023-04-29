@@ -374,7 +374,7 @@
                 margin-top: 18px;
                 margin-bottom: 0px;
                 font-size: 42px;
-                font-weight: 900;
+                font-weight: 500;
              }
                 figure{ 
                      width: 165px;
@@ -400,13 +400,16 @@
                 input{
                     width: 100%;
                     flex: 1 1;
-                    font-size: 22px;
+                    font-size: 19px;
                     background-color: white;
                     border-radius: 333px;
                     border: none;
+                    font-weight: 200;
+                    max-width: 400px;
                     outline: none;
                     color: #6F6F6F;
-                    padding: 22px 0px 19px 35px;
+                    padding: 13px 0px 10px 20px;
+                    margin: 0 auto;
                 }   
                 .icon{
     
@@ -415,12 +418,13 @@
                 .forgetti-password{
                     color: #91B375;
                     font-size: 16px;
-                    margin: -10px;
+                    margin: -10px;    max-width: 400px;
+
                     text-align: end;
                     width: 100%;
                }
                .btn{
-                font-size: 24px;
+                font-size: 18px;
                 padding: 10px 60px 5px 60px;
 
                  background-color: #91B375;
