@@ -124,8 +124,10 @@ function Order() {
       />
       <CSSReset/> */}
        <h4 className="heading">Feedback</h4>
-       <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+       <FormControl className="form-control">
+       <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
+          
             padding="20px 0px 0px 20px"
             fontSize="37px"
             fontWeight={300}
@@ -136,15 +138,17 @@ function Order() {
            variant="unstyled"
            width="870px"
            marginTop="30px"
+           className="input"
            border="none"
            fontSize="41px" />
         </Box>
+        </FormControl>
        </React.Fragment>
        <div className="order-btn">
       <Button onClick={()=>{setHide(false)}} rightIcon={<MdArrowForward />} bg='#7BB564'color={"white"} variant='solid' width={"100%"}>
       Rate your order
   </Button>
-  <h4 className="heading">Having issue with the order<span className="price">  Contact Support?</span></h4>
+  <h4 className="support">Having issue with the order<span className="price">  Contact Support?</span></h4>
       </div>
        </div>
      </React.Fragment>}

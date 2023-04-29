@@ -85,4 +85,102 @@
   align-items: center;
   padding: 73px 95px 69px 170px;
   border-radius: 111110px;
+}
+
+@media only screen and (max-width: 1750px) {
+  .itempage {
+    display: flex;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .itempage .wrapper {
+    width: 100%;
+    max-width: 1550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .itempage .wrapper h4 {
+    color: #7BB564;
+    font-size: 56px;
+  }
+  .itempage .wrapper h5 {
+    color: #7BB564;
+    font-size: 38px;
+  }
+  .itempage .wrapper .itemcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+  }
+  .itempage .wrapper .itemcontainer .item-row {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+  }
+  .itempage .wrapper .itemcontainer .item-row .price {
+    font-size: 28px;
+  }
+  .itempage .wrapper .itemcontainer .item-row .price-number {
+    color: #7BB564;
+    font-size: 24px;
+  }
+  .itempage .wrapper .itemcontainer figure {
+    width: 80%;
+    height: 100%;
+    border-radius: 19px;
+  }
+  .itempage .wrapper .itemcontainer figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .itempage .wrapper .quantity-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+  }
+  .itempage .wrapper .quantity-container p {
+    font-size: 28px;
+    text-align: left;
+    margin: 20px 0px;
+  }
+  .itempage .wrapper .quantity-container .quantity {
+    font-size: 24px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    align-items: center;
+  }
+  .itempage .wrapper .quantity-container .quantity p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 13px 30px;
+    justify-content: center;
+    border: 1px solid #7BB564;
+    color: #868E96;
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+  }
+  .itempage .wrapper .wallet-btn {
+    width: 100%;
+    color: #7BB564;
+    margin: 30px auto;
+  }
+  .itempage .wrapper .wallet-btn button {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 45px 50px 75px;
+    border-radius: 111110px;
+    width: 400px;
+    margin: 0 auto 20px auto;
+  }
 }/*# sourceMappingURL=itempage.css.map */

@@ -43,4 +43,65 @@
   align-items: center;
   padding: 73px 95px 69px 170px;
   border-radius: 111110px;
+}
+
+@media only screen and (max-width: 1750px) {
+  .tab-tickets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1025px;
+  }
+  .tab-tickets h2 {
+    font-size: 56px;
+    color: #7BB564;
+    font-weight: 900;
+  }
+  .tab-tickets .upper {
+    font-size: 24px;
+    font-weight: 200;
+  }
+  .tab-tickets .form-control {
+    width: 700px;
+  }
+  .tab-tickets .form-control .input-container {
+    margin: 10px;
+  }
+  .tab-tickets .form-control .input-container label {
+    font-size: 18px;
+    margin: 0;
+  }
+  .tab-tickets p {
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .tab-tickets .lower {
+    font-size: 22px;
+    font-weight: 300;
+  }
+  .tab-tickets input {
+    font-size: 24px !important;
+    height: auto;
+    border-color: none !important;
+    padding: 7px 0px 10px 20px;
+    font-weight: inherit;
+  }
+  .tab-tickets .tickets-btn {
+    width: 100%;
+    color: #7BB564;
+    margin: 30px 0px;
+  }
+  .tab-tickets .tickets-btn button {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 45px 50px 75px;
+    border-radius: 111110px;
+    width: 400px;
+    margin: 0 auto 20px auto;
+  }
 }/*# sourceMappingURL=ticket.css.map */

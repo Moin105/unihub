@@ -99,4 +99,118 @@
 }
 .marketplace .wrapper .item-container .items-wrapper .item-box p {
   font-size: 40px;
+}
+
+@media only screen and (max-width: 1750px) {
+  .marketplace {
+    display: flex;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .marketplace .wrapper {
+    width: 80%;
+    max-width: 1550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .marketplace .wrapper h2 {
+    color: #7BB564;
+    font-size: 56px;
+    width: 100%;
+  }
+  .marketplace .wrapper .upper-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .marketplace .wrapper .upper-container h5 {
+    color: #7BB564;
+    font-size: 32px;
+  }
+  .marketplace .wrapper .upper-container p {
+    font-size: 28px;
+    text-align: start;
+    color: #707070;
+  }
+  .marketplace .wrapper .middle-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .marketplace .wrapper .middle-container h5 {
+    font-size: 24px;
+    color: #000000;
+  }
+  .marketplace .wrapper .middle-container .categories-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 63px;
+    width: 100%;
+  }
+  .marketplace .wrapper .middle-container .categories-container .category-box {
+    width: 175px;
+    height: 225px;
+    padding: 35px;
+    background-color: #EBF4E7;
+  }
+  .marketplace .wrapper .middle-container .categories-container .category-box figure {
+    width: 100%;
+  }
+  .marketplace .wrapper .middle-container .categories-container .category-box figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .marketplace .wrapper .middle-container .categories-container .category-box p {
+    margin: 20px 0px 0px 0px;
+    font-size: 13px;
+    color: #000000;
+  }
+  .marketplace .wrapper .middle-container .categories-container :hover {
+    background-color: #7BB564;
+  }
+  .marketplace .wrapper .middle-container .categories-container :hover p {
+    color: #F8F6F5;
+  }
+  .marketplace .wrapper .item-container {
+    display: flex;
+    margin: 20px 0px 0px 0px;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .marketplace .wrapper .item-container h4 {
+    font-size: 32px;
+    color: #000000;
+  }
+  .marketplace .wrapper .item-container .items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .marketplace .wrapper .item-container .items-wrapper .item-box {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+  }
+  .marketplace .wrapper .item-container .items-wrapper .item-box figure {
+    width: 250px;
+    height: 250px;
+  }
+  .marketplace .wrapper .item-container .items-wrapper .item-box figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .marketplace .wrapper .item-container .items-wrapper .item-box p {
+    font-size: 24px;
+  }
 }/*# sourceMappingURL=marketplace.css.map */

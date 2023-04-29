@@ -30,8 +30,8 @@ function Wallet() {
       <h2>Add Card</h2>
       <h3>Add New Card</h3>
    x
-      <FormControl>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+      <FormControl className="form-control">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -47,7 +47,7 @@ function Wallet() {
           />
         </Box>
 
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -63,7 +63,7 @@ function Wallet() {
           />
         </Box>
         <SimpleGrid columns={2} spacingX='40px' spacingY='20px'>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -79,7 +79,7 @@ function Wallet() {
             fontSize="41px"
           />
         </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"

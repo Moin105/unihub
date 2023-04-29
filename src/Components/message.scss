@@ -72,3 +72,84 @@
      }
     }
 }
+@media only screen and (max-width: 1750px) {
+    .messages{
+        display: flex;
+        // align-items: center;
+        background: #F8F6F5 0% 0% no-repeat padding-box;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    
+        .wrapper{
+            flex: 1;
+            height: 100%;
+            width: 100%;
+            max-width: 1550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            h4{
+                font-size: 56px; 
+            }
+            p{
+                color: #000000;
+                opacity: 0.4;
+                font-size: 38px;
+            }
+         .messenger-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 40px 0px 0px 0px;
+            .messenger-box{
+                display: flex;
+                gap: 70px;
+                .figure{
+                    width: 110px;
+                    height: 110px;
+                    figure{
+                        width: 110px;
+                        height: 110px;
+                        img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }}
+                }
+                .upper-row{
+                   display: flex;
+                   width: 100%;
+                   justify-content: space-between;
+                   align-items: center;
+                   p{
+                    font-size: 76px;
+                    opacity: 1;
+                   }
+                   span{
+                    font-size: 24px;
+                    opacity: 0.3;
+                   }
+                //    flex-direction: column;  
+                }
+                .name-message{
+                    display: flex;
+                    justify-content: space-around;
+                    // justify-content: space-between;
+                    // align-items: center;
+                    text-align: left;
+                    width: 100%;
+                    flex-direction: column;
+                    p{
+                       font-size: 32px;
+                    }
+                }
+    
+            }
+    
+         }
+        }
+    }
+}

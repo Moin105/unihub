@@ -34,11 +34,10 @@ function SellerDetails() {
               </div>
        <Tabs  w="100%"  mt="10"  isFitted>
           <TabList  display="flex" >
-            <Tab style={{width:"348px",height:"328px",border:"none",fontSize:"41px",fontWeight:"300",display:"flex",flexDirection:"column",gap:"20px"}} ><Image src={heart} boxSize="84"/><Text>My Details</Text></Tab>
-            <Tab style={{width:"348px",height:"328px",border:"none",fontSize:"41px",fontWeight:"300",display:"flex",flexDirection:"column",gap:"20px"}} ><Image src={order} boxSize="84"/><Text>My Orders</Text></Tab>
-            <Tab style={{width:"348px",height:"328px",border:"none",fontSize:"41px",fontWeight:"300",display:"flex",flexDirection:"column",gap:"20px"}} ><Image src={wallet} boxSize="84"/><Text>My Wallets</Text></Tab>
-            <Tab style={{width:"348px",height:"328px",border:"none",fontSize:"41px",fontWeight:"300",display:"flex",flexDirection:"column",gap:"20px"}} ><Image src={heart} boxSize="84"/><Text>My Tickets</Text></Tab>
-          </TabList>
+             <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Details</Text></Tab>
+            <Tab className="tab-content"  ><Image src={order} boxSize="50"/><Text>My Orders</Text></Tab>
+            <Tab className="tab-content"  ><Image src={wallet} boxSize="50"/><Text>My Wallets</Text></Tab>
+            <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Tickets</Text></Tab> </TabList>
           <TabPanels>
             <TabPanel justifyContent={"center"} display="flex" alignItems="center">
                <DetailsTab/>

@@ -16,8 +16,8 @@ function DetailsTab() {
       <span className="upper">View and edit your personal info below.</span>
       <p>Login email : Malik.h123@gmail.com</p>
       <span className="lower">Your Login email can’t be changed</span>
-      <FormControl>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+      <FormControl className="form-control">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -32,7 +32,7 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -47,7 +47,7 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -62,7 +62,7 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"

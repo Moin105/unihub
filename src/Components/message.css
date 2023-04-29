@@ -64,4 +64,81 @@
 }
 .messages .wrapper .messenger-container .messenger-box .name-message p {
   font-size: 58px;
+}
+
+@media only screen and (max-width: 1750px) {
+  .messages {
+    display: flex;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+  .messages .wrapper {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    max-width: 1550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .messages .wrapper h4 {
+    font-size: 56px;
+  }
+  .messages .wrapper p {
+    color: #000000;
+    opacity: 0.4;
+    font-size: 38px;
+  }
+  .messages .wrapper .messenger-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 40px 0px 0px 0px;
+  }
+  .messages .wrapper .messenger-container .messenger-box {
+    display: flex;
+    gap: 70px;
+  }
+  .messages .wrapper .messenger-container .messenger-box .figure {
+    width: 110px;
+    height: 110px;
+  }
+  .messages .wrapper .messenger-container .messenger-box .figure figure {
+    width: 110px;
+    height: 110px;
+  }
+  .messages .wrapper .messenger-container .messenger-box .figure figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .messages .wrapper .messenger-container .messenger-box .upper-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .messages .wrapper .messenger-container .messenger-box .upper-row p {
+    font-size: 76px;
+    opacity: 1;
+  }
+  .messages .wrapper .messenger-container .messenger-box .upper-row span {
+    font-size: 24px;
+    opacity: 0.3;
+  }
+  .messages .wrapper .messenger-container .messenger-box .name-message {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    width: 100%;
+    flex-direction: column;
+  }
+  .messages .wrapper .messenger-container .messenger-box .name-message p {
+    font-size: 32px;
+  }
 }/*# sourceMappingURL=message.css.map */

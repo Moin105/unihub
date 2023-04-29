@@ -34,13 +34,15 @@ function BookMoveout() {
                     </h4>
                     <p>Subscribe to our newsletter to receive news and updates.</p>
               </div>
-              <FormControl>
+              <FormControl className="form-control">
+
           <p className='tag-label'>Enter your email here</p>      
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
             fontWeight={300}
+            
           >
             Email Address*
           </FormLabel>
