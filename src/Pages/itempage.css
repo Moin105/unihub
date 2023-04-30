@@ -100,16 +100,18 @@
     max-width: 1550px;
     display: flex;
     flex-direction: column;
+    margin: 100px 0px;
     justify-content: center;
     align-items: center;
   }
   .itempage .wrapper h4 {
     color: #7BB564;
-    font-size: 56px;
+    font-size: 48px;
   }
   .itempage .wrapper h5 {
     color: #7BB564;
-    font-size: 38px;
+    font-size: 28px;
+    margin: 24px 0px;
   }
   .itempage .wrapper .itemcontainer {
     display: flex;
@@ -146,12 +148,12 @@
     flex-direction: column;
   }
   .itempage .wrapper .quantity-container p {
-    font-size: 28px;
+    font-size: 24px;
     text-align: left;
     margin: 20px 0px;
   }
   .itempage .wrapper .quantity-container .quantity {
-    font-size: 24px;
+    font-size: 20px;
     display: flex;
     justify-content: flex-start;
     gap: 40px;
@@ -170,17 +172,17 @@
   .itempage .wrapper .wallet-btn {
     width: 100%;
     color: #7BB564;
-    margin: 30px auto;
+    margin: 25px 0px;
   }
   .itempage .wrapper .wallet-btn button {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 45px 50px 75px;
+    padding: 35px 45px 35px 65px;
     border-radius: 111110px;
     width: 400px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
   }
 }/*# sourceMappingURL=itempage.css.map */

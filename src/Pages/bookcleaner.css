@@ -107,12 +107,12 @@
   }
   .bookcleaner .wrapper .form-control {
     width: 520px;
-    gap: 10px;
+    /* gap: 10px; */
     display: flex;
     flex-direction: column;
   }
   .bookcleaner .wrapper .form-control .input-container {
-    margin: 16px 25px;
+    margin: 8px 30px;
     border-radius: 16px;
   }
   .bookcleaner .wrapper .form-control .input-container label {
@@ -120,7 +120,7 @@
     margin: 0;
   }
   .bookcleaner .wrapper .form-control .input-container input {
-    font-size: 24px !important;
+    font-size: 20px !important;
     height: auto;
     border-color: none !important;
     padding: 7px 0px 10px 20px;
@@ -155,11 +155,12 @@
     color: #707070;
   }
   .bookcleaner .wrapper h1 {
-    font-size: 38px;
-    margin: 30px 0px;
+    font-size: 65px;
+    margin: 30px 0px 0px;
   }
   .bookcleaner .wrapper .tag-label {
-    font-size: 27px;
+    font-size: 20px;
+    margin: 30px 30px 0px 30px;
   }
   .bookcleaner .wrapper .wallet-btn {
     width: 100%;

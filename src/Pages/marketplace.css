@@ -115,25 +115,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 100px;
     align-items: center;
   }
   .marketplace .wrapper h2 {
     color: #7BB564;
-    font-size: 56px;
+    font-size: 48px;
     width: 100%;
   }
   .marketplace .wrapper .upper-container {
     display: flex;
     width: 100%;
     flex-direction: column;
+    margin: 20px 0px;
     align-items: flex-start;
   }
   .marketplace .wrapper .upper-container h5 {
     color: #7BB564;
-    font-size: 32px;
+    font-size: 26px;
   }
   .marketplace .wrapper .upper-container p {
-    font-size: 28px;
+    font-size: 20px;
     text-align: start;
     color: #707070;
   }
@@ -198,11 +200,11 @@
   .marketplace .wrapper .item-container .items-wrapper .item-box {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 195px;
   }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure {
-    width: 250px;
-    height: 250px;
+    width: 195px;
+    height: 195px;
   }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure img {
     width: 100%;
