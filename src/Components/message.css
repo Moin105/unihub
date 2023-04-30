@@ -85,12 +85,13 @@
     align-items: center;
   }
   .messages .wrapper h4 {
-    font-size: 56px;
+    font-size: 48px;
+    margin: 100px 0px 0px;
   }
   .messages .wrapper p {
     color: #000000;
     opacity: 0.4;
-    font-size: 38px;
+    font-size: 24px;
   }
   .messages .wrapper .messenger-container {
     display: flex;
@@ -101,7 +102,8 @@
   }
   .messages .wrapper .messenger-container .messenger-box {
     display: flex;
-    gap: 70px;
+    width: 90%;
+    gap: 60px;
   }
   .messages .wrapper .messenger-container .messenger-box .figure {
     width: 110px;
@@ -124,11 +126,11 @@
     align-items: center;
   }
   .messages .wrapper .messenger-container .messenger-box .upper-row p {
-    font-size: 76px;
+    font-size: 38px;
     opacity: 1;
   }
   .messages .wrapper .messenger-container .messenger-box .upper-row span {
-    font-size: 24px;
+    font-size: 18px;
     opacity: 0.3;
   }
   .messages .wrapper .messenger-container .messenger-box .name-message {
@@ -139,6 +141,6 @@
     flex-direction: column;
   }
   .messages .wrapper .messenger-container .messenger-box .name-message p {
-    font-size: 32px;
+    font-size: 24px;
   }
 }/*# sourceMappingURL=message.css.map */

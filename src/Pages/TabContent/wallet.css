@@ -122,4 +122,77 @@
     width: 400px;
     margin: 0 auto;
   }
+}
+@media only screen and (max-width: 1550px) {
+  .tab-wallet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1025px;
+  }
+  .tab-wallet h2 {
+    font-size: 48px;
+    color: #7BB564;
+    font-weight: 900;
+  }
+  .tab-wallet h3 {
+    font-size: 32px;
+    color: #7BB564;
+    font-weight: 900;
+  }
+  .tab-wallet .upper {
+    font-size: 24px;
+    font-weight: 500;
+    color: #707070;
+  }
+  .tab-wallet .form-control {
+    width: 480px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tab-wallet .form-control .input-container {
+    margin: 16px 25px;
+    border-radius: 16px;
+  }
+  .tab-wallet .form-control .input-container label {
+    font-size: 16px;
+    margin: 0;
+    padding: 10px 0px 0px 15px;
+  }
+  .tab-wallet p {
+    font-size: 18px;
+    margin: 20px 0px 20px 0px;
+    font-weight: 500;
+  }
+  .tab-wallet .lower {
+    font-size: 22px;
+    font-weight: 500;
+    color: #707070;
+  }
+  .tab-wallet input {
+    font-size: 18px !important;
+    height: auto;
+    border-color: none !important;
+    padding: 7px 0px 10px 20px;
+    font-weight: inherit;
+  }
+  .tab-wallet .wallet-btn {
+    width: 100%;
+    color: #7BB564;
+    margin: 25px 0px;
+  }
+  .tab-wallet .wallet-btn button {
+    font-size: 23px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 45px 35px 65px;
+    border-radius: 111110px;
+    width: 400px;
+    margin: 0 auto;
+  }
 }/*# sourceMappingURL=wallet.css.map */

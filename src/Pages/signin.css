@@ -132,8 +132,8 @@
   .signin-page .container .headu h2 {
     margin-top: 28px;
     margin-bottom: 24px;
-    font-size: 56px;
-    font-weight: 900;
+    font-size: 48px;
+    font-weight: 500;
   }
   .signin-page .container .headu figure {
     width: 223px;
@@ -238,6 +238,127 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 50px 0px;
+    margin: 20px 0px;
+  }
+  .signin-page .container .headu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .signin-page .container .headu h2 {
+    margin-top: 28px;
+    margin-bottom: 24px;
+    font-size: 48px;
+    font-weight: 500;
+  }
+  .signin-page .container .headu figure {
+    width: 163px;
+    height: 67px;
+  }
+  .signin-page .container .headu figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .signin-page .container form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  .signin-page .container form .input-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+  }
+  .signin-page .container form .input-container input {
+    width: 100%;
+    flex: 1 1;
+    font-size: 19px;
+    background-color: white;
+    border-radius: 333px;
+    border: none;
+    max-width: 400px;
+    outline: none;
+    color: #6F6F6F;
+    font-weight: 100;
+    padding: 24px 0px 19px 35px;
+    margin: 0 auto;
+  }
+  .signin-page .container form .forgetti-password {
+    color: #91B375;
+    font-size: 16px;
+    margin: -10px;
+    text-align: end;
+    width: 100%;
+  }
+  .signin-page .container form .btn {
+    font-size: 18px;
+    padding: 11px 43px 5px 45px;
+    background-color: #91B375;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 2222px;
+    font-family: "Circular Spotify Text";
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .signin-page .container form .continue {
+    text-align: center;
+    margin-bottom: 23px;
+    font-size: 18px;
+  }
+  .signin-page .container .media-newhub {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 0px 0px 0px;
+    align-items: center;
+  }
+  .signin-page .container .media-newhub .media-accounts {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+  .signin-page .container .media-newhub .media-accounts figure {
+    width: 40px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  .signin-page .container .media-newhub .media-accounts figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  .signin-page .container .media-newhub .new-to-unihub {
+    font-size: 24px;
+    text-align: center;
+    color: black;
+    margin: 0;
+  }
+  .signin-page .container .media-newhub .new-to-unihub span {
+    color: #91B375;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .signin-page {
+    display: flex;
+    background: #F8F6F5 0% 0% no-repeat padding-box;
+    justify-content: center;
+    height: 100vh;
+  }
+  .signin-page .container {
+    max-width: 550px;
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 10px 0px;
     margin: 20px 0px;
   }
@@ -250,11 +371,11 @@
   .signin-page .container .headu h2 {
     margin-top: 18px;
     margin-bottom: 0px;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 500;
   }
   .signin-page .container .headu figure {
-    width: 165px;
+    width: 145px;
     height: 67px;
   }
   .signin-page .container .headu figure img {
@@ -279,12 +400,12 @@
   .signin-page .container form .input-container input {
     width: 100%;
     flex: 1 1;
-    font-size: 19px;
+    font-size: 18px;
     background-color: white;
     border-radius: 333px;
     border: none;
     font-weight: 200;
-    max-width: 400px;
+    max-width: 350px;
     outline: none;
     color: #6F6F6F;
     padding: 13px 0px 10px 20px;
@@ -294,7 +415,7 @@
     color: #91B375;
     font-size: 16px;
     margin: -10px;
-    max-width: 400px;
+    max-width: 350px;
     text-align: end;
     width: 100%;
   }
