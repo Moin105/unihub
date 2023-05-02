@@ -3,7 +3,7 @@
     // align-items: center;
     background: #F8F6F5 0% 0% no-repeat padding-box;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     .container{
         max-width: 1130px;
         width: 100%;
@@ -20,6 +20,7 @@
             margin-top: 85px;
             margin-bottom: 44px;
             font-size: 80px;
+            font-weight: 800;
          }
             figure{ 
                  width: 263px;
@@ -43,13 +44,19 @@
                 input{
                     width: 100%;
                     flex: 1;
-                    font-size:  28px;
+                    font-size:26px;
                     background-color: white;
                     border-radius: 333px;
                     border: none;
                     outline: none;
                     color: #6F6F6F;
-                    padding: 24px 0px 19px 69px;
+                    padding: 14px 0px 14px 69px;
+
+                    &::placeholder{
+                        font-weight: 300;
+                        color: #6F6F6F;
+                        font-size: 26px;
+                    }
                 }
             .icon{
 
@@ -73,8 +80,8 @@
            }
            .btn{
              font-size: 39px;
-             padding: 23px 172px 18px 172px;
-             background-color: #91B375;
+             padding: 18px 172px;
+             background-color: #88B46D;
              color: #FFFFFF;border: none;
              border-radius: 2222px;
              font-family: 'Circular Spotify Text';
@@ -117,15 +124,14 @@
         }
     }
 }
-@media only screen and (max-width: 1750px) {
+@media only screen and (max-width: 1920px) {
     .signup-page{
         display: flex;
         // align-items: center;
         background: #F8F6F5 0% 0% no-repeat padding-box;
         justify-content: center;
-        height: 100vh;
         .container{
-            max-width: 650px;
+            max-width: 900px;
             width: 100%;
             /* height: 100%; */
             display: flex;
@@ -140,8 +146,7 @@
              h2{
                 margin-top: 28px;
                 margin-bottom: 24px;
-                font-size: 56px;
-                font-weight: 900;
+                font-size: 48px;
              }
                 figure{ 
                     width: 223px;
@@ -173,13 +178,9 @@
                     border: none;
                     outline: none;
                     color: #6F6F6F;
-                    padding: 24px 0px 19px 69px;
+                    padding: 14px 0px 14px 69px;
                 }   
-                .downspan{
-                    // font-family:' Circular Spotify Text';
-                    font-size: 16px;
-                    font-weight: 300;
-                }
+                
                 .icon{
     
                 }  
@@ -192,20 +193,18 @@
                     width: 100%;
                }
                .btn{
-                 font-size: 28px;    padding: 11px 80px 5px 80px;
-
-                 background-color: #91B375;
+                font-size: 28px;
+                padding: 7px 80px;
                  color: #FFFFFF;border: none;
                  border-radius: 2222px;
                  font-family: 'Circular Spotify Text';
                  width: fit-content;
                }
-               .continue{
-                  margin-top: -20px;
-                  text-align: center;
-                  margin-bottom: 23px;
-                  font-size: 26px;
-               }
+               .downspan{
+                // font-family:' Circular Spotify Text';
+                font-size: 20px ;
+                font-weight: 300;
+            }
             }
             .media-newhub{
                 display: flex;
@@ -247,280 +246,280 @@
         }
     }
 }
-@media only screen and (max-width: 1550px) {
-    .signup-page{
-        display: flex;
-        // align-items: center;
-        background: #F8F6F5 0% 0% no-repeat padding-box;
-        justify-content: center;
-        height: 100vh;
-        .container{
-            max-width: 650px;
-            width: 100%;
-            /* height: 100%; */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin:20px 0px;
-            .headu{
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             justify-content: center;
-             h2{
-                margin-top: 10px;
-                margin-bottom: 24px;
-                font-size: 36px;
-                font-weight: 500;
-             }
-                figure{ 
-                    width: 140px;
-                    height: 67px;
-                    img{
-                      width: 100%;
-                      height: 100%;
-                    }
-                }
-            }
-            form{
-                display: flex;
-                width: 90%;
-                margin: 0px auto 0px auto;
-                flex-direction: column;
-                 gap: 20px;
-                 align-items: center;
-                 .downspan {
-                    font-size: 16px;
-                    font-weight: 300;
-                }
-                 .upspan {
-                    font-size: 14px;
-                    font-weight: 300;
-                }
-                .input-container{
-                    position: relative;
-                    width: 100%;
-                    display: flex;
-                    max-width: 550px;
-                    input{
-                        width: 100%;
-                        flex: 1 1;
-                        font-size: 19px;
-                        background-color: white;
-                        border-radius: 333px;
-                        border: none;
-                        font-weight: 200;
-                        max-width: 400px;
-                        outline: none;
-                        color: #6F6F6F;
-                        padding: 13px 0px 10px 20px;
-                        margin: 0 auto;
-                    }
-                    .icon{ 
+// @media only screen and (max-width: 1550px) {
+//     .signup-page{
+//         display: flex;
+//         // align-items: center;
+//         background: #F8F6F5 0% 0% no-repeat padding-box;
+//         justify-content: center;
+//         height: 100vh;
+//         .container{
+//             max-width: 650px;
+//             width: 100%;
+//             /* height: 100%; */
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: space-around;
+//             margin:20px 0px;
+//             .headu{
+//              display: flex;
+//              flex-direction: column;
+//              align-items: center;
+//              justify-content: center;
+//              h2{
+//                 margin-top: 10px;
+//                 margin-bottom: 24px;
+//                 font-size: 36px;
+//                 font-weight: 500;
+//              }
+//                 figure{ 
+//                     width: 140px;
+//                     height: 67px;
+//                     img{
+//                       width: 100%;
+//                       height: 100%;
+//                     }
+//                 }
+//             }
+//             form{
+//                 display: flex;
+//                 width: 90%;
+//                 margin: 0px auto 0px auto;
+//                 flex-direction: column;
+//                  gap: 20px;
+//                  align-items: center;
+//                  .downspan {
+//                     font-size: 16px;
+//                     font-weight: 300;
+//                 }
+//                  .upspan {
+//                     font-size: 14px;
+//                     font-weight: 300;
+//                 }
+//                 .input-container{
+//                     position: relative;
+//                     width: 100%;
+//                     display: flex;
+//                     max-width: 550px;
+//                     input{
+//                         width: 100%;
+//                         flex: 1 1;
+//                         font-size: 19px;
+//                         background-color: white;
+//                         border-radius: 333px;
+//                         border: none;
+//                         font-weight: 200;
+//                         max-width: 400px;
+//                         outline: none;
+//                         color: #6F6F6F;
+//                         padding: 13px 0px 10px 20px;
+//                         margin: 0 auto;
+//                     }
+//                     .icon{ 
                         
-                    }  
-                }
-                .downspan{
-                    // font-family:' Circular Spotify Text';
-                    font-size: 16px !important;
-                    font-weight: 300;
-                    margin-top: -10px;
-                }
-                .forgetti-password{
-                    color: #91B375;
-                    font-size: 20px;
-                    margin: -25px;
-                    text-align: end;
-                    width: 100%;
-               }
-               .btn{
+//                     }  
+//                 }
+//                 .downspan{
+//                     // font-family:' Circular Spotify Text';
+//                     font-size: 16px !important;
+//                     font-weight: 300;
+//                     margin-top: -10px;
+//                 }
+//                 .forgetti-password{
+//                     color: #91B375;
+//                     font-size: 20px;
+//                     margin: -25px;
+//                     text-align: end;
+//                     width: 100%;
+//                }
+//                .btn{
                
-                font-size: 18px;
-                padding: 11px 60px 5px 60px;
-                 background-color: #91B375;
-                 color: #FFFFFF;border: none;
-                 border-radius: 2222px;
-                 font-family: 'Circular Spotify Text';
-                 width: fit-content;
-               }
-               .continue{
-                  margin-top: -20px;
-                  text-align: center;
-                  margin-bottom: 23px;
-                  font-size: 26px;
-               }
-            }
-            .media-newhub{
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                .media-accounts{
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    gap:20px;
-                    figure{
-                          width: 50px;
-                          height: 50px;
-                          margin-bottom: 20px;
-                      img{
-                         width: 100%;
-                         height: 100%;
-                         object-fit: scale-down;
-                      }
-                    }
-                }
-                .upspan{
-                    // font-family:' Circular Spotify Text';
-                    font-size: 16px;
-                    font-weight: 300;
-                }
+//                 font-size: 18px;
+//                 padding: 11px 60px 5px 60px;
+//                  background-color: #91B375;
+//                  color: #FFFFFF;border: none;
+//                  border-radius: 2222px;
+//                  font-family: 'Circular Spotify Text';
+//                  width: fit-content;
+//                }
+//                .continue{
+//                   margin-top: -20px;
+//                   text-align: center;
+//                   margin-bottom: 23px;
+//                   font-size: 26px;
+//                }
+//             }
+//             .media-newhub{
+//                 display: flex;
+//                 justify-content: center;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 .media-accounts{
+//                     display: flex;
+//                     justify-content: space-around;
+//                     align-items: center;
+//                     gap:20px;
+//                     figure{
+//                           width: 50px;
+//                           height: 50px;
+//                           margin-bottom: 20px;
+//                       img{
+//                          width: 100%;
+//                          height: 100%;
+//                          object-fit: scale-down;
+//                       }
+//                     }
+//                 }
+//                 .upspan{
+//                     // font-family:' Circular Spotify Text';
+//                     font-size: 16px;
+//                     font-weight: 300;
+//                 }
            
-                .new-to-unihub{
-                    font-size: 18px;
-                    text-align: center;
-                    color: black;
-                    margin: 0;
-                    span{
-                      color: #91B375;
-                    }
-                }
-            }
-        }
-    }
-}
-@media only screen and (max-width: 1250px) {
-    .signup-page{
-        display: flex;
-        // align-items: center;
-        background: #F8F6F5 0% 0% no-repeat padding-box;
-        justify-content: center;
-        height: 100vh;
-        .container{
-            max-width: 650px;
-            width: 100%;
-            /* height: 100%; */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin:20px 0px;
-            .headu{
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             justify-content: center;
-             h2{
-                margin-top: 18px;
-                margin-bottom: 0px;
-                font-size: 34px;
-                font-weight: 500;
-             }
-                figure{ 
-                    width: 145px;
-                    height: 50px;
-                    img{
-                      width: 100%;
-                      height: 100%;
-                    }
-                }
-            }
-            form{
-                display: flex;
-                flex-direction: column;
-                 gap: 20px;
-                 align-items: center;
-                 width: 85%;
-                 margin: 0px auto 0px auto;
-                .input-container{
-                    position: relative;
-                    width: 100%;
-                    display: flex;
-                    max-width: 550px;
-                    input{
-                        width: 100%;
-                        flex: 1 1;
-                        font-size: 19px;
-                        background-color: white;
-                        border-radius: 333px;
-                        border: none;
-                        font-weight: 200;
-                        max-width: 350px;
-                        outline: none;
-                        color: #6F6F6F;
-                        padding: 13px 0px 10px 20px;
-                        margin: 0 auto;
-                    }   
-                .downspan{
-                    // font-family:' Circular Spotify Text';
-                    font-size: 16px;
-                    font-weight: 300;
-                }
-                .icon{
+//                 .new-to-unihub{
+//                     font-size: 18px;
+//                     text-align: center;
+//                     color: black;
+//                     margin: 0;
+//                     span{
+//                       color: #91B375;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// @media only screen and (max-width: 1250px) {
+//     .signup-page{
+//         display: flex;
+//         // align-items: center;
+//         background: #F8F6F5 0% 0% no-repeat padding-box;
+//         justify-content: center;
+//         height: 100vh;
+//         .container{
+//             max-width: 650px;
+//             width: 100%;
+//             /* height: 100%; */
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: space-around;
+//             margin:20px 0px;
+//             .headu{
+//              display: flex;
+//              flex-direction: column;
+//              align-items: center;
+//              justify-content: center;
+//              h2{
+//                 margin-top: 18px;
+//                 margin-bottom: 0px;
+//                 font-size: 34px;
+//                 font-weight: 500;
+//              }
+//                 figure{ 
+//                     width: 145px;
+//                     height: 50px;
+//                     img{
+//                       width: 100%;
+//                       height: 100%;
+//                     }
+//                 }
+//             }
+//             form{
+//                 display: flex;
+//                 flex-direction: column;
+//                  gap: 20px;
+//                  align-items: center;
+//                  width: 85%;
+//                  margin: 0px auto 0px auto;
+//                 .input-container{
+//                     position: relative;
+//                     width: 100%;
+//                     display: flex;
+//                     max-width: 550px;
+//                     input{
+//                         width: 100%;
+//                         flex: 1 1;
+//                         font-size: 19px;
+//                         background-color: white;
+//                         border-radius: 333px;
+//                         border: none;
+//                         font-weight: 200;
+//                         max-width: 350px;
+//                         outline: none;
+//                         color: #6F6F6F;
+//                         padding: 13px 0px 10px 20px;
+//                         margin: 0 auto;
+//                     }   
+//                 .downspan{
+//                     // font-family:' Circular Spotify Text';
+//                     font-size: 16px;
+//                     font-weight: 300;
+//                 }
+//                 .icon{
     
-                }  
-                }
-                .forgetti-password{
-                    color: #91B375;
-                    font-size: 20px;
-                    margin: -25px;
-                    text-align: end;
-                    width: 100%;
-               }
-               .btn{
-                font-size: 18px;
-                padding: 10px 60px 5px 60px;
+//                 }  
+//                 }
+//                 .forgetti-password{
+//                     color: #91B375;
+//                     font-size: 20px;
+//                     margin: -25px;
+//                     text-align: end;
+//                     width: 100%;
+//                }
+//                .btn{
+//                 font-size: 18px;
+//                 padding: 10px 60px 5px 60px;
 
-                 background-color: #91B375;
-                 color: #FFFFFF;border: none;
-                 border-radius: 2222px;
-                 font-family: 'Circular Spotify Text';
-                 width: fit-content;
-               }
-               .continue{
-                  margin-top: -20px;
-                  text-align: center;
-                  margin-bottom: 23px;
-                  font-size: 26px;
-               }
-            }
-            .media-newhub{
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                .media-accounts{
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    gap:20px;
-                    figure{
-                          width: 35px;
-                          height: 60px;
-                          margin-bottom: 20px;
-                      img{
-                         width: 100%;
-                         height: 100%;
-                         object-fit: scale-down;
-                      }
-                    }
-                }
-                .upspan{
-                    // font-family:' Circular Spotify Text';
-                    font-size: 16px;
-                    font-weight: 300;
-                }
+//                  background-color: #91B375;
+//                  color: #FFFFFF;border: none;
+//                  border-radius: 2222px;
+//                  font-family: 'Circular Spotify Text';
+//                  width: fit-content;
+//                }
+//                .continue{
+//                   margin-top: -20px;
+//                   text-align: center;
+//                   margin-bottom: 23px;
+//                   font-size: 26px;
+//                }
+//             }
+//             .media-newhub{
+//                 display: flex;
+//                 justify-content: center;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 .media-accounts{
+//                     display: flex;
+//                     justify-content: space-around;
+//                     align-items: center;
+//                     gap:20px;
+//                     figure{
+//                           width: 35px;
+//                           height: 60px;
+//                           margin-bottom: 20px;
+//                       img{
+//                          width: 100%;
+//                          height: 100%;
+//                          object-fit: scale-down;
+//                       }
+//                     }
+//                 }
+//                 .upspan{
+//                     // font-family:' Circular Spotify Text';
+//                     font-size: 16px;
+//                     font-weight: 300;
+//                 }
            
-                .new-to-unihub{
-                    font-size: 18px;
-                    text-align: center;
-                    color: black;
-                    margin: 0;
-                    span{
-                      color: #91B375;
-                    }
-                }
-            }
-        }
-    }
-}
+//                 .new-to-unihub{
+//                     font-size: 18px;
+//                     text-align: center;
+//                     color: black;
+//                     margin: 0;
+//                     span{
+//                       color: #91B375;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
