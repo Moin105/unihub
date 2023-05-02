@@ -1,14 +1,4 @@
 // screen 1
-import React from "react";
-import "./signin.css";
-import logo from "../Images/logo.png";
-
-import apple from "../Images/apple.png";
-
-import facebook from "../Images/facebook.png";
-import { Link } from "react-router-dom";
-
-import google from "../Images/google.svg";
 import React,{useRef} from 'react'
 import './signin.css'
 import logo from '../Images/logo.png'
