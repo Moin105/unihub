@@ -2,6 +2,7 @@ import React from "react";
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 import "./App.css";
+
 import Signin from "./Pages/Signin";
 import ForgetPassword from "./Pages/ForgetPassword";
 import Details from "./Pages/Details";
@@ -21,7 +22,9 @@ import SellerDetails from "./Pages/SellerDetails";
 import SellerPage from "./Pages/SellerPage";
 import Event from "./Pages/Event";
 import Messages from "./Pages/Messages";
+
 function App() {
+
   return (
     <div className="App">
       {/* <Switch>
@@ -54,8 +57,7 @@ function App() {
       <Routes>
         <Route path="/" element={  <Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/qrpage" element={<Qrpage />} />
-        
+        <Route path="/qrpage" element={<Qrpage />} />    
         <Route path="/forgetpassword" element={   <ForgetPassword />} />
         <Route path="/details" element={<Details />} />
         <Route path="/orderplaced" element={ <OrderPlaced />} />
@@ -66,8 +68,7 @@ function App() {
         <Route path="/bookmoveout" element={<BookMoveout/>}/>
         <Route path="/servicehub" element={<ServiceHub/>}/>
         <Route path="/event" element={<Event/>}/>
-        /        <Route path="/messages" element={<Messages/>}/>
-
+        <Route path="/messages" element={<Messages/>}/>
         <Route path="/marketplace" element={<MarketPlace/>}/>
         <Route path="/itemdetail" element={<ItemPage/>}/>
         <Route path="/sellerdetails" element={<SellerDetails/>}/>

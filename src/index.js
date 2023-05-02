@@ -8,18 +8,22 @@ import './index.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from './Theme/theme';
+import { queryClient, QueryClientProvider } from './queryClient';
 const container = document.getElementById('root');
+
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* <QueryClientProvider client={queryClient}> */}
       <ChakraProvider theme={theme}>
+
         {/* <Router> */}
              <App />
         {/* </Router> */}
-       
       </ChakraProvider>
+       {/* </QueryClientProvider > */}
     
     </Provider>
   </React.StrictMode>
