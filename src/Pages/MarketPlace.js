@@ -8,7 +8,7 @@ import books from "./../Images/books.png";
 import item from "./../Images/item.png";
 import "./marketplace.css";
 import { Link } from "react-router-dom";
-import servicetag from './../Images/servicetag.png'
+import servicetag from "./../Images/servicetag.png";
 function MarketPlace() {
   return (
     <div className="marketplace">
@@ -51,18 +51,58 @@ function MarketPlace() {
             </div>
           </div>
         </div>
-       
+
         <div className="item-container">
           <h4>items</h4>
           <div className="items-wrapper">
-          <Link to="/itemdetail">
-            <div className="item-box">
-              <figure>
-                <img src={item} />
-              </figure>
-              <p>Kirkland Still Water</p>
-            </div>
-          </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
+            <Link to="/itemdetail">
+              <div className="item-box">
+                <figure>
+                  <img src={item} />
+                </figure>
+                <p>Kirkland Still Water</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

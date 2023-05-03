@@ -15,7 +15,7 @@
 }
 .marketplace .wrapper h2 {
   color: #7BB564;
-  font-size: 115px;
+  font-size: 80px;
 }
 .marketplace .wrapper .upper-container {
   display: flex;
@@ -39,30 +39,35 @@
 .marketplace .wrapper .middle-container h5 {
   font-size: 39px;
   color: #000000;
+  margin-bottom: 20px;
 }
 .marketplace .wrapper .middle-container .categories-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   gap: 63px;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box {
   width: 197px;
   height: 260px;
-  padding: 35px;
   background-color: #EBF4E7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box figure {
   width: 100%;
+  height: 100px;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box p {
-  margin: 20px 0px 0px 0px;
-  font-size: 13px;
+  font-size: 16px;
   color: #000000;
 }
 .marketplace .wrapper .middle-container .categories-container :hover {
@@ -81,27 +86,34 @@
 .marketplace .wrapper .item-container h4 {
   font-size: 55px;
   color: #000000;
+  font-weight: 400;
 }
 .marketplace .wrapper .item-container .items-wrapper {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box {
+.marketplace .wrapper .item-container .items-wrapper a .item-box {
   display: flex;
   flex-direction: column;
-  width: 347px;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 80px;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box figure {
-  width: 347px;
-  height: 368px;
-  -o-object-fit: contain;
-     object-fit: contain;
+.marketplace .wrapper .item-container .items-wrapper a .item-box figure {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box p {
-  font-size: 40px;
+.marketplace .wrapper .item-container .items-wrapper a .item-box p {
+  font-size: 30px;
+  font-weight: 300;
 }
 
-@media only screen and (max-width: 1750px) {
+@media only screen and (max-width: 1920px) {
   .marketplace {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
@@ -115,7 +127,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 100px;
+    margin: 50px;
     align-items: center;
   }
   .marketplace .wrapper h2 {
@@ -149,31 +161,10 @@
     font-size: 24px;
     color: #000000;
   }
-  .marketplace .wrapper .middle-container .categories-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 63px;
-    width: 100%;
-  }
   .marketplace .wrapper .middle-container .categories-container .category-box {
     width: 175px;
     height: 225px;
-    padding: 35px;
     background-color: #EBF4E7;
-  }
-  .marketplace .wrapper .middle-container .categories-container .category-box figure {
-    width: 100%;
-  }
-  .marketplace .wrapper .middle-container .categories-container .category-box figure img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .marketplace .wrapper .middle-container .categories-container .category-box p {
-    margin: 20px 0px 0px 0px;
-    font-size: 13px;
-    color: #000000;
   }
   .marketplace .wrapper .middle-container .categories-container :hover {
     background-color: #7BB564;
@@ -191,7 +182,6 @@
   }
   .marketplace .wrapper .item-container h4 {
     font-size: 32px;
-    color: #000000;
   }
   .marketplace .wrapper .item-container .items-wrapper {
     display: flex;
@@ -200,19 +190,15 @@
   .marketplace .wrapper .item-container .items-wrapper .item-box {
     display: flex;
     flex-direction: column;
-    width: 195px;
-  }
-  .marketplace .wrapper .item-container .items-wrapper .item-box figure {
-    width: 195px;
-    height: 195px;
   }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure img {
     width: 100%;
     height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
   .marketplace .wrapper .item-container .items-wrapper .item-box p {
-    font-size: 24px;
+    font-size: 20px !important;
   }
-}/*# sourceMappingURL=marketplace.css.map */
+}
+
+/*# sourceMappingURL=marketplace.css.map */

@@ -14,13 +14,13 @@
   align-items: center;
 }
 .bookcleaner .wrapper h2 {
-  font-size: 115px;
+  font-size: 80px;
   color: #7BB564;
-  font-weight: 900;
+  font-weight: 500;
 }
 .bookcleaner .wrapper figure {
-  width: 1520px;
-  height: 607px;
+  width: 1220px;
+  height: 500px;
 }
 .bookcleaner .wrapper figure img {
   width: 100%;
@@ -72,7 +72,7 @@
   border-radius: 111110px;
 }
 
-@media only screen and (max-width: 1750px) {
+@media only screen and (max-width: 1920px) {
   .bookcleaner {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
@@ -102,8 +102,7 @@
   .bookcleaner .wrapper figure img {
     width: 100%;
     height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
   .bookcleaner .wrapper .form-control {
     width: 520px;
@@ -178,4 +177,6 @@
     width: 400px;
     margin: 0 auto;
   }
-}/*# sourceMappingURL=bookcleaner.css.map */
+}
+
+/*# sourceMappingURL=bookcleaner.css.map */

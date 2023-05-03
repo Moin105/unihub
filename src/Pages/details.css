@@ -10,7 +10,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin: 100px 0px;
+  margin: 100px 20px;
   align-items: center;
 }
 .details-page .our-services .wrapper {
@@ -20,15 +20,14 @@
   flex-direction: column;
 }
 .details-page .our-services .wrapper p {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 300;
   margin-bottom: 30px;
 }
 .details-page .our-services .wrapper h2 {
-  font-size: 115px;
+  font-size: 80px;
   color: #7BB564;
-  margin-bottom: 70px;
-  font-weight: 900;
+  font-weight: 500;
 }
 .details-page .our-services .wrapper h3 {
   font-size: 71px;
@@ -40,29 +39,38 @@
   justify-content: space-between;
   width: 100%;
 }
-.details-page .our-services .wrapper .servicebook-container {
+.details-page .our-services .wrapper .servicebook-container,
+.details-page .our-services .wrapper .servicetags-container {
+  max-width: 800px;
+  margin-inline: auto;
   display: flex;
+  gap: 50px;
   flex: 1;
-  justify-content: space-around;
+  align-items: center;
   width: 100%;
 }
-.details-page .our-services .wrapper .servicetag-box {
+.details-page .our-services .wrapper .servicebook-container a .servicetag-box,
+.details-page .our-services .wrapper .servicetags-container a .servicetag-box {
   display: flex;
   gap: 31px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 250px;
 }
-.details-page .our-services .wrapper .servicetag-box figure {
-  width: 244px;
-  height: 257px;
+.details-page .our-services .wrapper .servicebook-container a .servicetag-box figure,
+.details-page .our-services .wrapper .servicetags-container a .servicetag-box figure {
+  width: 150px;
+  height: 150px;
   margin: 0;
 }
-.details-page .our-services .wrapper .servicetag-box figure img {
+.details-page .our-services .wrapper .servicebook-container a .servicetag-box figure img,
+.details-page .our-services .wrapper .servicetags-container a .servicetag-box figure img {
   width: 100%;
   height: 100%;
 }
-.details-page .our-services .wrapper .servicetag-box p {
+.details-page .our-services .wrapper .servicebook-container a .servicetag-box p,
+.details-page .our-services .wrapper .servicetags-container a .servicetag-box p {
   font-size: 36px;
   font-family: "Circular Spotify Text";
   text-align: center;
@@ -75,6 +83,7 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
+  margin-inline: 20px;
 }
 .details-page .whatwedo .wrapper {
   max-width: 1920px;
@@ -83,18 +92,19 @@
   flex-direction: column;
 }
 .details-page .whatwedo .wrapper h2 {
-  font-size: 123px;
+  font-size: 80px;
+  font-weight: 500;
   margin-bottom: 0;
   font-family: "Circular Spotify Text";
 }
 .details-page .whatwedo .wrapper p {
   margin: 0;
-  font-size: 36px;
+  font-size: 30px;
   font-family: "Circular Spotify Text";
   text-align: left;
   font-weight: 300;
   margin-bottom: 60px;
-  line-height: 55px;
+  line-height: 48px;
 }
 .details-page .our-reviews {
   justify-content: center;
@@ -102,6 +112,7 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
+  margin-inline: 20px;
 }
 .details-page .our-reviews .wrapper {
   max-width: 1920px;
@@ -110,8 +121,8 @@
   flex-direction: column;
 }
 .details-page .our-reviews .wrapper h2 {
-  font-size: 130px;
-  margin-bottom: 0;
+  font-size: 80px;
+  margin-bottom: 10px;
   font-family: "Circular Spotify Text";
 }
 .details-page .our-reviews .wrapper .reviewers-container {
@@ -128,6 +139,8 @@
   border-radius: 118px;
   align-items: center;
   justify-content: center;
+  width: 30%;
+  margin-bottom: 20px;
 }
 .details-page .our-reviews .wrapper .reviewers-container .review-card .circle {
   width: 260px;
@@ -150,14 +163,14 @@
 .details-page .our-reviews .wrapper .reviewers-container .review-card figure {
   width: 444px;
   height: 82px;
-  -o-object-fit: none;
-     object-fit: none;
+  object-fit: none;
 }
 .details-page .our-reviews .wrapper .reviewers-container .review-card figure img {
   width: 100%;
   height: 100%;
 }
-@media only screen and (max-width: 1750px) {
+
+@media only screen and (max-width: 1920px) {
   .details-page {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
@@ -170,63 +183,60 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin: 30px 0px;
+    margin-block: 30px;
     align-items: center;
   }
   .details-page .our-services .wrapper {
-    max-width: 1920px;
+    max-width: 1440px;
     display: flex;
     width: 100%;
     flex-direction: column;
   }
   .details-page .our-services .wrapper p {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 300;
     margin-bottom: 30px;
   }
   .details-page .our-services .wrapper h2 {
     font-size: 48px;
     color: #7BB564;
-    margin-bottom: 70px;
     font-weight: 900;
   }
   .details-page .our-services .wrapper h3 {
     font-size: 48px;
     margin-bottom: 70px;
   }
+  .details-page .our-services .wrapper .servicebook-container,
   .details-page .our-services .wrapper .servicetags-container {
     display: flex;
     flex: 1;
     justify-content: space-around;
-    width: 95%;
-    margin: 0 auto;
+    gap: 10px;
   }
-  .details-page .our-services .wrapper .servicebook-container {
-    display: flex;
-    flex: 1;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .details-page .our-services .wrapper .servicetag-box {
+  .details-page .our-services .wrapper .servicebook-container a .servicetag-box,
+  .details-page .our-services .wrapper .servicetags-container a .servicetag-box {
     display: flex;
     gap: 31px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 160px;
   }
-  .details-page .our-services .wrapper .servicetag-box figure {
-    width: 125px;
-    height: 124px;
+  .details-page .our-services .wrapper .servicebook-container a .servicetag-box figure,
+  .details-page .our-services .wrapper .servicetags-container a .servicetag-box figure {
+    width: 110px;
+    height: 110px;
     margin: 0;
   }
-  .details-page .our-services .wrapper .servicetag-box figure img {
+  .details-page .our-services .wrapper .servicebook-container a .servicetag-box figure img,
+  .details-page .our-services .wrapper .servicetags-container a .servicetag-box figure img {
     width: 100%;
     height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
-  .details-page .our-services .wrapper .servicetag-box p {
-    font-size: 24px;
+  .details-page .our-services .wrapper .servicebook-container a .servicetag-box p,
+  .details-page .our-services .wrapper .servicetags-container a .servicetag-box p {
+    font-size: 20px;
     font-family: "Circular Spotify Text";
     text-align: center;
     font-weight: 300;
@@ -240,7 +250,7 @@
     align-items: center;
   }
   .details-page .whatwedo .wrapper {
-    max-width: 1920px;
+    max-width: 1440px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -268,7 +278,7 @@
     align-items: center;
   }
   .details-page .our-reviews .wrapper {
-    max-width: 1920px;
+    max-width: 1440px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -316,11 +326,27 @@
   .details-page .our-reviews .wrapper .reviewers-container .review-card figure {
     width: 204px;
     height: 40px;
-    -o-object-fit: none;
-       object-fit: none;
+    object-fit: none;
   }
   .details-page .our-reviews .wrapper .reviewers-container .review-card figure img {
     width: 100%;
     height: 100%;
   }
-}/*# sourceMappingURL=details.css.map */
+}
+@media only screen and (max-width: 1024px) {
+  .details-page .our-reviews .wrapper .reviewers-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    justify-content: space-around;
+    width: 100%;
+    margin: 23px 0px;
+  }
+  .details-page .our-reviews .wrapper .reviewers-container .review-card {
+    width: 60%;
+    margin-bottom: 15px;
+    margin-inline: auto;
+  }
+}
+
+/*# sourceMappingURL=details.css.map */
