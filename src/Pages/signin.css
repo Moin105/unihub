@@ -30,6 +30,7 @@
   margin-top: 85px;
   margin-bottom: 44px;
   font-size: 80px;
+  font-weight: 500;
 }
 .signin-page .container form {
   display: flex;
@@ -73,25 +74,24 @@
   font-family: "Circular Spotify Text";
   width: fit-content;
 }
-.signin-page .container form .continue {
-  margin-top: -20px;
-  text-align: center;
-  margin-bottom: 23px;
-  font-size: 26px;
-}
 .signin-page .container .media-newhub {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
+.signin-page .container .media-newhub .continue {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
 .signin-page .container .media-newhub .media-accounts {
   display: flex;
   justify-content: space-around;
 }
 .signin-page .container .media-newhub .media-accounts figure {
-  width: 108px;
-  height: 108px;
+  width: 60px;
+  height: 60px;
 }
 .signin-page .container .media-newhub .media-accounts figure img {
   width: 100%;
@@ -99,10 +99,9 @@
   object-fit: none;
 }
 .signin-page .container .media-newhub .new-to-unihub {
-  font-size: 44px;
+  font-size: 36px;
   text-align: center;
   color: black;
-  margin: 0;
 }
 .signin-page .container .media-newhub .new-to-unihub span {
   color: #91B375;
@@ -132,7 +131,6 @@
     margin-top: 28px;
     margin-bottom: 24px;
     font-size: 48px;
-    font-weight: 800;
   }
   .signin-page .container .headu figure {
     width: 223px;
@@ -201,8 +199,8 @@
     gap: 20px;
   }
   .signin-page .container .media-newhub .media-accounts figure {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 20px;
   }
   .signin-page .container .media-newhub .media-accounts figure img {
@@ -211,13 +209,7 @@
     object-fit: scale-down;
   }
   .signin-page .container .media-newhub .new-to-unihub {
-    font-size: 24px;
-    text-align: center;
-    color: black;
-    margin: 0;
-  }
-  .signin-page .container .media-newhub .new-to-unihub span {
-    color: #91B375;
+    font-size: 18px;
   }
 }
 @media only screen and (max-width: 1024px) {

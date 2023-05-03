@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 80px;
+  padding-block: 20px;
 }
 .footer .container {
-  max-width: 1920px;
+  max-width: 1440px;
   flex: 1;
   width: 100%;
-  margin: 0 auto;
+  margin-inline: 30px;
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +18,8 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
+  margin-bottom: 30px;
 }
 .footer .container .diver .left {
   display: flex;
@@ -28,13 +29,11 @@
 .footer .container .diver .left h3 {
   font-size: 32px;
   font-family: "Circular Spotify Text";
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer .container .diver .left ul {
   list-style-type: none;
   display: flex;
-  padding: 0;
-  margin: 0;
   flex-direction: column;
 }
 .footer .container .diver .left ul li {
@@ -66,9 +65,10 @@
 }
 .footer .container .divner {
   display: flex;
-  width: 90%;
+  width: 92%;
   margin: 0 auto;
   justify-content: space-between;
+  align-items: center;
 }
 .footer .container .divner .left {
   display: flex;
@@ -76,12 +76,12 @@
   font-size: 28px;
 }
 .footer .container .divner .left h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-family: "Circular Spotify Text";
-  margin-bottom: 20px;
+  font-weight: 500;
 }
 .footer .container .divner .left ul {
-  list-style-type: none;
+  list-style: none;
   display: flex;
   flex-direction: column;
 }
@@ -93,21 +93,21 @@
 .footer .container .divner .right {
   display: flex;
   flex-direction: column;
-  font-size: 40px;
 }
 .footer .container .divner .right .media-accounts {
   display: flex;
   justify-content: space-around;
+  gap: 40px;
 }
 .footer .container .divner .right .media-accounts figure {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 .footer .container .divner .right .media-accounts figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .footer .container .divner .right h3 {
   font-size: 52px;
@@ -125,265 +125,35 @@
   font-weight: 300;
 }
 
-@media only screen and (max-width: 1100px) {
-  .footer {
-    display: flex;
-    background-color: #a1b086;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 80px;
-  }
-  .footer .container {
-    max-width: 1920px;
-    flex: 1;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .diver {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    width: 90%;
-  }
-  .footer .container .diver .left {
-    display: flex;
-    flex-direction: column;
-    font-size: 40px;
-  }
-  .footer .container .diver .left h3 {
-    font-size: 32px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .diver .left ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-  }
-  .footer .container .diver .left ul li {
-    font-size: 24px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-    text-align: left;
-  }
-  .footer .container .diver .right {
-    display: flex;
-    flex-direction: column;
-    font-size: 24px;
-  }
-  .footer .container .diver .right h3 {
-    font-size: 32px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .diver .right ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .diver .right ul li {
-    font-size: 24px;
-    text-align: left;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-  }
+@media only screen and (max-width: 1024px) {
   .footer .container .divner {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-    flex-direction: column-reverse;
-    gap: 20px;
-    justify-content: space-between;
+    flex-direction: column;
   }
   .footer .container .divner .left {
-    display: flex;
-    flex-direction: column;
-    font-size: 28px;
-  }
-  .footer .container .divner .left h3 {
-    font-size: 28px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .divner .left ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .divner .left ul li {
-    font-size: 28px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-  }
-  .footer .container .divner .right {
-    display: flex;
-    flex-direction: column;
-    font-size: 40px;
-  }
-  .footer .container .divner .right .media-accounts {
-    display: flex;
-    justify-content: space-around;
-  }
-  .footer .container .divner .right .media-accounts figure {
-    width: 60px;
-    height: 60px;
-  }
-  .footer .container .divner .right .media-accounts figure img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .footer .container .divner .right h3 {
-    font-size: 52px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 44px;
-  }
-  .footer .container .divner .right ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .divner .right ul li {
-    font-size: 40px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
+    margin-bottom: 10px;
   }
 }
-@media only screen and (max-width: 700px) {
-  .footer {
-    display: flex;
-    background-color: #a1b086;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 80px;
-  }
-  .footer .container {
-    max-width: 1920px;
-    flex: 1;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .diver {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 90%;
-  }
-  .footer .container .diver .left {
-    display: flex;
-    flex-direction: column;
-    font-size: 40px;
-    text-align: initial;
-  }
-  .footer .container .diver .left h3 {
-    font-size: 32px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .diver .left ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-  }
-  .footer .container .diver .left ul li {
-    font-size: 24px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-    text-align: left;
-  }
+@media only screen and (max-width: 768px) {
+  .footer .container .diver .left,
   .footer .container .diver .right {
-    display: flex;
-    flex-direction: column;
-    text-align: initial;
-    font-size: 24px;
+    margin-bottom: 10px;
   }
+  .footer .container .diver .left h3,
   .footer .container .diver .right h3 {
-    font-size: 32px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .diver .right ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .diver .right ul li {
     font-size: 24px;
-    text-align: left;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
+    margin-bottom: 5px;
   }
-  .footer .container .divner {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-    justify-content: space-between;
-  }
-  .footer .container .divner .left {
-    display: flex;
-    flex-direction: column;
-    font-size: 28px;
+  .footer .container .diver .left ul li,
+  .footer .container .diver .right ul li {
+    font-size: 16px;
   }
   .footer .container .divner .left h3 {
-    font-size: 28px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 20px;
-  }
-  .footer .container .divner .left ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .divner .left ul li {
-    font-size: 28px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-  }
-  .footer .container .divner .right {
-    display: flex;
-    flex-direction: column;
-    font-size: 40px;
-  }
-  .footer .container .divner .right .media-accounts {
-    display: flex;
-    justify-content: space-around;
-    display: none;
+    font-size: 18px;
   }
   .footer .container .divner .right .media-accounts figure {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
   }
-  .footer .container .divner .right .media-accounts figure img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .footer .container .divner .right h3 {
-    font-size: 52px;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 44px;
-  }
-  .footer .container .divner .right ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer .container .divner .right ul li {
-    font-size: 40px;
-    font-family: "Circular Spotify Text";
-    font-weight: 300;
-  }
-}/*# sourceMappingURL=footer.css.map */
+}
+
+/*# sourceMappingURL=footer.css.map */

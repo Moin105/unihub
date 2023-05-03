@@ -34,9 +34,9 @@ function Signup() {
             <br></br>and an uppercase letter example
           </span>
           <button className="btn">Sign Up</button>
-          <span className="downspan">Or continue with</span>
         </form>
         <div className="media-newhub">
+          <span className="downspan">Or continue with</span>
           <div className="media-accounts">
             <figure>
               <img src={facebook} alt="facebook" />

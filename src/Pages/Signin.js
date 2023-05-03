@@ -34,9 +34,9 @@ function Signin() {
           <Link to="/Home">
             <button className="btn">Sign in</button>
           </Link>
-          <span className="continue">Or continue with</span>
         </form>
         <div className="media-newhub">
+          <span className="continue">Or continue with</span>
           <div className="media-accounts">
             <figure>
               <img src={facebook} alt="facebook" />
