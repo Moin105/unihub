@@ -32,7 +32,7 @@
   font-size: 51px;
 }
 
-@media only screen and (max-width: 1750px) {
+@media only screen and (max-width: 1920px) {
   .sellerdetails {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
@@ -106,11 +106,12 @@
   }
   .sellerdetails .wrapper .tab-content img {
     width: 35px;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     height: 40px;
   }
   .sellerdetails .wrapper .tab-content p {
     font-size: 22px;
   }
-}/*# sourceMappingURL=sellerdetails.css.map */
+}
+
+/*# sourceMappingURL=sellerdetails.css.map */

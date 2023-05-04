@@ -1,130 +1,454 @@
-.sellerpage{
+.sellerpage {
     display: flex;
     // align-items: center;
     background: #F8F6F5 0% 0% no-repeat padding-box;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    .wrapper{
+
+    .wrapper {
         width: 100%;
         max-width: 1550px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
-        .servicetags-container{
+        align-items: center;
+
+        .servicetags-container {
             display: flex;
             flex: 1;
             justify-content: space-between;
             width: 100%;
-
+            margin-bottom: 30px;
         }
-        .servicebook-container{
+
+        .servicebook-container {
             display: flex;
             flex: 1;
             justify-content: space-around;
             width: 100%;
-
         }
-        .servicetag-box{
+
+        .servicetag-box {
             display: flex;
             gap: 31px;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            figure{
-                width: 244px;
-                height: 257px;
+
+            figure {
+                width: 200px;
+                height: 200px;
                 margin: 0;
-                img{width: 100%;height: 100%;}
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
-            p{
-              font-size: 36px;
-              font-family: 'Circular Spotify Text';
-              text-align: center;
-              font-weight: 300;
-              margin: 0;
+
+            p {
+                font-size: 36px;
+                font-family: 'Circular Spotify Text';
+                text-align: center;
+                font-weight: 300;
+                margin: 0;
             }
         }
-        .review-card{
+
+        .review-card {
             background-color: #EDEFEA;
-            padding: 27px 26px 27px 26px;
+            padding: 50px;
             display: flex;
             // flex-direction: column;
-            border-radius: 118px;
+            border-radius: 60px;
             align-items: center;
-            justify-content: center;
-            .rowta{
+            justify-content: start;
+            width: 85%;
+            gap: 40px;
+
+
+            .rowta {
                 display: flex;
                 flex-direction: column;
             }
-            .circle{
-                width: 260px;text-align: left;
+
+            .circle {
+                width: 260px;
+                text-align: left;
                 height: 260px;
-                figure{
+
+                figure {
                     margin: 0;
                     width: 260px;
                     height: 260px;
-                    img{
+
+                    img {
                         width: 100%;
                         height: 100%;
                     }
                 }
             }
-            h5{
-                margin: 21px 0px 16px 0px;
-                font-size: 57px;
+
+            h5 {
+                font-size: 50px;
                 text-align: left;
                 font-family: 'Circular Spotify Text';
             }
-            figure{
-                width: 444px;
-                height: 82px;
+
+            figure {
+                width: 400px;
                 object-fit: none;
-                img{
-                     width: 100%;
-                     height: 100%;
-                }
-            }
-            p{
-                font-size: 51px;
-            }
-        }    
-        .seller{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 0px 0px 0px ;
-            figure{
-                width: 366px;
-                height: 366px;
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                 }
             }
-            h3{font-size: 63px;
-              
-            }
-           div{
-            font-size: 51px;
-            color: #797A74;
-           }
 
+            p {
+                font-size: 48px;
+                font-weight: 300;
+                text-align: left;
+            }
         }
-        .event{
+
+        .seller {
             display: flex;
             flex-direction: column;
-            h4{
-               font-size: 83px;
-               color:#7BB564 ;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0px 0px 0px;
+
+            figure {
+                width: 366px;
+                height: 366px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
-            img{
-                width: 1315px;
-height: 621px;
+
+            h3 {
+                font-size: 63px;
+                font-weight: 300;
+            }
+
+            div {
+                font-size: 51px;
+                color: #797A74;
+                font-weight: 300;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        .event {
+            display: flex;
+            flex-direction: column;
+
+            h4 {
+                font-size: 56px;
+                color: #7BB564;
+                margin-block: 20px;
+            }
+
+            img {
+                width: 85%;
+                margin-inline: auto;
+                margin-bottom: 30px;
             }
         }
     }
 
+}
+
+@media screen and (max-width:1920px) {
+    .sellerpage {
+
+        .wrapper {
+            width: 100%;
+            max-width: 1440px;
+
+            .servicetags-container {
+                display: flex;
+                flex: 1;
+                justify-content: center;
+                width: 100%;
+                gap: 50px;
+                margin-bottom: 20px;
+            }
+
+            .servicebook-container {
+                display: flex;
+                flex: 1;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .servicetag-box {
+                display: flex;
+                gap: 31px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 150px;
+
+                figure {
+                    width: 110px;
+                    height: 110px;
+                    margin: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                    font-family: 'Circular Spotify Text';
+                    text-align: center;
+                    font-weight: 300;
+                    margin: 0;
+                }
+            }
+
+            .review-card {
+                background-color: #EDEFEA;
+                padding: 50px;
+                display: flex;
+                align-items: center;
+                width: 70%;
+
+                .rowta {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .circle {
+                    width: 160px;
+                    text-align: left;
+                    height: 160px;
+
+                    figure {
+                        margin: 0;
+                        width: 160px;
+                        height: 160px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                h5 {
+                    font-size: 36px;
+                    text-align: left;
+                    font-family: 'Circular Spotify Text';
+                }
+
+                figure {
+                    width: 270px;
+                    object-fit: none;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                p {
+                    font-size: 30px;
+                }
+            }
+
+            .seller {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 0px 0px 0px;
+
+                figure {
+                    width: 250px;
+                    height: 250px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                h3 {
+                    font-size: 46px;
+
+                }
+
+                div {
+                    font-size: 40px;
+                    color: #797A74;
+                }
+
+            }
+
+            .event {
+
+                img {
+                    width: 70%;
+                }
+
+                h4 {
+                    font-size: 48px;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .sellerpage {
+
+        .wrapper {
+            width: 100%;
+            max-width: 1440px;
+
+            .servicetags-container {
+                display: flex;
+                flex: 1;
+                justify-content: center;
+                width: 100%;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+
+            .servicebook-container {
+                display: flex;
+                flex: 1;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .servicetag-box {
+                display: flex;
+                gap: 31px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 130px;
+
+                figure {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                    font-family: 'Circular Spotify Text';
+                    text-align: center;
+                    font-weight: 300;
+                    margin: 0;
+                }
+            }
+
+            .review-card {
+                background-color: #EDEFEA;
+                padding: 50px;
+                display: flex;
+                align-items: center;
+                width: 80%;
+
+                .rowta {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .circle {
+                    width: 120px;
+                    text-align: left;
+                    height: 120px;
+
+                    figure {
+                        margin: 0;
+                        width: 130px;
+                        height: 130px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                h5 {
+                    font-size: 28px;
+                    text-align: left;
+                    font-family: 'Circular Spotify Text';
+                }
+
+                figure {
+                    width: 180px;
+                    object-fit: none;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                p {
+                    font-size: 24px;
+                }
+            }
+
+            .seller {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 0px 0px 0px;
+
+                figure {
+                    width: 150px;
+                    height: 150px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                h3 {
+                    font-size: 34px;
+
+                }
+
+                div {
+                    font-size: 30px;
+                }
+
+            }
+
+            .event {
+
+                img {
+                    width: 80%;
+                }
+
+                h4 {
+                    font-size: 36px;
+                }
+            }
+        }
+
+    }
 }

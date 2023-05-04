@@ -19,15 +19,16 @@
       justify-content: space-between;
       margin: 0 auto;
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
 
-      .left {
+      .left,
+      .right {
         display: flex;
         flex-direction: column;
         font-size: 40px;
 
         h3 {
-          font-size: 32px;
+          font-size: 24px;
           font-family: 'Circular Spotify Text';
           margin-bottom: 10px;
         }
@@ -38,7 +39,7 @@
           flex-direction: column;
 
           li {
-            font-size: 24px;
+            font-size: 18px;
             font-family: 'Circular Spotify Text';
             font-weight: 300;
             text-align: left;
@@ -46,36 +47,11 @@
         }
       }
 
-      .right {
-        display: flex;
-        flex-direction: column;
-        font-size: 24px;
-
-        h3 {
-          font-size: 32px;
-          font-family: 'Circular Spotify Text';
-          margin-bottom: 20px;
-        }
-
-        ul {
-          list-style-type: none;
-          display: flex;
-          flex-direction: column;
-
-          li {
-            font-size: 24px;
-            text-align: left;
-            font-family: 'Circular Spotify Text';
-            font-weight: 300;
-
-          }
-        }
-      }
     }
 
     .divner {
       display: flex;
-      width: 92%;
+      width: 100%;
       margin: 0 auto;
       justify-content: space-between;
       align-items: center;
@@ -83,10 +59,10 @@
       .left {
         display: flex;
         flex-direction: column;
-        font-size: 28px;
+        font-size: 24px;
 
         h3 {
-          font-size: 24px;
+          font-size: 20px;
           font-family: 'Circular Spotify Text';
           font-weight: 500;
         }
@@ -112,11 +88,11 @@
         .media-accounts {
           display: flex;
           justify-content: space-around;
-          gap: 40px;
+          gap: 30px;
 
           figure {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
 
             img {
@@ -172,13 +148,6 @@
 
         .left,
         .right {
-          margin-bottom: 10px;
-
-          h3 {
-            font-size: 24px;
-            margin-bottom: 5px;
-
-          }
 
           ul {
             li {

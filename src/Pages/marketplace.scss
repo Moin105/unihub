@@ -106,10 +106,10 @@
 
             .items-wrapper {
                 display: flex;
-                justify-content: space-around;
+                justify-content: start;
                 align-items: center;
                 flex-wrap: wrap;
-                gap: 20px;
+                gap: 50px;
 
                 a {
 
@@ -118,7 +118,6 @@
                         flex-direction: column;
                         justify-content: space-around;
                         align-items: center;
-                        margin-bottom: 80px;
 
                         figure {
                             width: 280px;
@@ -228,6 +227,8 @@
                 .items-wrapper {
                     display: flex;
                     flex-wrap: wrap;
+                    justify-content: start;
+
 
                     .item-box {
                         display: flex;

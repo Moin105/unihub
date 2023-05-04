@@ -11,7 +11,7 @@ import bookas from "../Images/bookas.png";
 import events from "../Images/events.png";
 import event from "../Images/event.png";
 import servicetag from "../Images/servicetag.png";
-import rating from "../Images/rating.png"
+import rating from "../Images/rating.png";
 // import './details.css'
 import "./sellerpage.css";
 // import './BookServices'
@@ -43,28 +43,26 @@ function SellerPage() {
           </Link>
         </div>
         <React.Fragment>
-            {/*  */}
-            <div className='review-card'>
+          {/*  */}
+          <div className="review-card">
             <div className="circle">
-            <figure>
-                 <img src={servicetag}/>
-            </figure>
+              <figure>
+                <img src={servicetag} />
+              </figure>
             </div>
             <div className="rowta">
-
-            <h5>Kevin Mark</h5>
-            <figure>
-            <img src={rating}/>
-            </figure>
-            <p>Excellent Services, I’d Definitely
-Recommend Them</p>
-            {/* <p>{comment}</p> */}
+              <h5>Kevin Mark</h5>
+              <figure>
+                <img src={rating} />
+              </figure>
+              <p>Excellent Services, I’d Definitely Recommend Them</p>
+              {/* <p>{comment}</p> */}
             </div>
-        </div>
+          </div>
         </React.Fragment>
         <div className="event">
-             <h4>Book An Event Ticket</h4>
-             <img src={event}/>
+          <h4>Book An Event Ticket</h4>
+          <img src={event} />
         </div>
       </div>
       <Footer />

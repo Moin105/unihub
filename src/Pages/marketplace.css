@@ -90,17 +90,16 @@
 }
 .marketplace .wrapper .item-container .items-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 80px;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
   width: 280px;
@@ -186,6 +185,7 @@
   .marketplace .wrapper .item-container .items-wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: start;
   }
   .marketplace .wrapper .item-container .items-wrapper .item-box {
     display: flex;

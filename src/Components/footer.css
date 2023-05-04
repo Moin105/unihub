@@ -19,53 +19,36 @@
   justify-content: space-between;
   margin: 0 auto;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
-.footer .container .diver .left {
+.footer .container .diver .left,
+.footer .container .diver .right {
   display: flex;
   flex-direction: column;
   font-size: 40px;
 }
-.footer .container .diver .left h3 {
-  font-size: 32px;
+.footer .container .diver .left h3,
+.footer .container .diver .right h3 {
+  font-size: 24px;
   font-family: "Circular Spotify Text";
   margin-bottom: 10px;
 }
-.footer .container .diver .left ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-}
-.footer .container .diver .left ul li {
-  font-size: 24px;
-  font-family: "Circular Spotify Text";
-  font-weight: 300;
-  text-align: left;
-}
-.footer .container .diver .right {
-  display: flex;
-  flex-direction: column;
-  font-size: 24px;
-}
-.footer .container .diver .right h3 {
-  font-size: 32px;
-  font-family: "Circular Spotify Text";
-  margin-bottom: 20px;
-}
+.footer .container .diver .left ul,
 .footer .container .diver .right ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
 }
+.footer .container .diver .left ul li,
 .footer .container .diver .right ul li {
-  font-size: 24px;
-  text-align: left;
+  font-size: 18px;
   font-family: "Circular Spotify Text";
   font-weight: 300;
+  text-align: left;
 }
 .footer .container .divner {
   display: flex;
-  width: 92%;
+  width: 100%;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
@@ -73,10 +56,10 @@
 .footer .container .divner .left {
   display: flex;
   flex-direction: column;
-  font-size: 28px;
+  font-size: 24px;
 }
 .footer .container .divner .left h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Circular Spotify Text";
   font-weight: 500;
 }
@@ -97,11 +80,11 @@
 .footer .container .divner .right .media-accounts {
   display: flex;
   justify-content: space-around;
-  gap: 40px;
+  gap: 30px;
 }
 .footer .container .divner .right .media-accounts figure {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 .footer .container .divner .right .media-accounts figure img {
@@ -134,15 +117,6 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  .footer .container .diver .left,
-  .footer .container .diver .right {
-    margin-bottom: 10px;
-  }
-  .footer .container .diver .left h3,
-  .footer .container .diver .right h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
   .footer .container .diver .left ul li,
   .footer .container .diver .right ul li {
     font-size: 16px;
