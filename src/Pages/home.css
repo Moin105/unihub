@@ -10,8 +10,21 @@
   align-items: center;
   height: 100%;
 }
-.home-page .wrapper .tab-content {
-  height: 250px;
+.home-page .wrapper .chakra-tabs__tablist {
+  justify-content: center;
+  background-color: #F8F6F5;
+  padding-block: 30px;
+  border: none;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.home-page .wrapper .chakra-tabs__tablist .tab-content[aria-selected=false] {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.home-page .wrapper .chakra-tabs__tablist .tab-content {
+  max-width: 300px;
+  height: 300px;
   border: none;
   font-size: 41px;
   font-weight: 300;
@@ -19,11 +32,15 @@
   flex-direction: column;
   gap: 20px;
 }
-.home-page .wrapper .tab-content p {
-  font-size: 28px;
+.home-page .wrapper .chakra-tabs__tablist .tab-content .chakra-image {
+  width: 70px;
+  height: 70px;
+}
+.home-page .wrapper .chakra-tabs__tablist .tab-content p {
+  font-size: 24px;
 }
 
-@media only screen and (max-width: 1550px) {
+@media only screen and (max-width: 1920px) {
   .home-page {
     display: flex;
     flex-direction: column;
@@ -37,8 +54,9 @@
     height: 100%;
     min-height: 1080px;
   }
-  .home-page .wrapper .tab-content {
-    height: 190px;
+  .home-page .wrapper .chakra-tabs__tablist .tab-content {
+    max-width: 200px;
+    height: 200px;
     border: none;
     font-size: 41px;
     font-weight: 300;
@@ -46,13 +64,12 @@
     flex-direction: column;
     gap: 20px;
   }
-  .home-page .wrapper .tab-content img {
-    width: 35px;
-    object-fit: contain;
-    height: 40px;
+  .home-page .wrapper .chakra-tabs__tablist .tab-content p {
+    font-size: 20px;
   }
-  .home-page .wrapper .tab-content p {
-    font-size: 22px;
+  .home-page .wrapper .chakra-tabs__tablist .tab-content .chakra-image {
+    width: 50px;
+    height: 50px;
   }
 }
 @media only screen and (max-width: 1250px) {
@@ -70,22 +87,22 @@
     height: 100%;
     min-height: 1080px;
   }
-  .home-page .wrapper .tab-content {
-    height: 160px;
-    border: none;
-    font-size: 41px;
+  .home-page .wrapper .chakra-tabs__tablist .tab-content {
+    max-width: 150px;
+    height: 150px;
     font-weight: 300;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
-  .home-page .wrapper .tab-content img {
+  .home-page .wrapper .chakra-tabs__tablist .tab-content img {
     width: 35px;
     object-fit: contain;
     height: 40px;
   }
-  .home-page .wrapper .tab-content p {
-    font-size: 22px;
+  .home-page .wrapper .chakra-tabs__tablist .tab-content p {
+    font-size: 18px;
+  }
+  .home-page .wrapper .chakra-tabs__tablist .tab-content .chakra-image {
+    width: 30px;
+    height: 30px;
   }
 }
 

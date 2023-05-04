@@ -7,13 +7,17 @@
   max-width: 1025px;
 }
 .tab-details h2 {
-  font-size: 115px;
+  font-size: 70px;
   color: #7BB564;
-  font-weight: 900;
+  font-weight: 500;
 }
 .tab-details .upper {
   font-size: 30px;
-  font-weight: 200;
+  font-weight: 300;
+  color: #707070;
+}
+.tab-details .form-control {
+  width: 700px;
 }
 .tab-details p {
   font-size: 57px;
@@ -22,6 +26,8 @@
 .tab-details .lower {
   font-size: 47px;
   font-weight: 300;
+  color: #707070;
+  margin-block: 20px;
 }
 .tab-details input {
   font-size: 41px !important;
@@ -36,35 +42,35 @@
   margin: 102px 0px;
 }
 .tab-details .details-btn button {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 73px 95px 69px 170px;
+  padding: 60px 95px 60px 170px;
   border-radius: 111110px;
+  max-width: 800px;
+  margin-inline: auto;
 }
 
-@media only screen and (max-width: 1750px) {
+@media screen and (max-width: 1920px) {
   .tab-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 100px 0px 0px 0px;
+    margin-top: 50px;
     max-width: 1025px;
   }
   .tab-details h2 {
     font-size: 48px;
     color: #7BB564;
     line-height: 52px;
-    font-weight: 900;
     margin: 10px 0px 10px 0px;
   }
   .tab-details .upper {
     font-size: 20px;
-    font-weight: 200;
   }
   .tab-details .form-control {
     width: 520px;
@@ -86,9 +92,7 @@
     margin: 12px 0px;
   }
   .tab-details .lower {
-    font-size: 22px;
-    font-weight: 500;
-    color: #707070;
+    font-size: 24px;
   }
   .tab-details input {
     font-size: 24px !important;
@@ -127,12 +131,11 @@
     font-size: 48px;
     color: #7BB564;
     line-height: 48px;
-    font-weight: 900;
     margin: 20px 0px 5px 0px;
   }
-  .tab-details .upper {
+  .tab-details .upper,
+  .tab-details .lower {
     font-size: 18px;
-    font-weight: 200;
   }
   .tab-details .form-control {
     width: 480px;
@@ -153,12 +156,6 @@
     font-size: 26px;
     font-weight: 500;
     margin: 8px 12px;
-  }
-  .tab-details .lower {
-    font-size: 22px;
-    font-weight: 300;
-    color: #707070;
-    font-weight: 500;
   }
   .tab-details input {
     font-size: 18px !important;
@@ -183,4 +180,6 @@
     width: 300px;
     margin: 0 auto;
   }
-}/*# sourceMappingURL=details.css.map */
+}
+
+/*# sourceMappingURL=details.css.map */

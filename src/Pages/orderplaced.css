@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  min-height: calc(100vh - 438px);
+  min-height: calc(100vh - 356px);
 }
 .orderplaced-page .wrapper h2 {
   font-size: 80px;

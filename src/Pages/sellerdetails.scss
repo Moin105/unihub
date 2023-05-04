@@ -1,14 +1,13 @@
 .sellerdetails {
     display: flex;
     // align-items: center;
-    background: #F8F6F5 0% 0% no-repeat padding-box;
+    background: #ffffff;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 
     .wrapper {
         width: 100%;
-        max-width: 1550px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -22,8 +21,8 @@
             padding: 40px 0px 0px 0px;
 
             figure {
-                width: 366px;
-                height: 366px;
+                width: 300px;
+                height: 300px;
 
                 img {
                     width: 100%;
@@ -32,9 +31,51 @@
             }
 
             h3 {
-                font-size: 51px;
+                font-size: 40px;
             }
 
+            div {
+                button {
+                    background-color: #7BB564;
+                    color: #ffffff;
+                    padding: 5px 20px;
+                    font-size: 24px;
+                }
+            }
+
+        }
+
+        .chakra-tabs__tablist {
+            justify-content: center;
+            background-color: #F8F6F5;
+            padding-block: 30px;
+            border: none;
+            flex-wrap: wrap;
+
+            .tab-content[aria-selected=false] {
+                background-color: #ffffff;
+                border-radius: 10px;
+            }
+
+            .tab-content {
+                max-width: 300px;
+                height: 300px;
+                border: none;
+                font-size: 41px;
+                font-weight: 300;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .chakra-image {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                p {
+                    font-size: 24px;
+                }
+            }
         }
     }
 
@@ -44,33 +85,40 @@
     .sellerdetails {
         display: flex;
         // align-items: center;
-        background: #F8F6F5 0% 0% no-repeat padding-box;
         justify-content: center;
         flex-direction: column;
         align-items: center;
 
         .wrapper {
             width: 100%;
-            max-width: 1550px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
 
-            .tab-content {
-                width: 348px;
-                height: 250px;
-                border: none;
-                font-size: 41px;
-                font-weight: 300;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+            .chakra-tabs__tablist {
 
-                p {
-                    font-size: 28px;
+                .tab-content {
+                    max-width: 200px;
+                    height: 200px;
+                    border: none;
+                    font-size: 41px;
+                    font-weight: 300;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    p {
+                        font-size: 20px;
+                    }
+
+                    .chakra-image {
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
             }
+
 
             .seller {
                 display: flex;
@@ -90,7 +138,7 @@
                 }
 
                 h3 {
-                    font-size: 51px;
+                    font-size: 30px;
                 }
 
             }
@@ -112,27 +160,32 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
-            min-height: 1080px;
+            // min-height: 1080px;
 
-            .tab-content {
-                height: 160px;
-                border: none;
-                font-size: 41px;
-                font-weight: 300;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+            .chakra-tabs__tablist {
+                .tab-content {
+                    max-width: 150px;
+                    height: 150px;
+                    font-weight: 300;
 
-                img {
-                    width: 35px;
-                    object-fit: contain;
-                    height: 40px;
-                }
+                    img {
+                        width: 35px;
+                        object-fit: contain;
+                        height: 40px;
+                    }
 
-                p {
-                    font-size: 22px;
+                    p {
+                        font-size: 18px;
+                    }
+
+                    .chakra-image {
+                        width: 30px;
+                        height: 30px;
+                    }
                 }
             }
+
+
         }
     }
 }
