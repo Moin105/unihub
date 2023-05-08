@@ -211,12 +211,19 @@ gap: 20px;
                     h3{
                    font-size: 16px;
                    color: #737373;
+                   font-family: 'Circular Spotify Text';
                    margin-bottom: 7px;
                     }
                     p{
                         font-size: 18px;
                         color: #000000;
                     }
+                    select{
+                        border:none !important;
+                    }
+                }
+                select{
+                    border:none !important;
                 }
                 .outline-boxs{
                     display: flex;

@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect, useState}from "react";
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 import "./App.css";
@@ -11,7 +11,7 @@ import Home from "./Pages/Home";
 import OrderPlaced from "./Pages/OrderPlaced";
 import BookServices from "./Pages/BookServices";
 import Qrpage from "./Pages/Qrpage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate, Outlet } from "react-router-dom";
 import BookCleaner from "./Pages/BookCleaner";
 import BookStorage from "./Pages/BookStorage";
 import BookMoveout from "./Pages/BookMoveout";
@@ -20,10 +20,52 @@ import MarketPlace from "./Pages/MarketPlace";
 import ItemPage from "./Pages/ItemPage";
 import SellerDetails from "./Pages/SellerDetails";
 import SellerPage from "./Pages/SellerPage";
+import SellService from "./Pages/SignUpSeller/SellService";
 import Event from "./Pages/Event";
 import Messages from "./Pages/Messages";
+import { set } from "date-fns";
+import SignUpSeller from "./Pages/SignUpSeller/SignUpSeller";
 
 function App() {
+  const  token  = localStorage.getItem("token");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isSeller, setIsSeller] = useState(1);
+  useEffect(() => {
+  if(token){
+    setIsAuthenticated(true)
+  }else{
+    setIsAuthenticated(false)
+  }
+  }, [])
+  
+  const buyerRoutes = [
+    { path: "/buyer", element: <Outlet />, name: "Buyer" }
+    // other buyer-only routes here
+  ];
+
+  const sellerRoutes = [
+    { path: "/", element: <Details />, name: "Seller" },
+
+    {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+    {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
+    {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
+    {path:"details",element:<Home />,name:"Home"},
+    { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
+    {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+    {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
+     {path:"/sellService" ,element:<SellService/> , name:"SellService" },
+    {path:"/Home",element:<Details />,name:"Details"},
+    // other seller-only routes here
+  ];
+
+  const guestRoutes = [
+    { path: "/", element: <Home />, name: "Guest" },
+    { path: "/login", element: <Signin />, name: "Login" },
+    { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
+    {path:"/signup" ,element:<Signup />,name:"Signup"},
+    // other guest-only routes here
+  ];
+  const authenticatedRoutes = isSeller == 1 ? sellerRoutes : buyerRoutes;
 
   return (
     <div className="App">
@@ -53,7 +95,7 @@ function App() {
           <BookServices />
         </Route>
       </Switch> */}
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
@@ -74,7 +116,30 @@ function App() {
           <Route path="/sellerdetails" element={<SellerDetails />} />
           <Route path="/sellerpage" element={<SellerPage />} />
         </Routes>
-      </Router>
+      </Router> */}
+  <Router>
+  <Routes>
+        {isAuthenticated ? (
+          authenticatedRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))
+        ) : (
+          guestRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))
+        )}
+        <Route path="*" element={<>no page or page is restricted</>} />
+      </Routes>
+    </Router>
+
     </div>
   );
 }

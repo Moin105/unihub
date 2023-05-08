@@ -17,7 +17,8 @@ function Signup() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword:""
   });
 
   const handleInputChange = (event) => {
@@ -26,7 +27,9 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(signUpUser(formData));
+    dispatch(signUpUser(formData))
+    
+
   };
 
   return (

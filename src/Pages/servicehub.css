@@ -209,11 +209,18 @@
   .servicehub .wrapper .values-container .outline-box h3 {
     font-size: 16px;
     color: #737373;
+    font-family: "Circular Spotify Text";
     margin-bottom: 7px;
   }
   .servicehub .wrapper .values-container .outline-box p {
     font-size: 18px;
     color: #000000;
+  }
+  .servicehub .wrapper .values-container .outline-box select {
+    border: none !important;
+  }
+  .servicehub .wrapper .values-container select {
+    border: none !important;
   }
   .servicehub .wrapper .values-container .outline-boxs {
     display: flex;
