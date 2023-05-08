@@ -15,9 +15,10 @@
         align-items: center;
 
         h2 {
-            font-size: 80px;
+            font-size: 70px;
             color: #7BB564;
             font-weight: 500;
+            margin-block: 30px;
         }
 
         figure {
@@ -38,19 +39,18 @@
             align-self: flex-start;
 
             h4 {
-                font-size: 41px;
+                font-size: 36px;
 
             }
 
             ul {
                 list-style-type: none;
                 display: flex;
-
                 flex-direction: column;
             }
 
             ul li {
-                font-size: 30px;
+                font-size: 24px;
                 text-align: initial;
                 color: #707070;
             }
@@ -58,21 +58,21 @@
         }
 
         p {
-            font-size: 30px;
+            font-size: 24px;
             text-align: initial;
             color: #707070;
         }
 
         h1 {
-            font-size: 124px;
+            font-size: 80px;
         }
 
         .tag-label {
-            font-size: 27px;
+            font-size: 24px;
         }
 
         .wallet-btn {
-            width: 100%;
+            width: 80%;
             color: #7BB564;
             margin: 102px 0px;
 
@@ -82,7 +82,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 73px 95px 69px 170px;
+                padding: 60px 95px 60px 170px;
                 border-radius: 111110px;
             }
         }
