@@ -4,13 +4,14 @@
     justify-content: center;
     min-height: 100vh;
 
+
     .container {
-        max-width: 900px;
+        max-width: 550px;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin-top: 30px;
+        margin: 20px;
 
         .headu {
             display: flex;
@@ -18,29 +19,28 @@
             align-items: center;
             justify-content: center;
 
+            h2 {
+                margin-top: 28px;
+                margin-bottom: 24px;
+                font-size: 48px;
+            }
+
             figure {
-                width: 263px;
-                height: 87px;
+                width: 223px;
+                height: 67px;
 
                 img {
                     width: 100%;
                     height: 100%;
+                    object-fit: contain;
                 }
             }
-
-            h2 {
-                margin-top: 85px;
-                margin-bottom: 44px;
-                font-size: 80px;
-                font-weight: 500;
-            }
-
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
 
             .input-container {
@@ -51,18 +51,15 @@
                 input {
                     width: 100%;
                     flex: 1;
-                    font-size: 39px;
+                    font-size: 20px;
                     background-color: white;
                     border-radius: 333px;
                     border: none;
                     outline: none;
                     color: #6F6F6F;
-                    padding: 34px 0px 29px 99px;
+                    padding: 14px 0px 14px 69px;
+                    font-weight: 300;
 
-                    &::placeholder {
-                        font-weight: 300;
-                        color: #6F6F6F;
-                    }
                 }
 
                 .icon {}
@@ -70,14 +67,15 @@
 
             .forgetti-password {
                 color: #91B375;
-                font-size: 22px;
+                font-size: 18px;
+                margin: -10px;
                 text-align: end;
                 width: 100%;
             }
 
             .btn {
-                font-size: 39px;
-                padding: 18px 172px;
+                font-size: 28px;
+                padding: 7px 80px;
                 background-color: #88B46D;
                 color: #FFFFFF;
                 border: none;
@@ -85,6 +83,8 @@
                 font-family: 'Circular Spotify Text';
                 width: fit-content;
             }
+
+
         }
 
         .media-newhub {
@@ -93,42 +93,43 @@
             flex-direction: column;
             align-items: center;
 
-            .continue {
-                text-align: center;
-                margin-bottom: 10px;
-                font-size: 18px;
-            }
-
             .media-accounts {
                 display: flex;
                 justify-content: space-around;
+                align-items: center;
+                gap: 20px;
+
 
                 figure {
-                    width: 60px;
-                    height: 60px;
+                    width: 40px;
+                    height: 40px;
+                    margin-bottom: 20px;
 
                     img {
                         width: 100%;
                         height: 100%;
-                        object-fit: none;
+                        object-fit: scale-down;
                     }
                 }
             }
 
-            .new-to-unihub {
-                font-size: 36px;
+            .continue {
                 text-align: center;
-                color: black;
+                font-size: 20px;
+                margin-bottom: 10px;
+                font-weight: 300;
+            }
 
-                span {
-                    color: #91B375;
-                }
+            .new-to-unihub {
+                font-size: 18px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 1920px) {
+
+
+@media only screen and (max-width: 1440px) {
     .signin-page {
         display: flex;
         // align-items: center;
@@ -136,12 +137,6 @@
         justify-content: center;
 
         .container {
-            max-width: 550px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin: 20px 0px;
 
             .headu {
                 display: flex;
@@ -150,105 +145,9 @@
                 justify-content: center;
 
                 h2 {
-                    margin-top: 28px;
-                    margin-bottom: 24px;
-                    font-size: 48px;
+                    font-size: 36px;
                 }
 
-                figure {
-                    width: 223px;
-                    height: 67px;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
-                    }
-                }
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                align-items: center;
-
-                .input-container {
-                    position: relative;
-                    width: 100%;
-                    display: flex;
-
-                    input {
-                        width: 100%;
-                        flex: 1;
-                        font-size: 26px;
-                        background-color: white;
-                        border-radius: 333px;
-                        border: none;
-                        outline: none;
-                        color: #6F6F6F;
-                        padding: 14px 0px 14px 69px;
-                        font-weight: 300;
-
-                    }
-
-                    .icon {}
-                }
-
-                .forgetti-password {
-                    color: #91B375;
-                    font-size: 18px;
-                    margin: -10px;
-                    text-align: end;
-                    width: 100%;
-                }
-
-                .btn {
-                    font-size: 28px;
-                    padding: 7px 80px;
-                    background-color: #88B46D;
-                    color: #FFFFFF;
-                    border: none;
-                    border-radius: 2222px;
-                    font-family: 'Circular Spotify Text';
-                    width: fit-content;
-                }
-
-                .continue {
-                    text-align: center;
-                    font-size: 20px;
-                    font-weight: 300;
-                }
-            }
-
-            .media-newhub {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-
-                .media-accounts {
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    gap: 20px;
-
-                    figure {
-                        width: 40px;
-                        height: 40px;
-                        margin-bottom: 20px;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: scale-down;
-                        }
-                    }
-                }
-
-                .new-to-unihub {
-                    font-size: 18px;
-                }
             }
         }
     }
@@ -258,18 +157,31 @@
     .signin-page {
         .container {
             max-width: 550px;
+
+            .headu {
+                h2 {
+                    font-size: 24px;
+                }
+
+                figure {
+                    width: 200px;
+                    height: 50px;
+                }
+            }
         }
     }
 }
 
-// @media only screen and (max-width: 1550px) {
-//     .signin-page{
+
+// @media only screen and (max-width: 1440px) {
+//     .signin-page {
 //         display: flex;
 //         // align-items: center;
 //         background: #F8F6F5 0% 0% no-repeat padding-box;
 //         justify-content: center;
 //         height: 100vh;
-//         .container{
+
+//         .container {
 //             max-width: 550px;
 //             width: 100%;
 //             /* height: 100%; */
@@ -277,116 +189,132 @@
 //             flex-direction: column;
 //             justify-content: space-around;
 //             padding: 50px 0px;
-//             margin:20px 0px;
-//             .headu{
-//              display: flex;
-//              flex-direction: column;
-//              align-items: center;
-//              justify-content: center;
-//              h2{
-//                 margin-top: 28px;
-//                 margin-bottom: 24px;
-//                 font-size: 48px;
-//                 font-weight: 500;
-//              }
-//                 figure{ 
-//                      width: 163px;
-//                         height: 67px;
-//                     img{
-//                       width: 100%;
-//                       height: 100%;
-//                       object-fit: contain;
+//             margin: 20px 0px;
+
+//             .headu {
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 justify-content: center;
+
+//                 h2 {
+//                     margin-top: 28px;
+//                     margin-bottom: 24px;
+//                     font-size: 48px;
+//                     font-weight: 500;
+//                 }
+
+//                 figure {
+//                     width: 163px;
+//                     height: 67px;
+
+//                     img {
+//                         width: 100%;
+//                         height: 100%;
+//                         object-fit: contain;
 //                     }
 //                 }
 //             }
-//             form{
+
+//             form {
 //                 display: flex;
 //                 flex-direction: column;
-//                  gap: 30px;
-//                  align-items: center;
-//                 .input-container{
+//                 gap: 30px;
+//                 align-items: center;
+
+//                 .input-container {
 //                     position: relative;
 //                     width: 100%;
 //                     display: flex;
-//                 input{
-//                     width: 100%;
-//                     flex: 1 1;
-//                     font-size: 19px;
-//                     background-color: white;
-//                     border-radius: 333px;
-//                     border: none;
-//                     max-width: 400px;
-//                     outline: none;
-//                     color: #6F6F6F;
-//                     font-weight: 100;
-//                     padding: 24px 0px 19px 35px;
-//                     margin: 0 auto;
-//                 }   
-//                 .icon{
 
-//                 }  
+//                     input {
+//                         width: 100%;
+//                         flex: 1 1;
+//                         font-size: 19px;
+//                         background-color: white;
+//                         border-radius: 333px;
+//                         border: none;
+//                         max-width: 400px;
+//                         outline: none;
+//                         color: #6F6F6F;
+//                         font-weight: 100;
+//                         padding: 24px 0px 19px 35px;
+//                         margin: 0 auto;
+//                     }
+
+//                     .icon {}
 //                 }
-//                 .forgetti-password{
+
+//                 .forgetti-password {
 //                     color: #91B375;
 //                     font-size: 16px;
 //                     margin: -10px;
 //                     text-align: end;
 //                     width: 100%;
-//                }
-//                .btn{
-//                 font-size: 18px;
-//                 padding: 11px 43px 5px 45px;
+//                 }
 
-//                  background-color: #91B375;
-//                  color: #FFFFFF;border: none;
-//                  border-radius: 2222px;
-//                  font-family: 'Circular Spotify Text';
-//                  width: fit-content;
-//                }
-//                .continue{
-//                 // margin-top: -20px;
-//                 text-align: center;
-//                 margin-bottom: 23px;
-//                 font-size: 18px;
-//                }
+//                 .btn {
+//                     font-size: 18px;
+//                     padding: 11px 43px 5px 45px;
+
+//                     background-color: #91B375;
+//                     color: #FFFFFF;
+//                     border: none;
+//                     border-radius: 2222px;
+//                     font-family: 'Circular Spotify Text';
+//                     width: fit-content;
+//                 }
+
+//                 .continue {
+//                     // margin-top: -20px;
+//                     text-align: center;
+//                     margin-bottom: 23px;
+//                     font-size: 18px;
+//                 }
 //             }
-//             .media-newhub{
 
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: column;
-//     margin: 20px 0px 0px 0px;
-//     align-items: center;
+//             .media-newhub {
 
-//                 .media-accounts{
+//                 display: flex;
+//                 justify-content: center;
+//                 flex-direction: column;
+//                 margin: 20px 0px 0px 0px;
+//                 align-items: center;
+
+//                 .media-accounts {
 //                     display: flex;
 //                     justify-content: space-around;
 //                     align-items: center;
-//                     gap:20px;
-//                     figure{
-//                           width: 40px;
-//                           height: 60px;
-//                           margin-bottom: 20px;
-//                       img{
-//                          width: 100%;
-//                          height: 100%;
-//                          object-fit: scale-down;
-//                       }
+//                     gap: 20px;
+
+//                     figure {
+//                         width: 40px;
+//                         height: 60px;
+//                         margin-bottom: 20px;
+
+//                         img {
+//                             width: 100%;
+//                             height: 100%;
+//                             object-fit: scale-down;
+//                         }
 //                     }
 //                 }
-//                 .new-to-unihub{
+
+//                 .new-to-unihub {
 //                     font-size: 24px;
 //                     text-align: center;
 //                     color: black;
 //                     margin: 0;
-//                     span{
-//                       color: #91B375;
+
+//                     span {
+//                         color: #91B375;
 //                     }
 //                 }
 //             }
 //         }
 //     }
 // }
+
 // @media only screen and (max-width: 1250px) {
 //     .signin-page{
 //         display: flex;

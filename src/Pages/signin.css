@@ -5,12 +5,12 @@
   min-height: 100vh;
 }
 .signin-page .container {
-  max-width: 900px;
+  max-width: 550px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 30px;
+  margin: 20px;
 }
 .signin-page .container .headu {
   display: flex;
@@ -18,24 +18,24 @@
   align-items: center;
   justify-content: center;
 }
+.signin-page .container .headu h2 {
+  margin-top: 28px;
+  margin-bottom: 24px;
+  font-size: 48px;
+}
 .signin-page .container .headu figure {
-  width: 263px;
-  height: 87px;
+  width: 223px;
+  height: 67px;
 }
 .signin-page .container .headu figure img {
   width: 100%;
   height: 100%;
-}
-.signin-page .container .headu h2 {
-  margin-top: 85px;
-  margin-bottom: 44px;
-  font-size: 80px;
-  font-weight: 500;
+  object-fit: contain;
 }
 .signin-page .container form {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   align-items: center;
 }
 .signin-page .container form .input-container {
@@ -46,27 +46,25 @@
 .signin-page .container form .input-container input {
   width: 100%;
   flex: 1;
-  font-size: 39px;
+  font-size: 20px;
   background-color: white;
   border-radius: 333px;
   border: none;
   outline: none;
   color: #6F6F6F;
-  padding: 34px 0px 29px 99px;
-}
-.signin-page .container form .input-container input::placeholder {
+  padding: 14px 0px 14px 69px;
   font-weight: 300;
-  color: #6F6F6F;
 }
 .signin-page .container form .forgetti-password {
   color: #91B375;
-  font-size: 22px;
+  font-size: 18px;
+  margin: -10px;
   text-align: end;
   width: 100%;
 }
 .signin-page .container form .btn {
-  font-size: 39px;
-  padding: 18px 172px;
+  font-size: 28px;
+  padding: 7px 80px;
   background-color: #88B46D;
   color: #FFFFFF;
   border: none;
@@ -80,46 +78,37 @@
   flex-direction: column;
   align-items: center;
 }
-.signin-page .container .media-newhub .continue {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
 .signin-page .container .media-newhub .media-accounts {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  gap: 20px;
 }
 .signin-page .container .media-newhub .media-accounts figure {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
 }
 .signin-page .container .media-newhub .media-accounts figure img {
   width: 100%;
   height: 100%;
-  object-fit: none;
+  object-fit: scale-down;
+}
+.signin-page .container .media-newhub .continue {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 300;
 }
 .signin-page .container .media-newhub .new-to-unihub {
-  font-size: 36px;
-  text-align: center;
-  color: black;
-}
-.signin-page .container .media-newhub .new-to-unihub span {
-  color: #91B375;
+  font-size: 18px;
 }
 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1440px) {
   .signin-page {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
     justify-content: center;
-  }
-  .signin-page .container {
-    max-width: 550px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 20px 0px;
   }
   .signin-page .container .headu {
     display: flex;
@@ -128,93 +117,19 @@
     justify-content: center;
   }
   .signin-page .container .headu h2 {
-    margin-top: 28px;
-    margin-bottom: 24px;
-    font-size: 48px;
-  }
-  .signin-page .container .headu figure {
-    width: 223px;
-    height: 67px;
-  }
-  .signin-page .container .headu figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .signin-page .container form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-  }
-  .signin-page .container form .input-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-  }
-  .signin-page .container form .input-container input {
-    width: 100%;
-    flex: 1;
-    font-size: 26px;
-    background-color: white;
-    border-radius: 333px;
-    border: none;
-    outline: none;
-    color: #6F6F6F;
-    padding: 14px 0px 14px 69px;
-    font-weight: 300;
-  }
-  .signin-page .container form .forgetti-password {
-    color: #91B375;
-    font-size: 18px;
-    margin: -10px;
-    text-align: end;
-    width: 100%;
-  }
-  .signin-page .container form .btn {
-    font-size: 28px;
-    padding: 7px 80px;
-    background-color: #88B46D;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 2222px;
-    font-family: "Circular Spotify Text";
-    width: fit-content;
-  }
-  .signin-page .container form .continue {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 300;
-  }
-  .signin-page .container .media-newhub {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .signin-page .container .media-newhub .media-accounts {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-  }
-  .signin-page .container .media-newhub .media-accounts figure {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
-  }
-  .signin-page .container .media-newhub .media-accounts figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-  }
-  .signin-page .container .media-newhub .new-to-unihub {
-    font-size: 18px;
+    font-size: 36px;
   }
 }
 @media only screen and (max-width: 1024px) {
   .signin-page .container {
     max-width: 550px;
+  }
+  .signin-page .container .headu h2 {
+    font-size: 24px;
+  }
+  .signin-page .container .headu figure {
+    width: 200px;
+    height: 50px;
   }
 }
 
