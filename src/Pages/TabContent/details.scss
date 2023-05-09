@@ -4,81 +4,114 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1025px;
+    margin-top: 50px;
+    max-width: 600px;
 
     h2 {
-        font-size: 70px;
         color: #7BB564;
-        font-weight: 500;
+        margin: 10px 0px 10px 0px;
     }
 
     .upper {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 300;
         color: #707070;
+    }
+
+
+    p {
+        font-size: 28px;
+        font-weight: 300;
+        margin: 12px 0px;
     }
 
     .form-control {
-        width: 700px;
+        width: 520px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .input-container {
+            margin: 16px 25px;
+            border-radius: 16px;
+
+            label {
+                font-size: 18px;
+                margin: 0;
+            }
+        }
+
+        input {
+            font-size: 20px;
+            font-weight: 300;
+            height: auto;
+            border-color: none;
+            padding: 7px 0px 10px 20px;
+        }
     }
 
-    p {
-        font-size: 57px;
-        font-weight: 300;
-    }
 
     .lower {
-        font-size: 47px;
+        font-size: 20px;
         font-weight: 300;
-        color: #707070;
-        margin-block: 20px;
-    }
-
-    input {
-        font-size: 41px !important;
-        height: auto;
-        border-color: none !important;
-        padding: 7px 0px 10px 20px;
-        font-weight: inherit;
-    }
-
-    .details-btn {
-        width: 100%;
-        color: #7BB564;
-        margin: 102px 0px;
-
-        button {
-            font-size: 36px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 60px 95px 60px 170px;
-            border-radius: 111110px;
-            max-width: 800px;
-            margin-inline: auto;
-        }
     }
 }
 
-@media screen and (max-width:1920px) {
+@media screen and (max-width:1440px) {
     .tab-details {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
         margin-top: 50px;
-        max-width: 1025px;
 
         h2 {
-            font-size: 48px;
-            color: #7BB564;
-            line-height: 52px;
-            margin: 10px 0px 10px 0px;
+            font-size: 36px;
         }
 
         .upper {
+            font-size: 16px;
+        }
+
+        .form-control {
+            width: 520px;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+
+            .input-container {
+                margin: 16px 25px;
+                border-radius: 16px;
+
+                label {
+                    padding: 10px 0 0 20px;
+                }
+
+                input {
+                    padding: 5px 0 5px 20px;
+                }
+            }
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .lower {
+            font-size: 16px;
+        }
+
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .tab-details {
+
+        h2 {
+            font-size: 30px;
+        }
+
+        .upper {
+            font-size: 16px;
+        }
+
+        p {
             font-size: 20px;
         }
 
@@ -93,119 +126,20 @@
                 border-radius: 16px;
 
                 label {
-                    font-size: 18px;
-                    margin: 0;
+                    padding: 10px 0 0 20px;
+                }
+
+                input {
+                    padding: 5px 0 5px 20px;
                 }
             }
         }
 
-        p {
-            font-size: 28px;
-            font-weight: 500;
-            margin: 12px 0px;
-        }
+
 
         .lower {
-            font-size: 24px;
+            font-size: 16px;
         }
 
-        input {
-            font-size: 24px !important;
-            height: auto;
-            border-color: none !important;
-            padding: 7px 0px 10px 20px;
-            font-weight: inherit;
-        }
-
-        .details-btn {
-            width: 100%;
-            color: #7BB564;
-            margin: 25px 0px;
-
-            button {
-                font-size: 23px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 35px 45px 35px 65px;
-                border-radius: 111110px;
-                width: 400px;
-                margin: 0 auto;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width:1250px) {
-    .tab-details {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 1025px;
-
-        h2 {
-            font-size: 48px;
-            color: #7BB564;
-            line-height: 48px;
-            margin: 20px 0px 5px 0px;
-        }
-
-        .upper,
-        .lower {
-            font-size: 18px;
-        }
-
-        .form-control {
-            width: 480px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-
-            .input-container {
-                margin: 16px 25px;
-                border-radius: 16px;
-
-                label {
-                    font-size: 16px;
-                    margin: 0;
-                    padding: 10px 0px 0px 15px;
-                }
-            }
-        }
-
-        p {
-            font-size: 26px;
-            font-weight: 500;
-            margin: 8px 12px;
-        }
-
-        input {
-            font-size: 18px !important;
-            height: auto;
-            border-color: none !important;
-            padding: 7px 0px 10px 20px;
-            font-weight: inherit;
-        }
-
-        .details-btn {
-            width: 100%;
-            color: #7BB564;
-            margin: 25px 0px;
-
-            button {
-                font-size: 20px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 30px 28px 30px 52px;
-                border-radius: 111110px;
-                width: 300px;
-                margin: 0 auto;
-            }
-        }
     }
 }

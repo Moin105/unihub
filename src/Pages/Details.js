@@ -11,6 +11,7 @@ import events from "../Images/events.png";
 import servicetag from "../Images/servicetag.png";
 import "./details.css";
 import "./BookServices";
+import "../responsive.css";
 import { Link } from "react-router-dom";
 function Details() {
   return (
@@ -20,7 +21,7 @@ function Details() {
       {/* services */}
       <div className="our-services">
         <div className="wrapper">
-          <h3>Our Services</h3>
+          <h2>Our Services</h2>
           <div className="servicetags-container">
             <Link to="/bookservices">
               <ServiceTag icon={bookas} name="Book a Service" />

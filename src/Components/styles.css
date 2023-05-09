@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  min-height: 80px;
   background-color: #91B375;
   display: flex;
   justify-content: center;
@@ -8,16 +7,16 @@
 }
 .header .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1340px;
   margin-inline: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .container figure {
-  width: 160px;
+.header .container a .logo {
+  margin-top: 0;
 }
-.header .container figure img {
+.header .container a .logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -27,26 +26,17 @@
   align-items: center;
   gap: 50px;
 }
-.header .container .nav figure {
-  width: 36px;
-  height: 36px;
-  object-fit: none;
+.header .container .nav .media-icon {
+  margin-bottom: 0;
 }
-.header .container .nav figure img {
+.header .container .nav .media-icon img {
   width: 100%;
   height: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .header .container figure {
-    width: 100px;
-  }
-  .header .container .nav {
-    gap: 30px;
-  }
-  .header .container .nav figure {
-    width: 25px;
-    height: 25px;
+@media screen and (max-width: 1440px) {
+  .header .container {
+    max-width: 90%;
   }
 }
 

@@ -12,6 +12,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import "./home.css";
+import "../responsive.css";
 import heart from "../Images/Heart.png";
 import order from "../Images/order.png";
 

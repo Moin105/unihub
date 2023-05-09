@@ -5,11 +5,12 @@
   min-height: 100vh;
 }
 .signup-page .container {
-  max-width: 1130px;
+  max-width: 550px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin: 20px 0px;
 }
 .signup-page .container .headu {
   display: flex;
@@ -18,70 +19,32 @@
   justify-content: center;
 }
 .signup-page .container .headu h2 {
-  margin-top: 85px;
-  margin-bottom: 44px;
-  font-size: 80px;
-  font-weight: 500;
-}
-.signup-page .container .headu figure {
-  width: 263px;
-  height: 87px;
-}
-.signup-page .container .headu figure img {
-  width: 100%;
-  height: 100%;
+  margin-top: 28px;
+  margin-bottom: 24px;
+  font-size: 48px;
 }
 .signup-page .container form {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
 }
 .signup-page .container form .input-container {
   position: relative;
   width: 100%;
-  max-width: 639px;
   display: flex;
-}
-.signup-page .container form .input-container input {
-  width: 100%;
-  flex: 1;
-  font-size: 26px;
-  background-color: white;
-  border-radius: 333px;
-  border: none;
-  outline: none;
-  color: #6F6F6F;
-  padding: 14px 0px 14px 69px;
-}
-.signup-page .container form .input-container input::placeholder {
-  font-weight: 300;
-  color: #6F6F6F;
-  font-size: 26px;
-}
-.signup-page .container form .upspan {
-  font-size: 19px;
-  font-weight: 300;
-}
-.signup-page .container form .downspan {
-  font-size: 24px;
-  font-weight: 300;
+  max-width: 550px;
 }
 .signup-page .container form .forgetti-password {
   color: #91B375;
-  font-size: 22px;
+  font-size: 20px;
+  margin: -25px;
   text-align: end;
   width: 100%;
 }
-.signup-page .container form .btn {
-  font-size: 39px;
-  padding: 18px 172px;
-  background-color: #88B46D;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 2222px;
-  font-family: "Circular Spotify Text";
-  width: fit-content;
+.signup-page .container form .downspan {
+  font-size: 20px;
+  font-weight: 300;
 }
 .signup-page .container .media-newhub {
   display: flex;
@@ -89,43 +52,37 @@
   flex-direction: column;
   align-items: center;
 }
-.signup-page .container .media-newhub .downspan {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
 .signup-page .container .media-newhub .media-accounts {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  margin-block: 10px;
 }
-.signup-page .container .media-newhub .media-accounts figure {
-  width: 60px;
-  height: 60px;
-}
-.signup-page .container .media-newhub .media-accounts figure img {
+.signup-page .container .media-newhub .media-accounts .media-icon img {
   width: 100%;
   height: 100%;
-  object-fit: none;
+  object-fit: scale-down;
 }
 .signup-page .container .media-newhub .new-to-unihub {
-  font-size: 36px;
   text-align: center;
   color: black;
+  margin: 0;
 }
 .signup-page .container .media-newhub .new-to-unihub span {
   color: #91B375;
 }
 
-@media only screen and (max-width: 1920px) {
+@media screen and (max-width: 1440px) {
   .signup-page {
     display: flex;
     background: #F8F6F5 0% 0% no-repeat padding-box;
     justify-content: center;
+    min-height: 100vh;
   }
   .signup-page .container {
-    max-width: 900px;
+    max-width: 400px;
     width: 100%;
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -138,18 +95,7 @@
     justify-content: center;
   }
   .signup-page .container .headu h2 {
-    margin-top: 28px;
-    margin-bottom: 24px;
-    font-size: 48px;
-  }
-  .signup-page .container .headu figure {
-    width: 223px;
-    height: 67px;
-  }
-  .signup-page .container .headu figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    margin-bottom: 10px;
   }
   .signup-page .container form {
     display: flex;
@@ -161,35 +107,6 @@
     position: relative;
     width: 100%;
     display: flex;
-    max-width: 550px;
-  }
-  .signup-page .container form .input-container input {
-    width: 100%;
-    flex: 1;
-    font-size: 28px;
-    background-color: white;
-    max-width: 550px;
-    border-radius: 333px;
-    border: none;
-    outline: none;
-    color: #6F6F6F;
-    padding: 14px 0px 14px 69px;
-  }
-  .signup-page .container form .forgetti-password {
-    color: #91B375;
-    font-size: 20px;
-    margin: -25px;
-    text-align: end;
-    width: 100%;
-  }
-  .signup-page .container form .btn {
-    font-size: 28px;
-    padding: 7px 80px;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 2222px;
-    font-family: "Circular Spotify Text";
-    width: fit-content;
   }
   .signup-page .container form .downspan {
     font-size: 20px;
@@ -206,23 +123,9 @@
     justify-content: space-around;
     align-items: center;
     gap: 20px;
-  }
-  .signup-page .container .media-newhub .media-accounts figure {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
-  }
-  .signup-page .container .media-newhub .media-accounts figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-  }
-  .signup-page .container .media-newhub .upspan {
-    font-size: 16px;
-    font-weight: 300;
+    margin-block: 10px;
   }
   .signup-page .container .media-newhub .new-to-unihub {
-    font-size: 18px;
     text-align: center;
     color: black;
     margin: 0;

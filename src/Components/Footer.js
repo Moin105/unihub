@@ -1,8 +1,6 @@
 import React from "react";
 import "./footer.css";
-
-// import logo from '../Images/logo.png'
-// import logo from ''
+import "../responsive.css";
 import apple from "../Images/apple.png";
 
 import facebook from "../Images/facebook.png";
@@ -16,20 +14,20 @@ function Footer() {
           <div className="left">
             <h3>Important Links</h3>
             <ul>
-              <li>Privacy Policy</li>
-              <li>Contact Us</li>
-              <li>About Us</li>
-              <li>Services</li>
-              <li>Terms & Conditions</li>
+              <li className="footer-link">Privacy Policy</li>
+              <li className="footer-link">Contact Us</li>
+              <li className="footer-link">About Us</li>
+              <li className="footer-link">Services</li>
+              <li className="footer-link">Terms & Conditions</li>
             </ul>
           </div>
           <div className="right">
             <h3>Latest From Our Blog</h3>
             <ul>
-              <li>Blog Post 1</li>
-              <li>Blog Post 2</li>
-              <li>Blog Post 3</li>
-              <li>Blog Post 4</li>
+              <li className="footer-link">Blog Post 1</li>
+              <li className="footer-link">Blog Post 2</li>
+              <li className="footer-link">Blog Post 3</li>
+              <li className="footer-link">Blog Post 4</li>
             </ul>
           </div>
         </div>
@@ -39,13 +37,13 @@ function Footer() {
           </div>
           <div className="right">
             <div className="media-accounts">
-              <figure>
+              <figure className="media-icon">
                 <img src={facebook} alt="facebook" />
               </figure>
-              <figure>
+              <figure className="media-icon">
                 <img src={google} alt="google" />
               </figure>
-              <figure>
+              <figure className="media-icon">
                 <img src={apple} alt="apple" />
               </figure>
             </div>

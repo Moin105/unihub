@@ -28,6 +28,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import profile from "../Images/profile.png";
 import "./sellerdetails.css";
+import "../responsive.css";
 function SellerDetails() {
   return (
     <div className="sellerdetails">
@@ -119,7 +120,7 @@ function SellerDetails() {
           />
         </Box>
       </FormControl>
-                  <div className="wallet-btn">
+                  <div className="primary-btn">
         <Button
           rightIcon={<MdArrowForward />}
           bg="#7BB564"

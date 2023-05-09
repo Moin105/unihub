@@ -5,10 +5,12 @@ import {
   FormErrorMessage,
   FormHelperText,
   Input,
-  Box,Button
+  Box,
+  Button,
 } from "@chakra-ui/react";
 import "./details.css";
-import {MdArrowForward} from 'react-icons/md'
+import "../../responsive.css";
+import { MdArrowForward } from "react-icons/md";
 function DetailsTab() {
   return (
     <div className="tab-details">
@@ -17,7 +19,12 @@ function DetailsTab() {
       <p>Login email : Malik.h123@gmail.com</p>
       <span className="lower">Your Login email can’t be changed</span>
       <FormControl className="form-control">
-        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box
+          className="input-container"
+          border="1px solid #7BB564"
+          borderRadius={30}
+          marginTop="103px"
+        >
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -32,7 +39,12 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box
+          className="input-container"
+          border="1px solid #7BB564"
+          borderRadius={30}
+          marginTop="103px"
+        >
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -47,7 +59,12 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box
+          className="input-container"
+          border="1px solid #7BB564"
+          borderRadius={30}
+          marginTop="103px"
+        >
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -62,7 +79,12 @@ function DetailsTab() {
             fontSize="41px"
           />
         </Box>
-        <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
+        <Box
+          className="input-container"
+          border="1px solid #7BB564"
+          borderRadius={30}
+          marginTop="103px"
+        >
           <FormLabel
             padding="20px 0px 0px 20px"
             fontSize="37px"
@@ -74,10 +96,16 @@ function DetailsTab() {
         </Box>
         {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
       </FormControl>
-      <div className="details-btn">
-      <Button rightIcon={<MdArrowForward />} bg='#7BB564'color={"white"} variant='solid' width={"100%"}>
-      Update Info
-  </Button>
+      <div className="primary-btn">
+        <Button
+          rightIcon={<MdArrowForward />}
+          bg="#7BB564"
+          color={"white"}
+          variant="solid"
+          width={"100%"}
+        >
+          Update Info
+        </Button>
       </div>
     </div>
   );

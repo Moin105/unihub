@@ -37,7 +37,9 @@ function SellerPage() {
             {" "}
             <ServiceTag icon={marketplace} name="Marketplace" />
           </Link>
-          <ServiceTag icon={events} name="Events" />
+          <Link>
+            <ServiceTag icon={events} name="Events" />
+          </Link>
           <Link to="/servicehub">
             <ServiceTag icon={hub} name="HUB" />
           </Link>

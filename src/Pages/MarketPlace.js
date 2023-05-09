@@ -7,6 +7,7 @@ import stationary from "./../Images/stationary.png";
 import books from "./../Images/books.png";
 import item from "./../Images/item.png";
 import "./marketplace.css";
+import "../responsive.css";
 import { Link } from "react-router-dom";
 import servicetag from "./../Images/servicetag.png";
 function MarketPlace() {
@@ -53,7 +54,7 @@ function MarketPlace() {
         </div>
 
         <div className="item-container">
-          <h4>items</h4>
+          <h4>Items</h4>
           <div className="items-wrapper">
             <Link to="/itemdetail">
               <div className="item-box">

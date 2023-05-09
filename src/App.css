@@ -111,9 +111,3 @@ body{
     transform: translateY(0px);
   }
 }
-
-/* @media screen and (max-width:768px){
-  h2{
-    font-size: 12px !important;
-  }
-} */

@@ -1,6 +1,7 @@
 // screen 1
 import React from "react";
 import "./signin.css";
+import "../responsive.css";
 import logo from "../Images/logo.png";
 
 import apple from "../Images/apple.png";
@@ -14,7 +15,7 @@ function Signin() {
     <div className="signin-page">
       <div className="container">
         <div className="headu">
-          <figure>
+          <figure className="logo">
             <img src={logo} alt="unihub-logo" />
           </figure>
           <h2>Sign in to Continue</h2>
@@ -29,7 +30,7 @@ function Signin() {
             {/* icon */}
           </div>
           <span className="forgetti-password">
-            <Link to="/forgetpassword">Forget Password?</Link>
+            <Link to="/forgetpassword">Forgot Password?</Link>
           </span>
           <Link to="/Home">
             <button className="btn">Sign in</button>
@@ -38,13 +39,13 @@ function Signin() {
         <div className="media-newhub">
           <span className="continue">Or continue with</span>
           <div className="media-accounts">
-            <figure>
+            <figure className="media-icon">
               <img src={facebook} alt="facebook" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={google} alt="google" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={apple} alt="apple" />
             </figure>
           </div>

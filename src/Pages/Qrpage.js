@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./orderplaced.css";
+import "../responsive.css";
 import qr from "../Images/qr.png";
 function Qrpage() {
   return (

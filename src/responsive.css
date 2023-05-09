@@ -1,0 +1,208 @@
+.logo{
+    max-width: 150px;
+    margin-top: 30px;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+  
+  .header{
+    min-height: 80px;
+  }
+  
+  h1{
+    font-size:40px ;
+  }
+  h2{
+    font-size:36px;
+  }
+  
+  h3{
+    font-size: 22px; 
+    font-family: 'Circular Spotify Text'; 
+  }
+
+  h4{
+    font-size: 20px;
+  }
+  
+  .tag-label {
+    font-size: 20px;
+    margin: 30px 30px 0px 30px;
+}
+  input {
+    width: 100%;
+    flex: 1;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 333px;
+    border: none;
+    outline: none;
+    color: #6F6F6F;
+    padding: 14px 0px 14px 69px;
+    font-weight: 300;
+  }
+
+
+  .primary-btn {
+    width: auto;
+    color: #7BB564;
+    margin: 25px 0px;
+}
+
+.primary-btn button {
+    font-size: 23px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 45px 30px 65px;
+    border-radius: 111110px;
+    width: 400px;
+    margin: 0 auto;
+}
+  
+  .btn {
+    font-size: 20px ;
+    padding: 10px 40px;
+    background-color: #88B46D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 2222px;
+    font-family: 'Circular Spotify Text';
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+  
+  .media-icon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .media-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  
+  .new-to-unihub{
+    font-size: 16px;
+  }
+  .small-p{
+    font-size: 16px;
+    font-family: 'Circular Spotify Text Book';
+    margin-bottom: 50px;
+  }
+  
+  .footer-link{
+    font-size: 16px;
+    font-family: 'Circular Spotify Text';
+    font-weight: 300;
+    text-align: left;
+  }
+
+  p{
+    font-size: 20px;
+    line-height: 32px;
+  }
+  
+  
+  
+  
+  @media screen and (max-width:1440px){
+    .logo{
+      max-width: 120px;
+    }
+  
+    .header{
+      min-height: 60px;
+    }
+    h1{
+      font-size: 28px;
+    }
+    h2{
+      font-size: 24px;
+    }
+  
+    h3{
+      font-size: 16px; 
+    }
+
+    h4{
+        font-size: 16px;
+      }
+      .tag-label {
+        font-size: 16px;
+        margin: 30px 30px 0px 30px;
+    }
+  
+    input {
+      font-size: 16px;
+      padding: 10px 0px 10px 40px;
+    }
+  
+    input::placeholder {
+      font-size: 16px;
+  }
+  .primary-btn button {
+    font-size: 20px;
+    width: 300px;
+    padding: 25px 35px 25px 45px;
+}
+  
+  .btn {
+    font-size: 16px;
+    padding: 7px 40px 5px 40px;
+  }
+  
+  .media-icon{
+    width: 30px;
+    height: 30px;
+  }
+  .new-to-unihub{
+    font-size: 14px;
+  }
+    
+  .footer-link{
+    font-size: 13px;
+    
+  }
+  p{
+    font-size:16px;
+    line-height: 24px;
+  }
+  
+  }
+  
+  
+  
+  @media screen and (max-width:1024px) {
+    .logo{
+      max-width: 100px;
+    }
+    h1{
+        font-size: 24px;
+      }
+  
+    h2 {
+      font-size: 20px;
+  }
+
+  .primary-btn button {
+    font-size: 16px;
+    width: 250px;
+    padding: 20px 35px 20px 45px;
+}
+  }
+  
+  @media screen and (max-width:768px) {
+    .media-icon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
