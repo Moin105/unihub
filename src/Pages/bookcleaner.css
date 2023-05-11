@@ -1,6 +1,6 @@
 .bookcleaner {
   display: flex;
-  background: #F8F6F5 0% 0% no-repeat padding-box;
+  background: #f8f6f5 0% 0% no-repeat padding-box;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 .bookcleaner .wrapper h2 {
   font-size: 115px;
-  color: #7BB564;
+  color: #7bb564;
   font-weight: 900;
 }
 .bookcleaner .wrapper figure {
@@ -25,6 +25,12 @@
 .bookcleaner .wrapper figure img {
   width: 100%;
   height: 100%;
+}
+.bookcleaner .wrapper .rdt {
+  width: 100%;
+}
+.bookcleaner .wrapper .rdt input {
+  width: 100%;
 }
 .bookcleaner .wrapper .card-cleaner {
   display: flex;
@@ -59,7 +65,7 @@
 }
 .bookcleaner .wrapper .wallet-btn {
   width: 100%;
-  color: #7BB564;
+  color: #7bb564;
   margin: 102px 0px;
 }
 .bookcleaner .wrapper .wallet-btn button {
@@ -75,7 +81,7 @@
 @media only screen and (max-width: 1750px) {
   .bookcleaner {
     display: flex;
-    background: #F8F6F5 0% 0% no-repeat padding-box;
+    background: #f8f6f5 0% 0% no-repeat padding-box;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -91,9 +97,46 @@
   }
   .bookcleaner .wrapper h2 {
     font-size: 48px;
-    margin: 30px 0px;
-    color: #7BB564;
+    margin: 30px 0px 10px 0px;
+    color: #7bb564;
     font-weight: 900;
+  }
+  .bookcleaner .wrapper .outline-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border: 1px solid #7BB564;
+    max-width: 425px;
+    border-radius: 16px;
+    margin-bottom: 0px;
+  }
+  .bookcleaner .wrapper .outline-box h3 {
+    font-size: 16px;
+    color: #737373;
+    font-family: "Circular Spotify Text";
+    margin-bottom: 7px;
+  }
+  .bookcleaner .wrapper .outline-box p {
+    font-size: 18px;
+    color: #000000;
+  }
+  .bookcleaner .wrapper .outline-box select {
+    border: none !important;
+  }
+  .bookcleaner .wrapper h4 {
+    font-size: 36px;
+    margin: 0px;
+    line-height: 40px;
+    color: #7bb564;
+    text-transform: capitalize;
+    font-weight: 900;
+  }
+  .bookcleaner .wrapper .ouper {
+    font-size: 19px;
+    margin: 10px 0px 0px 0px;
   }
   .bookcleaner .wrapper figure {
     width: 80%;
@@ -134,6 +177,21 @@
     align-items: flex-start;
     align-self: flex-start;
   }
+  .bookcleaner .wrapper .card-cleaner .package-box {
+    display: flex;
+    gap: 20px;
+  }
+  .bookcleaner .wrapper .card-cleaner .package-box .price-box {
+    display: flex;
+    border: 1px solid #7bb564;
+    flex-direction: column;
+    padding: 10px 15px;
+    border-radius: 12px;
+    gap: 4px;
+  }
+  .bookcleaner .wrapper .card-cleaner .package-box .price-box .title {
+    color: black;
+  }
   .bookcleaner .wrapper .card-cleaner h4 {
     font-size: 24px;
     margin: 20px 0px 10px;
@@ -164,7 +222,7 @@
   }
   .bookcleaner .wrapper .wallet-btn {
     width: 100%;
-    color: #7BB564;
+    color: #7bb564;
     margin: 25px 0px;
   }
   .bookcleaner .wrapper .wallet-btn button {

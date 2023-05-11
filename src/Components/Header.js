@@ -9,7 +9,7 @@ function Header() {
   return (
     <div  className='header'>
            <div className='container'>
-           <Link to="/details">
+           <Link to="/">
            <figure>
                 <img src={logo}/>
                </figure>

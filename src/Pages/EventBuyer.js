@@ -20,7 +20,7 @@ import { MdArrowForward } from "react-icons/md";
 import { id } from 'date-fns/locale'
 import { useNavigate } from 'react-router-dom'
 
-function BookCleaner() {
+function EventBuyer() {
 const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
 const navigate = useNavigate();
@@ -35,11 +35,11 @@ const handleRouteChange = (url,datas) => {
   const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/all_services',{
+      const response = await axios.get('http://34.233.35.208/api/all_events',{
         headers
       });
-      setData(response.data.services);
-      console.log("biloll",response.data.services)
+      setData(response.data.events);
+      console.log("biloll",response.data.events)
       
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -95,7 +95,7 @@ useEffect(() => {
       <Header/>
            <div className='wrapper'>
               <h2>
-              Book A Cleaner
+              Book An Event
               </h2>
               <figure>
                  <img src={cleaner}/>
@@ -156,7 +156,7 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,selectedOption)}
+          onClick={() => handleRouteChange(`/events/:${selectedOption?.id}`,selectedOption)}
         >
           Next
         </Button>
@@ -168,4 +168,4 @@ useEffect(() => {
   )
 }
 
-export default BookCleaner
+export default EventBuyer;

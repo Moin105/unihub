@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import {
   FormControl,
   FormLabel,
@@ -10,15 +10,63 @@ import {
 import "./details.css";
 import { useDispatch, useSelector } from "react-redux";
 import {MdArrowForward} from 'react-icons/md'
+import axios from "axios";
+import { set } from "date-fns";
+const postData = async (url, data,token) => {
+  try {
+    const response = await axios.post(url, data,{
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }});
+    console.log('API response:', response);
+    // Handle success response here
+  } catch (error) {
+    console.error('API error:', error);
+    // Handle error response here
+  }
+};
 function DetailsTab() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true)
   const userProfileData = useSelector((state) => state.userProfile.data);
+  console.log("userProfile",userProfileData)
+  const [formData, setFormData] = useState({
+    name:userProfileData?.profile.name,
+    email:userProfileData?.profile.email,
+    address: userProfileData?.profile.address,
+    phone:userProfileData?.profile.phone
+  });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  useEffect(() => {
+    console.log("hwlllooo")
+    // console.log("hwlllooo",userProfileData.profile.email)
+    setFormData({
+      name:userProfileData?.profile.name,
+      email:userProfileData?.profile.email,
+      address: userProfileData?.profile.address,
+      phone:userProfileData?.profile.phone
+    });
+  }, [])
+  
+  const updateProfile = () => {
+    // fetch("http://34.233.35.208/api/update_profile?_method=PUT",{
+    //   method:"PUT",
+    //   body:JSON.stringify(formData),
+    //   headers:{
+    //     "Content-Type":"application/json",
+    //     "Authorization":localStorage.getItem("token")
+    //   }
+    // })
+    postData("http://34.233.35.208/api/update_profile?_method=PUT",formData,localStorage.getItem("token"))
+  }
   return (
     <div className="tab-details">
       <h2>My Details</h2>
       <span className="upper">View and edit your personal info below.</span>
-      <p>Login email : {userProfileData?.profile.email}</p>
+      <p>Login email : {userProfileData?.profile?.email}</p>
       <span className="lower">Your Login email can’t be changed</span>
       <FormControl className="form-control">
         <Box className="input-container" border="1px solid #7BB564" borderRadius={30} marginTop="103px">
@@ -32,8 +80,10 @@ function DetailsTab() {
           <Input
             variant="unstyled"
             border="none"
+            name="name"
             type="email"
-            value={userProfileData?.profile?.name} disabled={!isEditable}
+            onChange={handleInputChange}
+            value={formData.name} disabled={!isEditable}
             fontSize="41px"
           />
         </Box>
@@ -49,7 +99,9 @@ function DetailsTab() {
             variant="unstyled"
             border="none"
             type="email"
-            value={userProfileData?.profile?.email} disabled={!isEditable}
+            name="email"
+            onChange={handleInputChange}
+            value={formData.email} 
             fontSize="41px"
           />
         </Box>
@@ -64,8 +116,10 @@ function DetailsTab() {
           <Input
             variant="unstyled"
             border="none"
-            value={userProfileData?.profile?.address|| ""} disabled={!isEditable}
-            type="email"
+            onChange={handleInputChange}
+            value={formData.address} 
+            type="address"
+            name="address"
             fontSize="41px"
           />
         </Box>
@@ -77,12 +131,12 @@ function DetailsTab() {
           >
             Phone
           </FormLabel>
-          <Input variant="unstyled"value={userProfileData?.profile?.phone|| ""} disabled={!isEditable} border="none" type="tel" fontSize="41px" />
+          <Input variant="unstyled"name="phone" value={formData.phone}onChange={handleInputChange}  border="none" type="tel" fontSize="41px" />
         </Box>
         {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
       </FormControl>
       <div className="details-btn">
-      <Button rightIcon={<MdArrowForward />} bg='#7BB564'color={"white"} variant='solid' width={"100%"}>
+      <Button rightIcon={<MdArrowForward />} onClick={updateProfile} bg='#7BB564'color={"white"} variant='solid' width={"100%"}>
       Update Info
   </Button>
       </div>

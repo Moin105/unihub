@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import drinks from "./../Images/drinks.png";
@@ -8,8 +8,37 @@ import books from "./../Images/books.png";
 import item from "./../Images/item.png";
 import "./marketplace.css";
 import { Link } from "react-router-dom";
-import servicetag from './../Images/servicetag.png'
+import { useNavigate } from "react-router-dom";
+import servicetag from "./../Images/servicetag.png";
+import axios from "axios";
+
 function MarketPlace() {
+  const token = localStorage.getItem("token");
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+const handleRouteChange = (url,datas) => {
+  navigate(url, { state: { data: datas } });
+};
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        "http://34.233.35.208/api/all_products",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return setData(response.data.products);
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  useEffect(() => {
+    getData();
+    console.log("ap dhillon", data);
+  }, []);
+
   return (
     <div className="marketplace">
       <Header />
@@ -51,18 +80,30 @@ function MarketPlace() {
             </div>
           </div>
         </div>
-       
+
         <div className="item-container">
           <h4>items</h4>
           <div className="items-wrapper">
-          <Link to="/itemdetail">
+            {data.map((item, index) => {
+              return (
+                <Link to="/itemdetail">
+                  <div className="item-box"           onClick={() => handleRouteChange(`/bookcleaner/:${item?.id}`,item)}>
+                    <figure>
+                      <img src={`http://34.233.35.208/${item.cover_img}`} />
+                    </figure>
+                    <p>{item.name}</p>
+                  </div>{" "}
+                </Link>
+              );
+            })}
+            {/* <Link to="/itemdetail">
             <div className="item-box">
               <figure>
                 <img src={item} />
               </figure>
               <p>Kirkland Still Water</p>
             </div>
-          </Link>
+          </Link> */}
           </div>
         </div>
       </div>

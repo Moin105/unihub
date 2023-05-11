@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {
     FormControl,
     FormLabel,
@@ -15,12 +15,46 @@ import {
   import DetailsTab from "./TabContent/DetailsTab";
   import Order from "./TabContent/Order";
   import Wallet from "./TabContent/Wallet";
+  import axios from 'axios';
   import Tickets from './TabContent/Tickets'
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserProfile } from '../thunks/profileThunk';
 import profile from '../Images/profile.png';
 import './sellerdetails.css'
+const postData = async (url, data,token) => {
+  try {
+    const response = await axios.put(url, data,{
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }});
+    console.log('API response:', response);
+    // Handle success response here
+  } catch (error) {
+    console.error('API error:', error);
+    // Handle error response here
+  }
+};
 function SellerDetails() {
+  const switchUser = () => {
+    // fetch("http://34.233.35.208/api/switch_profile",{
+    //   method:"PUT",
+    //   body:JSON.stringify({is_seller:1}),
+    //   headers:{
+    //     "Content-Type":"application/json",
+    //     "Authorization":localStorage.getItem("token")
+    //   }
+    // })
+    // .then((res)=>res.json())
+    postData('http://34.233.35.208/api/switch_profile',{is_seller:1},localStorage.getItem("token"))
+  };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("hwlllooo")
+    // console.log("hwlllooo",userProfileData.profile.email)
+    dispatch(fetchUserProfile());
+  }, [dispatch]);
   return (
     <div className='sellerdetails'>
         <Header/>
@@ -30,7 +64,7 @@ function SellerDetails() {
                         <img src={profile}/>
                     </figure>
                     <h3>Malik H.</h3>
-                    <div><button> sell services</button></div>
+                    <div><button onClick={switchUser}> sell services</button></div>
               </div>
        <Tabs  w="100%"  mt="10"  isFitted>
           <TabList  display="flex" >
