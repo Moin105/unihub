@@ -44,7 +44,7 @@ input {
   border: none;
   outline: none;
   color: #6F6F6F;
-  padding: 14px 0px 14px 69px;
+  padding: 10px 0px 10px 69px;
   font-weight: 300;
 }
 
@@ -69,7 +69,7 @@ input {
 
 .btn {
   font-size: 20px;
-  padding: 10px 40px;
+  padding: 7px 40px;
   background-color: #88B46D;
   color: #FFFFFF;
   border: none;
@@ -149,7 +149,6 @@ p {
 
   input {
     font-size: 16px;
-    padding: 10px 0px 10px 40px;
   }
 
   input::placeholder {
