@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
-import drinks from "./../Images/drinks.png";
-import kitchen from "./../Images/kitchen.png";
-import stationary from "./../Images/stationary.png";
-import books from "./../Images/books.png";
-import item from "./../Images/item.png";
-import "./marketplace.css";
-import "../responsive.css";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
+import drinks from "./../../Images/drinks.png";
+import kitchen from "./../../Images/kitchen.png";
+import stationary from "./../../Images/stationary.png";
+import books from "./../../Images/books.png";
+import item from "./../../Images/item.png";
+import "./../marketplace.css";
+import "../../responsive.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import servicetag from "./../Images/servicetag.png";
+import servicetag from "./../../Images/servicetag.png";
 import axios from "axios";
 
-function MarketPlace() {
+function GuestMarketPlace() {
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -23,12 +23,7 @@ const handleRouteChange = (url,datas) => {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "http://34.233.35.208/api/all_products",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        "http://34.233.35.208/api/guest_all_products",
       );
       return setData(response.data.products);
     } catch (error) {
@@ -53,7 +48,7 @@ const handleRouteChange = (url,datas) => {
           </p>
         </div>
         <div className="middle-container">
-          <h5>Categories</h5>
+          {/* <h5>Categories</h5>
           <div className="categories-container">
             <div className="category-box">
               <figure>
@@ -79,7 +74,7 @@ const handleRouteChange = (url,datas) => {
               </figure>
               <p>Home & Kitchen</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="item-container">
@@ -87,13 +82,14 @@ const handleRouteChange = (url,datas) => {
           <div className="items-wrapper">
             {data.map((item, index) => {
               return (
-              
-                  <div className="item-box"  onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
+                // <Link to="/itemdetail">
+                  <div className="item-box"           onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
                     <figure>
                       <img src={`http://34.233.35.208/${item.cover_img}`} />
                     </figure>
                     <p>{item.name}</p>
                   </div>
+                // </Link>
               );
             })}
             {/* <Link to="/itemdetail">
@@ -112,4 +108,4 @@ const handleRouteChange = (url,datas) => {
   );
 }
 
-export default MarketPlace;
+export default GuestMarketPlace;

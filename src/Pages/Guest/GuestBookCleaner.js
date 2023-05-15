@@ -1,9 +1,9 @@
 import React, { useEffect,useState,useMemo } from 'react'
 import {FaCheckCircle} from 'react-icons/fa'
 import { Checkbox } from '@chakra-ui/react'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
-import './bookcleaner.css'
+import Header from '../../Components/Header'
+import Footer from '../../Components/Footer'
+import './../bookcleaner.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
@@ -16,14 +16,15 @@ import {
   Button,
   SimpleGrid,
 } from "@chakra-ui/react";
-import cleaner from "./../Images/cleaners.png";
+import cleaner from "./../../Images/cleaners.png";
 import { MdArrowForward } from "react-icons/md";
 import { id } from 'date-fns/locale'
 import { useNavigate } from 'react-router-dom'
 
-function BookCleaner() {
+function GuestBookCleaner() {
 const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
+const [availablity,setAvailablity ]=useState([])
 const navigate = useNavigate();
 const handleRouteChange = (url,datas) => {
   navigate(url, { state: { data: datas } });
@@ -36,11 +37,9 @@ const handleRouteChange = (url,datas) => {
   const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/all_services',{
-        headers
-      });
-      setData(response.data.services);
-      console.log("biloll",response.data.services)
+      const response = await axios.get('http://34.233.35.208/api/guest_all_service_providers');
+      setData(response.data.providers);
+      console.log("guest",response.data.providers)
       
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -58,31 +57,41 @@ useEffect(() => {
   console.log("fatiha",selectedOption)
   // return selectedOption
 },[selectedOption])
-  // useEffect(() => {
-  //   // Function to fetch detailed data for an item using its ID
-  //   const fetchDetailedData = async (id) => {
-  //     try {
-  //       const response = await axios.get(`http://34.233.35.208/api/all_services/${id}`,{
-  //         headers
-  //       });
-  //       console.log("biloll",response.data)
-  //       return response.data;
-  //     } catch (error) {
-  //       console.error('Error fetching detailed data:', error);
-  //     }
-  //   };
+useEffect(() => {
+    const fetchDetailedData = async (id) => {
+      try {
+        const response = await axios.get(`http://34.233.35.208/api/guest_all_services_of_provider/${id}`);
+        console.log("biloll",response.data)
+        return response.data.services;
+      } catch (error) {
+        console.error('Error fetching detailed data:', error);
+      }
+    };
   
-  //   // Iterate through the data and make API calls using their IDs
-  //   const fetchDataForItems = async () => {
-  //     const detailedDataArray = await Promise.all(memoizedData.map(item => fetchDetailedData(item.id)));
-  //  return   setDetailedData(detailedDataArray);
-  //   };
+    const fetchDataForItems = async () => {
+      const detailedDataArray = [];
+      console.log("hailer",memoizedData)
+      const fetchedData = await Promise.all(memoizedData.map(item => fetchDetailedData(item.id)));
+  console.log("mainu nae jeena",fetchedData)
+    //   fetchedData.forEach(item => {
+    //     if (!detailedDataArray.find(el => el.id === item.id)) { // replace 'id' with the actual unique identifier in your objects
+    //       detailedDataArray.push(item);
+    //     }
+    //   });
+  console.log("hails",)
+      setDetailedData(fetchedData);
+    };
   
-  //   if (data.length > 0) {
-  //     fetchDataForItems();
-  //   }
-  //   console.log("detaileddata",detailedData)
-  // }, [data]);
+    if (data.length >= 0) {
+      fetchDataForItems();
+    }
+    console.log("detailedData", detailedData)
+  }, [data]);
+  
+  const memoizedServices = useMemo(() => detailedData, [data]);
+  useEffect(() => {
+    console.log(memoizedData)
+  }, [detailedData])
   
   const handleRadioChange = (event) => {
  const    id = event.target.value;
@@ -101,13 +110,13 @@ useEffect(() => {
               <figure>
                  <img src={cleaner}/>
               </figure>
-              {memoizedData?.map((item,index)=>{
+              {detailedData[0]?.map((item,index)=>{
                 return (
                   <div key={index} className='card-cleaner'>
                   <h4>{item.title}</h4>
                    <ul>
                       <p>{item.descreption}</p>
-                   </ul>
+                   </ul>32
                    <h4>Select Package</h4>
                    {/* <div className='package-box'> */}
                    <RadioGroup  className='package-box'>
@@ -118,7 +127,7 @@ useEffect(() => {
             const    id = event.target.value;
                console.log(id)
                const option = item.prices.find((item) => item.id === parseInt(id));
-         return      setSelectedOption(option);
+               setSelectedOption(option);setAvailablity(item);
               
              }} style={{border:"1px solid #7BB564"}} key={price.id} value={price.id.toString()}>
 
@@ -157,7 +166,7 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,selectedOption)}
+          onClick={() => handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,{selectedOption,availablity})}
         >
           Next
         </Button>
@@ -169,4 +178,4 @@ useEffect(() => {
   );
 }
 
-export default BookCleaner;
+export default GuestBookCleaner;

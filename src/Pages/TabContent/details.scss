@@ -1,185 +1,145 @@
-.tab-details{
+.tab-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1025px;
-   
-    h2{
-     font-size: 115px;
-     color: #7BB564;
-     font-weight: 900;
-    }
-    .upper{
-   font-size :30px;
-    font-weight: 200;
-}
-    p{
-        font-size: 57px;  font-weight: 300;
-    }
-    .lower{
-        font-size: 47px;  font-weight: 300;
-    }
-    input{
-        font-size: 41px !important;
-        height: auto;
-        border-color: none !important;
-        padding: 7px 0px 10px 20px;
-        font-weight: inherit;
-    }
-    .details-btn{
-          width: 100%;
-          color: #7BB564;
-          margin: 102px 0px ;
-          button{
-            font-size: 40px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 73px 95px 69px 170px ;
-            border-radius: 111110px;
-          }
-    }
-}
+    margin-top: 50px;
+    max-width: 600px;
 
-@media only screen and (max-width:1750px) {
-    .tab-details{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin: 100px 0px 0px 0px;
-        max-width: 1025px;
-       
-        h2{
-            font-size: 48px;
-            color: #7BB564;
-            line-height: 52px;
-            font-weight: 900;
-            margin: 10px 0px 10px 0px;
-        }
-        .upper{
-       font-size :20px;
-        font-weight: 200;
-    }.form-control{
+    h2 {
+        color: #7BB564;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .upper {
+        font-size: 20px;
+        font-weight: 300;
+        color: #707070;
+    }
+
+
+    p {
+        font-size: 28px;
+        font-weight: 300;
+        margin: 12px 0px;
+    }
+
+    .form-control {
         width: 520px;
         gap: 10px;
         display: flex;
         flex-direction: column;
-        .input-container{
+
+        .input-container {
             margin: 16px 25px;
             border-radius: 16px;
-            label{
+
+            label {
                 font-size: 18px;
                 margin: 0;
             }
         }
-    }
-        p{
-            font-size: 28px;
-            font-weight: 500;
-            margin: 12px 0px;
-        }
-        .lower{
-            font-size: 22px;
-            font-weight: 500;
-            color: #707070;
-        }
-        input{
-            font-size: 24px !important;
+
+        input {
+            font-size: 20px;
+            font-weight: 300;
             height: auto;
-            border-color: none !important;
+            border-color: none;
             padding: 7px 0px 10px 20px;
-            font-weight: inherit;
         }
-        .details-btn{
-              width: 100%;
-              color: #7BB564;
-              margin: 25px 0px ;
-              button{
-                font-size: 23px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 35px 45px 35px 65px;
-                border-radius: 111110px;
-                width: 400px;
-                margin: 0 auto;
-              }
-        }
+    }
+
+
+    .lower {
+        font-size: 20px;
+        font-weight: 300;
     }
 }
-@media only screen and (max-width:1250px) {
-    .tab-details{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 1025px;
-       
-        h2{
-            font-size: 48px;
-            color: #7BB564;
-            line-height: 48px;
-            font-weight: 900;
-            margin: 20px 0px 5px 0px;
+
+@media screen and (max-width:1440px) {
+    .tab-details {
+        margin-top: 50px;
+
+        h2 {
+            font-size: 36px;
         }
-        .upper{
-       font-size :18px;
-        font-weight: 200;
-    }.form-control{
-        width: 480px;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
-        .input-container{
-            margin: 16px 25px;
-            border-radius: 16px;
-            label{
-                font-size: 16px;
-                margin: 0;
-                padding: 10px 0px 0px 15px;
+
+        .upper {
+            font-size: 16px;
+        }
+
+        .form-control {
+            width: 520px;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+
+            .input-container {
+                margin: 16px 25px;
+                border-radius: 16px;
+
+                label {
+                    padding: 10px 0 0 20px;
+                }
+
+                input {
+                    padding: 5px 0 5px 20px;
+                }
             }
         }
+
+        p {
+            font-size: 20px;
+        }
+
+        .lower {
+            font-size: 16px;
+        }
+
     }
-        p{
-            font-size: 26px;
-            font-weight: 500;
-            margin: 8px 12px;
+}
+
+@media screen and (max-width:1024px) {
+    .tab-details {
+
+        h2 {
+            font-size: 30px;
         }
-        .lower{
-            font-size: 22px;
-            font-weight: 300;
-            color: #707070;
-            font-weight: 500;
+
+        .upper {
+            font-size: 16px;
         }
-        input{
-            font-size: 18px !important;
-            height: auto;
-            border-color: none !important;
-            padding: 7px 0px 10px 20px;
-            font-weight: inherit;
+
+        p {
+            font-size: 20px;
         }
-        .details-btn{
-              width: 100%;
-              color: #7BB564;
-              margin: 25px 0px ;
-              button{
-                font-size: 20px;
-                font-weight: 600;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 30px 28px 30px 52px;
-                border-radius: 111110px;
-                width: 300px;
-                margin: 0 auto;
-              }
+
+        .form-control {
+            width: 520px;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+
+            .input-container {
+                margin: 16px 25px;
+                border-radius: 16px;
+
+                label {
+                    padding: 10px 0 0 20px;
+                }
+
+                input {
+                    padding: 5px 0 5px 20px;
+                }
+            }
         }
+
+
+
+        .lower {
+            font-size: 16px;
+        }
+
     }
 }

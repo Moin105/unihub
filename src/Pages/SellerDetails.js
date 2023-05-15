@@ -55,6 +55,8 @@ function SellerDetails() {
     // console.log("hwlllooo",userProfileData.profile.email)
     dispatch(fetchUserProfile());
   }, [dispatch]);
+  const userProfileData = useSelector((state) => state.userProfile.data);
+
   return (
     <div className='sellerdetails'>
         <Header/>
@@ -63,7 +65,7 @@ function SellerDetails() {
                     <figure>
                         <img src={profile}/>
                     </figure>
-                    <h3>Malik H.</h3>
+                    <h3>{userProfileData?.profile?.name}.</h3>
                     <div><button onClick={switchUser}> sell services</button></div>
               </div>
        <Tabs  w="100%"  mt="10"  isFitted>
@@ -73,21 +75,36 @@ function SellerDetails() {
             <Tab className="tab-content"  ><Image src={wallet} boxSize="50"/><Text>My Wallets</Text></Tab>
             <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Tickets</Text></Tab> </TabList>
           <TabPanels>
-            <TabPanel justifyContent={"center"} display="flex" alignItems="center">
-               <DetailsTab/>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <DetailsTab />
             </TabPanel>
-            <TabPanel  justifyContent={"center"} display="flex" alignItems="center">
-              <Order/>
-            </TabPanel  >
-            <TabPanel  justifyContent={"center"} display="flex" alignItems="center">
-              <Wallet/>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Order />
             </TabPanel>
-            <TabPanel justifyContent={"center"} display="flex" alignItems="center">
-              <Tickets/>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Wallet />
             </TabPanel>
-
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Tickets />
+            </TabPanel>
           </TabPanels>
-        </Tabs>  
+        </Tabs>
         {/* <div className='detailseller'>
             <h5>
 
@@ -115,7 +132,7 @@ function SellerDetails() {
           />
         </Box>
       </FormControl>
-                  <div className="wallet-btn">
+                  <div className="primary-btn">
         <Button
           rightIcon={<MdArrowForward />}
           bg="#7BB564"
@@ -128,10 +145,10 @@ function SellerDetails() {
         </Button>
       </div>
         </div>   */}
-        </div>
-        <Footer/>
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default SellerDetails
+export default SellerDetails;

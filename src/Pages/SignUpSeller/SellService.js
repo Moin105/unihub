@@ -21,17 +21,29 @@ import Footer from '../../Components/Footer';
 import camera from './../../Images/camera.png'
 import { Link } from 'react-router-dom';
 import {MdArrowForward} from 'react-icons/md'
+import SellerHeader from './SellerHeader';
 // import {MdArrowDropDown} from 'react-icons/md'
 // import camera from './../Images/'
-const postData = async (url, data,token) => {
+const postData = async (url,data,token,image,cover_img) => {
+  const formData = new FormData();
+  formData.append('category_id', data.category_id);
+  formData.append('title', data.title);
+  formData.append('descreption', data.descreption);
+  formData.append('packages',JSON.stringify(data.packages));
+  formData.append('university_id', data.university_id);
+  formData.append('image', image);
+  formData.append('cover_img', cover_img);
+  formData.append('slot_ids', data.slot_ids);
+  console.log(data,formData,image,cover_img)
     try {
-      const response = await axios.post(url,JSON.stringify( data),{
+     
+      const response = await axios.post(url,formData,{
         headers: {
             "Content-Type": "multipart/form-data",
           'Authorization': `Bearer ${token}`
         }});
       console.log('API response:', response);
-      // Handle success response here
+      // Handle success response heres
     } catch (error) {
       console.error('API error:', error);
       // Handle error response here
@@ -41,6 +53,8 @@ function SellService() {
     const token = localStorage.getItem('token')
     const [serviceCategories, setServiceCategories] = useState([]);
     const [universities, setUniversities] = useState([]);
+    const [image,setImage]=useState(null)
+    const [cover_img,setCoverImg]=useState(null)
     const  fetchServiceCategories= async(token)=> {
         return await fetch('http://34.233.35.208/api/service_category', {
           headers: {
@@ -83,10 +97,8 @@ function SellService() {
         category_id: "",
         title: "cleaning service",
         descreption: "",
-        cover_img:"",
         packages: [],
         university_id: "",
-        image: "",
         slot_ids: "1",
       });
       
@@ -122,13 +134,19 @@ function SellService() {
           try {
             const compressedImage = await imageCompression(imageFile, options);
             console.log(`Compressed ${name} image:`, compressedImage);
-            setFormData((prevState) => {prevState  =  {
-                ...prevState,
-                [name]: event.target.files[0],
-              }
-               return prevState }
+            // setFormData((prevState) => {prevState  =  {
+            //     ...prevState,
+            //     [name]: event.target.files[0],
+            //   }
+            
+            //    return prevState }
     
-              );
+            //   );
+            if(name==='cover_img'){
+              setCoverImg(prevState =>{prevState =  compressedImage; return prevState})
+            }else if(name==='image'){
+              setImage(prevState =>{prevState =  compressedImage; return prevState})
+            }
             // Upload the compressed image to the server or save it to the state
             // ...
           } catch (error) {
@@ -222,7 +240,7 @@ function SellService() {
           ...formData,
           packages: { prices: formData.packages },
         };
-        console.log(finalFormData)
+        console.log("hail",finalFormData)
         // setFormData({ ...formData, image: event.target.files[0].name });
         //   setFormData({ ...formData, cover_img:event.target.files[0].name });
         // fetch('http://34.233.35.208/api/cleaning_services',{ 
@@ -234,13 +252,13 @@ function SellService() {
         //     },
         //     body: JSON.stringify(finalFormData),
         //   })
-        postData("http://34.233.35.208/api/cleaning_services",finalFormData,token)
+        postData("http://34.233.35.208/api/cleaning_services",finalFormData,token,image,cover_img)
         // Call the POST API with finalFormData heres
       };
       
   return (
     <div className='servicehub'>
-        <Header/>
+        <SellerHeader/>
         <div className='wrapper'>
             <h2>Post Event</h2>
             {/* <h4>Sell Service</h4> */}

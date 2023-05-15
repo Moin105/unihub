@@ -1,6 +1,7 @@
 // screen 5
 import React,{useState} from "react";
 import "./signup.css";
+import "../responsive.css";
 import { Link } from "react-router-dom";
 import logo from "../Images/logo.png";
 import apple from "../Images/apple.png";
@@ -36,7 +37,7 @@ function Signup() {
     <div className="signup-page">
       <div className="container">
         <div className="headu">
-          <figure>
+          <figure className="logo">
             <img src={logo} alt="unihub-logo" />
           </figure>
           <h2>Create Your UNIHUB Account</h2>
@@ -70,14 +71,15 @@ function Signup() {
       {user && <p>Welcome, {user.name}!</p>}
         </form>
         <div className="media-newhub">
+          <span className="downspan">Or continue with</span>
           <div className="media-accounts">
-            <figure>
+            <figure className="media-icon">
               <img src={facebook} alt="facebook" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={google} alt="google" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={apple} alt="apple" />
             </figure>
           </div>

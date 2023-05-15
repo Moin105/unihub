@@ -31,3 +31,17 @@ export const SignUps = async ({ name, email, password, confirmPassword }) => {
   const data = await response.json();
   return data;
 };
+export const SellerSignUp = async ({ name, email, password, confirmPassword }) => {
+  const response = await fetch(`${BaseUrl}/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email, password, confirmPassword, name
+    })
+  });
+  console.log("moin",response)
+  const data = await response.json();
+  return data;
+};

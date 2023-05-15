@@ -1,12 +1,12 @@
 import React from "react";
-import "./styles.css";
-import "../App.css";
-import logo from "../Images/logo.png";
-import cart from "../Images/cart.png";
-import user from "../Images/user.png";
-import dropdown from "../Images/dropdown.png";
+import "../../Components/styles.css";
+import "../../App.css";
+import logo from "../../Images/logo.png";
+import cart from "../../Images/cart.png";
+import user from "../../Images/user.png";
+import dropdown from "../../Images/dropdown.png";
 import { Link } from "react-router-dom";
-function Header() {
+function SellerHeader() {
   return (
     <div className="header">
       <div className="container">
@@ -37,4 +37,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default SellerHeader;

@@ -1,9 +1,10 @@
 import React, { useEffect,useState,useMemo } from 'react'
 import {FaCheckCircle} from 'react-icons/fa'
 import { Checkbox } from '@chakra-ui/react'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
-import './bookcleaner.css'
+import Header from '../../Components/Header'
+import Footer from '../../Components/Footer'
+import './../bookcleaner.css'
+
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
@@ -13,15 +14,14 @@ import {
   FormHelperText,RadioGroup,Radio,
   Input,
   Box,
-  Button,
-  SimpleGrid,
+  Button,SimpleGrid
 } from "@chakra-ui/react";
-import cleaner from "./../Images/cleaners.png";
+import cleaner from './../../Images/cleaners.png'
 import { MdArrowForward } from "react-icons/md";
 import { id } from 'date-fns/locale'
 import { useNavigate } from 'react-router-dom'
 
-function BookCleaner() {
+function GuestEvent() {
 const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
 const navigate = useNavigate();
@@ -33,14 +33,11 @@ const handleRouteChange = (url,datas) => {
     console.log(data.providers)
   }, []);
 
-  const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/all_services',{
-        headers
-      });
-      setData(response.data.services);
-      console.log("biloll",response.data.services)
+      const response = await axios.get('http://34.233.35.208/api/guest_all_events',);
+      setData(response.data.events);
+      console.log("biloll",response.data.events)
       
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -96,7 +93,7 @@ useEffect(() => {
       <Header/>
            <div className='wrapper'>
               <h2>
-              Book A Cleaner
+              Book An Event
               </h2>
               <figure>
                  <img src={cleaner}/>
@@ -157,7 +154,7 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,selectedOption)}
+          onClick={() => handleRouteChange(`/events/:${selectedOption?.id}`,selectedOption)}
         >
           Next
         </Button>
@@ -166,7 +163,7 @@ useEffect(() => {
            </div>
           <Footer/> 
     </div>
-  );
+  )
 }
 
-export default BookCleaner;
+export default GuestEvent;

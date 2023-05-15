@@ -1,6 +1,7 @@
 // screen 1
 import React,{useEffect, useState} from 'react'
 import './signin.css'
+import "../responsive.css";
 import logo from '../Images/logo.png'
 import apple from '../Images/apple.png'
 import facebook from '../Images/facebook.png'
@@ -8,7 +9,7 @@ import { setToken } from '../features/UserSlice'
 import { Link } from 'react-router-dom'
 import google from '../Images/google.png'
 import { useDispatch,useSelector   } from 'react-redux'
-
+import { useNavigate,useLocation } from 'react-router-dom';
 import { useMutation } from 'react-query';
 const baseUrl = process.env.BASE_URL;
 
@@ -54,6 +55,33 @@ const { email, password } = credentials;
 //   }
 // };
 function Signin() {
+  ;
+  const navigate = useNavigate();
+  const handleRouteChange = (url,datas) => {
+    navigate(url, { state: { data: datas } });
+  };
+  const token = localStorage.getItem("token");
+   const logins = (credentials) => async (dispatch) => {
+    const { email, password } = credentials;
+      try {
+        const response = await fetch('http://34.233.35.208/api/login', {
+          method: 'POST',
+          body: JSON.stringify(credentials),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        // console.log()
+        console.log("",data)
+        if(data.message == "Check your email for otp!"){
+          handleRouteChange("/otp",credentials)
+        // dispatch(setToken(data.token));
+        }else{
+          handleRouteChange("/login",)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -74,7 +102,11 @@ const data = {
 };
 
 console.log("data",formData)  
-  dispatch(login(data))
+  dispatch(logins(data))
+  if (data) {
+    console.log("data",data)
+    // history.push('/dashboard');
+  }
 // fetch('http://192.168.19.25:8000/api/login', {
 //   method: 'POST',
 //   headers:{
@@ -114,7 +146,7 @@ console.log(user)
     <div className="signin-page">
       <div className="container">
         <div className="headu">
-          <figure>
+          <figure className="logo">
             <img src={logo} alt="unihub-logo" />
           </figure>
           <h2>Sign in to Continue</h2>
@@ -125,26 +157,30 @@ console.log(user)
             {/* icon */}
           </div>
           <div className="input-container">
-            <input onChange={(e)=>{handleInputChange(e)}} name='password' type="text" placeholder="Password" />
+            <input onChange={(e)=>{handleInputChange(e)}} name='password' type="password" placeholder="Password" />
             {/* icon */}
           </div>
           <span className="forgetti-password">
-            <Link to="/forgetpassword">Forget Password?</Link>
+            <Link to="/forgetpassword">Forgot Password?</Link>
           </span>
-         
+         <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+
             <button onClick={handleSubmit}  className="btn">Sign in</button>
+            or
+            <Link to="/signupseller"><button  className="btn">List a Service</button></Link>
+         </div>
         
-          <span className="continue">Or continue with</span>
         </form>
         <div className="media-newhub">
+          <span className="continue">Or continue with</span>
           <div className="media-accounts">
-            <figure>
+            <figure className="media-icon">
               <img src={facebook} alt="facebook" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={google} alt="google" />
             </figure>
-            <figure>
+            <figure className="media-icon">
               <img src={apple} alt="apple" />
             </figure>
           </div>

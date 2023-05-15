@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./ForgetPassword.css";
+import "../responsive.css";
 import logo from "../Images/logo.png";
 
 function ForgetPassword() {
@@ -9,14 +10,14 @@ function ForgetPassword() {
   return (
     <div className="password-forget-page">
       <div className="container">
-        <figure>
+        <figure className="logo">
           <img src={logo} alt="unihub-logo" />
         </figure>
         {show === false ? (
           <React.Fragment>
             <div className="middle-container">
-              <h2>Forget Your Password</h2>
-              <span>
+              <h2>Forgot Your Password</h2>
+              <span className="small-p">
                 Enter your email address and we will send you <br></br>A link to
                 reset your password{" "}
               </span>
@@ -26,7 +27,7 @@ function ForgetPassword() {
                   {/* icon */}
                 </div>
                 <button
-                  className="btn-forget"
+                  className="btn"
                   onClick={() => {
                     setShow(!show);
                   }}
@@ -40,7 +41,7 @@ function ForgetPassword() {
           <React.Fragment>
             <div className="middle-container">
               <h2>Forgot Your Password</h2>
-              <span>
+              <span className="small-p">
                 Enter your email address and we will send you <br></br>A link to
                 reset your password{" "}
               </span>
@@ -49,7 +50,7 @@ function ForgetPassword() {
                   <input type="text" placeholder="Password" />
                   {/* icon */}
                 </div>
-                <span className="smaller">
+                <span className="small-p">
                   password must be at least 8 characters long contain a number{" "}
                   <br></br>and an uppercase letter example
                 </span>
@@ -57,7 +58,7 @@ function ForgetPassword() {
                   <input type="text" placeholder="Re-enter Password" />
                   {/* icon */}
                 </div>
-                <button className="btn-forget">Send Password Reset Link</button>
+                <button className="btn">Send Password Reset Link</button>
               </form>
             </div>
           </React.Fragment>

@@ -1,46 +1,65 @@
 .bookcleaner {
   display: flex;
-  background: #f8f6f5 0% 0% no-repeat padding-box;
+  background: #F8F6F5 0% 0% no-repeat padding-box;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 .bookcleaner .wrapper {
   width: 100%;
+  margin: 0 auto;
   max-width: 1020px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: calc(100vh - 313px);
 }
 .bookcleaner .wrapper h2 {
-  font-size: 115px;
-  color: #7bb564;
+  margin: 30px 0px;
+  color: #7BB564;
   font-weight: 900;
 }
 .bookcleaner .wrapper figure {
-  width: 1520px;
-  height: 607px;
+  width: 80%;
+  height: 100%;
 }
 .bookcleaner .wrapper figure img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-.bookcleaner .wrapper .rdt {
-  width: 100%;
+.bookcleaner .wrapper .form-control {
+  width: 520px;
+  display: flex;
+  flex-direction: column;
 }
-.bookcleaner .wrapper .rdt input {
-  width: 100%;
+.bookcleaner .wrapper .form-control .input-container {
+  margin: 8px 30px;
+  border-radius: 16px;
+}
+.bookcleaner .wrapper .form-control .input-container label {
+  font-size: 18px;
+  margin: 0;
+}
+.bookcleaner .wrapper .form-control .input-container input {
+  font-size: 20px !important;
+  height: auto;
+  border-color: none !important;
+  padding: 7px 0px 10px 20px;
+  font-weight: 300;
 }
 .bookcleaner .wrapper .card-cleaner {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 0px auto 0px 10%;
   align-items: flex-start;
   align-self: flex-start;
 }
 .bookcleaner .wrapper .card-cleaner h4 {
-  font-size: 41px;
+  margin: 20px 0px 10px;
 }
 .bookcleaner .wrapper .card-cleaner ul {
   list-style-type: none;
@@ -48,27 +67,91 @@
   flex-direction: column;
 }
 .bookcleaner .wrapper .card-cleaner ul li {
-  font-size: 30px;
+  font-size: 16px;
   text-align: initial;
+  margin: 10px 0px 0px 0px;
   color: #707070;
+  font-weight: 300;
 }
 .bookcleaner .wrapper p {
+  text-align: initial;
+  color: #707070;
+  font-weight: 300;
+}
+.bookcleaner .wrapper h1 {
+  margin: 30px 0px 0px;
+}
+.bookcleaner .bookcleaner {
+  display: flex;
+  background: #f8f6f5 0% 0% no-repeat padding-box;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.bookcleaner .bookcleaner .wrapper {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bookcleaner .bookcleaner .wrapper h2 {
+  font-size: 115px;
+  color: #7bb564;
+  font-weight: 900;
+}
+.bookcleaner .bookcleaner .wrapper figure {
+  width: 1520px;
+  height: 607px;
+}
+.bookcleaner .bookcleaner .wrapper figure img {
+  width: 100%;
+  height: 100%;
+}
+.bookcleaner .bookcleaner .wrapper .rdt {
+  width: 100%;
+}
+.bookcleaner .bookcleaner .wrapper .rdt input {
+  width: 100%;
+}
+.bookcleaner .bookcleaner .wrapper .card-cleaner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+.bookcleaner .bookcleaner .wrapper .card-cleaner h4 {
+  font-size: 41px;
+}
+.bookcleaner .bookcleaner .wrapper .card-cleaner ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.bookcleaner .bookcleaner .wrapper .card-cleaner ul li {
   font-size: 30px;
   text-align: initial;
   color: #707070;
 }
-.bookcleaner .wrapper h1 {
+.bookcleaner .bookcleaner .wrapper p {
+  font-size: 30px;
+  text-align: initial;
+  color: #707070;
+}
+.bookcleaner .bookcleaner .wrapper h1 {
   font-size: 124px;
 }
-.bookcleaner .wrapper .tag-label {
+.bookcleaner .bookcleaner .wrapper .tag-label {
   font-size: 27px;
 }
-.bookcleaner .wrapper .wallet-btn {
+.bookcleaner .bookcleaner .wrapper .wallet-btn {
   width: 100%;
   color: #7bb564;
   margin: 102px 0px;
 }
-.bookcleaner .wrapper .wallet-btn button {
+.bookcleaner .bookcleaner .wrapper .wallet-btn button {
   font-size: 40px;
   font-weight: 600;
   display: flex;
@@ -77,163 +160,34 @@
   padding: 73px 95px 69px 170px;
   border-radius: 111110px;
 }
-
-@media only screen and (max-width: 1750px) {
-  .bookcleaner {
-    display: flex;
-    background: #f8f6f5 0% 0% no-repeat padding-box;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+@media only screen and (max-width: 1440px) {
+  .bookcleaner .bookcleaner .wrapper {
+    max-width: 800px;
+    min-height: calc(100vh - 251.48px);
   }
-  .bookcleaner .wrapper {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1020px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .bookcleaner .wrapper h2 {
-    font-size: 48px;
-    margin: 30px 0px 10px 0px;
-    color: #7bb564;
-    font-weight: 900;
-  }
-  .bookcleaner .wrapper .outline-box {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    flex: 1;
-    align-items: flex-start;
-    padding: 14px 18px;
-    border: 1px solid #7BB564;
-    max-width: 425px;
-    border-radius: 16px;
-    margin-bottom: 0px;
-  }
-  .bookcleaner .wrapper .outline-box h3 {
-    font-size: 16px;
-    color: #737373;
-    font-family: "Circular Spotify Text";
-    margin-bottom: 7px;
-  }
-  .bookcleaner .wrapper .outline-box p {
-    font-size: 18px;
-    color: #000000;
-  }
-  .bookcleaner .wrapper .outline-box select {
-    border: none !important;
-  }
-  .bookcleaner .wrapper h4 {
-    font-size: 36px;
-    margin: 0px;
-    line-height: 40px;
-    color: #7bb564;
-    text-transform: capitalize;
-    font-weight: 900;
-  }
-  .bookcleaner .wrapper .ouper {
-    font-size: 19px;
-    margin: 10px 0px 0px 0px;
-  }
-  .bookcleaner .wrapper figure {
-    width: 80%;
-    height: 100%;
-  }
-  .bookcleaner .wrapper figure img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .bookcleaner .wrapper .form-control {
+  .bookcleaner .bookcleaner .wrapper .form-control {
     width: 520px;
-    /* gap: 10px; */
     display: flex;
     flex-direction: column;
   }
-  .bookcleaner .wrapper .form-control .input-container {
+  .bookcleaner .bookcleaner .wrapper .form-control .input-container {
     margin: 8px 30px;
     border-radius: 16px;
   }
-  .bookcleaner .wrapper .form-control .input-container label {
-    font-size: 18px;
+  .bookcleaner .bookcleaner .wrapper .form-control .input-container label {
+    font-size: 16px;
     margin: 0;
   }
-  .bookcleaner .wrapper .form-control .input-container input {
-    font-size: 20px !important;
+  .bookcleaner .bookcleaner .wrapper .form-control .input-container input {
+    font-size: 16px !important;
     height: auto;
     border-color: none !important;
     padding: 7px 0px 10px 20px;
-    font-weight: inherit;
   }
-  .bookcleaner .wrapper .card-cleaner {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0px auto 0px 10%;
-    align-items: flex-start;
-    align-self: flex-start;
-  }
-  .bookcleaner .wrapper .card-cleaner .package-box {
-    display: flex;
-    gap: 20px;
-  }
-  .bookcleaner .wrapper .card-cleaner .package-box .price-box {
-    display: flex;
-    border: 1px solid #7bb564;
-    flex-direction: column;
-    padding: 10px 15px;
-    border-radius: 12px;
-    gap: 4px;
-  }
-  .bookcleaner .wrapper .card-cleaner .package-box .price-box .title {
-    color: black;
-  }
-  .bookcleaner .wrapper .card-cleaner h4 {
-    font-size: 24px;
-    margin: 20px 0px 10px;
-  }
-  .bookcleaner .wrapper .card-cleaner ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .bookcleaner .wrapper .card-cleaner ul li {
-    font-size: 20px;
-    text-align: initial;
-    margin: 10px 0px 0px 0px;
-    color: #707070;
-  }
-  .bookcleaner .wrapper p {
-    font-size: 20px;
-    text-align: initial;
-    color: #707070;
-  }
-  .bookcleaner .wrapper h1 {
-    font-size: 65px;
-    margin: 30px 0px 0px;
-  }
-  .bookcleaner .wrapper .tag-label {
-    font-size: 20px;
-    margin: 30px 30px 0px 30px;
-  }
-  .bookcleaner .wrapper .wallet-btn {
-    width: 100%;
-    color: #7bb564;
-    margin: 25px 0px;
-  }
-  .bookcleaner .wrapper .wallet-btn button {
-    font-size: 23px;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 35px 45px 35px 65px;
-    border-radius: 111110px;
-    width: 400px;
-    margin: 0 auto;
+}
+@media only screen and (max-width: 1024px) {
+  .bookcleaner .bookcleaner .wrapper {
+    max-width: 600px;
+    min-height: calc(100vh - 275.48px);
   }
 }/*# sourceMappingURL=bookcleaner.css.map */
