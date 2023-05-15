@@ -30,9 +30,8 @@ function Signup() {
             {/* icon */}
           </div>
           <span className="upspan">
-            {" "}
-            password must be at least 8 characters long contain a number{" "}
-            <br></br>and an uppercase letter example
+            Password must be at least 8 characters long contain a number
+            and an uppercase letter example
           </span>
           <button className="btn">Sign Up</button>
         </form>

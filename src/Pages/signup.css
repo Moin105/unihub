@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 20px 0px;
+  margin-inline: 16px;
 }
 .signup-page .container .headu {
   display: flex;
@@ -21,7 +21,6 @@
 .signup-page .container .headu h2 {
   margin-top: 28px;
   margin-bottom: 24px;
-  font-size: 48px;
 }
 .signup-page .container form {
   display: flex;
@@ -74,43 +73,11 @@
 }
 
 @media screen and (max-width: 1440px) {
-  .signup-page {
-    display: flex;
-    background: #F8F6F5 0% 0% no-repeat padding-box;
-    justify-content: center;
-    min-height: 100vh;
-  }
   .signup-page .container {
     max-width: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 20px 0px;
-  }
-  .signup-page .container .headu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .signup-page .container .headu h2 {
     margin-bottom: 10px;
-  }
-  .signup-page .container form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  .signup-page .container form .input-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-  }
-  .signup-page .container form .downspan {
-    font-size: 20px;
-    font-weight: 300;
   }
   .signup-page .container .media-newhub {
     display: flex;
@@ -132,6 +99,16 @@
   }
   .signup-page .container .media-newhub .new-to-unihub span {
     color: #91B375;
+  }
+}
+@media screen and (max-width: 768px) {
+  .signup-page .container form span {
+    font-size: 12px;
+    padding-inline: 20px;
+  }
+  .signup-page .container form .downspan {
+    font-size: 20px;
+    font-weight: 300;
   }
 }
 

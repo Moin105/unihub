@@ -80,3 +80,33 @@
     }
 
 }
+
+@media only screen and (max-width: 1024px) {
+    .home-page {
+
+        .wrapper {
+
+            .chakra-tabs__tablist {
+
+                .tab-content {
+                    max-width: 80px;
+                    min-width: 80px;
+                    height: 80px;
+                    padding-inline: 5px;
+
+
+                    .chakra-image {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+
+                }
+            }
+        }
+    }
+
+}

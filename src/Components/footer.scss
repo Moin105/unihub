@@ -18,7 +18,6 @@
     .divner {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin: 0 auto;
       width: 100%;
 
@@ -41,6 +40,10 @@
       }
 
     }
+
+    .divner {
+      align-items: center;
+    }
   }
 }
 
@@ -62,6 +65,18 @@
         .left {
           margin-bottom: 10px;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer {
+    .container {
+      .diver {
+        flex-direction: column;
+
+
       }
     }
   }

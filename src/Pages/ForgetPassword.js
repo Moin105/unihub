@@ -10,16 +10,19 @@ function ForgetPassword() {
   return (
     <div className="password-forget-page">
       <div className="container">
+        <div className="headu">
         <figure className="logo">
           <img src={logo} alt="unihub-logo" />
         </figure>
+        <h2>Forgot Your Password</h2>
+
+        </div>
         {show === false ? (
           <React.Fragment>
             <div className="middle-container">
-              <h2>Forgot Your Password</h2>
               <span className="small-p">
-                Enter your email address and we will send you <br></br>A link to
-                reset your password{" "}
+                Enter your email address and we will send you A link to
+                reset your password
               </span>
               <form>
                 <div className="input-container">
@@ -42,7 +45,7 @@ function ForgetPassword() {
             <div className="middle-container">
               <h2>Forgot Your Password</h2>
               <span className="small-p">
-                Enter your email address and we will send you <br></br>A link to
+                Enter your email address and we will send you A link to
                 reset your password{" "}
               </span>
               <form>

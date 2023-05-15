@@ -39,5 +39,15 @@
     max-width: 90%;
   }
 }
+@media screen and (max-width: 1024px) {
+  .header .container .nav {
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header .container .nav {
+    gap: 20px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
