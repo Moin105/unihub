@@ -31,17 +31,19 @@ function ServiceHub() {
           services.
         </p>
         <div className="values-container">
-          <div className="outline-box">
-            <h3>Select Service</h3>
-            <p>Express Cleaning</p>
-          </div>
-          <div className="outline-boxs">
-            <h3>Service Description</h3>
-            <p>- Hoovering and Sweeping </p>
-            <p>- Dust, Wipe & Disinfect All Surfaces</p>
+          <div className="values">
+            <div className="outline-box">
+              <h3>Select Service</h3>
+              <p>Express Cleaning</p>
+            </div>
+            <div className="outline-boxs">
+              <h3>Service Description</h3>
+              <p>- Hoovering and Sweeping </p>
+              <p>- Dust, Wipe & Disinfect All Surfaces</p>
+            </div>
           </div>
           <h5>Package 1</h5>
-          <div className="values-container">
+          <div className="values">
             {/* <Select icon={<MdArrowDropDown />} placeholder='Woohoo! A new icon' /> */}
             <div className="outline-box">
               <h3>Package Name</h3>
@@ -53,7 +55,7 @@ function ServiceHub() {
             </div>
           </div>
           <h5>Package 2</h5>
-          <div className="values-container">
+          <div className="values">
             <div className="outline-box">
               <h3>Package Name</h3>
               <p>Ensuit / Studio</p>
@@ -71,7 +73,7 @@ function ServiceHub() {
             <p>Upload Service Image</p>
           </div>
           <h5>Uploaded Files</h5>
-          <div className="values-container">
+          <div className="values">
             <div className="outline-box">
               <h3>ServiceImage.jpge/.png</h3>
               {/* <p>Ensuit / Studio</p> */}
@@ -88,7 +90,7 @@ function ServiceHub() {
             <p>You have uploaded product image</p>
           </div>{" "}
         </div>
-        <div className="wallet-btn">
+        <div className="primary-btn">
           <Button
             rightIcon={<MdArrowForward />}
             bg="#7BB564"

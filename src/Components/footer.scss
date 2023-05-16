@@ -27,6 +27,10 @@
         flex-direction: column;
         font-size: 40px;
 
+        h3 {
+          margin-block: 10px;
+        }
+
         ul {
           list-style-type: none;
           display: flex;
@@ -73,10 +77,19 @@
 @media only screen and (max-width: 400px) {
   .footer {
     .container {
-      .diver {
+
+      .diver,
+      .divner {
         flex-direction: column;
 
-
+        .right,
+        .left {
+          ul {
+            .footer-link {
+              text-align: center;
+            }
+          }
+        }
       }
     }
   }

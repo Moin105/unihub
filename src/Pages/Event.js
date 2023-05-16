@@ -27,17 +27,19 @@ function Event() {
             {/* <h4>Sell Service</h4> */}
             <p>Sell your services and get the customers to <br></br> get benefits of services.</p>
             <div className='values-container'>
-                <div className='outline-box'>
-                      <h3>Select Service</h3>
-                      <p>Express Cleaning</p>
-                </div>
-                <div className='outline-boxs' >
-                      <h3>Service Description</h3>
-                      <p>- Hoovering and Sweeping </p>
-                      <p>- Dust, Wipe & Disinfect All Surfaces</p>
-                </div>
+                  <div className='values'>
+                        <div className='outline-box'>
+                              <h3>Select Service</h3>
+                              <p>Express Cleaning</p>
+                        </div>
+                        <div className='outline-boxs' >
+                              <h3>Service Description</h3>
+                              <p>- Hoovering and Sweeping </p>
+                              <p>- Dust, Wipe & Disinfect All Surfaces</p>
+                        </div>
+                  </div>
                <h5>Package 1</h5>
-               <div className='values-container'>
+               <div className='values'>
                {/* <Select icon={<MdArrowDropDown />} placeholder='Woohoo! A new icon' /> */}
                 <div className='outline-box'>
                       <h3>Package Name</h3>
@@ -49,7 +51,7 @@ function Event() {
                 </div>
                </div>
                <h5>Package 2</h5>
-               <div className='values-container'>
+               <div className='values'>
                 <div className='outline-box'>
                       <h3>Package Name</h3>
                       <p>Ensuit / Studio</p>
@@ -69,7 +71,7 @@ function Event() {
                    </p>
             </div>
             <h5>Uploaded Files</h5>
-               <div className='values-container'>
+               <div className='values'>
                 <div className='outline-box'>
                       <h3>ServiceImage.jpge/.png</h3>
                       {/* <p>Ensuit / Studio</p> */}
@@ -88,7 +90,7 @@ function Event() {
              You have uploaded product image
              </p>
             </div>      </div>
-            <div className="wallet-btn">
+            <div className="primary-btn">
      <Link to="/messages">   <Button
           rightIcon={<MdArrowForward />}
           bg="#7BB564"
