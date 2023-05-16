@@ -1,19 +1,14 @@
 .marketplace {
-  display: flex;
   background: #F8F6F5 0% 0% no-repeat padding-box;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 .marketplace .wrapper {
   width: 100%;
   max-width: 1340px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 50px;
+  margin: 50px auto;
+  display: block;
   align-items: center;
   min-height: calc(100vh - 313px);
+  padding-inline: 20px;
 }
 .marketplace .wrapper h2 {
   color: #7BB564;
@@ -88,7 +83,7 @@
   align-items: flex-start;
   gap: 30px;
 }
-.marketplace .wrapper .item-container h4 {
+.marketplace .wrapper .item-container h5 {
   font-size: 26px;
   color: #000000;
   font-weight: 400;
@@ -98,7 +93,7 @@
   flex-wrap: wrap;
   justify-content: start;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box {
   display: flex;
@@ -149,8 +144,11 @@
   .marketplace .wrapper .item-container {
     gap: 30px;
   }
-  .marketplace .wrapper .item-container h4 {
+  .marketplace .wrapper .item-container h5 {
     font-size: 22px;
+  }
+  .marketplace .wrapper .item-container .items-wrapper {
+    gap: 45px;
   }
   .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
     width: 180px;
@@ -162,7 +160,7 @@
 }
 @media screen and (max-width: 1024px) {
   .marketplace .wrapper {
-    max-width: 600px;
+    max-width: 640px;
     min-height: calc(100vh - 285.5px);
   }
   .marketplace .wrapper h2 {
@@ -173,9 +171,6 @@
   }
   .marketplace .wrapper .upper-container p {
     font-size: 14px;
-  }
-  .marketplace .wrapper .middle-container h5 {
-    font-size: 22px;
   }
   .marketplace .wrapper .middle-container .categories-container {
     gap: 20px;
@@ -190,7 +185,7 @@
   .marketplace .wrapper .item-container {
     gap: 30px;
   }
-  .marketplace .wrapper .item-container h4 {
+  .marketplace .wrapper .item-container h5 {
     font-size: 22px;
   }
   .marketplace .wrapper .item-container .items-wrapper {
@@ -202,6 +197,25 @@
   }
   .marketplace .wrapper .item-container .items-wrapper a .item-box p {
     font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .marketplace .wrapper .item-container h5 {
+    margin-inline: auto;
+  }
+  .marketplace .wrapper .item-container .items-wrapper {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 430px) {
+  .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
+    width: 230px;
+    height: 230px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .marketplace .wrapper .middle-container .categories-container .category-box {
+    width: 230px;
   }
 }
 

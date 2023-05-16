@@ -7,10 +7,6 @@
 
     .wrapper {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
 
         .seller {
             display: flex;
@@ -47,7 +43,7 @@
         .chakra-tabs__tablist {
             justify-content: center;
             background-color: #F8F6F5;
-            padding-block: 30px;
+            padding: 30px 20px;
             border: none;
             flex-wrap: wrap;
 
@@ -126,6 +122,34 @@
 
                     p {
                         font-size: 16px;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .sellerdetails {
+
+        .wrapper {
+            .chakra-tabs__tablist {
+
+                .tab-content {
+                    max-width: 80px;
+                    min-width: 80px;
+                    height: 80px;
+                    padding-inline: 5px;
+
+                    .chakra-image {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    p {
+                        font-size: 12px;
                     }
 
                 }

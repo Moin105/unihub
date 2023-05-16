@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
 
     h2 {
         color: #7BB564;
@@ -22,14 +22,14 @@
     }
 
     .form-control {
-        width: 520px;
-        gap: 10px;
+        width: 100%;
+        gap: 20px;
         display: flex;
         flex-direction: column;
 
         .input-container {
-            margin: 16px 25px;
             border-radius: 16px;
+            margin: 0px;
 
             label {
                 font-size: 18px;
@@ -41,7 +41,8 @@
                 height: auto;
                 border-color: none;
                 padding: 7px 0px 10px 20px;
-                font-weight: 300;
+                font-weight: 400;
+                color: #000;
             }
         }
     }
@@ -58,35 +59,30 @@
 @media screen and (max-width:1440px) {
     .tab-wallet {
         margin-top: 50px;
+        max-width: 400px;
 
         h2 {
-            font-size: 36px;
+            font-size: 30px;
         }
 
-        .upper {
+        .upper,
+        .lower {
             font-size: 16px;
         }
 
         .form-control {
-            width: 520px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-
             .input-container {
-                margin: 16px 25px;
-                border-radius: 16px;
 
                 label {
                     padding: 10px 0 0 20px;
+                    font-size: 16px;
                 }
 
                 input {
+                    font-size: 16px;
                     padding: 5px 0 5px 20px;
                 }
             }
         }
-
-
     }
 }
