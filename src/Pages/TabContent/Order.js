@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FormControl,
   FormLabel,
@@ -8,17 +8,37 @@ import {
   Textarea,
   Box,
   Button,
+  useEditable,
 } from "@chakra-ui/react";
 import "./order.css";
 import "../../responsive.css";
 import filter from "../../Images/filter.png";
 import { MdArrowForward } from "react-icons/md";
+import axios from 'axios'
 // import Rating from "../../Components/Rating";
 // import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 function Order() {
   const [show, setShow] = useState(true);
   const [hide, setHide] = useState(true);
+
+  const token = localStorage.getItem("token");
+  const getData = async () => {
+    try {
+      const response = await axios.get("http://34.233.35.208/api/add-bank", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("ma belle",response.data);
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  useEffect(() => {
+   getData()
+  }, [])
+  
   return (
     <React.Fragment>
       {hide === true ? (

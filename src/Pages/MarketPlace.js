@@ -88,7 +88,7 @@ const handleRouteChange = (url,datas) => {
             {data.map((item, index) => {
               return (
               
-                  <div className="item-box"  onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
+                  <div className="item-box"  style={{cursor:"pointer"}} onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
                     <figure>
                       <img src={`http://34.233.35.208/${item.cover_img}`} />
                     </figure>

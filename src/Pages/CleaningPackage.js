@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import DateTime from 'react-datetime';
 import cleaner from './../Images/cleaners.png'
-import { useLocation } from 'react-router-dom'
+import { useLocation ,useNavigate} from 'react-router-dom'
 import { MdArrowForward } from "react-icons/md";
 import ChakraDatePicker from '../Components/ChakraDatePicker'
 import DateTimePicker from 'react-datetime-picker';
@@ -25,6 +25,10 @@ function CleaningPackage() {
     const location = useLocation();
     const data = location.state ? location.state.data : null;
     const [value, setValue] = useState(new Date());
+    const navigate = useNavigate();
+    const handleRouteChange = (url, datas) => {
+      navigate(url, { state: { data: datas } });
+    };
     const BookRequest = async (token, service_id, price_id, date_time, currency) => {
         const url = 'http://34.233.35.208/api/book_services'; // Replace this with your API URL
         let date = new Date(date_time);
@@ -51,7 +55,11 @@ function CleaningPackage() {
       
         try {
           const response = await axios.post(url, formData, config);
-          return response.data;
+          if(response.status == 200){
+            alert("Booked Successfully")
+            handleRouteChange('/booking',response.data)
+          }
+          return response;
         } catch (error) {
           console.error(error);
         }

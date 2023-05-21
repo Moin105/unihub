@@ -106,6 +106,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
   width: 220px;
