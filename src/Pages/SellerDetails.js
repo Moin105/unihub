@@ -47,7 +47,7 @@ function SellerDetails() {
     //   }
     // })
     // .then((res)=>res.json())
-    postData('http://34.233.35.208/api/switch_profile',{is_seller:1},localStorage.getItem("token"))
+    postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},localStorage.getItem("token"))
   };
   const dispatch = useDispatch();
   useEffect(() => {

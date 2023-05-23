@@ -23,7 +23,7 @@ const handleRouteChange = (url,datas) => {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "http://34.233.35.208/api/guest_all_products",
+        "https://admin.myuni-hub.com/api/guest_all_products",
       );
       return setData(response.data.products);
     } catch (error) {
@@ -85,7 +85,7 @@ const handleRouteChange = (url,datas) => {
                 // <Link to="/itemdetail">
                   <div className="item-box"           onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
                     <figure>
-                      <img src={`http://34.233.35.208/${item.cover_img}`} />
+                      <img src={`https://admin.myuni-hub.com/${item.cover_img}`} />
                     </figure>
                     <p>{item.name}</p>
                   </div>

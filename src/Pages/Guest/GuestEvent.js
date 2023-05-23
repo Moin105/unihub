@@ -35,7 +35,7 @@ const handleRouteChange = (url,datas) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/guest_all_events',);
+      const response = await axios.get('https://admin.myuni-hub.com/api/guest_all_events',);
       setData(response.data.events);
       console.log("biloll",response.data.events)
       

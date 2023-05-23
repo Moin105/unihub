@@ -30,7 +30,7 @@ function CleaningPackage() {
       navigate(url, { state: { data: datas } });
     };
     const BookRequest = async (token, service_id, price_id, date_time, currency) => {
-        const url = 'http://34.233.35.208/api/book_services'; // Replace this with your API URL
+        const url = 'https://admin.myuni-hub.com/api/book_services'; // Replace this with your API URL
         let date = new Date(date_time);
 
         let yearMonthDay = date.toISOString().slice(0,10); // Gets "2023-05-22"

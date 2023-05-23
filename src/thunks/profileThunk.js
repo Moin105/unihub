@@ -25,7 +25,7 @@ export const fetchUserProfile = createAsyncThunk(
         }
     //   const token = thunkAPI.getState().auth.token;
       const headers = { Authorization: `Bearer ${token}` };
-      const response = await axios.get('http://34.233.35.208/api/my_profile', { headers });
+      const response = await axios.get('https://admin.myuni-hub.com/api/my_profile', { headers });
       return response.data;
     }
   );

@@ -25,7 +25,7 @@ function Order() {
   const token = localStorage.getItem("token");
   const getData = async () => {
     try {
-      const response = await axios.get("http://34.233.35.208/api/add-bank", {
+      const response = await axios.get("https://admin.myuni-hub.com/api/add-bank", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

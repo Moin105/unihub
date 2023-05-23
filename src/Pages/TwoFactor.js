@@ -26,7 +26,7 @@ function TwoFactor() {
       const { otp } = credentials;
 
         try {
-          const response = await fetch('http://34.233.35.208/api/match_otp', {
+          const response = await fetch('https://admin.myuni-hub.com/api/match_otp', {
             method: 'POST',
             body: JSON.stringify({otp:credentials.otp,email:location.state.data.email}),
             headers: { 'Content-Type': 'application/json' },

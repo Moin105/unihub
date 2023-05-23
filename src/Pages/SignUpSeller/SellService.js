@@ -56,7 +56,7 @@ function SellService() {
     const [image,setImage]=useState(null)
     const [cover_img,setCoverImg]=useState(null)
     const  fetchServiceCategories= async(token)=> {
-        return await fetch('http://34.233.35.208/api/service_category', {
+        return await fetch('https://admin.myuni-hub.com/api/service_category', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -75,7 +75,7 @@ function SellService() {
           });
       }
       const  fetchUniversities= async(token)=> {
-        return  await fetch('http://34.233.35.208/api/universities', {
+        return  await fetch('https://admin.myuni-hub.com/api/universities', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -252,7 +252,7 @@ function SellService() {
         //     },
         //     body: JSON.stringify(finalFormData),
         //   })
-        postData("http://34.233.35.208/api/cleaning_services",finalFormData,token,image,cover_img)
+        postData("https://admin.myuni-hub.com/api/cleaning_services",finalFormData,token,image,cover_img)
         // Call the POST API with finalFormData heres
       };
       

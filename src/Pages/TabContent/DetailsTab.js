@@ -75,7 +75,7 @@ function DetailsTab() {
     //     "Authorization":localStorage.getItem("token")
     //   }
     // })
-    postData("http://34.233.35.208/api/update_profile?_method=PUT",formData,localStorage.getItem("token"))
+    postData("https://admin.myuni-hub.com/api/update_profile?_method=PUT",formData,localStorage.getItem("token"))
   }
   return (
     <div className="tab-details">

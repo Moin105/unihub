@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setName } from '../features/UserSlice';
 import { useDispatch } from 'react-redux';
-const BaseUrl = 'http://34.233.35.208/api';
+const BaseUrl = 'https://admin.myuni-hub.com/api';
 // export const SignUps = async ({ name, email, password, confirmPassword }) => {
 //   // const dispatch = useDispatch();
 //   const response = await fetch(`${BaseUrl}/register`, {

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setData } from '../slices/apiSlice';
 
-const BASE_URL = 'http://34.233.35.208/api';
+const BASE_URL = 'https://admin.myuni-hub.com/api';
 //  seller 
 export const fetchEndpointOne = createAsyncThunk(
     'api/product_category',

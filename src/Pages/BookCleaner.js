@@ -36,7 +36,7 @@ const handleRouteChange = (url,datas) => {
   const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/all_services',{
+      const response = await axios.get('https://admin.myuni-hub.com/api/all_services',{
         headers
       });
       setData(response.data.services);

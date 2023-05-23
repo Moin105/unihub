@@ -37,7 +37,7 @@ const handleRouteChange = (url,datas) => {
   const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.233.35.208/api/guest_all_service_providers');
+      const response = await axios.get('https://admin.myuni-hub.com/api/guest_all_service_providers');
       setData(response.data.providers);
       console.log("guest",response.data.providers)
       
@@ -60,7 +60,7 @@ useEffect(() => {
 useEffect(() => {
     const fetchDetailedData = async (id) => {
       try {
-        const response = await axios.get(`http://34.233.35.208/api/guest_all_services_of_provider/${id}`);
+        const response = await axios.get(`https://admin.myuni-hub.com/api/guest_all_services_of_provider/${id}`);
         console.log("biloll",response.data)
         return response.data.services;
       } catch (error) {

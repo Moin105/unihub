@@ -23,7 +23,7 @@ const handleRouteChange = (url,datas) => {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "http://34.233.35.208/api/all_products",
+        "https://admin.myuni-hub.com/api/all_products",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const handleRouteChange = (url,datas) => {
               
                   <div className="item-box"  style={{cursor:"pointer"}} onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
                     <figure>
-                      <img src={`http://34.233.35.208/${item.cover_img}`} />
+                      <img src={`https://admin.myuni-hub.com/${item.cover_img}`} />
                     </figure>
                     <p>{item.name}</p>
                   </div>

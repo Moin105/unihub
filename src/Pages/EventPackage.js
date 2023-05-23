@@ -26,7 +26,7 @@ function    EventPackage() {
     const data = location.state ? location.state.data : null;
     const [value, setValue] = useState(new Date());
     const BookRequest = async (token, event_id, price_id, currency) => {
-        const url = 'http://34.233.35.208/api/book_event'; // Replace this with your API URL
+        const url = 'https://admin.myuni-hub.com/api/book_event'; // Replace this with your API URL
 
         
         const formData = new FormData();

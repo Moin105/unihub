@@ -16,7 +16,7 @@ const baseUrl = process.env.BASE_URL;
 export const login = (credentials) => async (dispatch) => {
 const { email, password } = credentials;
   try {
-    const response = await fetch('http://34.233.35.208/api/login', {
+    const response = await fetch('https://admin.myuni-hub.com/api/login', {
       method: 'POST',
       body: JSON.stringify(credentials),
       headers: { 'Content-Type': 'application/json' },
@@ -64,7 +64,7 @@ function Signin() {
    const logins = (credentials) => async (dispatch) => {
     const { email, password } = credentials;
       try {
-        const response = await fetch('http://34.233.35.208/api/login', {
+        const response = await fetch('https://admin.myuni-hub.com/api/login', {
           method: 'POST',
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' },

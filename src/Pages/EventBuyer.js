@@ -38,7 +38,7 @@ function EventBuyer() {
   const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://34.233.35.208/api/events", {
+      const response = await axios.get("https://admin.myuni-hub.com/api/api/events", {
         headers,
       });
       setData(response.data.events);

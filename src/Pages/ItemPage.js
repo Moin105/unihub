@@ -21,7 +21,7 @@ function ItemPage() {
     setValue(event.target.value);
   };
   const BookRequest = async (token, product_id, quantity, currency) => {
-    const url = 'http://34.233.35.208/api/book_product'; // Replace this with your API URL
+    const url = 'https://admin.myuni-hub.com/api/book_product'; // Replace this with your API URL
    
     
     const formData = new FormData();
@@ -56,7 +56,7 @@ function ItemPage() {
             <span className="price-number">£{data.price}</span>
           </div>
           <figure>
-            <img src={`http://34.233.35.208/${data.cover_img}`} />
+            <img src={`https://admin.myuni-hub.com/${data.cover_img}`} />
           </figure>
           <div className="quantity-container">
             <p>Enter Quantity</p>
