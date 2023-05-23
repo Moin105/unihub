@@ -27,8 +27,6 @@ const postData = async (url, data,token) => {
     // Handle error response here
   }
 };
-import "../../responsive.css";
-import { MdArrowForward } from "react-icons/md";
 function DetailsTab() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true)

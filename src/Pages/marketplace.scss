@@ -115,14 +115,13 @@
                 align-items: center;
                 gap: 60px;
 
+                a {
 
                     .item-box {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
                         align-items: center;
-                   
-                        cursor: pointer;
 
                         figure {
                             width: 220px;
@@ -142,7 +141,7 @@
                             font-weight: 300;
                         }
                     }
-                
+                }
             }
         }
     }
@@ -271,7 +270,7 @@
                 .items-wrapper {
                     gap: 30px;
 
-                   
+                    a {
 
                         .item-box {
 
@@ -284,7 +283,7 @@
                                 font-size: 16px !important;
                             }
                         }
-                    
+                    }
                 }
             }
         }
