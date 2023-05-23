@@ -68,8 +68,7 @@
 .marketplace .wrapper .middle-container .categories-container .category-box figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box p {
   font-size: 16px;
@@ -101,27 +100,24 @@
   align-items: center;
   gap: 60px;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box {
+.marketplace .wrapper .item-container .items-wrapper a .item-box {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  cursor: pointer;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box figure {
+.marketplace .wrapper .item-container .items-wrapper a .item-box figure {
   width: 220px;
   height: 220px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin-bottom: 10px;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box figure img {
+.marketplace .wrapper .item-container .items-wrapper a .item-box figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
-.marketplace .wrapper .item-container .items-wrapper .item-box p {
+.marketplace .wrapper .item-container .items-wrapper a .item-box p {
   font-size: 20px !important;
   font-weight: 300;
 }
@@ -156,11 +152,11 @@
   .marketplace .wrapper .item-container h4 {
     font-size: 22px;
   }
-  .marketplace .wrapper .item-container .items-wrapper .item-box figure {
+  .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
     width: 180px;
     height: 180px;
   }
-  .marketplace .wrapper .item-container .items-wrapper .item-box p {
+  .marketplace .wrapper .item-container .items-wrapper a .item-box p {
     font-size: 16px !important;
   }
 }
@@ -207,4 +203,6 @@
   .marketplace .wrapper .item-container .items-wrapper a .item-box p {
     font-size: 16px !important;
   }
-}/*# sourceMappingURL=marketplace.css.map */
+}
+
+/*# sourceMappingURL=marketplace.css.map */

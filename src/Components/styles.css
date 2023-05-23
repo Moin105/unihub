@@ -21,6 +21,7 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  object-fit: cover;
 }
 .header .container .nav {
   display: flex;
@@ -39,4 +40,6 @@
   .header .container {
     max-width: 90%;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

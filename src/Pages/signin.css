@@ -98,17 +98,6 @@
     align-items: center;
     gap: 20px;
   }
-  .signin-page .container .media-newhub .container form .input-container input {
-    width: 100%;
-    flex: 1 1;
-    font-size: 21px;
-    background-color: white;
-    border-radius: 333px;
-    border: none;
-    outline: none;
-    color: #6F6F6F;
-    padding: 2px 0px 8px 30px;
-  }
   .signin-page .container .media-newhub .continue {
     text-align: center;
     font-size: 14px;
@@ -118,4 +107,6 @@
   .signin-page .container .media-newhub .new-to-unihub {
     font-size: 14px;
   }
-}/*# sourceMappingURL=signin.css.map */
+}
+
+/*# sourceMappingURL=signin.css.map */

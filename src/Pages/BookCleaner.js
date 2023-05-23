@@ -167,6 +167,8 @@ useEffect(() => {
           <Footer/> 
     </div>
   );
+  );
 }
 
 export default BookCleaner;
+;

@@ -52,8 +52,7 @@
 .messages .wrapper .messenger-container .messenger-box .figure figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .messages .wrapper .messenger-container .messenger-box .upper-row {
   display: flex;
@@ -118,8 +117,7 @@
   .messages .wrapper .messenger-container .messenger-box .figure figure img {
     width: 100%;
     height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
   .messages .wrapper .messenger-container .messenger-box .upper-row {
     display: flex;
@@ -146,4 +144,6 @@
     font-size: 16px;
     font-weight: 300;
   }
-}/*# sourceMappingURL=message.css.map */
+}
+
+/*# sourceMappingURL=message.css.map */

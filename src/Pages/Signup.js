@@ -65,7 +65,6 @@ function Signup() {
             <br></br>and an uppercase letter example
           </span>
           <button className="btn">Sign Up</button>
-          <span className="downspan">Or continue with</span>
           {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {user && <p>Welcome, {user.name}!</p>}
