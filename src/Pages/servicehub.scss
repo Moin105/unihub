@@ -33,7 +33,7 @@
 
 
                 .outline-box {
-                    max-width: 100%;
+                    width: 100%;
                     display: block;
                     padding: 14px 18px;
                     border: 1px solid #7BB564;
@@ -52,6 +52,7 @@
                         color: #000000;
                     }
                 }
+
 
                 .outline-boxs {
                     max-width: 100%;
@@ -188,9 +189,6 @@
         .wrapper {
             max-width: 400px;
 
-            h2 {
-                font-size: 24px;
-            }
 
             p {
                 font-size: 12px;

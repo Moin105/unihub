@@ -12,6 +12,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-inline: 16px;
 
         .seller {
             display: flex;
@@ -52,6 +53,7 @@
             // max-width: 600px;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
 
 
 
@@ -168,7 +170,7 @@
 @media screen and (max-width:1440px) {
     .sellerpage {
         .wrapper {
-            max-width: 600px;
+            max-width: 640px;
 
             .seller {
                 display: flex;
@@ -223,7 +225,8 @@
                 width: 100%;
 
                 .circle {
-                    width: 100px;
+                    min-width: 100px;
+                    max-width: 100px;
                     height: 100px;
                 }
 
@@ -250,6 +253,26 @@
                     width: 100%;
                 }
 
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .sellerpage {
+        .wrapper {
+            .review-card {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px;
+
+                .rowta {
+                    align-items: center;
+
+                    p {
+                        text-align: center;
+                    }
+                }
             }
         }
     }

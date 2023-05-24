@@ -114,7 +114,7 @@ function EventBuyer() {
                 </div>
               );
             })}
-             <div className="wallet-btn">
+             <div className="primary-btn">
           <Button
             rightIcon={<MdArrowForward />}
             bg="#7BB564"

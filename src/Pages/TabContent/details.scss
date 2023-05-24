@@ -6,7 +6,6 @@
     width: 100%;
     margin-top: 50px;
     max-width: 550px;
-    margin-inline: 16px;
 
     h2 {
         color: #7BB564;
@@ -56,6 +55,9 @@
 
     }
 
+    .primary-btn button {
+        width: auto !important;
+    }
 
     .lower {
         font-size: 20px;
@@ -67,7 +69,7 @@
 @media screen and (max-width:1440px) {
     .tab-details {
         margin-top: 50px;
-        width: 400px;
+        max-width: 400px;
 
         h2 {
             font-size: 36px;
@@ -118,10 +120,7 @@
                 }
 
                 input {
-                    font-size: 20px;
-                    font-weight: 300;
-                    height: auto;
-                    border-color: none;
+                    font-size: 16px;
                     padding: 0px 0px 5px 20px;
                 }
             }
@@ -133,5 +132,16 @@
             font-size: 16px;
         }
 
+    }
+}
+
+@media screen and (max-width:768px) {
+    .tab-details {
+
+        .primary-btn {
+            button {
+                padding: 10px 15px 10px 15px;
+            }
+        }
     }
 }

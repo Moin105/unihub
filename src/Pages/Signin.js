@@ -7,7 +7,7 @@ import apple from '../Images/apple.png'
 import facebook from '../Images/facebook.png'
 import { setToken } from '../features/UserSlice'
 import { Link } from 'react-router-dom'
-import google from '../Images/google.png'
+import google from '../Images/google.svg'
 import { useDispatch,useSelector   } from 'react-redux'
 import { useNavigate,useLocation } from 'react-router-dom';
 import { useMutation } from 'react-query';

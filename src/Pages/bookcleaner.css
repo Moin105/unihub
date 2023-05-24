@@ -32,8 +32,16 @@
 .bookcleaner .wrapper figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
+}
+.bookcleaner .wrapper .ouper {
+  margin-bottom: 10px;
+}
+.bookcleaner .wrapper .date-wrapper {
+  min-width: 70%;
+}
+.bookcleaner .wrapper .date-wrapper .form-control {
+  margin: 0;
 }
 .bookcleaner .wrapper .form-control {
   width: 100%;
@@ -92,6 +100,9 @@
     max-width: 800px;
     min-height: calc(100vh - 251.48px);
   }
+  .bookcleaner .wrapper h2 {
+    font-size: 30px;
+  }
   .bookcleaner .wrapper .form-control {
     max-width: 400px;
   }
@@ -114,11 +125,16 @@
     max-width: 90%;
     min-height: calc(100vh - 275.48px);
   }
-  .bookcleaner .wrapper .form-control {
-    margin-inline: 20px;
+  .bookcleaner .wrapper .date-wrapper {
+    min-width: 90%;
   }
   .bookcleaner .wrapper .card-cleaner {
     margin-left: 0px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .bookcleaner .wrapper .date-wrapper .form-control {
+    padding-left: 30px;
   }
 }
 

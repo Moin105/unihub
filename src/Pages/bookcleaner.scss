@@ -39,6 +39,18 @@
             }
         }
 
+        .ouper {
+            margin-bottom: 10px;
+        }
+
+        .date-wrapper {
+            min-width: 70%;
+
+            .form-control {
+                margin: 0;
+            }
+        }
+
         .form-control {
             width: 100%;
             max-width: 550px;
@@ -112,7 +124,9 @@
             max-width: 800px;
             min-height: calc(100vh - 251.48px);
 
-
+            h2 {
+                font-size: 30px;
+            }
 
             .form-control {
                 max-width: 400px;
@@ -142,6 +156,7 @@
         .wrapper {
             max-width: 600px;
             min-height: calc(100vh - 275.48px);
+
         }
     }
 
@@ -153,13 +168,29 @@
             max-width: 90%;
             min-height: calc(100vh - 275.48px);
 
-            .form-control {
-                margin-inline: 20px;
+            .date-wrapper {
+                min-width: 90%;
             }
 
             .card-cleaner {
                 margin-left: 0px;
             }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    .bookcleaner {
+        .wrapper {
+
+            .date-wrapper {
+
+                .form-control {
+                    padding-left: 30px;
+                }
+            }
+
         }
     }
 

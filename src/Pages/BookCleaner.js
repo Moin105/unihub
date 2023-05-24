@@ -149,7 +149,7 @@ useEffect(() => {
                         <h4>Select Package</h4>
                      
                   </div> */}
-                  <div className="wallet-btn">
+                  <div className="primary-btn">
                   {/* <Link to={{pathname:`/bookcleaner/:${selectedOption?.id}`,state: {selectedOption},}}> */}
                         <Button
           rightIcon={<MdArrowForward />}

@@ -43,7 +43,6 @@ function ForgetPassword() {
         ) : (
           <React.Fragment>
             <div className="middle-container">
-              <h2>Forgot Your Password</h2>
               <span className="small-p">
                 Enter your email address and we will send you A link to
                 reset your password{" "}
@@ -69,7 +68,7 @@ function ForgetPassword() {
         <h3 className="new-to-unihub">
           Already Have an Account?{" "}
           <span>
-            <a href="/">Sign In</a>
+            <a href="/login">Sign In</a>
           </span>
         </h3>
       </div>

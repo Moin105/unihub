@@ -29,6 +29,7 @@
             flex-direction: column;
             gap: 30px;
             align-items: center;
+            width: 100%;
 
             .input-container {
                 position: relative;
@@ -90,18 +91,12 @@
             }
 
             form {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                width: 280px !important;
-                margin: 0 auto;
-
                 align-items: center;
 
                 .input-container {
                     position: relative;
                     width: 100%;
-                    
+
                     display: flex;
                 }
 

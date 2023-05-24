@@ -28,7 +28,7 @@ function Details() {
       {/* services */}
       <div className="our-services">
         <div className="wrapper">
-          <h2>Our Services</h2>
+          <h2 className="main-heading">Our Services</h2>
           <div className="servicetags-container">
             <Link to="/bookservices">
               <ServiceTag icon={bookas} name="Book a Service" />

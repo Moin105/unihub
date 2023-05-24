@@ -122,12 +122,17 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
+    {path:"/forgetpassword" ,element:<ForgetPassword /> , name:"ForgetPassword" } ,
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     dynamicRoute,
     dynamicEventRoute,dynamicItemRoute,
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
+    // routes created by taimoor
+    {path:'/servicehub',element:<ServiceHub/>,name:"ServiceHub"},
+    {path:'/sellerpage',element:<SellerPage/>,name:"SellerPage"},
+
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     // {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
     dynamicRoute,

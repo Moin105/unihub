@@ -203,7 +203,7 @@ function SignUpSeller() {
             </Box>
             {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
           </FormControl>
-          <div className="details-btn">
+          <div className="primary-btn">
             <Button
               rightIcon={<MdArrowForward />}
               bg="#7BB564"
