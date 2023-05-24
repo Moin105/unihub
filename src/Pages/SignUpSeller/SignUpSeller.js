@@ -14,6 +14,7 @@ import "../../Pages/TabContent/details.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sellerSignUpUser } from "../../thunks/userThunks";
 import { MdArrowForward } from "react-icons/md";
+import Footer from "../../Components/Footer";
 function SignUpSeller() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true);
@@ -203,7 +204,7 @@ function SignUpSeller() {
             </Box>
             {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
           </FormControl>
-          <div className="details-btn">
+          <div className="primary-btn">
             <Button
               rightIcon={<MdArrowForward />}
               bg="#7BB564"
@@ -217,6 +218,7 @@ function SignUpSeller() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

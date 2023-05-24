@@ -129,6 +129,7 @@ function App() {
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
+
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     // {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
     dynamicRoute,

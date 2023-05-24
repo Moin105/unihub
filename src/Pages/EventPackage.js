@@ -65,7 +65,7 @@ function    EventPackage() {
             <p className='ouper'>Check out our availability and book<br></br> the date and time that works for you</p>
             {/* <pre>{JSON.stringify(obj.id, null, 2)}</pre> */}
             
-          <Box m={0} className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+          <Box m={0} className='outline-box date-wrapper' borderWidth="1px" borderRadius="lg" p={4}>
           <Heading as="h3" size="md" mb={2}>
             Selected Date
           </Heading> 
@@ -85,7 +85,7 @@ function    EventPackage() {
         </Box> 
         {/* <ChakraDatePicker date={date} setDate={setDate} /> */}
       
-                <div className="wallet-btn">
+                <div className="primary-btn">
       <Button 
       onClick={()=>{BookRequest(token,data.event_id,data.id,'usd')}}
         rightIcon={<MdArrowForward />}

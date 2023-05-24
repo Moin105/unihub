@@ -25,9 +25,12 @@
                 margin-bottom: 30px;
             }
 
+            .main-heading,
             h2 {
                 font-weight: 500;
                 margin-bottom: 30px;
+                color: #7BB564;
+                font-size: 36px;
             }
 
             .servicebook-container,
@@ -39,12 +42,10 @@
                 // max-width: 600px;
                 gap: 10px;
 
-
-
                 a {
                     .servicetag-box {
                         display: flex;
-                        gap: 31px;
+                        gap: 30px;
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
@@ -189,13 +190,17 @@
             .wrapper {
                 max-width: 1024px;
 
+                .main-heading {
+                    font-size: 30px;
+                }
+
                 .servicebook-container,
                 .servicetags-container {
 
                     a {
                         .servicetag-box {
                             display: flex;
-                            gap: 31px;
+                            gap: 20px;
                             align-items: center;
                             justify-content: center;
                             flex-direction: column;
