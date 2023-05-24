@@ -95,12 +95,13 @@
     .wrapper {
         flex: 1;
         width: 100%;
-        max-width: 600px;
+        max-width: 640px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: calc(100vh - 313px);
+        padding-inline: 10px;
 
         h4 {
             font-size: 48px;
@@ -250,7 +251,6 @@
                             font-size: 14px;
                         }
 
-                        //    flex-direction: column;  
                     }
 
                     .name-message {
@@ -268,6 +268,25 @@
 
                 }
 
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .messages {
+        .wrapper {
+            h4 {
+                margin-top: 0;
+            }
+
+            .messenger-container {
+                margin-bottom: 0;
+
+                .messenger-box {
+                    width: 100%;
+                    gap: 20px;
+                }
             }
         }
     }

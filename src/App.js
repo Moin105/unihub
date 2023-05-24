@@ -129,9 +129,6 @@ function App() {
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
-    // routes created by taimoor
-    {path:'/servicehub',element:<ServiceHub/>,name:"ServiceHub"},
-    {path:'/sellerpage',element:<SellerPage/>,name:"SellerPage"},
 
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     // {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},

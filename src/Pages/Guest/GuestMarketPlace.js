@@ -48,7 +48,7 @@ const handleRouteChange = (url,datas) => {
           </p>
         </div>
         <div className="middle-container">
-          {/* <h5>Categories</h5>
+          <h5>Categories</h5>
           <div className="categories-container">
             <div className="category-box">
               <figure>
@@ -74,7 +74,7 @@ const handleRouteChange = (url,datas) => {
               </figure>
               <p>Home & Kitchen</p>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="item-container">
