@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 550px;
 }
 .tab-tickets h2 {
   color: #7BB564;
@@ -15,7 +15,7 @@
   color: #707070;
 }
 .tab-tickets .form-control {
-  width: 700px;
+  width: 100%;
 }
 .tab-tickets .form-control .input-container {
   margin: 10px;
@@ -30,6 +30,7 @@
   border-color: none;
   padding: 7px 0px 10px 20px;
   font-weight: inherit;
+  color: #000;
 }
 .tab-tickets p {
   font-size: 32px;
@@ -41,13 +42,12 @@
     margin-top: 50px;
   }
   .tab-tickets h2 {
-    font-size: 36px;
+    font-size: 30px;
   }
   .tab-tickets .upper {
     font-size: 16px;
   }
   .tab-tickets .form-control {
-    width: 520px;
     gap: 10px;
     display: flex;
     flex-direction: column;
@@ -57,9 +57,11 @@
     border-radius: 16px;
   }
   .tab-tickets .form-control .input-container label {
+    font-size: 16px;
     padding: 10px 0 0 20px;
   }
   .tab-tickets .form-control .input-container input {
+    font-size: 16px;
     padding: 5px 0 5px 20px;
   }
   .tab-tickets p {

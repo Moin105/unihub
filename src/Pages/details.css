@@ -32,6 +32,7 @@
   display: flex;
   flex: 1;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .details-page .our-services .wrapper .servicebook-container a .servicetag-box,
@@ -142,9 +143,7 @@
 }
 .details-page .our-reviews .wrapper .reviewers-container .review-card figure {
   width: 204px;
-  height: 40px;
-  -o-object-fit: none;
-     object-fit: none;
+  object-fit: none;
 }
 .details-page .our-reviews .wrapper .reviewers-container .review-card figure img {
   width: 100%;
@@ -215,4 +214,14 @@
     margin-bottom: 15px;
     margin-inline: auto;
   }
-}/*# sourceMappingURL=details.css.map */
+  .details-page .our-reviews .wrapper .reviewers-container .review-card figure {
+    width: 150px;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .details-page .our-reviews .wrapper .reviewers-container .review-card {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=details.css.map */

@@ -50,3 +50,30 @@
         }
     }
 }
+
+@media screen and (max-width:1024px) {
+    .header {
+        .container {
+
+            .nav {
+                gap: 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header {
+        .container {
+
+            .media-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav {
+                gap: 20px;
+            }
+        }
+    }
+}

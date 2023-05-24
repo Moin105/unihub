@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
 
     h2 {
         color: #7BB564;
@@ -17,7 +17,7 @@
     }
 
     .form-control {
-        width: 700px;
+        width: 100%;
 
         .input-container {
             margin: 10px;
@@ -33,6 +33,7 @@
                 border-color: none;
                 padding: 7px 0px 10px 20px;
                 font-weight: inherit;
+                color: #000;
             }
         }
     }
@@ -49,7 +50,7 @@
         margin-top: 50px;
 
         h2 {
-            font-size: 36px;
+            font-size: 30px;
         }
 
         .upper {
@@ -57,7 +58,6 @@
         }
 
         .form-control {
-            width: 520px;
             gap: 10px;
             display: flex;
             flex-direction: column;
@@ -67,10 +67,12 @@
                 border-radius: 16px;
 
                 label {
+                    font-size: 16px;
                     padding: 10px 0 0 20px;
                 }
 
                 input {
+                    font-size: 16px;
                     padding: 5px 0 5px 20px;
                 }
             }

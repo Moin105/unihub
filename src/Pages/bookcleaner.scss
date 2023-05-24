@@ -15,6 +15,12 @@
         justify-content: center;
         align-items: center;
         min-height: calc(100vh - 313px);
+        margin-inline: 20px;
+
+        .tag-label {
+            margin-inline: 0px;
+            color: #000;
+        }
 
         h2 {
             margin: 30px 0px;
@@ -34,24 +40,24 @@
         }
 
         .form-control {
-            width: 520px;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            max-width: 550px;
 
             .input-container {
-                margin: 8px 30px;
+                margin: 8px 0px;
                 border-radius: 16px;
 
                 label {
                     font-size: 18px;
+                    padding-top: 10px;
                     margin: 0;
                 }
 
                 input {
-                    font-size: 20px !important;
                     height: auto;
-                    border-color: none !important;
-                    padding: 7px 0px 10px 20px;
+                    border: none;
+                    padding: 5px 0px 5px 20px;
+                    font-size: 20px;
                     font-weight: 300;
                 }
             }
@@ -109,13 +115,9 @@
 
 
             .form-control {
-                width: 520px;
-                display: flex;
-                flex-direction: column;
+                max-width: 400px;
 
                 .input-container {
-                    margin: 8px 30px;
-                    border-radius: 16px;
 
                     label {
                         font-size: 16px;
@@ -123,11 +125,9 @@
                     }
 
                     input {
-                        font-size: 16px !important;
-                        height: auto;
-                        border-color: none !important;
-                        padding: 7px 0px 10px 20px;
+                        font-size: 16px;
                     }
+
                 }
             }
 
@@ -142,6 +142,24 @@
         .wrapper {
             max-width: 600px;
             min-height: calc(100vh - 275.48px);
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .bookcleaner {
+        .wrapper {
+            max-width: 90%;
+            min-height: calc(100vh - 275.48px);
+
+            .form-control {
+                margin-inline: 20px;
+            }
+
+            .card-cleaner {
+                margin-left: 0px;
+            }
         }
     }
 

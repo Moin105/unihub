@@ -5,7 +5,8 @@
     justify-content: center;
     width: 100%;
     margin-top: 50px;
-    max-width: 600px;
+    max-width: 550px;
+    margin-inline: 16px;
 
     h2 {
         color: #7BB564;
@@ -26,40 +27,47 @@
     }
 
     .form-control {
-        width: 520px;
+        width: 100%;
         gap: 10px;
         display: flex;
         flex-direction: column;
+        margin: 0 16px;
+
 
         .input-container {
-            margin: 16px 25px;
             border-radius: 16px;
+            margin: 0 0 20px 0;
 
             label {
                 font-size: 18px;
                 margin: 0;
+                padding: 10px 0 0 20px;
+            }
+
+            input {
+                font-size: 20px;
+                font-weight: 300;
+                height: auto;
+                border-color: none;
+                padding: 5px 0px 5px 20px;
             }
         }
 
-        input {
-            font-size: 20px;
-            font-weight: 300;
-            height: auto;
-            border-color: none;
-            padding: 7px 0px 10px 20px;
-        }
+
     }
 
 
     .lower {
         font-size: 20px;
         font-weight: 300;
+        margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width:1440px) {
     .tab-details {
         margin-top: 50px;
+        width: 400px;
 
         h2 {
             font-size: 36px;
@@ -67,26 +75,6 @@
 
         .upper {
             font-size: 16px;
-        }
-
-        .form-control {
-            width: 520px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-
-            .input-container {
-                margin: 16px 25px;
-                border-radius: 16px;
-
-                label {
-                    padding: 10px 0 0 20px;
-                }
-
-                input {
-                    padding: 5px 0 5px 20px;
-                }
-            }
         }
 
         p {
@@ -102,6 +90,7 @@
 
 @media screen and (max-width:1024px) {
     .tab-details {
+        margin-top: 0px;
 
         h2 {
             font-size: 30px;
@@ -116,26 +105,29 @@
         }
 
         .form-control {
-            width: 520px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
+
 
             .input-container {
-                margin: 16px 25px;
-                border-radius: 16px;
+                border-radius: 10px;
+                margin: 0 0 15px 0;
 
                 label {
-                    padding: 10px 0 0 20px;
+                    font-size: 16px;
+                    margin: 0;
+                    padding: 5px 0 0 20px;
                 }
 
                 input {
-                    padding: 5px 0 5px 20px;
+                    font-size: 20px;
+                    font-weight: 300;
+                    height: auto;
+                    border-color: none;
+                    padding: 0px 0px 5px 20px;
                 }
             }
+
+
         }
-
-
 
         .lower {
             font-size: 16px;

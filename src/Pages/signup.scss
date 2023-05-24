@@ -10,7 +10,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin: 20px 0px;
+        margin-inline: 16px;
 
         .headu {
             display: flex;
@@ -21,7 +21,6 @@
             h2 {
                 margin-top: 28px;
                 margin-bottom: 24px;
-                font-size: 48px;
             }
         }
 
@@ -93,45 +92,14 @@
 
 @media screen and (max-width:1440px) {
     .signup-page {
-        display: flex;
-        background: #F8F6F5 0% 0% no-repeat padding-box;
-        justify-content: center;
-        min-height: 100vh;
 
         .container {
             max-width: 400px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin: 20px 0px;
 
             .headu {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
 
                 h2 {
                     margin-bottom: 10px;
-                }
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-
-                .input-container {
-                    position: relative;
-                    width: 100%;
-                    display: flex;
-                }
-
-                .downspan {
-                    font-size: 20px;
-                    font-weight: 300;
                 }
             }
 
@@ -160,6 +128,27 @@
                     span {
                         color: #91B375;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .signup-page {
+
+        .container {
+
+
+            form {
+                span {
+                    font-size: 12px;
+                    padding-inline: 20px;
+                }
+
+                .downspan {
+                    font-size: 20px;
+                    font-weight: 300;
                 }
             }
         }

@@ -1,20 +1,15 @@
 .servicehub {
-  display: flex;
   background: #F8F6F5 0% 0% no-repeat padding-box;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 .servicehub .wrapper {
   width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 550px;
   margin-top: 50px;
+  margin-inline: auto;
+  padding-inline: 20px;
 }
 .servicehub .wrapper h2 {
+  font-size: 36px;
   color: #7BB564;
 }
 .servicehub .wrapper h4 {
@@ -24,75 +19,55 @@
   margin-bottom: 0;
   font-weight: 300;
 }
-.servicehub .wrapper .wallet-btn {
-  width: auto;
-  margin: 25px 0px;
-}
-.servicehub .wrapper .wallet-btn button {
-  font-size: 23px;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 35px 45px 35px 65px;
-  border-radius: 111110px;
-  width: 400px;
-  margin: 0 auto;
-}
 .servicehub .wrapper .values-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 520px;
   margin: 30px 0px;
-  justify-content: center;
-  align-items: flex-start;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
+  text-align: left;
 }
-.servicehub .wrapper .values-container h5 {
-  font-size: 24px;
-  color: #000000;
-}
-.servicehub .wrapper .values-container .outline-box {
-  display: flex;
-  flex-direction: column;
+.servicehub .wrapper .values-container .values {
   width: 100%;
-  flex: 1;
-  align-items: flex-start;
+}
+.servicehub .wrapper .values-container .values .outline-box {
+  max-width: 100%;
+  display: block;
   padding: 14px 18px;
   border: 1px solid #7BB564;
   border-radius: 16px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
+  text-align: left;
 }
-.servicehub .wrapper .values-container .outline-box h3 {
+.servicehub .wrapper .values-container .values .outline-box h3 {
   font-size: 16px;
   color: #737373;
   margin-bottom: 7px;
 }
-.servicehub .wrapper .values-container .outline-box p {
+.servicehub .wrapper .values-container .values .outline-box p {
   font-size: 18px;
   color: #000000;
 }
-.servicehub .wrapper .values-container .outline-boxs {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 250px;
-  flex: 1;
-  align-items: flex-start;
+.servicehub .wrapper .values-container .values .outline-boxs {
+  max-width: 100%;
+  height: 150px;
   padding: 14px 18px;
   border: 1px solid #7BB564;
   border-radius: 16px;
   margin-bottom: 30px;
+  text-align: left;
 }
-.servicehub .wrapper .values-container .outline-boxs h3 {
+.servicehub .wrapper .values-container .values .outline-boxs h3 {
   font-size: 16px;
   color: #737373;
   margin-bottom: 7px;
 }
-.servicehub .wrapper .values-container .outline-boxs p {
+.servicehub .wrapper .values-container .values .outline-boxs p {
   font-size: 18px;
   color: #000000;
+}
+.servicehub .wrapper .values-container h5 {
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 10px;
 }
 .servicehub .wrapper .image-container {
   display: flex;
@@ -104,6 +79,7 @@
   border-radius: 10px;
   gap: 20px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .servicehub .wrapper .image-container p {
   font-size: 18px;
@@ -127,6 +103,7 @@
   width: 100%;
   gap: 20px;
   align-items: center;
+  border-radius: 8px;
 }
 .servicehub .wrapper .confirm-notification span {
   color: #7BB564;
@@ -135,4 +112,45 @@
 .servicehub .wrapper .confirm-notification p {
   color: #7BB564;
   font-size: 18px;
-}/*# sourceMappingURL=servicehub.css.map */
+}
+
+@media screen and (max-width: 1024px) {
+  .servicehub .wrapper {
+    max-width: 400px;
+  }
+  .servicehub .wrapper h2 {
+    font-size: 30px;
+  }
+  .servicehub .wrapper .values-container h5 {
+    font-size: 20px;
+  }
+  .servicehub .wrapper .values-container .values .outline-box p,
+  .servicehub .wrapper .values-container .values .outline-boxs p {
+    font-size: 16px;
+  }
+  .servicehub .wrapper .values-container .image-container p,
+  .servicehub .wrapper .values-container .confirm-notification p {
+    font-size: 16px;
+  }
+  .servicehub .wrapper .values-container .confirm-notification {
+    padding: 12px;
+    border-radius: 4px;
+  }
+  .servicehub .wrapper .values-container .confirm-notification span {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .servicehub .wrapper {
+    max-width: 400px;
+  }
+  .servicehub .wrapper h2 {
+    font-size: 24px;
+  }
+  .servicehub .wrapper p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+/*# sourceMappingURL=servicehub.css.map */

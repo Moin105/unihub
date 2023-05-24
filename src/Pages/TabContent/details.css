@@ -5,7 +5,8 @@
   justify-content: center;
   width: 100%;
   margin-top: 50px;
-  max-width: 600px;
+  max-width: 550px;
+  margin-inline: 16px;
 }
 .tab-details h2 {
   color: #7BB564;
@@ -22,56 +23,44 @@
   margin: 12px 0px;
 }
 .tab-details .form-control {
-  width: 520px;
+  width: 100%;
   gap: 10px;
   display: flex;
   flex-direction: column;
+  margin: 0 16px;
 }
 .tab-details .form-control .input-container {
-  margin: 16px 25px;
   border-radius: 16px;
+  margin: 0 0 20px 0;
 }
 .tab-details .form-control .input-container label {
   font-size: 18px;
   margin: 0;
+  padding: 10px 0 0 20px;
 }
-.tab-details .form-control input {
+.tab-details .form-control .input-container input {
   font-size: 20px;
   font-weight: 300;
   height: auto;
   border-color: none;
-  padding: 7px 0px 10px 20px;
+  padding: 5px 0px 5px 20px;
 }
 .tab-details .lower {
   font-size: 20px;
   font-weight: 300;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1440px) {
   .tab-details {
     margin-top: 50px;
+    width: 400px;
   }
   .tab-details h2 {
     font-size: 36px;
   }
   .tab-details .upper {
     font-size: 16px;
-  }
-  .tab-details .form-control {
-    width: 520px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .tab-details .form-control .input-container {
-    margin: 16px 25px;
-    border-radius: 16px;
-  }
-  .tab-details .form-control .input-container label {
-    padding: 10px 0 0 20px;
-  }
-  .tab-details .form-control .input-container input {
-    padding: 5px 0 5px 20px;
   }
   .tab-details p {
     font-size: 20px;
@@ -81,6 +70,9 @@
   }
 }
 @media screen and (max-width: 1024px) {
+  .tab-details {
+    margin-top: 0px;
+  }
   .tab-details h2 {
     font-size: 30px;
   }
@@ -90,21 +82,21 @@
   .tab-details p {
     font-size: 20px;
   }
-  .tab-details .form-control {
-    width: 520px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-  }
   .tab-details .form-control .input-container {
-    margin: 16px 25px;
-    border-radius: 16px;
+    border-radius: 10px;
+    margin: 0 0 15px 0;
   }
   .tab-details .form-control .input-container label {
-    padding: 10px 0 0 20px;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0 0 20px;
   }
   .tab-details .form-control .input-container input {
-    padding: 5px 0 5px 20px;
+    font-size: 20px;
+    font-weight: 300;
+    height: auto;
+    border-color: none;
+    padding: 0px 0px 5px 20px;
   }
   .tab-details .lower {
     font-size: 16px;
