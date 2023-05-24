@@ -11,9 +11,16 @@ import events from "../Images/events.png";
 import servicetag from "../Images/servicetag.png";
 import "./details.css";
 import "./BookServices";
+import { useNavigate } from "react-router-dom";
 import "../responsive.css";
 import { Link } from "react-router-dom";
 function Details() {
+  const navigate = useNavigate();
+  const handleRouteChange = (url,datas) => {
+    navigate(url, { state: { data: datas } });
+  };
+  const token = localStorage.getItem("token");
+
   return (
     <div className="details-page">
       <Header />
@@ -31,12 +38,17 @@ function Details() {
               {" "}
               <ServiceTag icon={marketplace} name="Marketplace" />
             </Link>
-            <Link to="/event">
+            {token ?     <Link to="/events">
               <ServiceTag icon={events} name="Events" />
-            </Link>
-            <Link to="/servicehub">
+            </Link>: <Link to="/event">
+              <ServiceTag icon={events} name="Events" />
+            </Link>}
+            {token ?  <Link to="/servicehub">
               <ServiceTag icon={hub} name="HUB" />
-            </Link>
+            </Link>:
+            <Link to="/login">
+              <ServiceTag icon={hub} name="HUB" />
+            </Link>}
           </div>
         </div>
       </div>

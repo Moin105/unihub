@@ -6,11 +6,13 @@ import cart from "../Images/cart.png";
 import user from "../Images/user.png";
 import dropdown from "../Images/dropdown.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Header() {
+  const token = useSelector((state) => state.auth.tokens); 
   return (
     <div className="header">
       <div className="container">
-        <Link to="/details">
+        <Link to="/">
           <figure className="logo">
             <img src={logo} />
           </figure>
@@ -26,7 +28,7 @@ function Header() {
           <figure className="media-icon">
             <img src={cart} />
           </figure>
-          <Link to="/home">
+          <Link to={token?"/home":"/login"}>
             <figure className="media-icon">
               <img src={user} />
             </figure>

@@ -50,7 +50,8 @@
 .itempage .wrapper .itemcontainer figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .itempage .wrapper .quantity-container {
   display: flex;
@@ -71,9 +72,14 @@
   align-items: center;
   margin-bottom: 20px;
 }
-.itempage .wrapper .quantity-container .quantity div {
+.itempage .wrapper .quantity-container .quantity input div {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+  width: 100px;
+  max-width: 50px;
+  text-align: center;
   align-items: center;
   padding: 15px 30px;
   justify-content: center;
@@ -82,16 +88,16 @@
   background: #FAFAFA 0% 0% no-repeat padding-box;
   border-radius: 8px;
 }
-.itempage .wrapper .quantity-container .quantity span {
+.itempage .wrapper .quantity-container .quantity input span {
   color: #797A74;
   font-weight: 300;
 }
-.itempage .wrapper .wallet-btn {
+.itempage .wrapper .quantity-container .wallet-btn {
   width: auto;
   color: #7BB564;
   margin: 25px 0px;
 }
-.itempage .wrapper .wallet-btn button {
+.itempage .wrapper .quantity-container .wallet-btn button {
   font-size: 23px;
   font-weight: 500;
   display: flex;
@@ -102,71 +108,68 @@
   width: 400px;
   margin: 0 auto;
 }
-
 @media only screen and (max-width: 1440px) {
-  .itempage .wrapper {
+  .itempage .itempage .wrapper {
     max-width: 900px;
   }
-  .itempage .wrapper h1 {
+  .itempage .itempage .wrapper h1 {
     font-size: 36px;
   }
-  .itempage .wrapper h5 {
+  .itempage .itempage .wrapper h5 {
     font-size: 20px;
   }
-  .itempage .wrapper .itemcontainer .item-row .price {
+  .itempage .itempage .wrapper .itemcontainer .item-row .price {
     font-size: 18px;
   }
-  .itempage .wrapper .itemcontainer .item-row .price-number {
+  .itempage .itempage .wrapper .itemcontainer .item-row .price-number {
     font-size: 18px;
   }
-  .itempage .wrapper .quantity-container p {
+  .itempage .itempage .wrapper .quantity-container p {
     font-size: 20px;
   }
-  .itempage .wrapper .quantity-container .quantity div {
+  .itempage .itempage .wrapper .quantity-container .quantity div {
     padding: 12px 25px;
   }
-  .itempage .wrapper .quantity-container .quantity span {
+  .itempage .itempage .wrapper .quantity-container .quantity span {
     font-size: 20px;
   }
-  .itempage .wrapper .wallet-btn button {
+  .itempage .itempage .wrapper .wallet-btn button {
     font-size: 20px;
     width: 300px;
     padding: 25px 35px 25px 45px;
   }
 }
 @media only screen and (max-width: 1024px) {
-  .itempage .wrapper {
+  .itempage .itempage .wrapper {
     max-width: 600px;
   }
-  .itempage .wrapper h1 {
+  .itempage .itempage .wrapper h1 {
     font-size: 36px;
   }
-  .itempage .wrapper h5 {
+  .itempage .itempage .wrapper h5 {
     font-size: 20px;
   }
-  .itempage .wrapper .itemcontainer .item-row .price {
+  .itempage .itempage .wrapper .itemcontainer .item-row .price {
     font-size: 18px;
   }
-  .itempage .wrapper .itemcontainer .item-row .price-number {
+  .itempage .itempage .wrapper .itemcontainer .item-row .price-number {
     font-size: 18px;
   }
-  .itempage .wrapper .quantity-container p {
+  .itempage .itempage .wrapper .quantity-container p {
     font-size: 16px;
   }
-  .itempage .wrapper .quantity-container .quantity {
+  .itempage .itempage .wrapper .quantity-container .quantity {
     gap: 20px;
   }
-  .itempage .wrapper .quantity-container .quantity div {
+  .itempage .itempage .wrapper .quantity-container .quantity div {
     padding: 7px 20px;
   }
-  .itempage .wrapper .quantity-container .quantity span {
+  .itempage .itempage .wrapper .quantity-container .quantity span {
     font-size: 16px;
   }
-  .itempage .wrapper .wallet-btn button {
+  .itempage .itempage .wrapper .wallet-btn button {
     font-size: 16px;
     width: 250px;
     padding: 20px 35px 20px 45px;
   }
-}
-
-/*# sourceMappingURL=itempage.css.map */
+}/*# sourceMappingURL=itempage.css.map */

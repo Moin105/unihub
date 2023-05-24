@@ -70,6 +70,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 280px !important;
+    margin: 0 auto;
     align-items: center;
   }
   .signin-page .container form .input-container {
@@ -104,6 +106,4 @@
   .signin-page .container .media-newhub .new-to-unihub {
     font-size: 14px;
   }
-}
-
-/*# sourceMappingURL=signin.css.map */
+}/*# sourceMappingURL=signin.css.map */

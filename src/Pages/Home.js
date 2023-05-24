@@ -1,5 +1,5 @@
 // page 6
-import React from "react";
+import React,{useEffect} from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../Theme/theme";
 import {
@@ -22,10 +22,22 @@ import DetailsTab from "./TabContent/DetailsTab";
 import Footer from "../Components/Footer";
 import Order from "./TabContent/Order";
 import Wallet from "./TabContent/Wallet";
-import Tickets from "./TabContent/Tickets";
-import { Link } from "react-router-dom";
+import { fetchUserProfile } from "../thunks/profileThunk";
+import Tickets from './TabContent/Tickets'
+import { useDispatch,useSelector } from "react-redux";
+import { Link } from 'react-router-dom' 
+// import Tickets from "./TabContent/Tickets";
+// import { Link } from "react-router-dom";
 
 function Home() {
+  const dispatch = useDispatch();
+  const userProfileData = useSelector((state) => state.userProfile);
+
+  useEffect(() => {
+    console.log("start 1",userProfileData)
+    // console.log("hwlllooo",userProfileData.profile.email)
+    dispatch(fetchUserProfile());
+  }, [dispatch]);
   return (
     <React.Fragment>
       <div className="home-page">
