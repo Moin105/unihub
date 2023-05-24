@@ -25,7 +25,6 @@ import SellerPage from "./Pages/SellerPage";
 import SellService from "./Pages/SignUpSeller/SellService";
 import Event from "./Pages/Event";
 import Messages from "./Pages/Messages";
-import { set } from "date-fns";
 import SignUpSeller from "./Pages/SignUpSeller/SignUpSeller";
 import EventBuyer from "./Pages/EventBuyer";
 import EventPackage from "./Pages/EventPackage";
@@ -122,6 +121,8 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
+
+    {path:"/forgetpassword" ,element:<ForgetPassword /> , name:"ForgetPassword" } ,
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     dynamicRoute,
     dynamicEventRoute,dynamicItemRoute,
