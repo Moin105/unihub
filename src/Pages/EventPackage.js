@@ -61,7 +61,7 @@ function    EventPackage() {
             Book An Event
             </h2>
 
-            <h4>{data.title}</h4>
+            <h4>{data?.title}</h4>
             <p className='ouper'>Check out our availability and book<br></br> the date and time that works for you</p>
             {/* <pre>{JSON.stringify(obj.id, null, 2)}</pre> */}
             
