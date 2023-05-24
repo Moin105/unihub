@@ -22,6 +22,8 @@ function SignUpSeller() {
     email: "",
     address: "",
     phone: "",
+    password:"",
+    confirm_password:""
   });
 
   const handleInputChange = (event) => {
@@ -96,6 +98,56 @@ function SignUpSeller() {
                 }}
                 name="email"
                 value={formData.email}
+                fontSize="41px"
+              />
+            </Box>
+            <Box
+              className="input-container"
+              border="1px solid #7BB564"
+              borderRadius={30}
+              marginTop="103px"
+            >
+              <FormLabel
+                padding="20px 0px 0px 20px"
+                fontSize="37px"
+                fontWeight={300}
+              >
+               Password
+              </FormLabel>
+              <Input
+                variant="unstyled"
+                border="none"
+                type="password"
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
+                name="password"
+                value={formData.password}
+                fontSize="41px"
+              />
+            </Box>
+            <Box
+              className="input-container"
+              border="1px solid #7BB564"
+              borderRadius={30}
+              marginTop="103px"
+            >
+              <FormLabel
+                padding="20px 0px 0px 20px"
+                fontSize="37px"
+                fontWeight={300}
+              >
+                Confirm Password
+              </FormLabel>
+              <Input
+                variant="unstyled"
+                border="none"
+                type="password"
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
+                name="confirm_password"
+                value={formData.confirm_password}
                 fontSize="41px"
               />
             </Box>

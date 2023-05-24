@@ -55,7 +55,7 @@ function SellerDetails() {
     // console.log("hwlllooo",userProfileData.profile.email)
     dispatch(fetchUserProfile());
   }, [dispatch]);
-  const userProfileData = useSelector((state) => state.userProfile.data);
+  const userProfileData = useSelector((state) => state);
 
   return (
     <div className='sellerdetails'>

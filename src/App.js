@@ -33,6 +33,7 @@ import GuestEvent from "./Pages/Guest/GuestEvent";
 import GuestMarketPlace from "./Pages/Guest/GuestMarketPlace";
 import { useSelector } from "react-redux";
 import TwoFactor from "./Pages/TwoFactor";
+import NormalSellerDetails from "./Pages/SignUpSeller/SellerDetails";
 function App() {
   const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -84,7 +85,6 @@ function App() {
 
   const sellerRoutes = [
     { path: "/", element: <Details />, name: "Seller" },
-
     {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
     {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
@@ -96,7 +96,14 @@ function App() {
     {path:"/Home",element:<Details />,name:"Details"},
     // other seller-only routes here
   ];
-
+  const NormalSellerRoutes = [
+    { path: "/", element: <Details />, name: "Seller" },
+    // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+    {path:"/seller-details" ,element:<NormalSellerDetails />,name:"SellerDetails"},
+     {path:"/sellService" ,element:<SellService/> , name:"SellService" },
+    {path:"/Home",element:<Details />,name:"Details"},
+    // other seller-only routes here
+  ];
   const guestRoutes = [
     { path: "/services", element:   <BookServices />, name: "Guest" },
     { path: "/login", element: <Signin />, name: "Login" },
@@ -127,7 +134,7 @@ function App() {
     // other guest-only routes here
   ];
   // const authenticatedRoutes = isSeller == true ? sellerRoutes : buyerRoutes ;
-  const authenticatedRoutes = buyerRoutes;
+  const authenticatedRoutes = NormalSellerRoutes;
   return (
     <div className="App">
     <Router>

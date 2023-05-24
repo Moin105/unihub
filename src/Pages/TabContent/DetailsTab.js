@@ -30,8 +30,8 @@ const postData = async (url, data,token) => {
 function DetailsTab() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true)
-  const userProfileData = useSelector((state) => state.userProfile.data);
-  
+  // const userProfileData = useSelector((state) => state);
+  const userProfileData = useSelector((state) => state.user?.data?.profile)
   console.log("userProfile",userProfileData)
   const [formData, setFormData] = useState(null);
   const handleInputChange = (event) => {
@@ -47,10 +47,10 @@ function DetailsTab() {
     if(userProfileData){
 
     setFormData({
-      name:memoizedUserProfileData?.profile?.name,
-      email:memoizedUserProfileData?.profile?.email,
-      address: memoizedUserProfileData?.profile?.address,
-      phone:memoizedUserProfileData?.profile?.phone
+      name:memoizedUserProfileData?.name,
+      email:memoizedUserProfileData?.email,
+      address: memoizedUserProfileData?.address,
+      phone:memoizedUserProfileData?.phone
     });}
   }, [])
 
@@ -81,7 +81,7 @@ function DetailsTab() {
     <div className="tab-details">
       <h2>My Details</h2>
       <span className="upper">View and edit your personal info below.</span>
-      <p>Login email : {userProfileData?.profile?.email}</p>
+      <p>Login email : {userProfileData?.email}</p>
       <span className="lower">Your Login email can’t be changed</span>
       <FormControl className="form-control">
         <Box
@@ -123,6 +123,7 @@ function DetailsTab() {
           <Input
             variant="unstyled"
             border="none"
+            readOnly
             type="email"
             name="email"
             onChange={handleInputChange}

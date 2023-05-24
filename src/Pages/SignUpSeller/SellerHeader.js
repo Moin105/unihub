@@ -10,13 +10,13 @@ function SellerHeader() {
   return (
     <div className="header">
       <div className="container">
-        <Link to="/">
+        <Link to="/sellservice">
           <figure className="logo">
             <img src={logo} />
           </figure>
         </Link>
         <div className="nav">
-          <Link to="/details">
+          {/* <Link to="/details">
             {" "}
             <figure className="media-icon">
               <img src={dropdown} />
@@ -25,8 +25,8 @@ function SellerHeader() {
 
           <figure className="media-icon">
             <img src={cart} />
-          </figure>
-          <Link to="/home">
+          </figure> */}
+          <Link to="/seller-details">
             <figure className="media-icon">
               <img src={user} />
             </figure>

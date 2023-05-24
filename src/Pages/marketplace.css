@@ -68,7 +68,8 @@
 .marketplace .wrapper .middle-container .categories-container .category-box figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .marketplace .wrapper .middle-container .categories-container .category-box p {
   font-size: 16px;
@@ -109,13 +110,15 @@
 .marketplace .wrapper .item-container .items-wrapper a .item-box figure {
   width: 220px;
   height: 220px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin-bottom: 10px;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .marketplace .wrapper .item-container .items-wrapper a .item-box p {
   font-size: 20px !important;
@@ -203,6 +206,4 @@
   .marketplace .wrapper .item-container .items-wrapper a .item-box p {
     font-size: 16px !important;
   }
-}
-
-/*# sourceMappingURL=marketplace.css.map */
+}/*# sourceMappingURL=marketplace.css.map */

@@ -146,9 +146,11 @@ console.log(user)
     <div className="signin-page">
       <div className="container">
         <div className="headu">
+        <Link to="/">
           <figure className="logo">
             <img src={logo} alt="unihub-logo" />
           </figure>
+          </Link>
           <h2>Sign in to Continue</h2>
         </div>
         <form>

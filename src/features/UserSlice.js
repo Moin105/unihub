@@ -7,15 +7,16 @@ export const authSlice = createSlice({
   initialState: {
     isLoading: false,
     error: null,
-    user: null
+    user: null,
+    token:null
   },
   reducers: {
     setName: (state, action) => {
       console.log("action.payload",action.payload)
-      state.user = action.payload;
+      state.user = action.payload.token;
       // localStorage.setItem('userData', action.payload.user);
       
-      localStorage.setItem('token', action.payload.token);
+      // localStorage.setItem('token', action.payload.token);
       // state.user.token= localStorage.getItem('token') || null;
     },
     setToken: (state, action) => {

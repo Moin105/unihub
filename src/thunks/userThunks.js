@@ -20,7 +20,7 @@ export const sellerSignUpUser = createAsyncThunk(
   'auth/signUpUserSeller',
   async (userData, thunkAPI) => {
     try {
-      const response = await SignUps(userData);
+      const response = await SellerSignUp(userData);
       console.log("firstName",response)
       thunkAPI.dispatch(setName(response)); 
       return response;

@@ -1,5 +1,5 @@
 // screen 5
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import "./signup.css";
 import "../responsive.css";
 import { Link } from "react-router-dom";
@@ -19,9 +19,10 @@ function Signup() {
     name: '',
     email: '',
     password: '',
-    confirmPassword:""
-  });
-
+    confirmPassword:"",
+    
+  }); 
+  const [universities, setUniversities] = useState([]);
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -32,14 +33,38 @@ function Signup() {
     
 
   };
-
+  const  fetchUniversities= async()=> {
+    return  await fetch('https://admin.myuni-hub.com/api/universities')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        return data;
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+  useEffect(() => {
+ 
+    fetchUniversities().then(data => {
+        setUniversities(prevData=>{prevData =  data;return prevData})
+      });
+    console.log("qwe",universities)
+  }, []);
   return (
     <div className="signup-page">
       <div className="container">
-        <div className="headu">
+        
+        
+       
+        <div className="headu"><Link to="/">
           <figure className="logo">
             <img src={logo} alt="unihub-logo" />
-          </figure>
+          </figure> </Link>
           <h2>Create Your UNIHUB Account</h2>
         </div>
         <form onSubmit={handleSubmit}>
@@ -55,6 +80,7 @@ function Signup() {
             <input type="password" name="password" onChange={(e)=>{handleInputChange(e)}} placeholder="Password" />
             {/* icon */}
           </div>
+
           <div className="input-container">
             <input type="password" name="confirmPassword" onChange={(e)=>{handleInputChange(e)}} placeholder="Confirm Password" />
             {/* icon */}
@@ -85,7 +111,7 @@ function Signup() {
           <h3 className="new-to-unihub">
             Already Have an Account?{" "}
             <span>
-              <Link to="/">Sign In</Link>
+              <Link to="/login">Sign In</Link>
             </span>
           </h3>
           {/* <h3 >New to UNIHUB? <span>Sign Up</span></h3> */}
