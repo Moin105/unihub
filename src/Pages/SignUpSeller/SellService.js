@@ -264,6 +264,7 @@ function SellService() {
             {/* <h4>Sell Service</h4> */}
             <p>Sell your services and get the customers to <br></br> get benefits of services.</p>
             <form className='values-container' onSubmit={handleSubmit}>
+              <div className='values'>
                 {/* <div className='outline-box'>
                       <h3>Select Service</h3>
                       <p>Express Cleaning</p>
@@ -299,11 +300,12 @@ function SellService() {
           }}
         />
       </Box>
-
+      </div>
       <Heading as="h5" size="sm">
         Package 1
       </Heading>
       <div spacing={4} className='values-container'>
+      <div className='values'>
         <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
           <Heading as="h3" size="md" mb={2}>
             Package Name
@@ -321,11 +323,14 @@ function SellService() {
     }}variant="unstyled"/>
         </Box>
       </div>
+      </div>
 
       <Heading as="h5" size="sm">
         Package 2
       </Heading>
       <div spacing={4} className='values-container'>
+      <div className='values'>
+
         <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
           <Heading as="h3" size="md" >
             Package Name
@@ -342,11 +347,14 @@ function SellService() {
       handlePackageChange(e, 1, "price");
     }} variant="unstyled" />
         </Box>
+        </div>
       </div>
       <Heading as="h5" size="sm">
         Package 3
       </Heading>
       <div spacing={4} className='values-container'>
+      <div className='values'>
+        
         <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
           <Heading as="h3" size="md" >
             Package Name
@@ -363,9 +371,12 @@ function SellService() {
       handlePackageChange(e, 2, "price");
     }} variant="unstyled" />
         </Box>
+        </div>
       </div>
-
+      <div className='values'>
                <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+      
+
       <Select  onChange={(e) => {
       handleInputChange(e, "university_id");
     }}
@@ -376,6 +387,7 @@ function SellService() {
         {/* Add more options here */}
       </Select>
     </Box>
+    </div>
             <div className='image-container'>
                    <figure>
                     <img src={camera}/>
@@ -391,8 +403,34 @@ function SellService() {
   />
                    </p>
             </div>
-            <h5>Uploaded Files</h5>
+            {/* <h5>Uploaded Files</h5> */}
                <div className='values-container'>
+                <div className='outline-box'>
+                      {/* <h3>ServiceImage.jpge/.png</h3> */}
+                      {/* <p>Ensuit / Studio</p> */}
+                </div>
+                {/* <div className='outline-box'>
+                      <h3>Price</h3>
+                      <p>£25</p>
+                </div> */}
+               </div>
+               <div className='image-container'>
+                   <figure>
+                    <img src={camera}/>
+                   </figure>
+                   <p>
+                   <input
+    type="file"
+    accept="image/*"
+    name='cover_img'
+    onChange={(e) => {
+        handleImageChange(e, "cover_img");
+    }}
+  />
+                   </p>
+            </div>
+            <h5>Uploaded Files</h5>
+               <div className='values-container margin-class'>
                 <div className='outline-box'>
                       <h3>ServiceImage.jpge/.png</h3>
                       {/* <p>Ensuit / Studio</p> */}
@@ -407,7 +445,7 @@ function SellService() {
              <span>
 <BsCheckLg/>
              </span>
-             <p>
+             {/* <p>
              <input
     type="file"
     accept="image/*"
@@ -416,10 +454,12 @@ function SellService() {
         handleImageChange(e, "image");
     }}
   />
-             </p>
+             </p> */}
+             Uploaded successfully
             </div>      
+            
             </form>
-            <div className="wallet-btn">
+            <div className="primary-btn">
     <Button
 
           rightIcon={<MdArrowForward />}
