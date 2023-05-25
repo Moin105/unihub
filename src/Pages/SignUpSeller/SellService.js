@@ -26,6 +26,7 @@ import camera from "./../../Images/camera.png";
 import { Link } from "react-router-dom";
 import { MdArrowForward } from "react-icons/md";
 import SellerHeader from "./SellerHeader";
+import { useSelector } from "react-redux";
 // import {MdArrowDropDown} from 'react-icons/md'
 // import camera from './../Images/'
 const postData = async (url, data, token, image, cover_img) => {
@@ -54,7 +55,7 @@ const postData = async (url, data, token, image, cover_img) => {
   }
 };
 function SellService() {
-  const token = localStorage.getItem("token");
+  const token =useSelector((state) => state.auth.token);  
   const [serviceCategories, setServiceCategories] = useState([]);
   const [universities, setUniversities] = useState([]);
   const [image, setImage] = useState(null);
@@ -204,17 +205,15 @@ function SellService() {
   };
 
   return (
-    <div className="servicehub">
-      <SellerHeader />
-      <div className="wrapper">
-        <h2>Post Event</h2>
-        {/* <h4>Sell Service</h4> */}
-        <p>
-          Sell your services and get the customers to <br></br> get benefits of
-          services.
-        </p>
-        <form className="values-container" onSubmit={handleSubmit}>
-          {/* <div className='outline-box'>
+    <div className='servicehub'>
+        <SellerHeader/>
+        <div className='wrapper'>
+            <h2>Post Event</h2>
+            {/* <h4>Sell Service</h4> */}
+            <p>Sell your services and get the customers to <br></br> get benefits of services.</p>
+            <form className='values-container' onSubmit={handleSubmit}>
+              <div className='values'>
+                {/* <div className='outline-box'>
                       <h3>Select Service</h3>
                       <p>Express Cleaning</p>
                 </div> */}
@@ -239,223 +238,199 @@ function SellService() {
                 <option value={set.id}>{set.title}</option>
               )
        })} */}
-              {mappedServiceCategories}
-              {/* Add more options here */}
-            </Select>
-          </Box>
-
-          <Box
-            className="outline-boxs"
-            borderWidth="1px"
-            borderRadius="lg"
-            p={4}
-          >
-            <Heading as="h3" size="md" mb={2}>
-              Service Description
-            </Heading>
-            <Textarea
-              variant={"unstyled"}
-              defaultValue="- Hoovering and Sweeping&#13;&#10;- Dust, Wipe & Disinfect All Surfaces"
-              resize="none"
-              rows={4}
-              onChange={(e) => {
-                handleInputChange(e, "descreption");
-              }}
-            />
-          </Box>
-
-          <Heading as="h5" size="sm">
-            Package 1
+       {mappedServiceCategories}
+        {/* Add more options here */}
+      </Select>
+    </Box>
+ 
+      <Box className='outline-boxs' borderWidth="1px" borderRadius="lg" p={4}>
+        <Heading as="h3" size="md" mb={2}>
+          Service Description
+        </Heading>
+        <Textarea
+        variant={'unstyled'}
+          defaultValue="- Hoovering and Sweeping&#13;&#10;- Dust, Wipe & Disinfect All Surfaces"
+          resize="none"
+          rows={4}
+          onChange={(e) => {
+            handleInputChange(e, "descreption");
+          }}
+        />
+      </Box>
+      </div>
+      <Heading as="h5" size="sm">
+        Package 1
+      </Heading>
+      <div spacing={4} className='values-container'>
+      <div className='values'>
+        <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+          <Heading as="h3" size="md" mb={2}>
+            Package Name
           </Heading>
-          <div spacing={4} className="values-container">
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Package Name
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 0, "title");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-            <Box
-              m={0}
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Price
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 0, "price");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-          </div>
-
-          <Heading as="h5" size="sm">
-            Package 2
+          <Input  onChange={(e) => {
+      handlePackageChange(e, 0, "title");
+    }} variant="unstyled"/>
+        </Box>
+        <Box m={0} className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+          <Heading as="h3" size="md" mb={2}>
+            Price
           </Heading>
-          <div spacing={4} className="values-container">
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md">
-                Package Name
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 1, "title");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              m="0px"
-              p={4}
-            >
-              <Heading as="h3" size="md">
-                Price
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 1, "price");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-          </div>
-          <Heading as="h5" size="sm">
-            Package 3
-          </Heading>
-          <div spacing={4} className="values-container">
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md">
-                Package Name
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 2, "title");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              m="0px"
-              p={4}
-            >
-              <Heading as="h3" size="md">
-                Price
-              </Heading>
-              <Input
-                onChange={(e) => {
-                  handlePackageChange(e, 2, "price");
-                }}
-                variant="unstyled"
-              />
-            </Box>
-          </div>
+          <Input onChange={(e) => {
+      handlePackageChange(e, 0, "price");
+    }}variant="unstyled"/>
+        </Box>
+      </div>
+      </div>
 
-          <Box
-            className="outline-box"
-            borderWidth="1px"
-            borderRadius="lg"
-            p={4}
-          >
-            <Select
-              onChange={(e) => {
-                handleInputChange(e, "university_id");
-              }}
-              placeholder="Select University"
-              variant={"unstyled"}
-            >
-              {mappedUniversities}
-              {/* Add more options here */}
-            </Select>
-          </Box>
-          <div className="image-container">
-            <figure>
-              <img src={camera} />
-            </figure>
-            <p>
-              <input
-                type="file"
-                accept="image/*"
-                name="cover_img"
-                onChange={(e) => {
-                  handleImageChange(e, "cover_img");
-                }}
-              />
-            </p>
-          </div>
-          <h5>Uploaded Files</h5>
-          <div className="values-container">
-            <div className="outline-box">
-              <h3>ServiceImage.jpge/.png</h3>
-              {/* <p>Ensuit / Studio</p> */}
+      <Heading as="h5" size="sm">
+        Package 2
+      </Heading>
+      <div spacing={4} className='values-container'>
+      <div className='values'>
+
+        <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+          <Heading as="h3" size="md" >
+            Package Name
+          </Heading>
+          <Input onChange={(e) => {
+      handlePackageChange(e, 1, "title");
+    }} variant="unstyled"/>
+        </Box>
+        <Box className='outline-box'  borderWidth="1px" borderRadius="lg" m="0px" p={4}>
+          <Heading as="h3" size="md" >
+            Price
+          </Heading>
+          <Input  onChange={(e) => {
+      handlePackageChange(e, 1, "price");
+    }} variant="unstyled" />
+        </Box>
+        </div>
+      </div>
+      <Heading as="h5" size="sm">
+        Package 3
+      </Heading>
+      <div spacing={4} className='values-container'>
+      <div className='values'>
+        
+        <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+          <Heading as="h3" size="md" >
+            Package Name
+          </Heading>
+          <Input onChange={(e) => {
+      handlePackageChange(e, 2, "title");
+    }} variant="unstyled"/>
+        </Box>
+        <Box className='outline-box'  borderWidth="1px" borderRadius="lg" m="0px" p={4}>
+          <Heading as="h3" size="md" >
+            Price
+          </Heading>
+          <Input  onChange={(e) => {
+      handlePackageChange(e, 2, "price");
+    }} variant="unstyled" />
+        </Box>
+        </div>
+      </div>
+      <div className='values'>
+               <Box className='outline-box' borderWidth="1px" borderRadius="lg" p={4}>
+      
+
+      <Select  onChange={(e) => {
+      handleInputChange(e, "university_id");
+    }}
+    placeholder="Select University"
+    variant={'unstyled'}>
+      
+       {mappedUniversities}
+        {/* Add more options here */}
+      </Select>
+    </Box>
+    </div>
+            <div className='image-container'>
+                   <figure>
+                    <img src={camera}/>
+                   </figure>
+                   <p>
+                   <input
+    type="file"
+    accept="image/*"
+    name='cover_img'
+    onChange={(e) => {
+        handleImageChange(e, "cover_img");
+    }}
+  />
+                   </p>
             </div>
-            {/* <div className='outline-box'>
+            {/* <h5>Uploaded Files</h5> */}
+               <div className='values-container'>
+                <div className='outline-box'>
+                      {/* <h3>ServiceImage.jpge/.png</h3> */}
+                      {/* <p>Ensuit / Studio</p> */}
+                </div>
+                {/* <div className='outline-box'>
                       <h3>Price</h3>
                       <p>£25</p>
                 </div> */}
-          </div>
+               </div>
+               <div className='image-container'>
+                   <figure>
+                    <img src={camera}/>
+                   </figure>
+                   <p>
+                   <input
+    type="file"
+    accept="image/*"
+    name='cover_img'
+    onChange={(e) => {
+        handleImageChange(e, "cover_img");
+    }}
+  />
+                   </p>
+            </div>
+            <h5>Uploaded Files</h5>
+               <div className='values-container margin-class'>
+                <div className='outline-box'>
+                      <h3>ServiceImage.jpge/.png</h3>
+                      {/* <p>Ensuit / Studio</p> */}
+                </div>
+                {/* <div className='outline-box'>
+                      <h3>Price</h3>
+                      <p>£25</p>
+                </div> */}
+               </div>
+          
+        <div className='confirm-notification'>
+             <span>
+<BsCheckLg/>
+             </span>
+             {/* <p>
+             <input
+    type="file"
+    accept="image/*"
+    name='image'
+    onChange={(e) => {
+        handleImageChange(e, "image");
+    }}
+  />
+             </p> */}
+             Uploaded successfully
+            </div>      
+            
+            </form>
+            <div className="primary-btn">
+    <Button
 
-          <div className="confirm-notification">
-            <span>
-              <BsCheckLg />
-            </span>
-            <p>
-              <input
-                type="file"
-                accept="image/*"
-                name="image"
-                onChange={(e) => {
-                  handleImageChange(e, "image");
-                }}
-              />
-            </p>
-          </div>
-        </form>
-        <div className="wallet-btn">
-          <Button
-            rightIcon={<MdArrowForward />}
-            bg="#7BB564"
-            color={"white"}
-            variant="solid"
-            width={"100%"}
-            onClick={(e) => {
-              handleSubmit(e);
-            }}
-          >
-            Post Service
-          </Button>
-        </div>
+          rightIcon={<MdArrowForward />}
+          bg="#7BB564"
+          color={"white"}
+          variant="solid"
+          width={"100%"}
+          onClick={(e)=>{handleSubmit(e)}}
+        >
+          Post Service
+        </Button>
       </div>
-      <Footer />
+        </div>
+        <Footer/>
     </div>
   );
 }
