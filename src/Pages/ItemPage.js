@@ -65,7 +65,7 @@ function ItemPage() {
               <span>Available {data.stock} in stock</span>
             </div>
           </div>
-          <div className="wallet-btn">
+          <div className="primary-btn">
          
               {" "}
               <Button

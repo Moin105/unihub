@@ -129,6 +129,10 @@ function App() {
     {path:'/event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
 
+    // copies added by taimoor
+    {path:"/sellService" ,element:<SellService/> , name:"SellService" },
+
+
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     // {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
     dynamicRoute,
