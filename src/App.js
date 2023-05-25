@@ -121,7 +121,6 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
-
     {path:"/forgetpassword" ,element:<ForgetPassword /> , name:"ForgetPassword" } ,
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     dynamicRoute,
