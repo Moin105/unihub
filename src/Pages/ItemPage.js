@@ -6,14 +6,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import { MdArrowForward } from "react-icons/md";
+import { useSelector } from "react-redux";
 import "./itempage.css";
 import "../responsive.css";
 import axios from "axios";
 function ItemPage() {
   const location = useLocation();
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   const data = location.state ? location.state.data : null;
   const [value, setValue] = useState(1);
+
   useEffect(() => {
     console.log(data)
   }, [])

@@ -22,7 +22,7 @@ import cleaner from "./../Images/cleaners.png";
 import { MdArrowForward } from "react-icons/md";
 import { id } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 function EventBuyer() {
   const [data, setData] = useState(null);
   const [detailedData, setDetailedData] = useState([]);
@@ -30,12 +30,13 @@ function EventBuyer() {
   const handleRouteChange = (url, datas) => {
     navigate(url, { state: { data: datas } });
   };
+ const token = useSelector((state) => state.auth.token);
   useEffect(() => {
     fetchData();
     console.log("ghariya", memoizedData);
   }, []);
 
-  const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
+  const headers = { Authorization: `Bearer ${token}` };
   const fetchData = async () => {
     try {
       const response = await axios.get("https://admin.myuni-hub.com/api/api/events", {

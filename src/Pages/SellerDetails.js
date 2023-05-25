@@ -18,25 +18,38 @@ import {
   import axios from 'axios';
   import Tickets from './TabContent/Tickets'
 import Header from '../Components/Header';
+import { openModal } from '../features/modalSlice';
 import Footer from '../Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfile } from '../thunks/profileThunk';
 import profile from '../Images/profile.png';
 import './sellerdetails.css'
-const postData = async (url, data,token) => {
-  try {
-    const response = await axios.put(url, data,{
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }});
-    console.log('API response:', response);
-    // Handle success response here
-  } catch (error) {
-    console.error('API error:', error);
-    // Handle error response here
-  }
-};
+import { useNavigate } from 'react-router-dom';
 function SellerDetails() {
+  const dispatch = useDispatch();
+  const navigate= useNavigate();
+  const handleRouteChange = (url,datas) => {
+    navigate(url, { state: { data: datas } });
+  };
+  const postData = async (url, data,token) => {
+    try {
+      const response = await axios.put(url, data,{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }});
+      console.log('API response:', response.data.message);
+      if (response.data.message === "unauthorize user, please add  your bank details first") {
+        // dispatch(openModal(response.message));
+        console.log(",aa ki dewfgr")
+        handleRouteChange('/bankdetails')
+      }
+      // Handle success response here
+    } catch (error) {
+      console.error('API error:', error);
+      // Handle error response here
+    }
+  };
+const  token = useSelector((state) => state.auth.token);
   const switchUser = () => {
     // fetch("http://34.233.35.208/api/switch_profile",{
     //   method:"PUT",
@@ -47,9 +60,9 @@ function SellerDetails() {
     //   }
     // })
     // .then((res)=>res.json())
-    postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},localStorage.getItem("token"))
+    postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},token)
   };
-  const dispatch = useDispatch();
+
   useEffect(() => {
     console.log("hwlllooo")
     // console.log("hwlllooo",userProfileData.profile.email)

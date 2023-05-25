@@ -13,6 +13,7 @@ import {
 import "./order.css";
 import "../../responsive.css";
 import filter from "../../Images/filter.png";
+import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
 import axios from 'axios'
 // import Rating from "../../Components/Rating";
@@ -22,7 +23,7 @@ function Order() {
   const [show, setShow] = useState(true);
   const [hide, setHide] = useState(true);
 
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   const getData = async () => {
     try {
       const response = await axios.get("https://admin.myuni-hub.com/api/add-bank", {

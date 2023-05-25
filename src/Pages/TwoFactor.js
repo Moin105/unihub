@@ -5,7 +5,7 @@ import "../responsive.css";
 import logo from '../Images/logo.png'
 import apple from '../Images/apple.png'
 import facebook from '../Images/facebook.png'
-import { setToken } from '../features/UserSlice'
+import { setToken,setName } from '../features/UserSlice'
 import { Link } from 'react-router-dom'
 import google from '../Images/google.png'
 import { useDispatch,useSelector   } from 'react-redux'
@@ -21,7 +21,7 @@ function TwoFactor() {
      console.log("location",location.state.data)
     }, [])
     
-    const token = localStorage.getItem("token");
+    const token = useSelector((state) => state.auth.token);;
      const logins = (credentials) => async (dispatch) => {
       const { otp } = credentials;
 
@@ -36,6 +36,7 @@ function TwoFactor() {
           console.log("barka",data)
           if(data.status == 200 ){
             dispatch(setToken(data.token));
+            dispatch(setName(data))
             handleRouteChange("/",{})
           }else{
             // try again 

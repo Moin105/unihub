@@ -12,6 +12,7 @@ import OrderPlaced from "./Pages/OrderPlaced";
 import BookServices from "./Pages/BookServices";
 import Qrpage from "./Pages/Qrpage";
 import CleaningPackage from "./Pages/CleaningPackage";
+import BankPage from "./Pages/BankPage";
 import { BrowserRouter as Router, Routes, Route,Navigate, Outlet } from "react-router-dom";
 import BookCleaner from "./Pages/BookCleaner";
 import BookStorage from "./Pages/BookStorage";
@@ -34,11 +35,15 @@ import { useSelector } from "react-redux";
 import TwoFactor from "./Pages/TwoFactor";
 import NormalSellerDetails from "./Pages/SignUpSeller/SellerDetails";
 function App() {
-  const  token  = localStorage.getItem("token");
+  // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSeller, setIsSeller] = useState(true);
-  
+  const token = useSelector((state) => state.auth.token);
+  const role  = useSelector((state) => state.auth.role);
+  const seller = useSelector((state) => state.auth.user?.is_seller);
+  const auth = useSelector((state) => state.auth);
   useEffect(() => {
+    console.log(auth)
   if(token){
     console.log("treu")
  return   setIsAuthenticated(true)
@@ -62,6 +67,7 @@ function App() {
     name: "ItemPage  ",
   };
   const buyerRoutes = [
+    { path: "/noprobs", element: <Details />, name: "Details" },
     { path: "/", element: <Details />, name: "Details" },
     {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
@@ -69,6 +75,7 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
+    {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     {path:"/booking" ,element:<OrderPlaced />,name:"OrderPlaced"},
     {path:"/home" ,element:<Home />,name:"OrderPlaced"},
@@ -87,6 +94,7 @@ function App() {
     {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
     {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
+    {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     {path:"/details",element:<Home />,name:"Home"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
@@ -96,7 +104,7 @@ function App() {
     // other seller-only routes here
   ];
   const NormalSellerRoutes = [
-    { path: "/", element: <Details />, name: "Seller" },
+    { path: "/", element: <SellService />, name: "Seller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/seller-details" ,element:<NormalSellerDetails />,name:"SellerDetails"},
      {path:"/sellService" ,element:<SellService/> , name:"SellService" },
@@ -135,19 +143,36 @@ function App() {
     // other guest-only routes here
   ];
   // const authenticatedRoutes = isSeller == true ? sellerRoutes : buyerRoutes ;
-  const authenticatedRoutes = NormalSellerRoutes;
+  // const authenticatedRoutes = NormalSellerRoutes;
+  // const authenticatedRoutes = role == "student" ? (seller == 0) ? buyerRoutes    : sellerRoutes  : NormalSellerRoutes;
   return (
     <div className="App">
     <Router>
   <Routes>
-        {isAuthenticated ? (
-          authenticatedRoutes.map(route => (
+        {isAuthenticated ? (<>
+      {role == "student" && seller == 0  &&  sellerRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
-          ))
+          ))}
+      {role == "student" && seller == 0 && buyerRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+       {role == "seller" &&   NormalSellerRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}   
+          
+          </>
         ) : (
           guestRoutes.map(route => (
             <Route

@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import DateTime from 'react-datetime';
 import cleaner from './../Images/cleaners.png'
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { MdArrowForward } from "react-icons/md";
 import ChakraDatePicker from '../Components/ChakraDatePicker'
@@ -52,7 +53,7 @@ function    EventPackage() {
   useEffect(() => {
   console.log("qwertyu",data)
   }, [])
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   return (
     <div className='bookcleaner'>
     <Header/>

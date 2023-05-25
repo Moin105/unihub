@@ -7,6 +7,7 @@ import ServiceTag from "../Components/ServiceTag";
 import hub from "../Images/hub.png";
 import marketplace from "../Images/marketplace.png";
 import bookas from "../Images/bookas.png";
+import { useSelector } from "react-redux";
 import events from "../Images/events.png";
 import servicetag from "../Images/servicetag.png";
 import "./details.css";
@@ -19,7 +20,7 @@ function Details() {
   const handleRouteChange = (url,datas) => {
     navigate(url, { state: { data: datas } });
   };
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
 
   return (
     <div className="details-page">

@@ -14,6 +14,7 @@ import "../../responsive.css";
 import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
 import { set } from "date-fns";
+// import { useSelector } from "react-redux";
 const postData = async (url, data,token) => {
   try {
     const response = await axios.post(url, data,{
@@ -34,6 +35,7 @@ function DetailsTab() {
   const userProfileData = useSelector((state) => state.user?.data?.profile)
   console.log("userProfile",userProfileData)
   const [formData, setFormData] = useState(null);
+  const token = useSelector((state) => state.auth.token); 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -54,28 +56,11 @@ function DetailsTab() {
     });}
   }, [])
 
-  // useEffect(() => {
-  // if (formData== null) {setFormData(
-  //     {
-  //       name:userProfileData?.profile?.name || "",
-  //       email:userProfileData?.profile?.email || "",
-  //       address: userProfileData?.profile?.address || "",
-  //       phone:userProfileData?.profile?.phone|| ""
-  //     }
-  //   )}
-  // }, [formData])
-  
+
   
   const updateProfile = () => {
-    // fetch("http://34.233.35.208/api/update_profile?_method=PUT",{
-    //   method:"PUT",
-    //   body:JSON.stringify(formData),
-    //   headers:{
-    //     "Content-Type":"application/json",
-    //     "Authorization":localStorage.getItem("token")
-    //   }
-    // })
-    postData("https://admin.myuni-hub.com/api/update_profile?_method=PUT",formData,localStorage.getItem("token"))
+
+    postData("https://admin.myuni-hub.com/api/update_profile?_method=PUT",formData,token)
   }
   return (
     <div className="tab-details">

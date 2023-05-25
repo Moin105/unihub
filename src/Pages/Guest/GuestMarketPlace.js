@@ -12,9 +12,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import servicetag from "./../../Images/servicetag.png";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function GuestMarketPlace() {
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 const handleRouteChange = (url,datas) => {

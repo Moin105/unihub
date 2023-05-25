@@ -17,6 +17,7 @@ import {
 import DateTime from 'react-datetime';
 import cleaner from './../Images/cleaners.png'
 import { useLocation ,useNavigate} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { MdArrowForward } from "react-icons/md";
 import ChakraDatePicker from '../Components/ChakraDatePicker'
 import DateTimePicker from 'react-datetime-picker';
@@ -68,7 +69,7 @@ function CleaningPackage() {
   useEffect(() => {
   console.log("qwertyu",data)
   }, [])
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   return (
     <div className='bookcleaner'>
     <Header/>

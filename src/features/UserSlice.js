@@ -8,12 +8,15 @@ export const authSlice = createSlice({
     isLoading: false,
     error: null,
     user: null,
-    token:null
+    token:null,
+    role:null
   },
   reducers: {
     setName: (state, action) => {
       console.log("action.payload",action.payload)
-      state.user = action.payload.token;
+      state.user = action.payload.user;
+      state.role = action.payload.role; 
+      state.token = action.payload.token;
       // localStorage.setItem('userData', action.payload.user);
       
       // localStorage.setItem('token', action.payload.token);
@@ -22,7 +25,7 @@ export const authSlice = createSlice({
     setToken: (state, action) => {
       state.token = action.payload;
       // if(action.payload.token !== undefined){
-      localStorage.setItem('token', action.payload);
+      // localStorage.setItem('token', action.payload);
     },
     clearToken: (state) => {
       state.token = null;

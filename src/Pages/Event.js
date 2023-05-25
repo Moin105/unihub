@@ -14,6 +14,7 @@ import "./servicehub.css";
 import { BsCheckLg } from "react-icons/bs";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { useSelector } from "react-redux";
 import camera from "./../Images/camera.png";
 import { Link } from "react-router-dom";
 import { MdArrowForward } from "react-icons/md";
@@ -21,7 +22,7 @@ import axios from "axios";
 // import {MdArrowDropDown} from 'react-icons/md'
 // import camera from './../Images/'
 function Event() {
-    const token = localStorage.getItem("token");
+    const token = useSelector((state) => state.auth.token);;
     const getData = async () => {
         try {
             const response = await axios.get("https://admin.myuni-hub.com/api/all_events", {

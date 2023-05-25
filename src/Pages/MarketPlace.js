@@ -10,11 +10,12 @@ import "./marketplace.css";
 import "../responsive.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import servicetag from "./../Images/servicetag.png";
 import axios from "axios";
 
 function MarketPlace() {
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token);;
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 const handleRouteChange = (url,datas) => {

@@ -20,13 +20,14 @@ import cleaner from "./../../Images/cleaners.png";
 import { MdArrowForward } from "react-icons/md";
 import { id } from 'date-fns/locale'
 import { useNavigate } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
 function GuestBookCleaner() {
 const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
 const [availablity,setAvailablity ]=useState([])
 const navigate = useNavigate();
-const handleRouteChange = (url,datas) => {
+const token = useSelector((state) => state.auth.token);
+const handleRouteChange = (url,datas)  => {
   navigate(url, { state: { data: datas } });
 };
   useEffect(() => {
@@ -34,7 +35,7 @@ const handleRouteChange = (url,datas) => {
     console.log(data.providers)
   }, []);
 
-  const headers = { Authorization: `Bearer ${localStorage.getItem("token")}` };
+  const headers = { Authorization: `Bearer ${token}` };
   const fetchData = async () => {
     try {
       const response = await axios.get('https://admin.myuni-hub.com/api/guest_all_service_providers');
