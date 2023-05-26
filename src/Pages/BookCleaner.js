@@ -132,26 +132,14 @@ useEffect(() => {
                    {item.prices.map((price,index)=>{
                     <div className='price-box' key={index}>
                       <p className='title'>{price.title}</p>
-                      {/* <Checkbox onChange={(e) => console.log(e.target.checked)}>{price.price}
-      </Checkbox>  */}
                     </div>
                    })
                    }
-                   {/* </div> */}
+                 
              </div>
                 )
               })}
-                  {/* <div className='card-cleaner'>
-                       <h4>Express</h4>
-                        <ul>
-                            <li>- Hoovering and Sweeping </li>
-                            <li>- Dust, Wipe & Disinfect All Surfaces</li>
-                        </ul>
-                        <h4>Select Package</h4>
-                     
-                  </div> */}
                   <div className="primary-btn">
-                  {/* <Link to={{pathname:`/bookcleaner/:${selectedOption?.id}`,state: {selectedOption},}}> */}
                         <Button
           rightIcon={<MdArrowForward />}
           bg="#7BB564"
@@ -162,7 +150,6 @@ useEffect(() => {
         >
           Next
         </Button>
-        {/* </Link> */}
       </div>
            </div>
           <Footer/> 

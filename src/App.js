@@ -34,6 +34,8 @@ import GuestMarketPlace from "./Pages/Guest/GuestMarketPlace";
 import { useSelector } from "react-redux";
 import TwoFactor from "./Pages/TwoFactor";
 import NormalSellerDetails from "./Pages/SignUpSeller/SellerDetails";
+import PostCleaner from "./Pages/StudentSeller/PostCleaner";
+import PostEvent from "./Pages/StudentSeller/PostEvent";
 function App() {
   // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -96,6 +98,8 @@ function App() {
     {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
     {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     {path:"/details",element:<Home />,name:"Home"},
+    {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
+    {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
@@ -157,13 +161,13 @@ function App() {
               element={route.element}
             />
           ))}
-      {role == "student" && seller == 0 && buyerRoutes.map(route => (
+      {/* {role == "student" && seller == 0 && buyerRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
-          ))}
+          ))} */}
        {role == "seller" &&   NormalSellerRoutes.map(route => (
             <Route
               key={route.path}
