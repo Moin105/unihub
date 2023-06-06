@@ -4,9 +4,10 @@ import Header from "../Components/Header";
 import itemos from "./../Images/itemos.png";
 import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
+import { setProduct } from "../features/paymentSlice";
 import { MdArrowForward } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import "./itempage.css";
 import "../responsive.css";
 import axios from "axios";
@@ -15,9 +16,15 @@ function ItemPage() {
   const token = useSelector((state) => state.auth.token);;
   const data = location.state ? location.state.data : null;
   const [value, setValue] = useState(1);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state);
 
+  const handleRouteChange = (url,datas)  => {
+    navigate(url, { state: { data: datas } });
+  };
   useEffect(() => {
-    console.log(data)
+    console.log("mmonkeu",data)
   }, [])
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -40,8 +47,15 @@ function ItemPage() {
     };
     try {
       const response = await axios.post(url, formData, config);
+     
+      if(response.data.message === "Intent Generated Successfully!"){
+        const datas ={response:response.data.intent,product:[data,{quantity:quantity,currency:currency}]}
+        dispatch(setProduct(datas))
+        console.log(product,)
+        navigate('/order-booking');
+        // handleRouteChange('/order-booking',{response:response.data,product:formData})
       return response.data;
-    
+      }
     } catch (error) {
       console.error(error);
     }
@@ -70,7 +84,7 @@ function ItemPage() {
           <div className="primary-btn">
          
               {" "}
-              <Button
+           { token ?  <Button
               onClick={()=>{BookRequest(token,data.id,value,'usd')}}
                 rightIcon={<MdArrowForward />}
                 bg="#7BB564"
@@ -79,8 +93,18 @@ function ItemPage() {
                 width={"100%"}
               >
                 Add to Cart
+              </Button>:
+              <Button
+              onClick={()=>{handleRouteChange('/productpayment',data.id,value,'usd')}}
+                rightIcon={<MdArrowForward />}
+                bg="#7BB564"
+                color={"white"}
+                variant="solid"
+                width={"100%"}
+              >
+                Add to Cart
               </Button>
-  
+  }
           </div>
           {/* <div className="seller-row">
             <p></p>

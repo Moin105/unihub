@@ -17,14 +17,14 @@ const BaseUrl = 'https://admin.myuni-hub.com/api';
 // .then((data) => {console.log("moeeen");  return data;})
 //   return response.data;
 // };
-export const SignUps = async ({ name, email, password, confirmPassword }) => {
+export const SignUps = async ({ name, email, password, confirmPassword ,university}) => {
   const response = await fetch(`https://admin.myuni-hub.com/api/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      email, password, confirmPassword, name
+      email, password, confirmPassword, name,university
     })
   });
   console.log("moin",response)

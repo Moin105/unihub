@@ -26,10 +26,10 @@ const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
 const [availablity,setAvailablity ]=useState([])
 const navigate = useNavigate();
-const token = useSelector((state) => state.auth.token);
 const handleRouteChange = (url,datas)  => {
   navigate(url, { state: { data: datas } });
 };
+const token = useSelector((state) => state.auth.token);
   useEffect(() => {
     fetchData();
     console.log(data.providers)
@@ -167,7 +167,7 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,{selectedOption,availablity})}
+          onClick={() => handleRouteChange(`/cleanerpayment`,{selectedOption,availablity})}
         >
           Next
         </Button>

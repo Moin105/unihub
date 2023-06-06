@@ -39,11 +39,40 @@
   font-weight: 300;
   margin-bottom: 20px;
 }
+.sellerpage .wrapper .chakra-tabs__tablist {
+  justify-content: center;
+  background-color: #F8F6F5;
+  padding: 30px 20px;
+  border: none;
+  flex-wrap: wrap;
+}
+.sellerpage .wrapper .chakra-tabs__tablist .tab-content[aria-selected=false] {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.sellerpage .wrapper .chakra-tabs__tablist .tab-content {
+  max-width: 150px;
+  height: 150px;
+  border: none;
+  font-size: 41px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sellerpage .wrapper .chakra-tabs__tablist .tab-content .chakra-image {
+  width: 40px;
+  height: 40px;
+}
+.sellerpage .wrapper .chakra-tabs__tablist .tab-content p {
+  font-size: 16px;
+}
 .sellerpage .wrapper .servicebook-container,
 .sellerpage .wrapper .servicetags-container {
   display: flex;
   flex: 1;
   justify-content: center;
+  width: 100%;
   gap: 10px;
   margin-bottom: 20px;
   flex-wrap: wrap;
@@ -140,7 +169,7 @@
 
 @media screen and (max-width: 1440px) {
   .sellerpage .wrapper {
-    max-width: 640px;
+    max-width: 90%;
   }
   .sellerpage .wrapper .seller {
     display: flex;

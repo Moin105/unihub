@@ -41,7 +41,7 @@ function Details() {
             </Link>
             {token ?     <Link to="/events">
               <ServiceTag icon={events} name="Events" />
-            </Link>: <Link to="/event">
+            </Link>: <Link to="/guest-event">
               <ServiceTag icon={events} name="Events" />
             </Link>}
             {token ?  <Link to="/servicehub">

@@ -31,29 +31,22 @@ function CleaningPackage() {
       navigate(url, { state: { data: datas } });
     };
     const BookRequest = async (token, service_id, price_id, date_time, currency) => {
-        const url = 'https://admin.myuni-hub.com/api/book_services'; // Replace this with your API URL
+  if(token) {     const url = 'https://admin.myuni-hub.com/api/book_services'; // Replace this with your API URL
         let date = new Date(date_time);
-
         let yearMonthDay = date.toISOString().slice(0,10); // Gets "2023-05-22"
         let hoursMinutes = date.toISOString().slice(11,16); // Gets "10:40"
-        
         let formattedDate = `${yearMonthDay} ${hoursMinutes}`; // Combine date and time
-        
         console.log(formattedDate); // Prints: "2023-05-22 10:40"
-        
         const formData = new FormData();
         formData.append('service_id', service_id);
         formData.append('price_id', price_id);
         formData.append('date_time', formattedDate);
         formData.append('currency', currency);
-      
         const config = {
           headers: {
             'Authorization': `Bearer ${token}`,
-            // 'Content-Type': 'multipart/form-data'
           },
         };
-      
         try {
           const response = await axios.post(url, formData, config);
           if(response.status == 200){
@@ -63,6 +56,34 @@ function CleaningPackage() {
           return response;
         } catch (error) {
           console.error(error);
+        }}else{
+          const url = 'https://admin.myuni-hub.com/api/guest_book_services'; // Replace this with your API URL
+        let date = new Date(date_time);
+        let yearMonthDay = date.toISOString().slice(0,10); // Gets "2023-05-22"
+        let hoursMinutes = date.toISOString().slice(11,16); // Gets "10:40"
+        let formattedDate = `${yearMonthDay} ${hoursMinutes}`; // Combine date and time
+        console.log(formattedDate); // Prints: "2023-05-22 10:40"
+        const formData = new FormData();
+        formData.append('service_id', service_id);
+        formData.append('price_id', price_id);
+        formData.append('date_time', formattedDate);
+        formData.append('currency', currency);
+        const config = {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        };
+        try {
+          const response = await axios.post(url, formData, config);
+          if(response.status == 200){
+            alert("Booked Successfully")
+            handleRouteChange('/booking',response.data)
+          }
+          return response;
+        } catch (error) {
+          console.error(error);
+        }
+          
         }
       };
     // const obj = JSON.parse(decodeURIComponent(encodedObj));

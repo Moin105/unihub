@@ -1,13 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const initialState = {
   isLoading: false,
   error: null,
   data: null,
 };
-export const getToken = () => {
-    return localStorage.getItem('token')
+export const GetToken = () => {
+  const token = useSelector((state) => state.auth.token);
+    return token
   }
 // export const fetchUserProfile = createAsyncThunk(
 //   'profile/fetchUserProfile',
@@ -19,9 +21,11 @@ export const getToken = () => {
 export const fetchUserProfile = createAsyncThunk(
     'profile/fetchUserProfile',
     async (_, thunkAPI) => {
-        const token = getToken()
+        const token =GetToken()
+        
         if (!token) {
-        //   return rejectWithValue('Token not found in local storage')
+            console.log("token not found")
+          // return rejectWithValue('Token not found in local storage')
         }
     //   const token = thunkAPI.getState().auth.token;
       const headers = { Authorization: `Bearer ${token}` };

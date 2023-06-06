@@ -1,0 +1,69 @@
+.tab-wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 650px;
+}
+.tab-wallet h2 {
+  color: #7BB564;
+}
+.tab-wallet h3 {
+  font-size: 18px;
+  color: #7BB564;
+}
+.tab-wallet .upper,
+.tab-wallet .lower {
+  font-size: 20px;
+  font-weight: 300;
+}
+.tab-wallet .form-control {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.tab-wallet .form-control .input-container {
+  border-radius: 16px;
+  margin: 0px;
+  border: 1px solid #7BB564;
+}
+.tab-wallet .form-control .input-container label {
+  font-size: 18px;
+  margin: 0;
+}
+.tab-wallet .form-control .input-container input {
+  font-size: 20px;
+  height: auto;
+  border-color: none;
+  padding: 7px 0px 10px 20px;
+  font-weight: 400;
+  color: #000;
+}
+.tab-wallet p {
+  margin-block: 10px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1440px) {
+  .tab-wallet {
+    margin: 40px auto;
+    max-width: 400px;
+  }
+  .tab-wallet h2 {
+    font-size: 30px;
+  }
+  .tab-wallet .upper,
+  .tab-wallet .lower {
+    font-size: 16px;
+  }
+  .tab-wallet .form-control .input-container label {
+    padding: 10px 0 0 20px;
+    font-size: 16px;
+  }
+  .tab-wallet .form-control .input-container input {
+    font-size: 16px;
+    padding: 5px 0 5px 20px;
+  }
+}/*# sourceMappingURL=payment.css.map */

@@ -1,0 +1,158 @@
+.bookingsummary {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.bookingsummary .wrapper {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 313px);
+  margin-inline: 20px;
+}
+.bookingsummary .wrapper .form-control {
+  max-width: 430px;
+}
+.bookingsummary .wrapper .form-control .input-container {
+  margin-bottom: 20px !important;
+}
+.bookingsummary .wrapper .summary {
+  text-align: start;
+  width: 50%;
+  margin: 0 auto;
+}
+.bookingsummary .wrapper .summary h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.bookingsummary .wrapper .summary p {
+  color: #7BB564;
+}
+.bookingsummary .wrapper .tag-label {
+  margin-inline: 0px;
+  color: #000;
+}
+.bookingsummary .wrapper h2 {
+  margin: 30px 0px;
+  color: #7BB564;
+  font-weight: 900;
+}
+.bookingsummary .wrapper figure {
+  width: 80%;
+  height: 100%;
+}
+.bookingsummary .wrapper figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.bookingsummary .wrapper .ouper {
+  margin-bottom: 10px;
+}
+.bookingsummary .wrapper .date-wrapper {
+  min-width: 70%;
+}
+.bookingsummary .wrapper .date-wrapper .form-control {
+  margin: 0;
+}
+.bookingsummary .wrapper .form-control {
+  width: 100%;
+  max-width: 550px;
+}
+.bookingsummary .wrapper .form-control .input-container {
+  margin: 8px 0px;
+  border-radius: 16px;
+}
+.bookingsummary .wrapper .form-control .input-container label {
+  font-size: 18px;
+  padding-top: 10px;
+  margin: 0;
+}
+.bookingsummary .wrapper .form-control .input-container input {
+  height: auto;
+  border: none;
+  padding: 5px 0px 5px 20px;
+  font-size: 20px;
+  font-weight: 300;
+}
+.bookingsummary .wrapper .card-cleaner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px auto 0px 10%;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+.bookingsummary .wrapper .card-cleaner h4 {
+  margin: 20px 0px 10px;
+}
+.bookingsummary .wrapper .card-cleaner ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.bookingsummary .wrapper .card-cleaner ul li {
+  font-size: 16px;
+  text-align: initial;
+  margin: 10px 0px 0px 0px;
+  color: #707070;
+  font-weight: 300;
+}
+.bookingsummary .wrapper p {
+  text-align: initial;
+  color: #707070;
+  font-weight: 300;
+}
+.bookingsummary .wrapper h1 {
+  margin: 30px 0px 0px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .bookcleaner .wrapper {
+    max-width: 800px;
+    min-height: calc(100vh - 251.48px);
+  }
+  .bookcleaner .wrapper h2 {
+    font-size: 30px;
+  }
+  .bookcleaner .wrapper .form-control {
+    max-width: 400px;
+  }
+  .bookcleaner .wrapper .form-control .input-container label {
+    font-size: 16px;
+    margin: 0;
+  }
+  .bookcleaner .wrapper .form-control .input-container input {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .bookcleaner .wrapper {
+    max-width: 600px;
+    min-height: calc(100vh - 275.48px);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .bookcleaner .wrapper {
+    max-width: 90%;
+    min-height: calc(100vh - 275.48px);
+  }
+  .bookcleaner .wrapper .date-wrapper {
+    min-width: 90%;
+  }
+  .bookcleaner .wrapper .card-cleaner {
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .bookcleaner .wrapper .date-wrapper .form-control {
+    padding-left: 30px;
+  }
+}/*# sourceMappingURL=bookingsummary.css.map */

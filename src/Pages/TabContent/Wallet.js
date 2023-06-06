@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   FormControl,
   FormLabel,
@@ -11,9 +11,34 @@ import {
 } from "@chakra-ui/react";
 import "./wallet.css";
 import "../../responsive.css";
+import axios from "axios";
+import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
 function Wallet() {
   const [show, setShow] = useState(true);
+  const [hide, setHide] = useState(true);
+  const [cards,setCards] = useState([]);
+  const token = useSelector((state) => state.auth.token);
+  const getData = async () => {
+    try {
+      const response = await axios.get("https://admin.myuni-hub.com/api/get_cards", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("ma belle",response.data.cards);
+      setCards(response.data.cards);
+      
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  useEffect(() => {
+    getData();
+  if(cards.length >= 0){
+    setShow(false);
+  }
+  }, [])
   return (
     <div className="tab-wallet">
       {show ? (
@@ -32,7 +57,7 @@ function Wallet() {
       ) : (
         <React.Fragment>
           <h2>Add Card</h2>
-          <h3>Add New Card</h3>x
+          <h3>Add New Card</h3>
           <FormControl className="form-control">
             <Box
               className="input-container"

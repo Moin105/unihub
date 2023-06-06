@@ -67,10 +67,15 @@
 .itempage .wrapper .quantity-container .quantity {
   font-size: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 40px;
   align-items: center;
   margin-bottom: 20px;
+}
+.itempage .wrapper .quantity-container .quantity input {
+  max-width: 100px;
+  padding: 9px 10px;
+  text-align: center;
 }
 .itempage .wrapper .quantity-container .quantity input div {
   display: flex;

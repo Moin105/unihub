@@ -1,4 +1,4 @@
-import React,{useEffect, useState,useMemo} from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import {
   FormControl,
   FormLabel,
@@ -15,53 +15,81 @@ import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
 import { set } from "date-fns";
 // import { useSelector } from "react-redux";
-const postData = async (url, data,token) => {
-  try {
-    const response = await axios.post(url, data,{
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }});
-    console.log('API response:', response);
-    // Handle success response here
-  } catch (error) {
-    console.error('API error:', error);
-    // Handle error response here
-  }
-};
+// const postData = async (url, data,token) => {
+//   try {
+//     const response = await axios.post(url, data,{
+//       headers: {
+//         'Authorization': `Bearer ${token}`
+//       }});
+//     console.log('API response:', response);
+//     // Handle success response here
+//   } catch (error) {
+//     console.error('API error:', error);
+//     // Handle error response here
+//   }
+// };
 function DetailsTab() {
+  const token = useSelector((state) => state.auth.token);
+  const updateUser = async () => {
+    try {
+      // Make the API call to update the user
+      const response = await axios.post(
+        "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
+        {
+          name: formData.name,
+          address: formData.address,
+          phone: formData.phone,
+        },
+        token
+      );
+      // const response = await makeApiCall(userId, userData);
+
+      // Get the updated user data from the API response
+      const updatedUser = response.data;
+      console.log("updatedUser", updatedUser);
+      // Dispatch the setName action with the updated user data
+      // dispatch(setName({ user: updatedUser }));
+
+      // Other dispatches or logic if necessary
+    } catch (error) {
+      // Handle any errors
+      console.log(error);
+    }
+  };
   const dispatch = useDispatch();
-  const [isEditable, setIsEditable] = useState(true)
+  const [isEditable, setIsEditable] = useState(true);
   // const userProfileData = useSelector((state) => state);
-  const userProfileData = useSelector((state) => state.user?.data?.profile)
-  console.log("userProfile",userProfileData)
+  const userProfileData = useSelector((state) => state.auth.user);
+  console.log("userProfile", userProfileData);
   const [formData, setFormData] = useState(null);
-  const token = useSelector((state) => state.auth.token); 
+  // const token = useSelector((state) => state.);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  const memoizedUserProfileData = useMemo(() => userProfileData, [userProfileData]);
+  const memoizedUserProfileData = useMemo(
+    () => userProfileData,
+    [userProfileData]
+  );
   const formDetails = useMemo(() => formData, [formData]);
 
   useEffect(() => {
-    console.log("hwlllooo")
+    console.log("hwlllooo");
     // console.log("hwlllooo",userProfileData.profile.email)
-    if(userProfileData){
+    if (userProfileData) {
+      setFormData({
+        name: memoizedUserProfileData?.name,
+        email: memoizedUserProfileData?.email,
+        address: memoizedUserProfileData?.address,
+        phone: memoizedUserProfileData?.phone,
+      });
+    }
+  }, []);
 
-    setFormData({
-      name:memoizedUserProfileData?.name,
-      email:memoizedUserProfileData?.email,
-      address: memoizedUserProfileData?.address,
-      phone:memoizedUserProfileData?.phone
-    });}
-  }, [])
-
-
-  
   const updateProfile = () => {
-
-    postData("https://admin.myuni-hub.com/api/update_profile?_method=PUT",formData,token)
-  }
+    updateUser();
+    // postData
+  };
   return (
     <div className="tab-details">
       <h2>My Details</h2>
@@ -88,7 +116,8 @@ function DetailsTab() {
             name="name"
             type="email"
             onChange={handleInputChange}
-            value={formDetails?.name} disabled={!isEditable}
+            value={formDetails?.name}
+            disabled={!isEditable}
             fontSize="41px"
           />
         </Box>
@@ -112,7 +141,7 @@ function DetailsTab() {
             type="email"
             name="email"
             onChange={handleInputChange}
-            value={formDetails?.email} 
+            value={formDetails?.email}
             fontSize="41px"
           />
         </Box>
@@ -133,7 +162,7 @@ function DetailsTab() {
             variant="unstyled"
             border="none"
             onChange={handleInputChange}
-            value={formDetails?.address} 
+            value={formDetails?.address}
             type="address"
             name="address"
             fontSize="41px"
@@ -152,13 +181,22 @@ function DetailsTab() {
           >
             Phone
           </FormLabel>
-          <Input variant="unstyled"name="phone" value={formDetails?.phone}onChange={handleInputChange}  border="none" type="tel" fontSize="41px" />
+          <Input
+            variant="unstyled"
+            name="phone"
+            value={formDetails?.phone}
+            onChange={handleInputChange}
+            border="none"
+            type="tel"
+            fontSize="41px"
+          />
         </Box>
         {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
       </FormControl>
       <div className="primary-btn">
         <Button
-          rightIcon={<MdArrowForward />} onClick={updateProfile}
+          rightIcon={<MdArrowForward />}
+          onClick={updateProfile}
           bg="#7BB564"
           color={"white"}
           variant="solid"

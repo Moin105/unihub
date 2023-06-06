@@ -44,12 +44,45 @@
             }
 
         }
+        .chakra-tabs__tablist {
+            justify-content: center;
+            background-color: #F8F6F5;
+            padding: 30px 20px;
+            border: none;
+            flex-wrap: wrap;
 
+            .tab-content[aria-selected=false] {
+                background-color: #ffffff;
+                border-radius: 10px;
+            }
+
+            .tab-content {
+                max-width: 150px;
+                height: 150px;
+                border: none;
+                font-size: 41px;
+                font-weight: 300;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .chakra-image {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+            }
+        }
         .servicebook-container,
         .servicetags-container {
             display: flex;
             flex: 1;
             justify-content: center;
+            width: 100%;
             // max-width: 600px;
             gap: 10px;
             margin-bottom: 20px;
@@ -170,7 +203,7 @@
 @media screen and (max-width:1440px) {
     .sellerpage {
         .wrapper {
-            max-width: 640px;
+        max-width: 90%;
 
             .seller {
                 display: flex;

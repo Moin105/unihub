@@ -8,9 +8,12 @@ export const signUpUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await SignUps(userData);
-      console.log("firstName",response)
-      thunkAPI.dispatch(setName(response)); 
-      return response;
+      console.log("firstName",response.message)
+      if(response.message === 'check your email to verify your account'){
+        window.location.href = "/login";
+      }
+      // thunkAPI.dispatch(setName(response)); 
+      // return response;
     } catch (error) {
       // return thunkAPI.rejectWithValue(error.response.data);
     }

@@ -20,6 +20,7 @@ function Signup() {
     email: '',
     password: '',
     confirmPassword:"",
+    university:"1"
     
   }); 
   const [universities, setUniversities] = useState([]);
@@ -33,28 +34,28 @@ function Signup() {
     
 
   };
-  const  fetchUniversities= async()=> {
-    return  await fetch('https://admin.myuni-hub.com/api/universities')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        return data;
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  }
-  useEffect(() => {
+  // const  fetchUniversities= async()=> {
+  //   return  await fetch('https://admin.myuni-hub.com/api/universities')
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       return data;
+  //     })
+  //     .catch(error => {
+  //       console.error('There was a problem with the fetch operation:', error);
+  //     });
+  // }
+  // useEffect(() => {
  
-    fetchUniversities().then(data => {
-        setUniversities(prevData=>{prevData =  data;return prevData})
-      });
-    console.log("qwe",universities)
-  }, []);
+  //   fetchUniversities().then(data => {
+  //       setUniversities(prevData=>{prevData =  data;return prevData})
+  //     });
+  //   console.log("qwe",universities)
+  // }, []);
   return (
     <div className="signup-page">
       <div className="container">

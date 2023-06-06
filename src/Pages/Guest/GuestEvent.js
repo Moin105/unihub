@@ -100,16 +100,16 @@ useEffect(() => {
               </figure>
               {memoizedData?.map((item,index)=>{
                 return (
-                  <div key={index} className='card-cleaner'>
+                  <div key={index} className='card-cleaner' onClick={()=>{handleRouteChange(`/paymentform`)}}>
                   <h4>{item.title}</h4>
                    <ul>
                       <p>{item.descreption}</p>
                    </ul>
-                   <h4>Select Package</h4>
+                   {/* <h4>Select Package</h4> */}
                    {/* <div className='package-box'> */}
-                   <RadioGroup  className='package-box'>
+                   {/* <RadioGroup  className='package-box'> */}
                     
-        {item.prices.map((price,_index) => (
+        {/* {item.prices.map((price,_index) => (
     
           <Radio onChange={ (event) => {
             const    id = event.target.value;
@@ -123,17 +123,14 @@ useEffect(() => {
            <p> {price.price}</p>  
           </Radio>
      
-        ))}
-      </RadioGroup>
+        ))} */}
+      {/* </RadioGroup> */}
                    {item.prices.map((price,index)=>{
-                    <div className='price-box' key={index}>
+                    <div className='price-box' key={index} >
                       <p className='title'>{price.title}</p>
-                      {/* <Checkbox onChange={(e) => console.log(e.target.checked)}>{price.price}
-      </Checkbox>  */}
                     </div>
                    })
                    }
-                   {/* </div> */}
              </div>
                 )
               })}
@@ -154,7 +151,7 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/events/:${selectedOption?.id}`,selectedOption)}
+          onClick={() => handleRouteChange(`/paymentform`,selectedOption)}
         >
           Next
         </Button>

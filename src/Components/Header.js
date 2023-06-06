@@ -18,7 +18,7 @@ function Header() {
           </figure>
         </Link>
         <div className="nav">
-          <Link to="/details">
+          <Link to="/">
             {" "}
             <figure className="media-icon">
               <img src={dropdown} />

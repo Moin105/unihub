@@ -21,6 +21,8 @@ import Header from '../Components/Header';
 import { openModal } from '../features/modalSlice';
 import Footer from '../Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { setStudentRole } from '../features/UserSlice';
 import { fetchUserProfile } from '../thunks/profileThunk';
 import profile from '../Images/profile.png';
 import './sellerdetails.css'
@@ -42,6 +44,15 @@ function SellerDetails() {
         // dispatch(openModal(response.message));
         console.log(",aa ki dewfgr")
         handleRouteChange('/bankdetails')
+      }else if(response.data.message === "switched to seller successfully!"){
+        const successMessage = response.data.message;
+  
+        console.log("younas")
+        const payload = {
+          message: successMessage,
+        };
+      
+        dispatch(setStudentRole(payload));
       }
       // Handle success response here
     } catch (error) {
@@ -62,11 +73,14 @@ const  token = useSelector((state) => state.auth.token);
     // .then((res)=>res.json())
     postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},token)
   };
-
+const switch_profile = useSelector((state) => state);
   useEffect(() => {
-    console.log("hwlllooo")
+    console.log("akbar",switch_profile)
     // console.log("hwlllooo",userProfileData.profile.email)
     dispatch(fetchUserProfile());
+    if(switch_profile == true){
+      handleRouteChange('/sellerpage')
+    } 
   }, [dispatch]);
   const userProfileData = useSelector((state) => state);
 

@@ -15,6 +15,7 @@ import CleaningPackage from "./Pages/CleaningPackage";
 import BankPage from "./Pages/BankPage";
 import { BrowserRouter as Router, Routes, Route,Navigate, Outlet } from "react-router-dom";
 import BookCleaner from "./Pages/BookCleaner";
+import ProductPayment from "./Pages/Guest/ProductPayment";
 import BookStorage from "./Pages/BookStorage";
 import BookMoveout from "./Pages/BookMoveout";
 import ServiceHub from "./Pages/ServiceHub";
@@ -36,6 +37,11 @@ import TwoFactor from "./Pages/TwoFactor";
 import NormalSellerDetails from "./Pages/SignUpSeller/SellerDetails";
 import PostCleaner from "./Pages/StudentSeller/PostCleaner";
 import PostEvent from "./Pages/StudentSeller/PostEvent";
+import PostProduct from "./Pages/StudentSeller/PostProduct";
+import PaymentForm from "./Pages/Guest/PaymentForm";
+import CleanerPayment from "./Pages/Guest/CleanerPayment";
+import BookingSummary from "./Pages/BookingSummary";
+import CheckOutPage from "./Pages/Checkout";
 function App() {
   // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -46,13 +52,13 @@ function App() {
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
     console.log(auth)
-  if(token){
+  if(token !== null){
     console.log("treu")
  return   setIsAuthenticated(true)
-  }else{
+  }else if (token == null){
     setIsAuthenticated(false)
   }
-  }, [])
+  }, [token])
   const dynamicRoute = {
     path: "/bookcleaner/:dynamicId",
     element: <CleaningPackage />,
@@ -80,8 +86,12 @@ function App() {
     {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     {path:"/booking" ,element:<OrderPlaced />,name:"OrderPlaced"},
+    {path:"/order-booking",element:<BookingSummary/>,name:"BookingSummary"},
+    {path:"/sellerpage", element:<SellerPage/>,name:"SellerPage"},
     {path:"/home" ,element:<Home />,name:"OrderPlaced"},
     dynamicRoute,
+    {path:"/cleanerpayment",element:<CleanerPayment/>,name:"CleanerPayment"},
+    {path:"/checkout",element:<CheckOutPage/>,name:"CheckOutPage"},
     dynamicEventRoute,dynamicItemRoute,
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/events' ,element:<EventBuyer/>,name:"BookEvent"},
@@ -100,6 +110,7 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
     {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
+    {path:"/addproduct",element:<PostProduct/>,name:"PostCleaner"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
@@ -126,10 +137,13 @@ function App() {
     {path:"/bookcleaner" ,element:<GuestBookCleaner/> ,name:"BookCleaner"},
     {path:"/bookmoveout" ,element:<BookMoveout /> ,name:"BookMoveout"},
     { path: "/", element: <Details />, name: "Details" },
+    {path:"/paymentform" , element:<PaymentForm />,name:"PaymentForm"},
     {path:'/bookevent' ,element:<EventBuyer/>,name:"BookEvent"},
     {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+    {path:"/cleanerpayment" ,element:<CleanerPayment />,name:"payment cleaner"},
     {path:"/marketplace" ,element:<GuestMarketPlace />,name:"MarketPlace"},
     {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
+    {path:"/productpayment" ,element:<ProductPayment />,name:"payment product"},
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
@@ -138,7 +152,7 @@ function App() {
     dynamicRoute,
     dynamicEventRoute,dynamicItemRoute,
     // {path:'/event',element:<Event/>,name:"Event"},
-    {path:'/event' ,element:<GuestEvent/>,name:"BookEvent"},
+    {path:'/guest-event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
 
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
@@ -154,20 +168,20 @@ function App() {
     <Router>
   <Routes>
         {isAuthenticated ? (<>
-      {role == "student" && seller == 0  &&  sellerRoutes.map(route => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={route.element}
-            />
-          ))}
-      {/* {role == "student" && seller == 0 && buyerRoutes.map(route => (
+      {/* {role == "student" && seller == 0  &&  sellerRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
           ))} */}
+      {role == "student" && buyerRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
        {role == "seller" &&   NormalSellerRoutes.map(route => (
             <Route
               key={route.path}

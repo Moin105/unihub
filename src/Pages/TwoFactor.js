@@ -37,7 +37,7 @@ function TwoFactor() {
           if(data.status == 200 ){
             dispatch(setToken(data.token));
             dispatch(setName(data))
-            handleRouteChange("/",{})
+            handleRouteChange("/",)
           }else{
             // try again 
           }

@@ -16,29 +16,35 @@ import filter from "../../Images/filter.png";
 import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
 import axios from 'axios'
+import { get } from "react-hook-form";
 // import Rating from "../../Components/Rating";
 // import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 function Order() {
   const [show, setShow] = useState(true);
   const [hide, setHide] = useState(true);
-
+  const [cards,setCards] = useState([]);
   const token = useSelector((state) => state.auth.token);;
   const getData = async () => {
     try {
-      const response = await axios.get("https://admin.myuni-hub.com/api/add-bank", {
+      const response = await axios.get("https://admin.myuni-hub.com/api/get_cards", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("ma belle",response.data);
+      console.log("ma belle",response.data.cards);
+      setCards(response.data.cards);
+      
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   };
-  useEffect(() => {
-   getData()
-  }, [])
+  // useEffect(() => {
+  //   getData();
+  // if(cards.length > 0){
+  //   setHide(false)
+  // }
+  // }, [])
   
   return (
     <React.Fragment>

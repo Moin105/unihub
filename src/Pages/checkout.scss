@@ -1,0 +1,267 @@
+.bookingsummary {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1020px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: calc(100vh - 313px);
+        margin-inline: 20px;
+  .summary{
+    text-align: start;
+    width: 50%;
+    margin: 0 auto;
+    h3{
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+    p{
+        color: #7BB564;
+    }
+  }
+  .summarys{
+    text-align: start;
+    width: 50%;
+    margin: 20px auto;
+    .cards-container{
+        display: flex;
+        flex-direction: column;
+        .card-row{
+            display: flex;
+            border : 1px solid #7BB564;
+            padding: 10px 20px;
+            border-radius: 10px;
+            justify-content: space-between;
+            .card{
+                width: 60px;
+                height: 60px;
+                border-radius: 500px;
+                background-color: #000;
+            }
+            .card-text{
+                    margin-left: 10px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    display: flex;
+                    width: 75%;
+                    color: #000;
+                    flex-direction: column;
+                    justify-content: center;
+                    h3{
+                        margin: 0;
+                    }
+                p{
+                   font-size: 18px;
+                   margin: 0;
+                   color: #868E96;
+                }
+            }
+            .check{
+                width: 20px;
+                height: 20px;
+                border-radius: 400px;
+                background-color: #7BB564;
+            }
+        }
+    }
+    h3{
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+    p{
+        // color: #7BB564;
+        font-size: 20px;
+        // font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+  }
+        .tag-label {
+            margin-inline: 0px;
+            color: #000;
+        }
+
+        h2 {
+            margin: 30px 0px;
+            color: #7BB564;
+            font-weight: 900;
+        }
+
+        figure {
+            width: 80%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .ouper {
+            margin-bottom: 10px;
+        }
+
+        .date-wrapper {
+            min-width: 70%;
+
+            .form-control {
+                margin: 0;
+            }
+        }
+
+        .form-control {
+            width: 100%;
+            max-width: 550px;
+
+            .input-container {
+                margin: 8px 0px;
+                border-radius: 16px;
+
+                label {
+                    font-size: 18px;
+                    padding-top: 10px;
+                    margin: 0;
+                }
+
+                input {
+                    height: auto;
+                    border: none;
+                    padding: 5px 0px 5px 20px;
+                    font-size: 20px;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .card-cleaner {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 0px auto 0px 10%;
+            align-items: flex-start;
+            align-self: flex-start;
+
+            h4 {
+                margin: 20px 0px 10px;
+
+            }
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    font-size: 16px;
+                    text-align: initial;
+                    margin: 10px 0px 0px 0px;
+                    color: #707070;
+                    font-weight: 300;
+                }
+            }
+
+        }
+
+        p {
+            text-align: initial;
+            color: #707070;
+            font-weight: 300;
+        }
+
+        h1 {
+            margin: 30px 0px 0px;
+        }
+
+    }
+
+}
+
+@media only screen and (max-width: 1440px) {
+    .bookcleaner {
+        .wrapper {
+            max-width: 800px;
+            min-height: calc(100vh - 251.48px);
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .form-control {
+                max-width: 400px;
+
+                .input-container {
+
+                    label {
+                        font-size: 16px;
+                        margin: 0;
+                    }
+
+                    input {
+                        font-size: 16px;
+                    }
+
+                }
+            }
+
+        }
+    }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .bookcleaner {
+        .wrapper {
+            max-width: 600px;
+            min-height: calc(100vh - 275.48px);
+
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .bookcleaner {
+        .wrapper {
+            max-width: 90%;
+            min-height: calc(100vh - 275.48px);
+
+            .date-wrapper {
+                min-width: 90%;
+            }
+
+            .card-cleaner {
+                margin-left: 0px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    .bookcleaner {
+        .wrapper {
+
+            .date-wrapper {
+
+                .form-control {
+                    padding-left: 30px;
+                }
+            }
+
+        }
+    }
+
+}

@@ -26,34 +26,32 @@ function    EventPackage() {
     const location = useLocation();
     const data = location.state ? location.state.data : null;
     const [value, setValue] = useState(new Date());
+    // const token = useSelector((state) => state.auth.token);
+    const token = useSelector((state) => state.auth.token);;
     const BookRequest = async (token, event_id, price_id, currency) => {
-        const url = 'https://admin.myuni-hub.com/api/book_event'; // Replace this with your API URL
-
-        
+   if(token) {    const url = 'https://admin.myuni-hub.com/api/book_event';
         const formData = new FormData();
         formData.append('event_id', event_id);
         formData.append('price_id', price_id);
         formData.append('currency', currency);
-      
         const config = {
           headers: {
             'Authorization': `Bearer ${token}`,
-            // 'Content-Type': 'multipart/form-data'
           },
         };
-      
         try {
           const response = await axios.post(url, formData, config);
           return response.data;
         } catch (error) {
           console.error(error);
+        }}else{
+          console.log("brother")
         }
       };
     // const obj = JSON.parse(decodeURIComponent(encodedObj));
   useEffect(() => {
   console.log("qwertyu",data)
   }, [])
-  const token = useSelector((state) => state.auth.token);;
   return (
     <div className='bookcleaner'>
     <Header/>

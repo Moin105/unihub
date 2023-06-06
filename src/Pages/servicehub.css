@@ -95,7 +95,8 @@
 .servicehub .wrapper .image-container figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .servicehub .wrapper .confirm-notification {
   display: flex;
@@ -150,6 +151,4 @@
     font-size: 12px;
     line-height: 18px;
   }
-}
-
-/*# sourceMappingURL=servicehub.css.map */
+}/*# sourceMappingURL=servicehub.css.map */
