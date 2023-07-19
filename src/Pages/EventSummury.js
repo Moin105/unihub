@@ -14,7 +14,7 @@ import {
 import './bookingsummary.css'
 import Header from "../Components/Header";
 import {toast} from 'react-toastify'
-function BookingSummary() {
+function EventSummury() {
   const productData = useSelector((state) => state.product);
 
   const location = useLocation();
@@ -27,7 +27,8 @@ function BookingSummary() {
     navigate(url, { state: { data: datas } });
   };
   useEffect(() => {
-    console.log("payment details", productData);    console.log("which scenario", data);
+    console.log("payment details", productData);
+    console.log("which scenario", data);
   }, []);
   return (
     <>
@@ -99,7 +100,7 @@ function BookingSummary() {
             toast.error("Please fill all the fields");
           }else{
 
-            handleRouteChange("/checkout",{phone,address,"type":"product"})}}
+            handleRouteChange("/checkout",{phone,address})}}
           }
           
            
@@ -117,4 +118,4 @@ function BookingSummary() {
   );
 }
 
-export default BookingSummary;
+export default EventSummury;

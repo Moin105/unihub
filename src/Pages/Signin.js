@@ -11,6 +11,7 @@ import google from '../Images/google.svg'
 import { useDispatch,useSelector   } from 'react-redux'
 import { useNavigate,useLocation } from 'react-router-dom';
 import { useMutation } from 'react-query';
+import { toast } from 'react-toastify';
 const baseUrl = process.env.BASE_URL;
 
 function Signin() {
@@ -31,6 +32,9 @@ function Signin() {
         const data = await response.json();
         // console.log()
         console.log("",data)
+        if(data.message == 'User does not exist!'){
+          toast.error(data.message)
+        }
         if(data.message == "Check your email for otp!"){
           handleRouteChange("/otp",credentials)
         // dispatch(setToken(data.token));
@@ -38,7 +42,8 @@ function Signin() {
           handleRouteChange("/login",)
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
+        // toast.error(error.message)
       }
     };
   const [formData, setFormData] = useState({
@@ -59,13 +64,21 @@ const data = {
   password: formData.password,
   email: formData.email,
 };
+const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+const check =  pattern.test(formData.email);
+if(formData.email == "" || formData.password == ""){
+  toast.error("Please fill all the fields")
+}else if(check !==  true){
+  toast.error("Please enter valid email")
+}
+else{
 
-console.log("data",formData)  
   dispatch(logins(data))
   if (data) {
     console.log("data",data)
-    // history.push('/dashboard');
   }
+}
+console.log("data",formData)  
 
 };
 

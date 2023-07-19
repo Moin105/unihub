@@ -27,24 +27,24 @@ function Order() {
   const token = useSelector((state) => state.auth.token);;
   const getData = async () => {
     try {
-      const response = await axios.get("https://admin.myuni-hub.com/api/get_cards", {
+      const response = await axios.get("https://admin.myuni-hub.com/api/book_services", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("ma belle",response.data.cards);
-      setCards(response.data.cards);
+      console.log("ma belle",response);
+      // setCards(response.data.cards);
       
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   };
-  // useEffect(() => {
-  //   getData();
+  useEffect(() => {
+    getData();
   // if(cards.length > 0){
   //   setHide(false)
   // }
-  // }, [])
+  }, [])
   
   return (
     <React.Fragment>

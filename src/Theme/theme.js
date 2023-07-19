@@ -6,6 +6,18 @@ const activeLabelStyles = {
 };
 const theme = extendTheme({
     components: {
+      Radio: {
+        baseStyle: {
+          control: {
+            _before: {
+              content: '""',
+              width: '100% !important',
+            height: '100% !important',
+            
+            },
+          },
+        },
+      },
       Tabs: {
         baseStyle: {
 

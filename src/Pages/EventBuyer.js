@@ -39,7 +39,11 @@ function EventBuyer() {
   const headers = { Authorization: `Bearer ${token}` };
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://admin.myuni-hub.com/api/api/events", {
+      // const response = await axios.get("https://admin.myuni-hub.com/api/events", {
+         const response = await axios.post("https://admin.myuni-hub.com/api/all_events", {
+          filter:"uni_id_match"
+        },{
+
         headers,
       });
       setData(response.data.events);
@@ -68,53 +72,50 @@ function EventBuyer() {
       <Header />
       <div className="wrapper">
         <h2>Book An Event</h2>
-        <figure>
-          <img src={cleaner} />
-        </figure>
+    
         {data == null ? (
           <h2> No Events yet</h2>
         ) : (
           <>
             {memoizedData?.map((item, index) => {
               return (
+                <>
+                <figure>
+                <img src={item?.cover_img ?  `https://admin.myuni-hub.com/${item.cover_img}` :cleaner} />
+              </figure>
                 <div key={index} className="card-cleaner">
                   <h4>{item.title}</h4>
                   <ul>
                     <p>{item.descreption}</p>
                   </ul>
-                  {/* <h4>Select Package</h4> */}
+                  <h4>Select Package</h4>
                   {/* <div className='package-box'> */}
-                  {/* <RadioGroup className="package-box">
-                    {item.prices.map((price, _index) => (
-                      <Radio
-                        onChange={(event) => {
-                          const id = event.target.value;
-                          console.log(id);
-                          const option = item.prices.find(
-                            (item) => item.id === parseInt(id)
-                          );
-                          return setSelectedOption(option);
-                        }}
-                        style={{ border: "1px solid #7BB564" }}
-                        key={price.id}
-                        value={price.id.toString()}
-                      >
-                        <p className="title">{price.title}</p>
-                        <p> {price.price}</p>
-                      </Radio>
-                    ))}
-                  </RadioGroup> */}
-                  {/* {item.prices.map((price, index) => {
+                  <RadioGroup  className='package-box'>
+                    
+        {item.prices.map((price,_index) => (
+    
+          <Radio onChange={ (event) => {
+            const    id = event.target.value;
+               console.log(item)
+               const option = item.prices.find((item) => item.id === parseInt(id));
+               setDetailedData(item)
+         return      setSelectedOption(option);
+              
+             }} style={{border:"1px solid #7BB564",color:"#7BB564" }} key={price.id} value={price.id.toString()}>
+
+            <p className='title'>{price.title}</p>
+           <p> {price.price}</p>  
+          </Radio>
+     
+        ))}
+      </RadioGroup>
+                  {item.prices.map((price, index) => {
                     <div className="price-box" key={index}>
                       <p className="title">{price.title}</p>
 
                     </div>;
-                  })} */}
-               
-                </div>
-              );
-            })}
-             <div className="primary-btn">
+                  })}
+                  <div className="primary-btn">
           <Button
             rightIcon={<MdArrowForward />}
             bg="#7BB564"
@@ -124,13 +125,17 @@ function EventBuyer() {
             onClick={() =>
               handleRouteChange(
                 `/events/:${selectedOption?.id}`,
-                selectedOption
+               { selectedOption,detailedData}
               )
             }
           >
             Next
           </Button>
         </div>
+                </div>
+              </>);
+            })}
+          
           </>
         )}
       </div>

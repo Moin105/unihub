@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import "../../Pages/TabContent/details.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sellerSignUpUser } from "../../thunks/userThunks";
+ import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MdArrowForward } from "react-icons/md";
 import Footer from "../../Components/Footer";
 function SignUpSeller() {
@@ -36,10 +38,14 @@ function SignUpSeller() {
     console.log(
       formData,"haswe"
     )
-    dispatch(sellerSignUpUser(formData));
-  
+    if(formData.name == "" || formData.email == "" || formData.address == "" || formData.phone == "" || formData.password == "" || formData.confirm_password == ""){
+    toast.error("Please fill all the fields");
+    }else if(formData.password !== formData.confirm_password){
+      toast.error("Password and Confirm Password does not match");
+    }else{
+      dispatch(sellerSignUpUser(formData));
+    }
   };
-  // const userProfileData = useSelector((state) => state.userProfile.data);
   return (
     <div className="sellerpage">
       <Header />

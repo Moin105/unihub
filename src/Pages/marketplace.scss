@@ -114,6 +114,7 @@
 
                     .item-box {
                         display: flex;
+                        cursor: pointer;
                         flex-direction: column;
                         justify-content: space-around;
                         align-items: center;
@@ -195,7 +196,7 @@
                    
 
                         .item-box {
-
+                      cursor: pointer;
                             figure {
                                 width: 180px;
                                 height: 180px;
@@ -265,7 +266,7 @@
                     
 
                         .item-box {
-
+cursor: pointer;
                             figure {
                                 width: 180px;
                                 height: 180px;
@@ -310,7 +311,7 @@
 
             .item-container {
                 .items-wrapper {
-                    
+                    cursor: pointer;
                         .item-box {
                             figure {
                                 width: 230px;

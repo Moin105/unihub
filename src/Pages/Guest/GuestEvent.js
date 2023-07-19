@@ -99,17 +99,18 @@ useEffect(() => {
                  <img src={cleaner}/>
               </figure>
               {memoizedData?.map((item,index)=>{
+                // onClick={()=>{handleRouteChange(`/paymentform`)}}
                 return (
-                  <div key={index} className='card-cleaner' onClick={()=>{handleRouteChange(`/paymentform`)}}>
+                  <div key={index} className='card-cleaner' >
                   <h4>{item.title}</h4>
                    <ul>
                       <p>{item.descreption}</p>
                    </ul>
                    {/* <h4>Select Package</h4> */}
                    {/* <div className='package-box'> */}
-                   {/* <RadioGroup  className='package-box'> */}
+                   <RadioGroup  className='package-box'>
                     
-        {/* {item.prices.map((price,_index) => (
+        {item.prices.map((price,_index) => (
     
           <Radio onChange={ (event) => {
             const    id = event.target.value;
@@ -117,33 +118,21 @@ useEffect(() => {
                const option = item.prices.find((item) => item.id === parseInt(id));
          return      setSelectedOption(option);
               
-             }} style={{border:"1px solid #7BB564"}} key={price.id} value={price.id.toString()}>
+             }} style={{border:"1px solid #7BB564",color:"#7BB564" }} key={price.id} value={price.id.toString()}>
 
             <p className='title'>{price.title}</p>
            <p> {price.price}</p>  
           </Radio>
      
-        ))} */}
-      {/* </RadioGroup> */}
+        ))}
+      </RadioGroup>
                    {item.prices.map((price,index)=>{
                     <div className='price-box' key={index} >
                       <p className='title'>{price.title}</p>
                     </div>
                    })
                    }
-             </div>
-                )
-              })}
-                  {/* <div className='card-cleaner'>
-                       <h4>Express</h4>
-                        <ul>
-                            <li>- Hoovering and Sweeping </li>
-                            <li>- Dust, Wipe & Disinfect All Surfaces</li>
-                        </ul>
-                        <h4>Select Package</h4>
-                     
-                  </div> */}
-                  <div className="primary-btn">
+                   <div className="primary-btn">
                   {/* <Link to={{pathname:`/bookcleaner/:${selectedOption?.id}`,state: {selectedOption},}}> */}
                         <Button
           rightIcon={<MdArrowForward />}
@@ -157,6 +146,19 @@ useEffect(() => {
         </Button>
         {/* </Link> */}
       </div>
+             </div>
+                )
+              })}
+                  {/* <div className='card-cleaner'>
+                       <h4>Express</h4>
+                        <ul>
+                            <li>- Hoovering and Sweeping </li>
+                            <li>- Dust, Wipe & Disinfect All Surfaces</li>
+                        </ul>
+                        <h4>Select Package</h4>
+                     
+                  </div> */}
+                  
            </div>
           <Footer/> 
     </div>

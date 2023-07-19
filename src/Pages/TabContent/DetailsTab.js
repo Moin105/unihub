@@ -33,8 +33,8 @@ function DetailsTab() {
   const updateUser = async () => {
     try {
       // Make the API call to update the user
-      const response = await axios.post(
-        "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
+      const response = await axios.put(
+        "https://admin.myuni-hub.com/api/update_profile",
         {
           name: formData.name,
           address: formData.address,

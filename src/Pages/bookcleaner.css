@@ -1,3 +1,8 @@
+.react-datepicker__day--selected {
+  background-color: #7BB564 !important;
+  border-radius: 50px !important;
+}
+
 .bookcleaner {
   display: flex;
   background: #F8F6F5 0% 0% no-repeat padding-box;
@@ -32,8 +37,10 @@
 .bookcleaner .wrapper figure img {
   width: 100%;
   height: 100%;
+  margin: 0 auto;
   -o-object-fit: contain;
      object-fit: contain;
+  max-height: 325px;
 }
 .bookcleaner .wrapper .ouper {
   margin-bottom: 10px;
@@ -72,6 +79,18 @@
   align-items: flex-start;
   align-self: flex-start;
 }
+.bookcleaner .wrapper .card-cleaner .package-box {
+  display: flex;
+  gap: 20px;
+}
+.bookcleaner .wrapper .card-cleaner .package-box .chakra-radio {
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid #7BB564;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 6px;
+}
 .bookcleaner .wrapper .card-cleaner h4 {
   margin: 20px 0px 10px;
 }
@@ -81,6 +100,52 @@
   flex-direction: column;
 }
 .bookcleaner .wrapper .card-cleaner ul li {
+  font-size: 16px;
+  text-align: initial;
+  margin: 10px 0px 0px 0px;
+  color: #707070;
+  font-weight: 300;
+}
+.bookcleaner .wrapper .time-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px auto 0px 10%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+.bookcleaner .wrapper .time-slot .package-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.bookcleaner .wrapper .time-slot .package-box .chakra-radio {
+  display: flex;
+  flex-direction: row-reverse;
+  border: none;
+  color: #7BB564;
+  justify-content: space-between;
+  width: 48%;
+  padding: 10px;
+  background-color: #FAFAFA;
+  max-width: 350px;
+  gap: 10px;
+  border-radius: 6px;
+}
+.bookcleaner .wrapper .time-slot .package-box .chakra-radio span {
+  color: #000;
+}
+.bookcleaner .wrapper .time-slot h4 {
+  margin: 20px 0px 10px;
+}
+.bookcleaner .wrapper .time-slot ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.bookcleaner .wrapper .time-slot ul li {
   font-size: 16px;
   text-align: initial;
   margin: 10px 0px 0px 0px;
@@ -101,6 +166,18 @@
     max-width: 800px;
     min-height: calc(100vh - 251.48px);
   }
+  .bookcleaner .wrapper figure {
+    width: 80%;
+    height: 100%;
+  }
+  .bookcleaner .wrapper figure img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    margin: 0 auto;
+    max-height: 255px;
+  }
   .bookcleaner .wrapper h2 {
     font-size: 30px;
   }
@@ -120,6 +197,18 @@
     max-width: 600px;
     min-height: calc(100vh - 275.48px);
   }
+  .bookcleaner .wrapper figure {
+    width: 80%;
+    height: 100%;
+  }
+  .bookcleaner .wrapper figure img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-height: 191px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .bookcleaner .wrapper {
@@ -132,8 +221,98 @@
   .bookcleaner .wrapper .card-cleaner {
     margin-left: 0px;
   }
+  .bookcleaner .wrapper .time-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0px auto 0px 10%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+  .bookcleaner .wrapper .time-slot .package-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .bookcleaner .wrapper .time-slot .package-box .chakra-radio {
+    display: flex;
+    flex-direction: row-reverse;
+    border: none;
+    color: #7BB564;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+    background-color: #FAFAFA;
+    margin: 0 auto;
+    gap: 10px;
+    border-radius: 6px;
+  }
+  .bookcleaner .wrapper .time-slot .package-box .chakra-radio span {
+    color: #000;
+  }
+  .bookcleaner .wrapper .time-slot h4 {
+    margin: 20px 0px 10px;
+  }
+  .bookcleaner .wrapper .time-slot ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .bookcleaner .wrapper .time-slot ul li {
+    font-size: 16px;
+    text-align: initial;
+    margin: 10px 0px 0px 0px;
+    color: #707070;
+    font-weight: 300;
+  }
 }
 @media only screen and (max-width: 400px) {
+  .bookcleaner .wrapper .time-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0px auto 0px 10%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+  .bookcleaner .wrapper .time-slot .package-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .bookcleaner .wrapper .time-slot .package-box .chakra-radio {
+    display: flex;
+    flex-direction: row-reverse;
+    border: none;
+    color: #7BB564;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+    background-color: #FAFAFA;
+    margin: 0 auto;
+    gap: 10px;
+    border-radius: 6px;
+  }
+  .bookcleaner .wrapper .time-slot .package-box .chakra-radio span {
+    color: #000;
+  }
+  .bookcleaner .wrapper .time-slot h4 {
+    margin: 20px 0px 10px;
+  }
+  .bookcleaner .wrapper .time-slot ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .bookcleaner .wrapper .time-slot ul li {
+    font-size: 16px;
+    text-align: initial;
+    margin: 10px 0px 0px 0px;
+    color: #707070;
+    font-weight: 300;
+  }
   .bookcleaner .wrapper .date-wrapper .form-control {
     padding-left: 30px;
   }

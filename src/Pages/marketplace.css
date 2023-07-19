@@ -98,6 +98,7 @@
 }
 .marketplace .wrapper .item-container .items-wrapper .item-box {
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -153,6 +154,9 @@
   .marketplace .wrapper .item-container .items-wrapper {
     gap: 45px;
   }
+  .marketplace .wrapper .item-container .items-wrapper .item-box {
+    cursor: pointer;
+  }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure {
     width: 180px;
     height: 180px;
@@ -191,6 +195,9 @@
   .marketplace .wrapper .item-container .items-wrapper {
     gap: 30px;
   }
+  .marketplace .wrapper .item-container .items-wrapper .item-box {
+    cursor: pointer;
+  }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure {
     width: 180px;
     height: 180px;
@@ -208,6 +215,9 @@
   }
 }
 @media screen and (max-width: 430px) {
+  .marketplace .wrapper .item-container .items-wrapper {
+    cursor: pointer;
+  }
   .marketplace .wrapper .item-container .items-wrapper .item-box figure {
     width: 230px;
     height: 230px;

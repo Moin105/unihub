@@ -21,11 +21,13 @@ import { MdArrowForward } from "react-icons/md";
 import { id } from 'date-fns/locale'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
 function GuestBookCleaner() {
 const [data, setData] = useState([]);
 const [detailedData, setDetailedData] = useState([]);
 const [availablity,setAvailablity ]=useState([])
 const navigate = useNavigate();
+
 const handleRouteChange = (url,datas)  => {
   navigate(url, { state: { data: datas } });
 };
@@ -74,11 +76,6 @@ useEffect(() => {
       console.log("hailer",memoizedData)
       const fetchedData = await Promise.all(memoizedData.map(item => fetchDetailedData(item.id)));
   console.log("mainu nae jeena",fetchedData)
-    //   fetchedData.forEach(item => {
-    //     if (!detailedDataArray.find(el => el.id === item.id)) { // replace 'id' with the actual unique identifier in your objects
-    //       detailedDataArray.push(item);
-    //     }
-    //   });
   console.log("hails",)
       setDetailedData(fetchedData);
     };
@@ -90,6 +87,15 @@ useEffect(() => {
   }, [data]);
   
   const memoizedServices = useMemo(() => detailedData, [data]);
+  const handelBooking = (selectedOption,availablity)=>{
+        console.log("selectedOption",selectedOption,availablity)
+        if(selectedOption && availablity){
+          handleRouteChange(`/bookcleaner/:${selectedOption?.id}`,{selectedOption,availablity})
+        }else{
+          console.log("error")
+          toast.error("Please Select Package")
+        }
+  }
   useEffect(() => {
     console.log(memoizedData)
   }, [detailedData])
@@ -117,7 +123,8 @@ useEffect(() => {
                   <h4>{item.title}</h4>
                    <ul>
                       <p>{item.descreption}</p>
-                   </ul>32
+                   </ul>
+                   {/* 32 */}
                    <h4>Select Package</h4>
                    {/* <div className='package-box'> */}
                    <RadioGroup  className='package-box'>
@@ -130,7 +137,7 @@ useEffect(() => {
                const option = item.prices.find((item) => item.id === parseInt(id));
                setSelectedOption(option);setAvailablity(item);
               
-             }} style={{border:"1px solid #7BB564"}} key={price.id} value={price.id.toString()}>
+             }} style={{border:"1px solid #7BB564",color:"#7BB564" }} key={price.id} value={price.id.toString()}>
 
             <p className='title'>{price.title}</p>
            <p> {price.price}</p>  
@@ -147,19 +154,7 @@ useEffect(() => {
                    })
                    }
                    {/* </div> */}
-             </div>
-                )
-              })}
-                  {/* <div className='card-cleaner'>
-                       <h4>Express</h4>
-                        <ul>
-                            <li>- Hoovering and Sweeping </li>
-                            <li>- Dust, Wipe & Disinfect All Surfaces</li>
-                        </ul>
-                        <h4>Select Package</h4>
-                     
-                  </div> */}
-                  <div className="primary-btn">
+                   <div className="primary-btn">
                   {/* <Link to={{pathname:`/bookcleaner/:${selectedOption?.id}`,state: {selectedOption},}}> */}
                         <Button
           rightIcon={<MdArrowForward />}
@@ -167,12 +162,19 @@ useEffect(() => {
           color={"white"}
           variant="solid"
           width={"100%"}
-          onClick={() => handleRouteChange(`/cleanerpayment`,{selectedOption,availablity})}
+          onClick={() => handelBooking(selectedOption,availablity)
+            // handleRouteChange(`/cleanerpayment`,{selectedOption,availablity})
+          
+          }
         >
           Next
         </Button>
         {/* </Link> */}
-      </div>
+      </div>   </div>
+                )
+              })}
+                
+         
            </div>
           <Footer/> 
     </div>

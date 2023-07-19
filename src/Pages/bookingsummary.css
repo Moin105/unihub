@@ -15,10 +15,27 @@
   margin-inline: 20px;
 }
 .bookingsummary .wrapper .form-control {
-  max-width: 430px;
+  width: 90%;
+  max-width: 400px;
+  gap: 10px;
+  margin: 0 auto;
+  display: flex;
 }
 .bookingsummary .wrapper .form-control .input-container {
-  margin-bottom: 20px !important;
+  border-radius: 6px;
+  margin: 0 0 20px 0;
+}
+.bookingsummary .wrapper .form-control .input-container label {
+  font-size: 18px;
+  margin: 0;
+  padding: 10px 0 0 20px;
+}
+.bookingsummary .wrapper .form-control .input-container input {
+  font-size: 20px;
+  font-weight: 300;
+  height: auto;
+  border-color: none;
+  padding: 5px 0px 5px 20px;
 }
 .bookingsummary .wrapper .summary {
   text-align: start;
@@ -63,24 +80,28 @@
   margin: 0;
 }
 .bookingsummary .wrapper .form-control {
-  width: 100%;
-  max-width: 550px;
+  width: 90%;
+  max-width: 400px;
+  gap: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 .bookingsummary .wrapper .form-control .input-container {
-  margin: 8px 0px;
-  border-radius: 16px;
+  border-radius: 6px;
+  margin: 0 0 20px 0;
 }
 .bookingsummary .wrapper .form-control .input-container label {
   font-size: 18px;
-  padding-top: 10px;
   margin: 0;
+  padding: 10px 0 0 20px;
 }
 .bookingsummary .wrapper .form-control .input-container input {
-  height: auto;
-  border: none;
-  padding: 5px 0px 5px 20px;
   font-size: 20px;
   font-weight: 300;
+  height: auto;
+  border-color: none;
+  padding: 5px 0px 5px 20px;
 }
 .bookingsummary .wrapper .card-cleaner {
   display: flex;
@@ -137,6 +158,19 @@
   .bookcleaner .wrapper {
     max-width: 600px;
     min-height: calc(100vh - 275.48px);
+  }
+  .bookcleaner .wrapper .form-control .input-container {
+    border-radius: 7px;
+    margin: 0 0 15px 0;
+  }
+  .bookcleaner .wrapper .form-control .input-container label {
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0 0 20px;
+  }
+  .bookcleaner .wrapper .form-control .input-container input {
+    font-size: 16px;
+    padding: 0px 0px 5px 20px;
   }
 }
 @media only screen and (max-width: 768px) {

@@ -1,17 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, Box, FormLabel, Input, Button } from '@chakra-ui/react';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer'
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import { MdArrowForward } from "react-icons/md";
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 const ProductPayment = () => {
+  const location = useLocation();
+  const data = location.state ? location.state.data : null;
+  const token = useSelector((state) => state.auth.token);
+  const postData = async (url, data, token) => {
+    try {
+      const response = await axios.post(url, data, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error', error);
+    }
+  };
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     address: '',
+    quantity: data?.quantity,
     phone: '',
-    event_id: '',
-    price_id: '',
-    currency: '',
+    product_id: data?.data?.id,
+    price_id: data?.data?.price,
+    currency: data?.currency,
+    city:'',
+    zip:'',
     card_number: '',
     year: '',
     month: '',
@@ -26,8 +51,17 @@ const ProductPayment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('formData', formData);
+    if(formData.address == ""|| formData.card_number == "" || formData.cvc == "" || formData.email == "" || formData.month == "" || formData.name == "" || formData.phone == "" || formData.year == "" || formData.city == "" || formData.zip == ""){
+      toast.error("Please fill all the fields")
+    }else{
+      postData('https://admin.myuni-hub.com/api/guest_book_product', formData, token);
+    }
     // dispatch(createPayment(formData));
   };
+  useEffect(() => {
+    console.log(data)
+  }, [])
+  
 
   return (
    <>  <Header/>
@@ -120,14 +154,14 @@ const ProductPayment = () => {
           marginTop="103px"
         >
           <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
-            Event ID
+            Zip
           </FormLabel>
           <Input
             variant="unstyled"
             border="none"
-            name="event_id"
+            name="zip"
             type="text"
-            value={formData.event_id}
+            value={formData.zip}
             onChange={handleInputChange}
             fontSize="41px"
           />
@@ -139,33 +173,14 @@ const ProductPayment = () => {
           marginTop="103px"
         >
           <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
-            Price ID
+            City
           </FormLabel>
           <Input
             variant="unstyled"
             border="none"
-            name="price_id"
+            name="city"
             type="text"
-            value={formData.price_id}
-            onChange={handleInputChange}
-            fontSize="41px"
-          />
-        </Box>
-        <Box
-          className="input-container"
-          border="1px solid #7BB564"
-          borderRadius={30}
-          marginTop="103px"
-        >
-          <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
-            Currency
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            name="currency"
-            type="text"
-            value={formData.currency}
+            value={formData.city}
             onChange={handleInputChange}
             fontSize="41px"
           />

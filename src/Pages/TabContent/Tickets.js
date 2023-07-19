@@ -1,4 +1,5 @@
-import React from "react";
+
+import React,{useEffect,useState} from "react";
 import {
   FormControl,
   FormLabel,
@@ -9,10 +10,33 @@ import {
   Button,
 } from "@chakra-ui/react";
 import "./ticket.css";
+import axios from "axios";
+import { useSelector } from "react-redux";
 import "../../responsive.css";
 
 import { MdArrowForward } from "react-icons/md";
 function Order() {
+  const token = useSelector((state)=> state.auth.token)
+  const getData = async () => {
+    try {
+      const response = await axios.get("https://admin.myuni-hub.com/api/book_event", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("ma belle",response);
+      // setCards(response.data.cards);
+      
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  useEffect(() => {
+    getData();
+  // if(cards.length > 0){
+  //   setHide(false)
+  // }
+  }, [])
   return (
     <div className="tab-tickets">
       <h2>MyTickets</h2>

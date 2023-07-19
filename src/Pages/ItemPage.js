@@ -19,12 +19,14 @@ function ItemPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const product = useSelector((state) => state);
-
+  const sendData =()=>{
+    handleRouteChange("/productpayment",{data:data,quantity:value,currency:"usd"})
+  }
   const handleRouteChange = (url,datas)  => {
     navigate(url, { state: { data: datas } });
   };
   useEffect(() => {
-    console.log("mmonkeu",data)
+    console.log("monk",data)
   }, [])
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -38,13 +40,14 @@ function ItemPage() {
     formData.append('quantity', quantity);
     formData.append('currency', currency);
   
-    console.log("formdata",formData)
+    console.log("formdata",data)
     const config = {
       headers: {
         'Authorization': `Bearer ${token}`,
         // 'Content-Type': 'multipart/form-data'
       },
     };
+    if(token){
     try {
       const response = await axios.post(url, formData, config);
      
@@ -58,7 +61,10 @@ function ItemPage() {
       }
     } catch (error) {
       console.error(error);
+    }}else{
+      handleRouteChange("/productpayment",formData)
     }
+
   };
   return (
     <div className="itempage">
@@ -95,7 +101,7 @@ function ItemPage() {
                 Add to Cart
               </Button>:
               <Button
-              onClick={()=>{handleRouteChange('/productpayment',data.id,value,'usd')}}
+              onClick={()=>{sendData()}}
                 rightIcon={<MdArrowForward />}
                 bg="#7BB564"
                 color={"white"}

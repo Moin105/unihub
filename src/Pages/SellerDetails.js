@@ -42,7 +42,7 @@ function SellerDetails() {
       console.log('API response:', response.data.message);
       if (response.data.message === "unauthorize user, please add  your bank details first") {
         // dispatch(openModal(response.message));
-        console.log(",aa ki dewfgr")
+        console.log("aa ki dewfgr")
         handleRouteChange('/bankdetails')
       }else if(response.data.message === "switched to seller successfully!"){
         const successMessage = response.data.message;
@@ -53,6 +53,7 @@ function SellerDetails() {
         };
       
         dispatch(setStudentRole(payload));
+      
       }
       // Handle success response here
     } catch (error) {
@@ -73,7 +74,7 @@ const  token = useSelector((state) => state.auth.token);
     // .then((res)=>res.json())
     postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},token)
   };
-const switch_profile = useSelector((state) => state);
+const switch_profile = useSelector((state) => state.auth.seller_switched);
   useEffect(() => {
     console.log("akbar",switch_profile)
     // console.log("hwlllooo",userProfileData.profile.email)

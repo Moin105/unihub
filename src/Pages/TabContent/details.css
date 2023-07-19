@@ -29,7 +29,7 @@
   margin: 0 16px;
 }
 .tab-details .form-control .input-container {
-  border-radius: 16px;
+  border-radius: 6px;
   margin: 0 0 20px 0;
 }
 .tab-details .form-control .input-container label {
@@ -85,7 +85,7 @@
     font-size: 20px;
   }
   .tab-details .form-control .input-container {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 0 0 15px 0;
   }
   .tab-details .form-control .input-container label {

@@ -13,7 +13,7 @@ import BookServices from "./Pages/BookServices";
 import Qrpage from "./Pages/Qrpage";
 import CleaningPackage from "./Pages/CleaningPackage";
 import BankPage from "./Pages/BankPage";
-import { BrowserRouter as Router, Routes, Route,Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate, Outlet,useLocation } from "react-router-dom";
 import BookCleaner from "./Pages/BookCleaner";
 import ProductPayment from "./Pages/Guest/ProductPayment";
 import BookStorage from "./Pages/BookStorage";
@@ -42,6 +42,12 @@ import PaymentForm from "./Pages/Guest/PaymentForm";
 import CleanerPayment from "./Pages/Guest/CleanerPayment";
 import BookingSummary from "./Pages/BookingSummary";
 import CheckOutPage from "./Pages/Checkout";
+import Loading from "./Pages/Spinner";
+import { ToastContainer } from "react-toastify";
+// import EventSummaryPage from "./Pages/EventSummaryPage"
+import EventSummaryPage from "./Pages/EventSummary";
+import ServiceSummary from "./Pages/ServiceSummary";
+import EventSummury from "./Pages/EventSummury";
 function App() {
   // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -59,6 +65,10 @@ function App() {
     setIsAuthenticated(false)
   }
   }, [token])
+  useEffect(() => {
+  
+  }, [])
+  
   const dynamicRoute = {
     path: "/bookcleaner/:dynamicId",
     element: <CleaningPackage />,
@@ -82,11 +92,14 @@ function App() {
     // {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/bookcleaner" ,element:<BookCleaner /> ,name:"BookCleaner"},
+    {path:"/event-booking",element:<EventSummury/> , name:"EventBooking"},
     {path:"/bookstorage" ,element:<BookStorage /> , name:"BookStorage" } ,
+  {path:"/eventsummary",element:<EventSummaryPage/> , name:"EventSummaryPage" } ,
     {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     {path:"/booking" ,element:<OrderPlaced />,name:"OrderPlaced"},
     {path:"/order-booking",element:<BookingSummary/>,name:"BookingSummary"},
+    {path:"/service-booking",element:<ServiceSummary/>,name:"ServiceSummary"},
     {path:"/sellerpage", element:<SellerPage/>,name:"SellerPage"},
     {path:"/home" ,element:<Home />,name:"OrderPlaced"},
     dynamicRoute,
@@ -165,7 +178,9 @@ function App() {
   // const authenticatedRoutes = role == "student" ? (seller == 0) ? buyerRoutes    : sellerRoutes  : NormalSellerRoutes;
   return (
     <div className="App">
+      <ToastContainer/>
     <Router>
+      <Loading>
   <Routes>
         {isAuthenticated ? (<>
       {/* {role == "student" && seller == 0  &&  sellerRoutes.map(route => (
@@ -202,6 +217,7 @@ function App() {
         )}
         <Route path="*" element={<>no page or page is restricted</>} />
       </Routes>
+      </Loading>
     </Router>
 
     </div>

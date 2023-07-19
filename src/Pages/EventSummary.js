@@ -14,10 +14,10 @@ import {
 import './bookingsummary.css'
 import Header from "../Components/Header";
 import {toast} from 'react-toastify'
-function BookingSummary() {
-  const productData = useSelector((state) => state.product);
-
+function EventSummary() {
+  const eventData = useSelector((state) => state.event);
   const location = useLocation();
+  const userData = useSelector((state)=> state.auth.user)
   const token = useSelector((state) => state.auth.token);
   const data = location.state ? location.state.data : null;
   const navigate = useNavigate();
@@ -26,8 +26,10 @@ function BookingSummary() {
   const handleRouteChange = (url, datas) => {
     navigate(url, { state: { data: datas } });
   };
+  const conster = useSelector((state)=> state)
   useEffect(() => {
-    console.log("payment details", productData);    console.log("which scenario", data);
+    console.log("payment details",conster );
+    console.log("which scenario", data);
   }, []);
   return (
     <>
@@ -37,9 +39,11 @@ function BookingSummary() {
           <h2>Order Summary</h2>
           <p>Confirm your booking details</p>
           <div className="summary">
-               <h3>{ productData.product[0].name}</h3>
-               <h3>Quantity { productData.product[1].quantity}</h3>
-               <p>{` ${productData.product[0].price}  ${productData.product[1]?.currency}`}</p>
+               <h3> { eventData?.data.detailedData.title}</h3>
+               <h3> { eventData?.data.selectedOption.title} package</h3>
+               <h3>Date : {eventData.data?.detailedData?.date_time}</h3>
+               
+               {/* <p style={{display:"flex",alignItems:"flex-start"}}> <h3 style={{color:"black",padding:"0px 10px 0px 0px"}}>Price :</h3> {`${serviceData?.datas.selectedOption.price}  ${serviceData?.currency}`}</p> */}
           </div> 
      <h2>Order Confirmation</h2>     
           <FormControl className="form-control">
@@ -54,11 +58,11 @@ function BookingSummary() {
       fontSize="37px"
       fontWeight={300}
     >
-      Address
+      Name
     </FormLabel>
     <Input
-     value={address}
-     onChange={(e) => setAddress(e.target.value)}
+     value={userData.name}
+    //  onChange={(e) => setAddress(e.target.value)}
       variant="unstyled"
       border="none"
       type="text"
@@ -66,6 +70,52 @@ function BookingSummary() {
     />
   </Box>
 
+  <Box
+    className="input-container"
+    border="1px solid #7BB564"
+    borderRadius={30}
+    marginTop="103px"
+  >
+    <FormLabel
+      padding="20px 0px 0px 20px"
+      fontSize="37px"
+      fontWeight={300}
+    >
+      Email Address
+    </FormLabel>
+    <Input
+      variant="unstyled"
+      value={userData.email}
+      // onChange={(e) => setPhone(e.target.value)}
+      border="none"
+      readOnly
+      type="text"
+      fontSize="41px"
+    />
+  </Box>
+  <Box
+    className="input-container"
+    border="1px solid #7BB564"
+    borderRadius={30}
+    marginTop="103px"
+  >
+    <FormLabel
+      padding="20px 0px 0px 20px"
+      fontSize="37px"
+      fontWeight={300}
+    >
+       Address
+    </FormLabel>
+    <Input
+      variant="unstyled"
+      value={address}
+      onChange={(e) => setAddress(e.target.value)}
+      border="none"
+  
+      type="text"
+      fontSize="41px"
+    />
+  </Box>
   <Box
     className="input-container"
     border="1px solid #7BB564"
@@ -88,18 +138,19 @@ function BookingSummary() {
       fontSize="41px"
     />
   </Box>
-
 </FormControl>
           <div className="primary-btn">
          
          {" "}
                <Button
          onClick={()=>{ 
-          if(phone == "" || address == ""){
-            toast.error("Please fill all the fields");
-          }else{
+          if(phone == ""  ){
+            toast.error("Please add Phone Number");
+          }else if(address == ''){
+            toast.error("Please add Address");
+          } else{
 
-            handleRouteChange("/checkout",{phone,address,"type":"product"})}}
+            handleRouteChange("/checkout",{phone,address,"type":"event"})}}
           }
           
            
@@ -117,4 +168,4 @@ function BookingSummary() {
   );
 }
 
-export default BookingSummary;
+export default EventSummary;

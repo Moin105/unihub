@@ -111,3 +111,6 @@ body{
     transform: translateY(0px);
   }
 }
+button{
+  outline: none !important;
+}

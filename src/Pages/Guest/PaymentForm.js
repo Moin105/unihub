@@ -1,30 +1,59 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, Box, FormLabel, Input, Button } from '@chakra-ui/react';
 import Header from '../../Components/Header';
+import { useLocation } from 'react-router-dom';
 import Footer from '../../Components/Footer'
+import axios from 'axios';
 import { MdArrowForward } from "react-icons/md";
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 const PaymentForm = () => {
+  const location = useLocation();
+  const token = useSelector((state) => state.auth.token);
+  const data = location.state ? location.state.data : null;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     address: '',
     phone: '',
-    event_id: '',
-    price_id: '',
-    currency: '',
+    event_id: data?.event_id,
+    price_id: data?.id,
+    currency: 'usd',
     card_number: '',
     year: '',
     month: '',
     cvc: '',
   });
-
+  useEffect(() => {
+   console.log("payment",data)
+  }, [])
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  const postData = async (url, data, token) => {
+    try {
+      const response = await axios.post(url, data, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error', error);
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(formData.address == ""|| formData.card_number == "" || formData.cvc == "" || formData.email == "" || formData.month == "" || formData.name == "" || formData.phone == "" || formData.year == ""){
+      toast.error("Please fill all the fields")
+    }
+    else{
+      postData('https://admin.myuni-hub.com/api/guest_book_event', formData, token);
+    }
     console.log('formData', formData);
     // dispatch(createPayment(formData));
   };
@@ -113,7 +142,7 @@ const PaymentForm = () => {
             fontSize="41px"
           />
         </Box>
-        <Box
+        {/* <Box
           className="input-container"
           border="1px solid #7BB564"
           borderRadius={30}
@@ -150,8 +179,8 @@ const PaymentForm = () => {
             onChange={handleInputChange}
             fontSize="41px"
           />
-        </Box>
-        <Box
+        </Box> */}
+        {/* <Box
           className="input-container"
           border="1px solid #7BB564"
           borderRadius={30}
@@ -169,7 +198,7 @@ const PaymentForm = () => {
             onChange={handleInputChange}
             fontSize="41px"
           />
-        </Box>
+        </Box> */}
         <Box
           className="input-container"
           border="1px solid #7BB564"

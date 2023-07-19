@@ -1,33 +1,77 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, Box, FormLabel, Input, Button } from '@chakra-ui/react';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer'
 import { MdArrowForward } from "react-icons/md";
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import format from 'date-fns/format';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 const CleanerPayment = () => {
+  const location = useLocation();
+  const receivedObject = location.state.data;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     address: '',
     phone: '',
-    event_id: '',
-    price_id: '',
+    date_time:'',
+    service_id: receivedObject?.selectedOption?.service_id,
+    price_id: receivedObject?.selectedOption?.id,
     currency: '',
     card_number: '',
     year: '',
     month: '',
     cvc: '',
   });
-
+   const dateFormate=()=>{
+    // const date = format(receivedObject.availablity.value, 'dd MMM yyyy')
+    const date = new Date(receivedObject.availablity.value); // Yeh specific date dega
+const formattedDate = date.toISOString().split('T')[0];
+    const time = receivedObject.availablity.selectedOption.start_time
+    // value
+    console.log(receivedObject.availablity.value)
+    setFormData({...formData,date_time:formattedDate + " " + time})
+    // formData.date_time = date + " " + time
+   }
+  const token = useSelector((state) => state.auth.token);
+  const postData = async (data) => {
+    const url = 'https://admin.myuni-hub.com/api/guest_book_service'; // replace with your API endpoint
+    
+// replace with your bearer token
+  
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    };
+  
+    try {
+      const response = await axios.post(url, data, { headers: headers });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+   
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('formData', formData);
-    // dispatch(createPayment(formData));
+    if(formData.address == "" || formData.card_number == "" || formData.cvc == "" || formData.email == "" || formData.month == "" || formData.name == "" || formData.phone == "" || formData.year == ""){
+   toast.error("Please fill all the fields")
+    }else {
+      postData(formData);
+    }
   };
+
+useEffect(() => {
+  console.log("fatiha",receivedObject)
+  dateFormate()
+}, [])
 
   return (
    <>  <Header/>
@@ -109,44 +153,6 @@ const CleanerPayment = () => {
             name="phone"
             type="tel"
             value={formData.phone}
-            onChange={handleInputChange}
-            fontSize="41px"
-          />
-        </Box>
-        <Box
-          className="input-container"
-          border="1px solid #7BB564"
-          borderRadius={30}
-          marginTop="103px"
-        >
-          <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
-            Event ID
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            name="event_id"
-            type="text"
-            value={formData.event_id}
-            onChange={handleInputChange}
-            fontSize="41px"
-          />
-        </Box>
-        <Box
-          className="input-container"
-          border="1px solid #7BB564"
-          borderRadius={30}
-          marginTop="103px"
-        >
-          <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
-            Price ID
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            name="price_id"
-            type="text"
-            value={formData.price_id}
             onChange={handleInputChange}
             fontSize="41px"
           />
@@ -258,7 +264,7 @@ const CleanerPayment = () => {
           width={"100%"}
           onClick={handleSubmit}
         >
-          Next
+          Checkout
         </Button>
         {/* </Link> */}
       </div>
