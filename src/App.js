@@ -90,7 +90,7 @@ function App() {
   const productedit = {
     path: "/product/:dynamicId",
     element: <PostProduct />,
-    name: "ProductEdit  ",
+    name: "ItemPage  ",
   };
   const buyerRoutes = [
     { path: "/noprobs", element: <Details />, name: "Details" },
@@ -130,14 +130,13 @@ function App() {
     {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
-    {path:"/addevent",element:<PostEvent/>,name:"PostEvent"},
+    {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
     {path:"/addproduct",element:<PostProduct/>,name:"PostProduct"},
     {path:"/bookcleaner" ,element:<PostProduct /> ,name:"Product Edit "},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
      {path:"/sellService" ,element:<SellService/> , name:"SellService" },
-     productedit,
     {path:"/Home",element:<Details />,name:"Details"},
     // other seller-only routes here
   ];
@@ -200,29 +199,14 @@ function App() {
               element={route.element}
             />
           ))} */}
-      {role == "student" &&  !switch_profile && buyerRoutes.map(route => (
+      {role == "student" && buyerRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
-          ))
-          
-          
-          
-          }
-         {role == "student" &&  switch_profile && sellerRoutes.map(route => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={route.element}
-            />
-          ))
-          
-          
-          
-          }  
-       {role == "seller" &&    NormalSellerRoutes.map(route => (
+          ))}
+       {role == "seller" &&   NormalSellerRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
@@ -232,14 +216,21 @@ function App() {
           
           </>
         ) : (<>
- { sellerRoutes.map(route => (
+ {   switch_profile  ?    guestRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
           ))
-        }
+          :
+            sellerRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
           </>
         )
         
