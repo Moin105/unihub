@@ -72,6 +72,27 @@
                 }
 
             }
+            .tab-contents {
+                max-width: 150px;
+                height: 150px;
+                border: none;
+                font-size: 41px;
+                font-weight: 300;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: transparent !important;
+
+                // .chakra-image {
+                //     width: 40px;
+                //     height: 40px;
+                // }
+
+                p {
+                    font-size: 16px;
+                }
+
+            }
         }
     }
 
@@ -125,7 +146,22 @@
                     }
 
                 }
+                .tab-contents {
+                    max-width: 120px;
+                    height: 120px;
+ 
+                    // .chakra-image {
+                    //     width: 30px;
+                    //     height: 30px;
+                    // }
+
+                    p {
+                        font-size: 16px;
+                    }
+
+                }
             }
+
         }
 
     }
@@ -146,6 +182,21 @@
                     .chakra-image {
                         width: 20px;
                         height: 20px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+
+                }
+                .tab-contents {
+                    max-width: 130px;
+                    height: 100%;
+                    padding-inline: 5px;
+
+                    .chakra-image {
+                        width: 65px;
+                        height: 100%;
                     }
 
                     p {

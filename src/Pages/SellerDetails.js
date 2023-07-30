@@ -9,12 +9,17 @@ import {
     Button,SimpleGrid, Tabs, TabList, TabPanels, Tab,Text, TabPanel ,Image
   } from "@chakra-ui/react";
   import heart from '../Images/Heart.png'
+  import bookas from '../Images/bookas.png'
   import order from '../Images/order.png'
   import {MdArrowForward} from 'react-icons/md'
   import wallet from '../Images/wallet.png'
   import DetailsTab from "./TabContent/DetailsTab";
   import Order from "./TabContent/Order";
+  import events from "../Images/events.png";
+  import hub from "../Images/hub.png";
+
   import Wallet from "./TabContent/Wallet";
+  import marketplace from '../Images/marketplace.png'
   import axios from 'axios';
   import Tickets from './TabContent/Tickets'
 import Header from '../Components/Header';
@@ -27,6 +32,9 @@ import { fetchUserProfile } from '../thunks/profileThunk';
 import profile from '../Images/profile.png';
 import './sellerdetails.css'
 import { useNavigate } from 'react-router-dom';
+import Event from './Event';
+import PostProduct from './StudentSeller/PostProduct';
+import Products from './StudentSeller/Products';
 function SellerDetails() {
   const dispatch = useDispatch();
   const navigate= useNavigate();
@@ -63,25 +71,16 @@ function SellerDetails() {
   };
 const  token = useSelector((state) => state.auth.token);
   const switchUser = () => {
-    // fetch("http://34.233.35.208/api/switch_profile",{
-    //   method:"PUT",
-    //   body:JSON.stringify({is_seller:1}),
-    //   headers:{
-    //     "Content-Type":"application/json",
-    //     "Authorization":localStorage.getItem("token")
-    //   }
-    // })
-    // .then((res)=>res.json())
+
     postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},token)
   };
 const switch_profile = useSelector((state) => state.auth.seller_switched);
   useEffect(() => {
     console.log("akbar",switch_profile)
-    // console.log("hwlllooo",userProfileData.profile.email)
     dispatch(fetchUserProfile());
-    if(switch_profile == true){
-      handleRouteChange('/sellerpage')
-    } 
+    // if(switch_profile == true){
+    //   handleRouteChange('/sellerpage')
+    // } 
   }, [dispatch]);
   const userProfileData = useSelector((state) => state);
 
@@ -96,7 +95,47 @@ const switch_profile = useSelector((state) => state.auth.seller_switched);
                     <h3>{userProfileData?.profile?.name}.</h3>
                     <div><button onClick={switchUser}> sell services</button></div>
               </div>
-       <Tabs  w="100%"  mt="10"  isFitted>
+    {switch_profile ?   <Tabs  w="100%"  mt="10"  isFitted>
+          <TabList  display="flex" >
+             <Tab className="tab-contents"  ><Image src={bookas} boxSize="90"/><Text>Book A Service</Text></Tab>
+            <Tab className="tab-contents"  ><Image src={marketplace} boxSize="90"/><Text>Marketplace</Text></Tab>
+            <Tab className="tab-contents"  ><Image src={events} boxSize="90"/><Text>Events</Text></Tab>
+            <Tab className="tab-contents"  ><Image src={hub} boxSize="90"/><Text>Hub</Text></Tab> </TabList>
+          <TabPanels>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Event/>
+              {/* <DetailsTab /> */}
+            </TabPanel>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              {/* <Order /> */}
+              <Products/>
+{/* <PostProduct/> */}
+            </TabPanel>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Wallet />
+            </TabPanel>
+            <TabPanel
+              justifyContent={"center"}
+              display="flex"
+              alignItems="center"
+            >
+              <Tickets />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>:  
+        <Tabs  w="100%"  mt="10"  isFitted>
           <TabList  display="flex" >
              <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Details</Text></Tab>
             <Tab className="tab-content"  ><Image src={order} boxSize="50"/><Text>My Orders</Text></Tab>
@@ -132,48 +171,8 @@ const switch_profile = useSelector((state) => state.auth.seller_switched);
               <Tickets />
             </TabPanel>
           </TabPanels>
-        </Tabs>
-        {/* <div className='detailseller'>
-            <h5>
-
-            </h5>
-            <span></span>
-            <h6>
-
-            </h6>
-            <p></p>
-            <FormControl>
-          <p className='tag-label'>Enter your email here</p>      
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
-          <FormLabel
-            padding="20px 0px 0px 20px"
-            fontSize="37px"
-            fontWeight={300}
-          >
-            Email Address*
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            type="email"
-            fontSize="41px"
-          />
-        </Box>
-      </FormControl>
-                  <div className="primary-btn">
-        <Button
-          rightIcon={<MdArrowForward />}
-          bg="#7BB564"
-          color={"white"}
-          variant="solid"
-          width={"100%"}
-
-        >
-          Subscribe
-        </Button>
-      </div>
-        </div>   */}
-      </div>
+        </Tabs>}
+            </div>
       <Footer />
     </div>
   );

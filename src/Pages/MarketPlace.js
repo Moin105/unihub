@@ -89,7 +89,7 @@ const handleRouteChange = (url,datas) => {
             {data.map((item, index) => {
               return (
               
-                  <div className="item-box"  style={{cursor:"pointer"}} onClick={() => handleRouteChange(`/item/:${item?.id}`,item)}>
+                  <div className="item-box"  style={{cursor:"pointer"}} onClick={() => handleRouteChange(`/item/${item?.id}`,item)}>
                     <figure>
                       <img src={`https://admin.myuni-hub.com/${item.cover_img}`} />
                     </figure>

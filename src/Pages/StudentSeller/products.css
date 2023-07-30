@@ -1,0 +1,49 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+.product-container .my-products h2 {
+  color: #98b27b;
+}
+.product-container .my-products p {
+  color: black;
+  font-size: 14px;
+}
+.product-container .my-products .product-heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center;
+}
+.product-container .my-products .product-heading button {
+  padding: 10px 10px 4px 10px;
+  font-weight: 700;
+  color: white;
+  background-color: #98b27b;
+  font-size: 16px;
+}
+.product-container .my-products .product-listing {
+  height: 200px;
+  overflow-y: scroll;
+}
+.product-container .my-products .product-listing p {
+  padding: 80px;
+}
+.product-container .my-products .product-listing table {
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+}
+.product-container .my-products .product-listing table thead tr {
+  border-bottom: 1px solid #cacaca;
+}
+.product-container .my-products .product-listing table td, .product-container .my-products .product-listing table th {
+  font-weight: 300;
+  padding: 20px;
+}
+.product-container .my-products ::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+.product-container .my-products .servicehub {
+  background: transparent;
+}/*# sourceMappingURL=products.css.map */

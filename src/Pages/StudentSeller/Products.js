@@ -1,62 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Box, Heading, Input, Button } from "@chakra-ui/react";
 import axios from "axios";
-import { toast } from "react-toastify";
-import Footer from "../../Components/Footer";
-import "react-toastify/dist/ReactToastify.css";
-import Header from "../../Components/Header";
-import "../../Pages/servicehub.css";
-import { ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
+import "../../Pages/servicehub.css";
+import { useNavigate } from "react-router-dom";
+import './products.css'
+import { ToastContainer,toast } from "react-toastify";
+import { Box, Heading, Input, Button } from "@chakra-ui/react";
 import { MdArrowForward } from "react-icons/md";
-import {AiOutlineCamera} from 
-'react-icons/ai'
-import { useLocation } from "react-router-dom";
-
-const PostProduct = () => {
+import {AiOutlineCamera} from 'react-icons/ai'
+function Products() {
   const token = useSelector((state) => state.auth.token);
-  const location = useLocation();
-  const data = location.state ? location.state.data : null;
-  
-  
+  const navigate = useNavigate();
+  // all products
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     category_id: 1,
     name: "",
     descreption: "",
-    price: 40,
-    stock: 200,
+    price: '',
+    stock: '',
     image: null,
   });
-  const fetchProductDetail = async (id) => {
-    try {
-      const response = await axios.get(
-        `https://admin.myuni-hub.com/api/products/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("ludwig", response.data.data);
-      setFormData({
-         name: response.data.data.name,
-          descreption: response.data.data.descreption,
-          price: response.data.data.price,
-          stock: response.data.data.stock,
-          image: response.data.data.image,
-      })
-      // console.log("ludwig", products);
-    } catch (error) {
-      console.error(error);
-      console.log("lugwig", error.response.data.message)
-    }
-  };
-  useEffect(() => {
-     if (data){
-      fetchProductDetail(data)
-     }
-  }, [])
-
+  
+const handleRouteChange = (url,datas) => {
+  navigate(url, { state: { data: datas } });
+};
   const handleInputChange = (event, fieldName) => {
     setFormData({ ...formData, [fieldName]: event.target.value });
   };
@@ -68,15 +37,15 @@ const PostProduct = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-  if (!data)   {
-    const datas = new FormData();
+    const data = new FormData();
     for (const key in formData) {
       if (key === "image") {
-        datas.append("image", formData[key], formData[key].name);
+        data.append("image", formData[key], formData[key].name);
       } else {
-        datas.append(key, formData[key]);
+        data.append(key, formData[key]);
       }
     }
+
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -87,9 +56,19 @@ const PostProduct = () => {
     try {
       const response = await axios.post(
         "https://admin.myuni-hub.com/api/products",
-        datas,
+        data,
         config
       );
+      setFormData(
+        {
+            category_id: 1,
+            name: "",
+            descreption: "",
+            price: '',
+            stock: '',
+            image: null,
+          }
+      )
       toast.success("Form submitted successfully!", {
         position: toast.POSITION.TOP_CENTER,
       });
@@ -99,46 +78,91 @@ const PostProduct = () => {
         "An error occurred while submitting the form. Please try again."
       );
     }
-}else if (data){
-  const datas = new FormData();
-  for (const key in formData) {
-    if (key === "image") {
-      datas.append("image", formData[key], formData[key].name);
-    } else {
-      datas.append(key, formData[key]);
+  };
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://admin.myuni-hub.com/api/products",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("ludwig", response.data);
+      setProducts(response.data.data);
+      console.log("ludwig", products);
+    } catch (error) {
+      console.error(error);
+      console.log("lugwig", error.response.data.message)
     }
-  }
-  const config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-      Authorization: "Bearer " + token,
-    },
   };
-
-  try {
-    const response = await axios.put(
-      `https://admin.myuni-hub.com/api/products/${data}`,
-      datas,
-      config
-    );
-    toast.success("Form submitted successfully!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-    console.log("product added");
-  } catch (error) {
-    toast.error(
-      "An error occurred while submitting the form. Please try again."
-    );
+  const productStatus = async(id)=>{
+    try {
+        const response = await axios.get(
+          `https://admin.myuni-hub.com/api/product_active_deactive/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log("ludwig", response.data);
+        fetchProducts();
+        // setProducts(response.data.data);
+        console.log("ludwig", products);
+      } catch (error) {
+        console.error(error);
+        console.log("lugwig", error.response.data.message)
+      }
   }
-}
-
-  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   return (
-    <div className="servicehub">
-      <Header />
+    <div className="product-container">
+      <div className="my-products">
+        <h2>Your Products</h2>
+        <p>
+          Checkout our products provided by one expert vendors and select the
+          needed one
+        </p>
+        <div className="product-heading">
+          <h3>Product List</h3>
+          <button>Add New Product</button>
+        </div>
+      <div className="product-listing">
+         {products ?   <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+        {products?.map((item, index) => (
+          <tr key={index}>
+            <td>{item.name}</td>
+            <td>{item.category.title}</td>
+            <td>{item.stock}</td>
+            <td style={{color: item.status_id == 1 ? ` rgb(152, 178, 123)`:"black"}} onClick={()=> productStatus(item.id)} >{item.status_id  == '1' ? 'Activated' : 'Deactivated' }</td>
+            <td style={{color:"#98b27b"}} onClick={()=>{handleRouteChange(`/product/:${item.id}`,item.id)}}>Edit</td>
+          </tr>
+        ))}
+      </tbody>
+        </table> : 
+       <p>You Donot Have Any Product Yet!</p> 
+        }
+      </div>  
+      <div className="servicehub">
+        
+    
       <div className="wrapper">
-        <h2>Add Product</h2>
+        <h2>Sell Products</h2>
         <form className="values-container" onSubmit={handleSubmit}>
           <div className="values">
             {/* <Box
@@ -227,8 +251,9 @@ const PostProduct = () => {
             </Box>
 
             <div className="image-container">
-              <figure 
-              style={{fontSize:"32px",color:"#rgb(170 163 163)"}}>  <AiOutlineCamera/></figure>
+              <figure style={{fontSize:"32px",color:"#rgb(170 163 163)"}}>
+                <AiOutlineCamera/>
+              </figure>
               <p>
                 <input type="file" name="image" onChange={handleImageChange} />
               </p>
@@ -252,11 +277,10 @@ const PostProduct = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
-
-      <Footer />
+  </div> 
+      </div>
     </div>
   );
-};
+}
 
-export default PostProduct;
+export default Products;
