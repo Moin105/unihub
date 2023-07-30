@@ -56,8 +56,6 @@ function App() {
   const role  = useSelector((state) => state.auth.role);
   const seller = useSelector((state) => state.auth.user?.is_seller);
   const auth = useSelector((state) => state.auth);
-  const switch_profile = useSelector((state) => state.auth.seller_switched);
-
   useEffect(() => {
     console.log(auth)
   if(token !== null){
@@ -84,12 +82,6 @@ function App() {
   const dynamicItemRoute = {
     path: "/item/:dynamicId",
     element: <ItemPage />,
-    name: "ItemPage  ",
-  };
-  
-  const productedit = {
-    path: "/product/:dynamicId",
-    element: <PostProduct />,
     name: "ItemPage  ",
   };
   const buyerRoutes = [
@@ -131,8 +123,7 @@ function App() {
     {path:"/details",element:<Home />,name:"Home"},
     {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
     {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
-    {path:"/addproduct",element:<PostProduct/>,name:"PostProduct"},
-    {path:"/bookcleaner" ,element:<PostProduct /> ,name:"Product Edit "},
+    {path:"/addproduct",element:<PostProduct/>,name:"PostCleaner"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
@@ -215,26 +206,15 @@ function App() {
           ))}   
           
           </>
-        ) : (<>
- {   switch_profile  ?    guestRoutes.map(route => (
+        ) : (
+          guestRoutes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               element={route.element}
             />
           ))
-          :
-            sellerRoutes.map(route => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={route.element}
-            />
-          ))}
-          </>
-        )
-        
-        }
+        )}
         <Route path="*" element={<>no page or page is restricted</>} />
       </Routes>
       </Loading>
