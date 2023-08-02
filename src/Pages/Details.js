@@ -15,6 +15,7 @@ import "./BookServices";
 import { useNavigate } from "react-router-dom";
 import "../responsive.css";
 import { Link } from "react-router-dom";
+import NextJsCarousel from "../Components/Carousel";
 function Details() {
   const navigate = useNavigate();
   const handleRouteChange = (url,datas) => {
@@ -26,6 +27,7 @@ function Details() {
     <div className="details-page">
       <Header />
       {/* caorusel here  */}
+      <NextJsCarousel/>
       {/* services */}
       <div className="our-services">
         <div className="wrapper">

@@ -10,20 +10,26 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./Theme/theme";
 import { PersistGate } from "redux-persist/integration/react";
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { queryClient, QueryClientProvider } from "./queryClient";
 const container = document.getElementById("root");
 
 const root = createRoot(container);
+const stripePromise = loadStripe('pk_test_51Mjy4wGJcZyTragrfjTemq91P1GjQSHv0PY40nmeKI1X05Mvf2TVRQaTlFYgJsCHqQC0R7vvZVFKwSGOZiLi5gLU00Wis8v8Al');
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      
       {/* <QueryClientProvider client={queryClient}> */}
       <ChakraProvider theme={theme}>
         {/* <Router> */}
+        <Elements stripe={stripePromise}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
         </PersistGate>
+        </Elements>
         {/* </Router> */}
       </ChakraProvider>
       {/* </QueryClientProvider > */}

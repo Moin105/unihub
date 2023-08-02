@@ -20,6 +20,7 @@
 .itempage .wrapper h5 {
   color: #7BB564;
   font-size: 24px;
+  max-width: 80%;
 }
 .itempage .wrapper .itemcontainer {
   display: flex;
