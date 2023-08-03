@@ -13,9 +13,11 @@ import {
 import "./order.css";
 import "../../responsive.css";
 import filter from "../../Images/filter.png";
+import ordei from '../../Images/ordei.png'
 import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
-import axios from 'axios'
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { get } from "react-hook-form";
 // import Rating from "../../Components/Rating";
 // import { ThemeProvider, CSSReset } from "@chakra-ui/core";
@@ -23,45 +25,80 @@ import { get } from "react-hook-form";
 function Order() {
   const [show, setShow] = useState(true);
   const [hide, setHide] = useState(true);
-  const [cards,setCards] = useState([]);
-  const token = useSelector((state) => state.auth.token);;
-  const getData = async () => {
+  const [orders, setOrders] = useState([]);
+  // const [cards,setCards] = useState([]);
+  const token = useSelector((state) => state.auth.token);
+  let data = [];
+  const getServices = async () => {
     try {
-      const response = await axios.get("https://admin.myuni-hub.com/api/book_services", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log("ma belle",response);
-      // setCards(response.data.cards);
-      
+      const response = await axios.get(
+        "https://admin.myuni-hub.com/api/book_services",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data.services; // return data instead of console.log
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   };
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://admin.myuni-hub.com/api/book_product",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data.book_products; // return data instead of console.log
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  const fetchData = async () => {
+    try {
+      const [services, products] = await Promise.all([
+        getServices(),
+        getProducts(),
+      ]);
+
+      data = [...services, ...products];
+      setOrders(data);
+      console.log("hor disda", data);
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
+  const navigate = useNavigate();
+  const handleRouteChange = (url, datas) => {
+    navigate(url, { state: { data: datas } });
+  };
+
   useEffect(() => {
-    getData();
-  // if(cards.length > 0){
-  //   setHide(false)
-  // }
-  }, [])
-  
+    fetchData();
+  }, []);
+
   return (
     <React.Fragment>
-      {hide === true ? (
+      {show ? (
         <div className="tab-order">
           <h2>My Orders</h2>
           <span className="upper">
             View your order history or check the status of a recent order.
           </span>
           {/* <p>Login email : Malik.h123@gmail.com</p> */}
-          {show ? (
+          {orders.length < 0 ? (
             <React.Fragment>
               <span className="lower">You haven’t placed any orders yet.</span>
               <div className="primary-btn">
                 <Button
                   onClick={() => {
-                    setShow(false);
+                    handleRouteChange("/");
                   }}
                   rightIcon={<MdArrowForward />}
                   bg="#7BB564"
@@ -81,6 +118,24 @@ function Order() {
                   <img src={filter} />
                 </figure>
               </div>
+              <div className="order-list">
+              {
+                orders.map((order,index)=>{
+                  return   <div className="order-row">
+                  <figure >
+                    <img src={ordei} />
+                  </figure>
+                  <div className="order-details">
+                    <div className="ordername">
+                      <h3>Order#{order.id}</h3>  <p>{order.price.price || order.price }EUR</p>
+                    </div>
+                    <p>wef</p>
+                  </div>
+                </div>
+                })
+              }
+              
+              </div>
               <div className="primary-btn">
                 <Button
                   onClick={() => {
@@ -97,64 +152,6 @@ function Order() {
               </div>
             </React.Fragment>
           )}
-
-          {/* <FormControl>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
-          <FormLabel
-            padding="20px 0px 0px 20px"
-            fontSize="37px"
-            fontWeight={300}
-          >
-            Name
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            type="email"
-            fontSize="41px"
-          />
-        </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
-          <FormLabel
-            padding="20px 0px 0px 20px"
-            fontSize="37px"
-            fontWeight={300}
-          >
-            Email address
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            type="email"
-            fontSize="41px"
-          />
-        </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
-          <FormLabel
-            padding="20px 0px 0px 20px"
-            fontSize="37px"
-            fontWeight={300}
-          >
-            Address
-          </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            type="email"
-            fontSize="41px"
-          />
-        </Box>
-        <Box border="1px solid #7BB564" borderRadius={30} marginTop="103px">
-          <FormLabel
-            padding="20px 0px 0px 20px"
-            fontSize="37px"
-            fontWeight={300}
-          >
-            Phone
-          </FormLabel>
-          <Input variant="unstyled" border="none" type="tel" fontSize="41px" />
-        </Box>
-      </FormControl> */}
         </div>
       ) : (
         <React.Fragment>

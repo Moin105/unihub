@@ -41,7 +41,6 @@ function CleaningPackage() {
   const [selectedObject, setSelectedObject] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
 
-
   const customTheme = extendTheme({
     colors: {
       customGreen: "#7BB564",
@@ -58,8 +57,8 @@ function CleaningPackage() {
     }
 }
   const [value, setValue] = useState(new Date());
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleRouteChange = (url, datas) => {
     navigate(url, { state: { data: datas } });
   };
@@ -173,6 +172,7 @@ function CleaningPackage() {
           selected={value}
           onChange={(date) => setValue(date)}
           inline
+          minDate={new Date()}
         />
         <p>Select A Time</p>
      <div className="card-cleaner time-slot">

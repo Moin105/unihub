@@ -25,11 +25,11 @@ root.render(
       {/* <QueryClientProvider client={queryClient}> */}
       <ChakraProvider theme={theme}>
         {/* <Router> */}
-        <Elements stripe={stripePromise}>
+        {/* <Elements stripe={stripePromise}> */}
         <PersistGate loading={null} persistor={persistor}>
           <App />
         </PersistGate>
-        </Elements>
+        {/* </Elements> */}
         {/* </Router> */}
       </ChakraProvider>
       {/* </QueryClientProvider > */}

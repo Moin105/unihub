@@ -1,155 +1,199 @@
 .tab-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+
+  h2 {
+    color: #7bb564;
+  }
+
+  .order-details {
+    color: #707070;
+    width: 870px;
+    font-weight: 200;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    text-align: left;
+    width: 870px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 300;
+  }
+
+  .support {
+    font-size: 16px;
+    text-align: center;
+    max-width: 870px;
+    width: 100%;
+    margin: 20px auto;
+    color: black;
+    font-weight: 300;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .price {
+    color: #7bb564;
+    font-size: 20px;
+    text-align: left;
+    width: 870px;
+    margin-bottom: 20px;
+  }
+
+  .upper {
+    font-size: 20px;
+    font-weight: 300;
+    color: #707070;
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+  .row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    figure {
+      width: 24px;
+      height: 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .order-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    max-width: 600px;
+    .order-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      figure {
+        background-color: #e6f7e6;
+        border: none;
+        border-radius: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        img {
+          width: 50%;
+          height: 50%;
+          object-fit: contain;
+        }
+      }
+      .order-details {
+        display: flex;
+        margin: 10px 0px;
+        width: calc(100% - 80px);
+        flex-direction: column;
+
+        color: black;
+        .ordername {
+          display: flex;
+          justify-content: space-between;
+          h3{
+            font-size: 20px;
+          }
+          p{
+            font-size: 16px;
+          }
+        }
+        p{
+            font-size: 16px;
+          }
+      }
+    }
+  }
+  .lower {
+    font-size: 18px;
+    margin: 30px 0px 0px 0px;
+  }
+
+  .form-control {
+    width: 520px;
+    .input-container {
+      margin: 30px;
+      border-radius: 16px;
+
+      label {
+        font-size: 18px;
+        margin: 0;
+        padding-top: 10px;
+      }
+
+      textarea {
+        padding: 5px 0px 5px 20px;
+        font-size: 18px;
+        height: auto;
+        border-color: none;
+        font-weight: 300;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .tab-order {
+    margin-top: 50px;
 
     h2 {
-        color: #7BB564;
-    }
-
-    .order-details {
-        color: #707070;
-        width: 870px;
-        font-weight: 200;
-        text-align: left;
-        margin-bottom: 20px;
-    }
-
-    .heading {
-        text-align: left;
-        width: 870px;
-        margin-bottom: 10px;
-        color: black;
-        font-weight: 300;
-    }
-
-    .support {
-        font-size: 16px;
-        text-align: center;
-        max-width: 870px;
-        width: 100%;
-        margin: 20px auto;
-        color: black;
-        font-weight: 300;
-
-        span {
-            font-size: 18px;
-        }
-    }
-
-    .price {
-        color: #7BB564;
-        font-size: 20px;
-        text-align: left;
-        width: 870px;
-        margin-bottom: 20px;
+      font-size: 30px;
     }
 
     .upper {
-        font-size: 20px;
-        font-weight: 300;
-        color: #707070;
-    }
-
-    p {
-        font-weight: 300;
-    }
-
-    .row {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-
-        p {
-            font-size: 24px;
-            font-weight: 300;
-        }
-
-        figure {
-            width: 24px;
-            height: 20px;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-
-    .lower {
-        font-size: 18px;
-        margin: 30px 0px 0px 0px;
+      font-size: 16px;
     }
 
     .form-control {
-        width: 520px;
+      width: 520px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
 
-        .input-container {
-            margin: 30px;
-            border-radius: 16px;
+      .input-container {
+        margin: 16px 25px;
+        border-radius: 16px;
 
-            label {
-                font-size: 18px;
-                margin: 0;
-                padding-top: 10px;
-            }
-
-            textarea {
-                padding: 5px 0px 5px 20px;
-                font-size: 18px;
-                height: auto;
-                border-color: none;
-                font-weight: 300;
-                border: none;
-                box-shadow: none;
-            }
+        label {
+          padding: 10px 0 0 20px;
         }
+
+        input {
+          padding: 5px 0 5px 20px;
+        }
+      }
     }
-}
 
-@media screen and (max-width:1440px) {
-    .tab-order {
-        margin-top: 50px;
-
-        h2 {
-            font-size: 30px;
-        }
-
-        .upper {
-            font-size: 16px;
-        }
-
-        .form-control {
-            width: 520px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-
-            .input-container {
-                margin: 16px 25px;
-                border-radius: 16px;
-
-                label {
-                    padding: 10px 0 0 20px;
-                }
-
-                input {
-                    padding: 5px 0 5px 20px;
-                }
-            }
-        }
-
-        p {
-            font-size: 20px;
-        }
-
-        .lower {
-            font-size: 16px;
-        }
-
+    p {
+      font-size: 20px;
     }
+
+    .lower {
+      font-size: 16px;
+    }
+  }
 }

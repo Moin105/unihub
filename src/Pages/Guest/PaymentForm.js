@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, Box, FormLabel, Input, Button } from '@chakra-ui/react';
 import Header from '../../Components/Header';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer'
 import axios from 'axios';
 import { MdArrowForward } from "react-icons/md";
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import {
+  useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
+  } from "@chakra-ui/react";
 const PaymentForm = () => {
   const location = useLocation();
   const token = useSelector((state) => state.auth.token);
   const data = location.state ? location.state.data : null;
+  const navigate = useNavigate();
+  const handleRouteChange = (url,datas) => {
+    navigate(url, { state: { data: datas } });
+  };
+ const { isOpen, onOpen, onClose } = useDisclosure();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,10 +33,118 @@ const PaymentForm = () => {
     month: '',
     cvc: '',
   });
+  
   useEffect(() => {
    console.log("payment",data)
   }, [])
+  const handleInputChanges = (e) => {
+    const { name, value } = e.target;
+    if (name === "card_number") {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
+  };
+
+  useEffect(() => {
+    const value = formData.card_number.replace(/[^\d]/g, "").slice(0, 16); // remove non-digits and limit length
+    const formatted = value.replace(/(\d{4})/g, "$1 ").trim(); // insert spaces every 4 digits
+    // setCardNumber(formatted);
+    setFormData((prevState) => ({
+      ...prevState,
+      'card_number': formatted,
+    }));
+  }, [formData.card_number]);
+  const validateFields = () => {
+    if (formData.name.trim() === '') {
+      toast.error('Name is required');
+      return false;
+    }
+
+    if (formData.email.trim() === '') {
+      toast.error('Email is required');
+      return false;
+    }
+
+    // Simple validation for email format
+    const emailPattern = /\S+@\S+\.\S+/;
+    if (!emailPattern.test(formData.email)) {
+      toast.error('Invalid email format');
+      return false;
+    }
+
+    if (formData.address.trim() === '') {
+      toast.error('Address is required');
+      return false;
+    }
+
+    if (formData.phone.trim() === '') {
+      toast.error('Phone is required');
+      return false;
+    }
+
+    // Simple validation for phone format
+    // const phonePattern = /^[0-9]{10}$/;
+    // if (!phonePattern.test(formData.phone)) {
+    //   toast.error('Invalid phone format');
+    //   return false;
+    // }
+
+    if (formData.card_number.trim() === '') {
+      toast.error('Card Number is required');
+      return false;
+    }
+
+    if (formData.month.trim() === '') {
+      toast.error('Expiry Month is required');
+      return false;
+    }
+    if (formData.month > 12) {
+      toast.error('Enter Valid Month');
+      return false;
+    }
+    if (formData.year.trim() === '') {
+      toast.error('Expiry Year is required');
+      return false;
+    }
+    if (formData.year >99) {
+      toast.error('Enter Valid Year');
+      return false;
+    }
+    if (formData.cvc.trim() === '') {
+      toast.error('CVC is required');
+      return false;
+    }
+
+    // if (formData.city.trim() === '') {
+    //   toast.error('City is required');
+    //   return false;
+    // }
+    const cardNumberPattern = /^(\d{4} ){3}\d{4}$/;
+    if (!cardNumberPattern.test(formData.card_number)) {
+      toast.error('Invalid card number format');
+      return false;
+    }
+    return true;
+  }
+  const handleInputChangecvc = (e) => {
+    const { name, value } = e.target;
+    let validatedValue = value;
   
+    // Validate cvc input
+    if (name === 'cvc' && value.length > 3) {
+      validatedValue = value.slice(0, 3); // keep only the first 3 digits
+      toast.error('CVC cannot be more than 3 digits');
+    }
+  
+    setFormData({ ...formData, [name]: validatedValue });
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -41,15 +158,19 @@ const PaymentForm = () => {
       });
   
       console.log(response.data);
+      toast.success('Payment successful!');
+      onOpen()
       return response.data;
     } catch (error) {
       console.error('Error', error);
+      toast.error(error.response.data.message);
+           
     }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(formData.address == ""|| formData.card_number == "" || formData.cvc == "" || formData.email == "" || formData.month == "" || formData.name == "" || formData.phone == "" || formData.year == ""){
-      toast.error("Please fill all the fields")
+    if (!validateFields()) {
+      return;
     }
     else{
       postData('https://admin.myuni-hub.com/api/guest_book_event', formData, token);
@@ -214,7 +335,7 @@ const PaymentForm = () => {
             name="card_number"
             type="text"
             value={formData.card_number}
-            onChange={handleInputChange}
+            onChange={handleInputChanges}
             fontSize="41px"
           />
         </Box>
@@ -272,7 +393,7 @@ const PaymentForm = () => {
             name="cvc"
             type="text"
             value={formData.cvc}
-            onChange={handleInputChange}
+            onChange={handleInputChangecvc}
             fontSize="41px"
           />
         </Box>
@@ -287,13 +408,32 @@ const PaymentForm = () => {
           width={"100%"}
           onClick={handleSubmit}
         >
-          Next
+          Pay
         </Button>
         {/* </Link> */}
       </div>
     </form>
    
-   </div> <Footer/>
+   </div> 
+   <Modal isOpen={isOpen} onClose={onClose}>
+    <ModalOverlay />
+    <ModalContent style={{alignItems:"center"}}>
+      <ModalHeader>Confirm Payment</ModalHeader>
+      <ModalCloseButton />
+      <ModalBody>
+      <p>Thank you for your purchase!</p>
+    <p>Are you ready to checkout?</p>
+      </ModalBody>
+
+      <ModalFooter>
+        <Button  style={{background:"#7BB564",color:"white"}} mr={3} onClick={onClose}>
+          Close
+        </Button>
+        <Button colorScheme="#7BB564"  onClick={() => {handleRouteChange('/')}} style={{border:"1px solid #7BB564"}} variant="ghost">Submit</Button>
+      </ModalFooter>
+    </ModalContent>
+  </Modal>
+   <Footer/>
    </> 
   );
 };
