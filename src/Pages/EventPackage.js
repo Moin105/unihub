@@ -39,9 +39,6 @@ function    EventPackage() {
     const BookRequest = async (token, event_id, price_id, currency) => {
    if(token) {    const url = 'https://admin.myuni-hub.com/api/book_event';
         const formData = new FormData();
-        console.log("mjhgfcbfbgff",event_id) 
-        console.log("mjhgfcbfbgff",price_id)
-        console.log("mjhgfcbfbgff",currency)
         formData.append('event_id', event_id);
         formData.append('price_id', price_id);
         formData.append('currency', currency);
@@ -56,7 +53,6 @@ function    EventPackage() {
           if(response.data.message === "Intent Generated Successfully!"){
             dispatch(setEvent({"response":response,"data":data}))
             handleRouteChange(`/eventsummary`)
-            //  { selectedOption:data.selectedOption,detailedData:data.detailedData, event_id:data.event_id, id:data.id, currency:'usd' }
           
           }
         
@@ -131,11 +127,10 @@ Greenwich Mean Time (GMT)
             </div>
                 <div className="primary-btn">
       <Button 
-      onClick={()=>{BookRequest(token,data.selectedOption.event_id,data.selectedOption.id,'usd')}}
+      onClick={()=>{BookRequest(token,data.selectedOption.event_id,data.selectedOption.id,'EUR')}}
       // onClick={() =>
       //   handleRouteChange(
       //     `/eventsummary`,
-      //    { selectedOption:data.selectedOption,detailedData:data.detailedData, event_id:data.event_id, id:data.id, currency:'usd' }
       //   )
       // }
         rightIcon={<MdArrowForward />}

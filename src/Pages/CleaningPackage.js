@@ -97,8 +97,8 @@ function CleaningPackage() {
         try {
           const response = await axios.post(url, formData, config);
           if (response.status == 200) {
-            dispatch(setService({data:response.data,datas:data,value:value,currency:"usd"}));
-            handleRouteChange("/service-booking",data,value,"usd");
+            dispatch(setService({data:response.data,datas:data,value:value,currency:"EUR"}));
+            handleRouteChange("/service-booking",data,value,"EUR");
             // handleRouteChange("/booking", response.data);
           }
           return response;
@@ -189,8 +189,7 @@ function CleaningPackage() {
         <div className="primary-btn">
           <Button
             onClick={() => {
-              // handleRouteChange("/service-booking",data,value,"usd");
-              BookRequest(token, data.service_id, data.id, value, "usd");
+              BookRequest(token, data.service_id, data.id, value, "EUR");
             }}
             rightIcon={<MdArrowForward />}
             bg="#7BB564"

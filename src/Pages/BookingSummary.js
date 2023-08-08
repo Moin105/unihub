@@ -84,7 +84,7 @@ function BookingSummary() {
       value={phone}
       onChange={(e) => setPhone(e.target.value)}
       border="none"
-      type="text"
+      type="number"
       fontSize="41px"
     />
   </Box>

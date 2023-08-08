@@ -184,7 +184,34 @@ function CheckOutPage() {
       exp_month: event.target.value
     });
   };
-
+  const makePaymentMethodPrimary = async (paymentId) => {
+    try {
+      const formData = new FormData();
+      formData.append('payment_id', paymentId);
+  
+      const response = await axios.post(
+        'https://admin.myuni-hub.com/api/make_payment_method_primary',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Make sure the token is available in this scope
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+  
+      if (response.status === 200) {
+        console.log('Payment method set as primary successfully', response.data);
+        toast.success(response.data.message)
+        fetchData()
+        // You can update state or navigate as needed here
+      }
+    } catch (error) {
+      console.error('Error setting payment method as primary:', error);
+      // Handle error appropriately
+    }
+  };
+  
   const openInNewTab = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
@@ -237,13 +264,13 @@ const [showform ,setShowForm] = useState(false)
               {card !== null && showform == false ? (
                 card?.map((item) => {
                   return (
-                    <div className="card-row">
+                    <div className="card-row" onClick={()=>{makePaymentMethodPrimary(item.id)}}>
                       <div className="card"></div>
                       <div className="card-text">
                         <h3>{item.brand}</h3>
                         <p> &#8226;&#8226;&#8226;&#8226;{item.last_digit}</p>
                       </div>
-                      <div className="check"></div>
+                   {item.is_primary == 1 &&  <div className="check"></div>}
                     </div>
                   );
                 })

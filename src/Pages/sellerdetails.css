@@ -104,10 +104,10 @@
     height: 30px;
   }
   .sellerdetails .wrapper .chakra-tabs__tablist .tab-content p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .sellerdetails .wrapper .chakra-tabs__tablist .tab-contents {
-    max-width: 120px;
+    max-width: 145px;
     height: 120px;
   }
   .sellerdetails .wrapper .chakra-tabs__tablist .tab-contents p {

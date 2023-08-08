@@ -8,7 +8,7 @@ import { ToastContainer,toast } from "react-toastify";
 import { Box, Heading, Input, Button } from "@chakra-ui/react";
 import { MdArrowForward } from "react-icons/md";
 import {AiOutlineCamera} from 'react-icons/ai'
-function Products() {
+function Event() {
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
   // all products
@@ -36,7 +36,7 @@ const handleRouteChange = (url,datas) => {
 const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "https://admin.myuni-hub.com/api/products",
+        "https://admin.myuni-hub.com/api/events",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ else{
   const productStatus = async(id)=>{
     try {
         const response = await axios.get(
-          `https://admin.myuni-hub.com/api/product_active_deactive/${id}`,
+          `https://admin.myuni-hub.com/api/event_active_deactive/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -157,22 +157,21 @@ else{
   return (
     <div className="product-container">
       <div className="my-products">
-        <h2>Your Products</h2>
+        <h2>Your Events</h2>
         <p>
           Checkout our products provided by one expert vendors and select the
           needed one
         </p>
         <div className="product-heading">
-          <h3>Product List</h3>
-          <button onClick={()=> handleRouteChange("/addProduct")}>Add New Product</button>
+          <h3>Event List</h3>
+          <button onClick={()=> handleRouteChange("/addevent")}>Add New Event</button>
         </div>
       <div className="product-listing">
          {products ?   <table>
           <thead>
             <tr>
               <th>Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
+              <th>Event Date</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -180,9 +179,9 @@ else{
           <tbody>
         {products?.map((item, index) => (
           <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.category.title}</td>
-            <td>{item.stock}</td>
+            <td>{item.title}</td>
+            {/* <td>{item.category.title}</td> */}
+            <td>{item.date_time}</td>
             <td style={{color: item.status_id == 1 ? ` rgb(152, 178, 123)`:"black",cursor:"pointer"}} onClick={()=> productStatus(item.id)} >{item.status_id  == '1' ? 'Activated' : 'Deactivated' }</td>
             <td style={{color:"#98b27b",cursor:"pointer"}} onClick={()=>{handleRouteChange(`/product/${item.id}`,item.id)}}>Edit</td>
           </tr>
@@ -195,126 +194,10 @@ else{
       <div className="servicehub">
         
     
-      <div className="wrapper">
-        <h2>Sell Products</h2>
-        <form className="values-container" onSubmit={handleSubmit}>
-          <div className="values">
-            {/* <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Category ID
-              </Heading>
-              <Input
-                variant="unstyled"
-                type="number"
-                value={formData.category_id}
-                onChange={(e) => handleInputChange(e, "category_id")}
-              />
-            </Box> */}
-
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Name
-              </Heading>
-              <Input
-                variant="unstyled"
-                type="text"
-                value={formData.name}
-                onChange={(e) => handleInputChange(e, "name")}
-              />
-            </Box>
-
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Descreption
-              </Heading>
-              <Input
-                variant="unstyled"
-                type="text"
-                value={formData.descreption}
-                onChange={(e) => handleInputChange(e, "descreption")}
-              />
-            </Box>
-
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Price
-              </Heading>
-              <Input
-                variant="unstyled"
-                type="number"
-                value={formData.price}
-                onChange={(e) => handleInputChange(e, "price")}
-              />
-            </Box>
-
-            <Box
-              className="outline-box"
-              borderWidth="1px"
-              borderRadius="lg"
-              p={4}
-            >
-              <Heading as="h3" size="md" mb={2}>
-                Stock
-              </Heading>
-              <Input
-                variant="unstyled"
-                type="number"
-                value={formData.stock}
-                onChange={(e) => handleInputChange(e, "stock")}
-              />
-            </Box>
-
-            <div className="image-container">
-              <figure style={{fontSize:"32px",color:"#rgb(170 163 163)"}}>
-                <AiOutlineCamera/>
-              </figure>
-              <p>
-                <input type="file" name="image" onChange={handleImageChange} />
-              </p>
-            </div>
-
-            <div className="primary-btn">
-              <Button
-                rightIcon={<MdArrowForward />}
-                bg="#7BB564"
-                color={"white"}
-                variant="solid"
-                width={"100%"}
-                onClick={(e) => {
-                  handleSubmit(e);
-                }}
-                type="submit"
-              >
-                Add Product
-              </Button>
-            </div>
-          </div>
-        </form>
-      </div>
   </div> 
       </div>
     </div>
   );
 }
 
-export default Products;
+export default Event;

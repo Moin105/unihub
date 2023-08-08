@@ -26,6 +26,9 @@ export const authSlice = createSlice({
         // Update the state.user with the user data
         console.log("student is switched to seller successfully!")
         state.seller_switched = true;
+      }else{
+        console.log("student is not switched to seller successfully!")
+        state.seller_switched = false;
       }
     },
     setToken: (state, action) => {

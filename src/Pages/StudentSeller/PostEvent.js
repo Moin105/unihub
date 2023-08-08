@@ -234,7 +234,7 @@ const EventForm = () => {
           </Heading>
           <Input
             variant="unstyled"
-            type="text"
+            type="number"
             value={formData.lat}
             onChange={(e) => handleInputChange(e, 'lat')}
           />
@@ -251,7 +251,7 @@ const EventForm = () => {
           </Heading>
           <Input
             variant="unstyled"
-            type="text"
+            type="number"
             value={formData.lng}
             onChange={(e) => handleInputChange(e, 'lng')}
           />
@@ -285,16 +285,18 @@ const EventForm = () => {
               />
               <Input
                 variant="unstyled"
-                type="text"
+                type="number"
                 placeholder="Price"
                 value={packageItem.price}
                 onChange={(e) => handlePackageChange(e, index, 'price')}
               />
-              <Button onClick={() => removePackage(index)}>Remove this package</Button>
+              <Button style={{background:"#7BB564",color:"white"}} onClick={() => removePackage(index)}>Remove this package</Button>
             </Box>
           </div>
         ))}
-        <Button onClick={addPackage}>Add new package</Button>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"center",}}>
+        <Button style={{background:"#7BB564",color:"white",marginBottom:"15px"}} onClick={addPackage}>Add new package</Button>
+        </div>
 
         <div className='image-container'>
           <figure>

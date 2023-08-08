@@ -48,6 +48,7 @@ import { ToastContainer } from "react-toastify";
 import EventSummaryPage from "./Pages/EventSummary";
 import ServiceSummary from "./Pages/ServiceSummary";
 import EventSummury from "./Pages/EventSummury";
+import Products from "./Pages/StudentSeller/Products";
 function App() {
   // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -84,6 +85,21 @@ function App() {
     element: <ItemPage />,
     name: "ItemPage  ",
   };
+  const dynamicProducts = {
+    path: "/product/:dynamicId",
+    element: <PostProduct />,
+    name: "Products",
+  }
+  const dynamicServices = {
+    path: "/service/:dynamicId",
+    element: <PostCleaner />,
+    name: "Products",
+  }
+  const dynamicEvents = {
+    path: "/addEvent/:dynamicId",
+    element: <PostEvent />,
+    name: "Products",
+  }
   const buyerRoutes = [
     { path: "/noprobs", element: <Details />, name: "Details" },
     { path: "/", element: <Details />, name: "Details" },
@@ -99,38 +115,43 @@ function App() {
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
     {path:"/booking" ,element:<OrderPlaced />,name:"OrderPlaced"},
     {path:"/order-booking",element:<BookingSummary/>,name:"BookingSummary"},
+    {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
     {path:"/service-booking",element:<ServiceSummary/>,name:"ServiceSummary"},
     {path:"/sellerpage", element:<SellerPage/>,name:"SellerPage"},
     {path:"/home" ,element:<Home />,name:"OrderPlaced"},
     dynamicRoute,
+    ,dynamicProducts,dynamicServices,
     {path:"/cleanerpayment",element:<CleanerPayment/>,name:"CleanerPayment"},
     {path:"/checkout",element:<CheckOutPage/>,name:"CheckOutPage"},
     dynamicEventRoute,dynamicItemRoute,
+    
+    {path:"/addservice", element:<PostCleaner/>,name:"PostCleaner"},
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/events' ,element:<EventBuyer/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
+    {path:"/addProduct",element:<PostProduct/>,name:"PostProduct"},
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
     // other buyer-only routes here
   ];
 
-  const sellerRoutes = [
-    { path: "/", element: <Details />, name: "Seller" },
-    {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
-    {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
-    {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
-    {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
-    {path:"/details",element:<Home />,name:"Home"},
-    {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
-    {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
-    {path:"/addproduct",element:<PostProduct/>,name:"PostCleaner"},
-    { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
-    // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
-    {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
-     {path:"/sellService" ,element:<SellService/> , name:"SellService" },
-    {path:"/Home",element:<Details />,name:"Details"},
-    // other seller-only routes here
-  ];
+  // const sellerRoutes = [
+  //   { path: "/", element: <Details />, name: "Seller" },
+  //   {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+  //   {path:"/marketplace" ,element:<MarketPlace />,name:"MarketPlace"},
+  //   {path:"/itemdetail" ,element:<ItemPage />,name:"BookServices"},
+  //   {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
+  //   {path:"/details",element:<Home />,name:"Home"},
+  //   {path:"/addcleaner", element:<PostCleaner/>,name:"PostCleaner"},
+  //   {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
+  //   {path:"/addproduct",element:<PostProduct/>,name:"PostCleaner"},
+  //   { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
+  //   // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
+  //   {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
+  //    {path:"/sellService" ,element:<SellService/> , name:"SellService" },
+  //   {path:"/Home",element:<Details />,name:"Details"},
+  //   // other seller-only routes here
+  // ];
   const NormalSellerRoutes = [
     { path: "/", element: <SellService />, name: "Seller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
@@ -167,15 +188,11 @@ function App() {
     // {path:'/event',element:<Event/>,name:"Event"},
     {path:'/guest-event' ,element:<GuestEvent/>,name:"BookEvent"},
     {path:'/messages',element:<Messages/>,name:"Messages"},
-
+    
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     // {path:"/sellerdetails" ,element:<SellerDetails />,name:"SellerDetails"},
     dynamicRoute,
-    // other guest-only routes here
-  ];
-  // const authenticatedRoutes = isSeller == true ? sellerRoutes : buyerRoutes ;
-  // const authenticatedRoutes = NormalSellerRoutes;
-  // const authenticatedRoutes = role == "student" ? (seller == 0) ? buyerRoutes    : sellerRoutes  : NormalSellerRoutes;
+      ];
   return (
     <div className="App">
       <ToastContainer/>

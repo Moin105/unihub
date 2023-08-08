@@ -20,7 +20,7 @@ function ItemPage() {
   const dispatch = useDispatch();
   const product = useSelector((state) => state);
   const sendData =()=>{
-    handleRouteChange("/productpayment",{data:data,quantity:value,currency:"usd"})
+    handleRouteChange("/productpayment",{data:data,quantity:value,currency:"EUR"})
   }
   const handleRouteChange = (url,datas)  => {
     navigate(url, { state: { data: datas } });
@@ -91,7 +91,7 @@ function ItemPage() {
          
               {" "}
            { token ?  <Button
-              onClick={()=>{BookRequest(token,data.id,value,'usd')}}
+              onClick={()=>{BookRequest(token,data.id,value,'EUR')}}
                 rightIcon={<MdArrowForward />}
                 bg="#7BB564"
                 color={"white"}

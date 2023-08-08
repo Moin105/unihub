@@ -44,6 +44,64 @@
   margin-block: 10px;
   font-weight: 500;
 }
+.tab-wallet .summarys {
+  text-align: start;
+  width: 80%;
+  margin: 20px auto;
+}
+.tab-wallet .summarys .cards-container {
+  display: flex;
+  flex-direction: column;
+}
+.tab-wallet .summarys .cards-container .card-row {
+  display: flex;
+  border: 1px solid #7BB564;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.tab-wallet .summarys .cards-container .card-row .card {
+  width: 40px;
+  height: 40px;
+  border-radius: 500px;
+  background-color: #000;
+}
+.tab-wallet .summarys .cards-container .card-row .card-text {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  width: 75%;
+  color: #000;
+  flex-direction: column;
+  justify-content: center;
+}
+.tab-wallet .summarys .cards-container .card-row .card-text h3 {
+  margin: 0;
+}
+.tab-wallet .summarys .cards-container .card-row .card-text p {
+  font-size: 18px;
+  margin: 0;
+  color: #868E96;
+}
+.tab-wallet .summarys .cards-container .card-row .check {
+  width: 20px;
+  height: 20px;
+  border-radius: 400px;
+  background-color: #7BB564;
+}
+.tab-wallet .summarys h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.tab-wallet .summarys p {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
 
 @media screen and (max-width: 1440px) {
   .tab-wallet {

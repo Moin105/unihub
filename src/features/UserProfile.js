@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUserProfile } from './slices/userProfileSlice';
+import { fetchUserProfile } from '../thunks/profileThunk';
 
 function UserProfile() {
   const dispatch = useDispatch();
-  const userProfileData = useSelector((state) => state.userProfile.data);
+  const userProfileData = useSelector((state) => state);
+useEffect(() => {
+ console.log("asdas",userProfileData)
+}, [])
 
   useEffect(() => {
     dispatch(fetchUserProfile());

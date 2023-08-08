@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../../responsive.css";
 import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
+import { fetchUserProfile } from "../../thunks/profileThunk";
 import { set } from "date-fns";
 // import { useSelector } from "react-redux";
 // const postData = async (url, data,token) => {
@@ -30,27 +31,25 @@ import { set } from "date-fns";
 // };
 function DetailsTab() {
   const token = useSelector((state) => state.auth.token);
+  
+  const user = useSelector((state) => state.user.user);
   const updateUser = async () => {
     try {
       // Make the API call to update the user
       const response = await axios.put(
-        "https://admin.myuni-hub.com/api/update_profile",
+        "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
         {
           name: formData.name,
           address: formData.address,
           phone: formData.phone,
         },
-        token
+        {
+          headers: { Authorization: `Bearer ${token}` } 
+        }
       );
-      // const response = await makeApiCall(userId, userData);
-
-      // Get the updated user data from the API response
       const updatedUser = response.data;
+      dispatch(fetchUserProfile());
       console.log("updatedUser", updatedUser);
-      // Dispatch the setName action with the updated user data
-      // dispatch(setName({ user: updatedUser }));
-
-      // Other dispatches or logic if necessary
     } catch (error) {
       // Handle any errors
       console.log(error);
@@ -59,7 +58,8 @@ function DetailsTab() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true);
   // const userProfileData = useSelector((state) => state);
-  const userProfileData = useSelector((state) => state.auth.user);
+  const userProfileData = useSelector((state) => state.user.user);
+  
   console.log("userProfile", userProfileData);
   const [formData, setFormData] = useState(null);
   // const token = useSelector((state) => state.);

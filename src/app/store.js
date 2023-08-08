@@ -1,13 +1,16 @@
 // import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import { authSlice } from '../features/UserSlice';
-import { userProfileSlice } from '../thunks/profileThunk';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+// import { userProfileSlice } from '../thunks/profileThunk';
+import { combineReducers, configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; 
 import { productSlice } from '../features/paymentSlice';
 import { serviceSlice } from '../features/serviceSlice';
+import {userProfileSlice} from '../features/UserProfileSlice'
 import { eventSlice } from '../features/eventSlice';
+import thunk from 'redux-thunk';
+
 const persistConfig = {
   key: 'root', // Key for the persisted data in storage
   storage, // Storage type
@@ -22,8 +25,8 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer
-
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
 

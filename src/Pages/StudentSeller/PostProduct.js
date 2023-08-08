@@ -11,20 +11,24 @@ import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
 import {AiOutlineCamera} from 
 'react-icons/ai'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PostProduct = () => {
   const token = useSelector((state) => state.auth.token);
   const location = useLocation();
+  const navigate = useNavigate()
+  const [productStatus, setProductStatus] = useState(null);
   const data = location.state ? location.state.data : null;
-  
+  const handleRouteChange = (url,datas) => {
+    navigate(url, { state: { data: datas } });
+  };
   
   const [formData, setFormData] = useState({
     category_id: 1,
     name: "",
     descreption: "",
-    price: 40,
-    stock: 200,
+    price: '',
+    stock: '',
     image: null,
   });
   const fetchProductDetail = async (id) => {
@@ -38,14 +42,17 @@ const PostProduct = () => {
         }
       );
       console.log("ludwig", response.data.data);
+      setProductStatus(response.data.data.status.id)
       setFormData({
          name: response.data.data.name,
+         category_id: 1,
           descreption: response.data.data.descreption,
           price: response.data.data.price,
           stock: response.data.data.stock,
           image: response.data.data.image,
+          _method:'PUT'
       })
-      // console.log("ludwig", products);
+      
     } catch (error) {
       console.error(error);
       console.log("lugwig", error.response.data.message)
@@ -64,11 +71,59 @@ const PostProduct = () => {
   const handleImageChange = (event) => {
     setFormData({ ...formData, image: event.target.files[0] });
   };
-
+ const deleteProduct = async ()=>{
+    axios.delete(`https://admin.myuni-hub.com/api/products/${data}`,{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    }).then((res)=>{
+      console.log(res)
+      toast.success("Product deleted successfully", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      handleRouteChange('/sellerdetails')
+    }).catch((err)=>{
+      console.log(err)
+      toast.error("Something went wrong", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    })
+ }
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-  if (!data)   {
+    if(formData.name === '' || formData.descreption === '' || formData.price === '' || formData.stock === '' || formData.image === null) {
+      if(formData.name === ''){
+        toast.error("Please enter product name", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return
+      }
+      if(formData.descreption === ''){
+        toast.error("Please enter product description", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return
+      }
+      if(formData.price === ''){
+        toast.error("Please enter product price", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return
+      }
+      if(formData.stock === ''){
+        toast.error("Please enter product stock", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return
+      }
+      if(formData.image === null){
+        toast.error("Please upload product image", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return
+      }
+    }
+  else if (!data)   {
     const datas = new FormData();
     for (const key in formData) {
       if (key === "image") {
@@ -114,9 +169,9 @@ const PostProduct = () => {
       Authorization: "Bearer " + token,
     },
   };
-
+  console.log("wfe",formData)
   try {
-    const response = await axios.put(
+    const response = await axios.post(
       `https://admin.myuni-hub.com/api/products/${data}`,
       datas,
       config
@@ -124,7 +179,8 @@ const PostProduct = () => {
     toast.success("Form submitted successfully!", {
       position: toast.POSITION.TOP_CENTER,
     });
-    console.log("product added");
+    handleRouteChange('/sellerdetails')
+    console.log("product addedssss");
   } catch (error) {
     toast.error(
       "An error occurred while submitting the form. Please try again."
@@ -133,12 +189,54 @@ const PostProduct = () => {
 }
 
   };
+  const changeProductStatus = async(id)=>{
+    try {
+        const response = await axios.get(
+          `https://admin.myuni-hub.com/api/product_active_deactive/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log("ludwig", response.data);
+      } catch (error) {
+        console.error(error);
+        console.log("lugwig", error.response.data.message)
+      }
+  }
+  const handleActivate = async () => {
+    if (productStatus === 1) {
+        toast.error("Product is already active");
+    } else {
+        try {
+            await changeProductStatus(data); // Change to your actual API call function
+            setProductStatus(1);
+            toast.success("Product activated successfully");
+        } catch (err) {
+            toast.error("Error activating the product");
+        }
+    }
+};
 
+const handleDeactivate = async () => {
+    if (productStatus === 2) {
+        toast.error("Product is already deactivated");
+    } else {
+        try {
+            await changeProductStatus(data); // Change to your actual API call function
+            setProductStatus(2);
+            toast.success("Product deactivated successfully");
+        } catch (err) {
+            toast.error("Error deactivating the product");
+        }
+    }
+};
   return (
     <div className="servicehub">
       <Header />
       <div className="wrapper">
-        <h2>Add Product</h2>
+        <h2>Sell Product</h2>
         <form className="values-container" onSubmit={handleSubmit}>
           <div className="values">
             {/* <Box
@@ -246,9 +344,13 @@ const PostProduct = () => {
                 }}
                 type="submit"
               >
-                Add Product
+                Post Product
               </Button>
             </div>
+    {data &&   <>     <div className="primary-btn"> <button onClick={()=>deleteProduct()} style={{color:"#BF1F1F",textAlign:"center",fontWeight:"400",padding:"0px",display:"flex",justifyContent:"center"}}>Delete Product</button></div>
+    <div className="primary-btn">   <button onClick={()=>handleDeactivate()} style={{color:"#9D9D9D",textAlign:"center",fontWeight:"400",padding:"0px",padding:"0px",display:"flex",justifyContent:"center"}}>Deactivate Product</button></div>
+    <div className="primary-btn">   <button onClick={()=>handleActivate()} style={{color:"#7BB564",textAlign:"center",fontWeight:"400",padding:"0px",padding:"0px",display:"flex",justifyContent:"center"}}>Activate Product</button></div>
+            </>}
           </div>
         </form>
       </div>

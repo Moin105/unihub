@@ -21,12 +21,16 @@ import { BsCheckLg } from "react-icons/bs";
 import Header from "../../Components/Header";
 import imageCompression from "browser-image-compression";
 import Footer from "../../Components/Footer";
+import { useLocation } from "react-router-dom";
 // import camera from './../Images/camera.png'
 import camera from "./../../Images/camera.png";
 import { Link } from "react-router-dom";
 import { MdArrowForward } from "react-icons/md";
 // import SellerHeader from "./SellerHeader";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import {MdArrowDropDown} from 'react-icons/md'
 // import camera from './../Images/'
 const postData = async (url, data, token, image, cover_img) => {
@@ -56,6 +60,8 @@ const postData = async (url, data, token, image, cover_img) => {
 };
 function PostCleaner() {
   const token =useSelector((state) => state.auth.token);  
+  const location = useLocation();
+  const data = location.state ? location.state.data : null;
   const [serviceCategories, setServiceCategories] = useState([]);
   const [universities, setUniversities] = useState([]);
   const [image, setImage] = useState(null);
@@ -106,9 +112,14 @@ function PostCleaner() {
     university_id: "",
     slot_ids: "1",
   });
+// comment
+useEffect(() => {
+  console.log(data)
+}, [])
 
   const [packages, setPackages] = useState([]);
-
+  const [imageName, setImageName] = useState('');
+  const [coverImageName, setCoverImageName] = useState('');
   const handleInputChange = (event, fieldName) => {
     setFormData({ ...formData, [fieldName]: event.target.value });
   };
@@ -122,16 +133,23 @@ function PostCleaner() {
       fieldName === "price" ? parseInt(event.target.value) : event.target.value;
     setFormData({ ...formData, packages: updatedPackages });
   };
+  const [uploadSuccess, setUploadSuccess] = useState(false);
 
+  const showUploadSuccess = () => {
+    setUploadSuccess(true);
+    setTimeout(() => {
+      setUploadSuccess(false);
+    }, 2000); // 2000 milliseconds = 2 seconds
+  };
   const handleImageChange = async (event, name) => {
     const imageFile = event.target.files[0];
-
+  
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
-
+  
     try {
       const compressedImage = await imageCompression(imageFile, options);
       console.log(`Compressed ${name} image:`, compressedImage);
@@ -140,12 +158,15 @@ function PostCleaner() {
           prevState = compressedImage;
           return prevState;
         });
+        setCoverImageName(imageFile.name);
       } else if (name === "image") {
         setImage((prevState) => {
           prevState = compressedImage;
           return prevState;
         });
+        setImageName(imageFile.name);
       }
+      showUploadSuccess(); // Show the success message
     } catch (error) {
       console.error(`Error compressing ${name} image:`, error);
     }
@@ -209,14 +230,10 @@ function PostCleaner() {
         <Header/>
         <div className='wrapper'>
             <h2>Post Cleaner</h2>
-            {/* <h4>Sell Service</h4> */}
             <p>Sell your cleaning services and get the customers to <br></br> get benefits of services.</p>
             <form className='values-container' onSubmit={handleSubmit}>
               <div className='values'>
-                {/* <div className='outline-box'>
-                      <h3>Select Service</h3>
-                      <p>Express Cleaning</p>
-                </div> */}
+
           <Box
             className="outline-box"
             borderWidth="1px"
@@ -233,13 +250,7 @@ function PostCleaner() {
               placeholder="Select a service"
               variant="unstyled"
             >
-              {/* {serviceCategories.length > 0 && serviceCategories?.data?.map((set)=>{
-              return(
-                <option value={set.id}>{set.title}</option>
-              )
-       })} */}
        {mappedServiceCategories}
-        {/* Add more options here */}
       </Select>
     </Box>
  
@@ -249,8 +260,9 @@ function PostCleaner() {
         </Heading>
         <Textarea
         variant={'unstyled'}
-          defaultValue="- Hoovering and Sweeping&#13;&#10;- Dust, Wipe & Disinfect All Surfaces"
+          defaultValue=""
           resize="none"
+          placeholder="Enter description here"
           rows={4}
           onChange={(e) => {
             handleInputChange(e, "descreption");
@@ -345,11 +357,12 @@ function PostCleaner() {
       </Select>
     </Box>
     </div>
+  
             <div className='image-container'>
                    <figure>
                     <img src={camera}/>
                    </figure>
-                   <p>
+                   <p style={{textAlign:"center"}}>Cover Image
                    <input
     type="file"
     accept="image/*"
@@ -363,47 +376,15 @@ function PostCleaner() {
             {/* <h5>Uploaded Files</h5> */}
                <div className='values-container'>
                 <div className='outline-box'>
-                      {/* <h3>ServiceImage.jpge/.png</h3> */}
-                      {/* <p>Ensuit / Studio</p> */}
                 </div>
-                {/* <div className='outline-box'>
-                      <h3>Price</h3>
-                      <p>£25</p>
-                </div> */}
                </div>
+
                <div className='image-container'>
                    <figure>
                     <img src={camera}/>
                    </figure>
-                   <p>
+                   <p style={{textAlign:"center"}}>Image
                    <input
-    type="file"
-    accept="image/*"
-    name='cover_img'
-    onChange={(e) => {
-        handleImageChange(e, "cover_img");
-    }}
-  />
-                   </p>
-            </div>
-            <h5>Uploaded Files</h5>
-               <div className='values-container margin-class'>
-                <div className='outline-box'>
-                      <h3>ServiceImage.jpge/.png</h3>
-                      {/* <p>Ensuit / Studio</p> */}
-                </div>
-                {/* <div className='outline-box'>
-                      <h3>Price</h3>
-                      <p>£25</p>
-                </div> */}
-               </div>
-          
-        <div className='confirm-notification'>
-             <span>
-<BsCheckLg/>
-             </span>
-             {/* <p>
-             <input
     type="file"
     accept="image/*"
     name='image'
@@ -411,9 +392,22 @@ function PostCleaner() {
         handleImageChange(e, "image");
     }}
   />
-             </p> */}
-             Uploaded successfully
-            </div>      
+                   </p>
+            </div>
+            <h5>Uploaded Files</h5>
+            <div className='values-container margin-class'>
+  <div className='outline-box'>
+    <h3>{imageName ? imageName : 'No Image Selected'}</h3>
+    <h3>{coverImageName ? coverImageName : 'No Cover Image Selected'}</h3>
+  </div>
+</div>
+          
+               {uploadSuccess && (
+  <div className='confirm-notification'>
+    <span><BsCheckLg/></span>
+    Uploaded successfully
+  </div>
+)} 
             
             </form>
             <div className="primary-btn">

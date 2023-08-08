@@ -1,178 +1,353 @@
-import React,{useEffect} from 'react'
+import React, { useEffect, useState } from "react";
 import {
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
-    Input,
-    Box,
-    Button,SimpleGrid, Tabs, TabList, TabPanels, Tab,Text, TabPanel ,Image
-  } from "@chakra-ui/react";
-  import heart from '../Images/Heart.png'
-  import bookas from '../Images/bookas.png'
-  import order from '../Images/order.png'
-  import {MdArrowForward} from 'react-icons/md'
-  import wallet from '../Images/wallet.png'
-  import DetailsTab from "./TabContent/DetailsTab";
-  import Order from "./TabContent/Order";
-  import events from "../Images/events.png";
-  import hub from "../Images/hub.png";
-
-  import Wallet from "./TabContent/Wallet";
-  import marketplace from '../Images/marketplace.png'
-  import axios from 'axios';
-  import Tickets from './TabContent/Tickets'
-import Header from '../Components/Header';
-import { openModal } from '../features/modalSlice';
-import Footer from '../Components/Footer';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { setStudentRole } from '../features/UserSlice';
-import { fetchUserProfile } from '../thunks/profileThunk';
-import profile from '../Images/profile.png';
-import './sellerdetails.css'
-import { useNavigate } from 'react-router-dom';
-import Event from './Event';
-import PostProduct from './StudentSeller/PostProduct';
-import Products from './StudentSeller/Products';
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  Text,
+  TabPanel,
+  Image,
+  extendTheme,
+} from "@chakra-ui/react";
+import heart from "../Images/Heart.png";
+import bookas from "../Images/bookas.png";
+import order from "../Images/order.png";
+import wallet from "../Images/wallet.png";
+import DetailsTab from "./TabContent/DetailsTab";
+import Order from "./TabContent/Order";
+import events from "../Images/events.png";
+import hub from "../Images/hub.png";
+import imageCompression from "browser-image-compression";
+import ticket from '../Images/ticket.png'
+import Event from "./StudentSeller/Event";
+import Wallet from "./TabContent/Wallet";
+import marketplace from "../Images/marketplace.png";
+import MyUserId from "./TabContent/MyUserId";
+import Appointment from "./TabContent/Appointment";
+import axios from "axios";
+import Tickets from "./TabContent/Tickets";
+import appointment from '../Images/appointment.png'
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { Switch } from "@chakra-ui/react";
+import { setStudentRole } from "../features/UserSlice";
+import { fetchUserProfile } from "../thunks/profileThunk";
+import profile from "../Images/profile.png";
+import "./sellerdetails.css";
+import { useNavigate } from "react-router-dom";
+// import Event from "./Event";
+import Products from "./StudentSeller/Products";
+import users from '../Images/users.png'
+import { is } from "date-fns/locale";
+import { set } from "date-fns";
+import Cleaner from "./StudentSeller/Cleaner";
+import UserProfile from "../features/UserProfile";
+import { toast } from "react-toastify";
 function SellerDetails() {
   const dispatch = useDispatch();
-  const navigate= useNavigate();
-  const handleRouteChange = (url,datas) => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  // const [tabsData, setTabsData] = useState([null, null, null]);
+  const navigate = useNavigate();
+
+  const [isChecked, setIsChecked] = useState(false);
+  const [localImage , setLocalImage] = useState(null);
+  
+  useEffect(() => {
+    console.log("akbar", switch_profile);
+    dispatch(fetchUserProfile());
+
+  }, [dispatch]);
+  const theme = extendTheme({
+    colors: {
+      customColor: {
+        200: "#91B375", // Use your desired custom color here
+      },
+    },
+  });
+
+  const handleRouteChange = (url, datas) => {
     navigate(url, { state: { data: datas } });
   };
-  const postData = async (url, data,token) => {
+  const handleToggle = () => {
+    // setIsChecked(!isChecked);
+    return switchUser();
+  };
+  const postData = async (url, data, token) => {
     try {
-      const response = await axios.put(url, data,{
+      const response = await axios.put(url, data, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }});
-      console.log('API response:', response.data.message);
-      if (response.data.message === "unauthorize user, please add  your bank details first") {
-        // dispatch(openModal(response.message));
-        console.log("aa ki dewfgr")
-        handleRouteChange('/bankdetails')
-      }else if(response.data.message === "switched to seller successfully!"){
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("API response:", response.data.message);
+      if (
+        response.data.message ===
+        "unauthorize user, please add  your bank details first"
+      ) {
+        handleRouteChange("/bankdetails");
+      } else if (response.data.message === "switched to seller successfully!") {
         const successMessage = response.data.message;
-  
-        console.log("younas")
+
         const payload = {
           message: successMessage,
         };
-      
+        console.log("payload", payload);
         dispatch(setStudentRole(payload));
-      
       }
-      // Handle success response here
     } catch (error) {
-      console.error('API error:', error);
-      // Handle error response here
+      console.error("API error:", error);
     }
   };
-const  token = useSelector((state) => state.auth.token);
-  const switchUser = () => {
-
-    postData('https://admin.myuni-hub.com/api/switch_profile',{is_seller:1},token)
-  };
-const switch_profile = useSelector((state) => state.auth.seller_switched);
+  const switch_profile = useSelector((state) => state.auth.seller_switched);
+  const token = useSelector((state) => state.auth.token);
+  
+  const user = useSelector((state) => state.user.user);
+  const status = useSelector((state) => state.user.status);
   useEffect(() => {
-    console.log("akbar",switch_profile)
-    dispatch(fetchUserProfile());
-    // if(switch_profile == true){
-    //   handleRouteChange('/sellerpage')
-    // } 
-  }, [dispatch]);
-  const userProfileData = useSelector((state) => state);
+    console.log('helos pakistan',user)
+  }, [])
+  
+  const switchUser = () => {
+    if (!switch_profile) {
+      postData(
+        "https://admin.myuni-hub.com/api/switch_profile",
+        { is_seller: 1 },
+        token
+      );
+      setSelectedTab(1)
+    } else {
+      const payload = {
+        message: "seller",
+      };
+      console.log("payload", payload);
+      dispatch(setStudentRole(payload));
+      setSelectedTab(1)
+    }
+  };
 
+  const userProfileData = useSelector((state) => state);
+  const updateUser = async () => {
+    if(localImage === null){
+      return toast.error("Please Try Again")
+    }
+    const formData = new FormData();
+    formData.append('profile_img', localImage);
+
+    try {
+      // Make the API call to update the user
+      const response = await axios.put(
+        "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
+        formData, // Send formData directly, not inside an object
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+      const updatedUser = response.data;
+      dispatch(fetchUserProfile());
+      console.log("updatedUser", updatedUser);
+    } catch (error) {
+      // Handle any errors
+      console.log(error);
+    }
+  };
+  
+  const handleChangeTab = (index) => {
+    setSelectedTab(index);
+  };
+  const handleImageClick = () => {
+    document.getElementById('fileInput').click();
+  };
+  const handleImageChange = async (event) => {
+    const imageFile = event.target.files[0];
+  
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+  
+    try {
+      const compressedImage = await imageCompression(imageFile, options);
+      console.log("Compressed image:", compressedImage);
+      
+      // Set the compressed image to localImage state
+      setLocalImage(compressedImage);
+    updateUser() // Show the success message
+    } catch (error) {
+      console.error("Error compressing image:", error);
+    }
+  };
+  
+  
   return (
-    <div className='sellerdetails'>
-        <Header/>
-        <div className='wrapper'>
-              <div className='seller'>
-                    <figure>
-                        <img src={profile}/>
-                    </figure>
-                    <h3>{userProfileData?.profile?.name}.</h3>
-                    <div><button onClick={switchUser}> sell services</button></div>
-              </div>
-    {switch_profile ?   <Tabs  w="100%"  mt="10"  isFitted>
-          <TabList  display="flex" >
-             <Tab className="tab-contents"  ><Image src={bookas} boxSize="90"/><Text>Book A Service</Text></Tab>
-            <Tab className="tab-contents"  ><Image src={marketplace} boxSize="90"/><Text>Marketplace</Text></Tab>
-            <Tab className="tab-contents"  ><Image src={events} boxSize="90"/><Text>Events</Text></Tab>
-            <Tab className="tab-contents"  ><Image src={hub} boxSize="90"/><Text>Hub</Text></Tab> </TabList>
-          <TabPanels>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Event/>
-              {/* <DetailsTab /> */}
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              {/* <Order /> */}
-              <Products/>
-{/* <PostProduct/> */}
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Wallet />
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Tickets />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>:  
-        <Tabs  w="100%"  mt="10"  isFitted>
-          <TabList  display="flex" >
-             <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Details</Text></Tab>
-            <Tab className="tab-content"  ><Image src={order} boxSize="50"/><Text>My Orders</Text></Tab>
-            <Tab className="tab-content"  ><Image src={wallet} boxSize="50"/><Text>My Wallets</Text></Tab>
-            <Tab className="tab-content"  ><Image src={heart} boxSize="50"/><Text>My Tickets</Text></Tab> </TabList>
-          <TabPanels>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <DetailsTab />
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Order />
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Wallet />
-            </TabPanel>
-            <TabPanel
-              justifyContent={"center"}
-              display="flex"
-              alignItems="center"
-            >
-              <Tickets />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>}
-            </div>
+    <div className="sellerdetails">
+      <Header />
+      <div className="wrapper">
+        <UserProfile/>
+        <div className="seller">
+          <figure>
+            <img  style={{objectFit:"contain",border:"1px solid #cacaca",borderRadius:"1000px"}} src={user.profile_img ? `https://admin.myuni-hub.com/${user.profile_img}`  :profile}  onClick={handleImageClick}/>
+            <input
+  id="fileInput"
+  type="file"
+  style={{ display: 'none' }} // This hides the input field
+  onChange={handleImageChange}
+/>
+          </figure>
+          <h3>{user?.name}.</h3>
+          <Switch
+            id="email-alerts"
+            isChecked={switch_profile}
+            onChange={handleToggle}
+            colorScheme="green"
+            _checked={{ bg: "customColor.200" }}
+            _track={{ bg: "gray.200" }}
+          />
+
+          {/* <div><button onClick={switchUser}> sell services</button></div> */}
+        </div>
+        {switch_profile ? (
+          <Tabs
+            w="100%"
+            mt="10"
+            isFitted
+            index={selectedTab}
+            onChange={handleChangeTab}
+          >
+            <TabList display="flex">
+              <Tab className="tab-contents">
+                <Image src={bookas} boxSize="90" />
+                <Text>Post A Service</Text>
+              </Tab>
+              <Tab className="tab-contents">
+                <Image src={marketplace} boxSize="90" />
+                <Text>Marketplace</Text>
+              </Tab>
+              <Tab className="tab-contents">
+                <Image src={events} boxSize="90" />
+                <Text>Events</Text>
+              </Tab>
+              <Tab className="tab-contents">
+                <Image src={hub} boxSize="90" />
+                <Text>Hub</Text>
+              </Tab>{" "}
+            </TabList>
+            <TabPanels>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {/* <Event /> */}
+                {selectedTab === 0 && <Cleaner />}
+                {/* <DetailsTab /> */}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {/* <Order /> */}
+                {selectedTab === 1 && <Products />}
+                {/* <PostProduct/> */}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 2 && <Event/>}
+                {/* <Wallet /> */}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 3 && "Coming Soon"}
+                {/* <Tickets /> */}
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        ) : (
+          <Tabs w="100%" mt="10" isFitted 
+          index={selectedTab}
+          onChange={handleChangeTab}
+          >
+            <TabList display="flex">
+              <Tab className="tab-content">
+                <Image src={heart} boxSize="50" />
+                <Text>My Details</Text>
+              </Tab>
+              <Tab className="tab-content">
+                <Image src={order} boxSize="50" />
+                <Text>My Orders</Text>
+              </Tab>
+              <Tab className="tab-content">
+                <Image src={wallet} boxSize="50" />
+                <Text>My Wallets</Text>
+              </Tab>
+              <Tab className="tab-content">
+                <Image src={appointment} boxSize="50" />
+                <Text> Appointments</Text>
+              </Tab>
+              <Tab className="tab-content">
+                <Image src={ticket} boxSize="50" />
+                <Text>My Tickets</Text>
+              </Tab>
+              <Tab className="tab-content">
+                <Image src={users} boxSize="50" />
+                <Text>My ID</Text>
+              </Tab>{" "}
+            </TabList>
+            <TabPanels>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 0 && <DetailsTab />}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 1 && <Order />}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 2 && <Wallet />}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 3 && <Appointment />}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 4 && <Tickets />}
+              </TabPanel>
+              <TabPanel
+                justifyContent={"center"}
+                display="flex"
+                alignItems="center"
+              >
+                {selectedTab === 5 && <MyUserId />}
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        )}
+      </div>
       <Footer />
     </div>
   );

@@ -51,7 +51,66 @@
         margin-block: 10px;
         font-weight: 500;
     }
-
+    .summarys{
+        text-align: start;
+        width: 80%;
+        margin: 20px auto;
+        .cards-container{
+            display: flex;
+            flex-direction: column;
+            .card-row{
+                display: flex;
+                border : 1px solid #7BB564;
+                padding: 10px 20px;
+                margin-top: 10px;
+                border-radius: 10px;
+                justify-content: space-between;
+                .card{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 500px;
+                    background-color: #000;
+                }
+                .card-text{
+                        margin-left: 10px;
+                        font-size: 20px;
+                        font-weight: 600;
+                        display: flex;
+                        width: 75%;
+                        color: #000;
+                        flex-direction: column;
+                        justify-content: center;
+                        h3{
+                            margin: 0;
+                        }
+                    p{
+                       font-size: 18px;
+                       margin: 0;
+                       color: #868E96;
+                    }
+                }
+                .check{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 400px;
+                    background-color: #7BB564;
+                }
+            }
+        }
+        h3{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+        p{
+            // color: #7BB564;
+            font-size: 20px;
+            // font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+      }
 
 
 }

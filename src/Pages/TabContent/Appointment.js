@@ -30,29 +30,28 @@ function Order() {
   const [productData,setProductData] = useState({})
   const token = useSelector((state) => state.auth.token);
   let data = [];
-  const getProducts = async () => {
+  const getServices = async () => {
     try {
       const response = await axios.get(
-        "https://admin.myuni-hub.com/api/book_product",
+        "https://admin.myuni-hub.com/api/book_services",
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      return response.data.book_products; // return data instead of console.log
+      return response.data.services; // return data instead of console.log
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   };
   const fetchData = async () => {
     try {
-      const [ products] = await Promise.all([
-        // getServices(),
-        getProducts(),
+        const [services, products] = await Promise.all([
+            getServices(),
       ]);
 
-      data = [ ...products];
+      data = [ ...services];
       setOrders(data);
       console.log("hor disda", data);
     } catch (error) {
@@ -80,9 +79,9 @@ function Order() {
     <React.Fragment>
       {show ? (
         <div className="tab-order">
-          <h2>My Orders</h2>
+          <h2>My Appointments</h2>
           <span className="upper">
-            View your order history or check the status of a recent order.
+            View your order history or check the status of a recent appointments.
           </span>
           {/* <p>Login email : Malik.h123@gmail.com</p> */}
           {orders.length < 0 ? (
@@ -114,7 +113,7 @@ function Order() {
               <div className="order-list">
               {
                 orders.map((order,index)=>{
-                  return   <div className="order-row" onClick={()=>{setShowData(true);setProductData(order)}}>
+                  return   <div className="order-row" onClick={()=>{console.log("ewed",order)}}>
                   <figure >
                     <img src={ordei} />
                   </figure>

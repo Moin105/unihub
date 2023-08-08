@@ -1,0 +1,81 @@
+.namebox {
+  padding: 15px 30px;
+  background-color: #FAFAFA;
+  border: 1px solid #cacaca;
+  border-radius: 6px;
+  width: 60%;
+  max-width: 543px;
+  margin: 0px 0px 30px 0px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.namebox h3 {
+  display: flex;
+}
+.namebox h3 span {
+  color: #7BB564;
+  font-size: 26px;
+  margin: -3px 0px 0px 10px;
+}
+
+.idcard {
+  display: flex;
+  border: 1px solid #cacaca;
+  border-radius: 15px;
+  padding: 10px 20px;
+  width: 60%;
+}
+.idcard .details {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+.idcard .details .nameboxs {
+  display: flex;
+  flex-direction: column;
+}
+.idcard .details .nameboxs span {
+  color: #7BB564;
+  font-size: 26px;
+  margin: 0px 0px 3px 10px;
+}
+.idcard .details label {
+  font-size: 14px;
+  font-weight: 200;
+}
+.idcard .image {
+  border-radius: 300px;
+  width: 120px;
+  border: 5px solid #7BB564;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 120px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .namebox {
+    width: 90%;
+  }
+  .idcard {
+    width: 530px;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .idcard .details {
+    width: 60%;
+  }
+  .idcard .details .nameboxs {
+    display: flex;
+    flex-direction: column;
+  }
+  .idcard .details .nameboxs span {
+    color: #7BB564;
+  }
+  .idcard .image {
+    width: 125px;
+    height: 125px;
+  }
+}/*# sourceMappingURL=userid.css.map */
