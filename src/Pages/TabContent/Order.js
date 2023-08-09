@@ -19,6 +19,8 @@ import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { get } from "react-hook-form";
+import StarRating from "./Rating";
+import {toast} from 'react-toastify'
 // import Rating from "../../Components/Rating";
 // import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
@@ -26,8 +28,53 @@ function Order() {
   const [show, setShow] = useState(true);
   const [hide, setHide] = useState(true);
   const [orders, setOrders] = useState([]);
+  const [rating, setRating] = useState(0);
   const [showData ,setShowData] = useState(false)
   const [productData,setProductData] = useState({})
+    // Define the state for the textarea value
+    const [text, setText] = useState('');
+   
+
+function submitOrderRating(token, order_id, order_type, rating, message) {
+  const url = 'https://admin.myuni-hub.com/api/order_review'; // Change to your API endpoint
+  const data = {
+    order_id,
+    order_type,
+    rating,
+    message,
+  };
+
+  // Include the Bearer token and any other headers, if required
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+  };
+if(rating == null){
+  toast.error('Please select Rating')
+  return 
+}else if(message == ''){
+  toast.error('Please Type Feedback')
+  return
+}
+  return axios
+    .post(url, data, { headers })
+    .then((response) => {
+      // Handle success
+      toast.success(response.data.message)
+      return response.data;
+    })
+    .catch((error) => {
+      // Handle error
+      console.error(error);
+      throw error;
+    });
+}
+
+
+    // Handle changes to the textarea value
+    const handleChange = (e) => {
+      setText(e.target.value);
+    };
   const token = useSelector((state) => state.auth.token);
   let data = [];
   const getProducts = async () => {
@@ -75,7 +122,9 @@ function Order() {
   
     return `${day} ${month} ${year}`;
   }
-  
+  const handleRatingChange = (selectedRating) => {
+    setRating(selectedRating);
+  };
   return (
     <React.Fragment>
       {show ? (
@@ -153,6 +202,7 @@ function Order() {
                 <Button
                   onClick={() => {
                     console.log("assadasd")
+                    setShow(false)
                   }}
                   rightIcon={<MdArrowForward />}
                   bg="#7BB564"
@@ -172,12 +222,12 @@ function Order() {
         <React.Fragment>
           <div className="tab-order">
             <h2>Order Summery</h2>
-            <p className="order-details">wqd</p>
-            <h4 className="heading">qwdqw</h4>
-            <h4 className="heading">wqdqw</h4>
-            <p className="price"> qwdw </p>
+            <h4 className="heading">{ productData?.products[0]?.name}</h4>
+            <h4 className="heading">Quantity { productData.quantity}</h4>
+            <p className="price"> {`£ ${productData.price}  `} </p>
             <React.Fragment>
               <h4 className="heading">Rating</h4>
+              <StarRating rating={rating} onRatingChange={handleRatingChange}/>
               {/* <Rating
         size={48}
         icon="star"
@@ -199,14 +249,16 @@ function Order() {
                     fontSize="37px"
                     fontWeight={300}
                   >
-                    Name
+                   <h4 className="heading">Feedback</h4>
                   </FormLabel>
-                  <Textarea placeholder="Enter text here" />
+                  <Textarea   placeholder="Enter text here" 
+        value={text} 
+        onChange={handleChange}  />
                 </Box>
               </FormControl>
             </React.Fragment>
             <div className="primary-btn">
-              <Button
+          {hide ?    <Button
                 onClick={() => {
                   setHide(false);
                 }}
@@ -217,7 +269,18 @@ function Order() {
                 width={"100%"}
               >
                 Rate your order
-              </Button>
+              </Button>:  <Button
+                onClick={() => {
+                  submitOrderRating(token,productData.id,'product',rating,text)
+                }}
+                rightIcon={<MdArrowForward />}
+                bg="#7BB564"
+                color={"white"}
+                variant="solid"
+                width={"100%"}
+              >
+              submitOrderRating
+                </Button>}
               <h4 className="support">
                 Having issue with the order
                 <span className="price"> Contact Support?</span>

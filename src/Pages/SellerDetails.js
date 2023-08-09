@@ -127,18 +127,18 @@ function SellerDetails() {
   };
 
   const userProfileData = useSelector((state) => state);
-  const updateUser = async () => {
-    if(localImage === null){
+  const updateUser = async (localImagea) => {
+    if(localImagea === null){
       return toast.error("Please Try Again")
     }
     const formData = new FormData();
-    formData.append('profile_img', localImage);
+    formData.append('profile_img', localImagea);
 
     try {
       // Make the API call to update the user
       const response = await axios.put(
         "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
-        formData, // Send formData directly, not inside an object
+        {profile_img: localImagea}, // Send formData directly, not inside an object
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -172,8 +172,12 @@ function SellerDetails() {
       console.log("Compressed image:", compressedImage);
       
       // Set the compressed image to localImage state
-      setLocalImage(compressedImage);
-    updateUser() // Show the success message
+      setLocalImage(prevState =>{
+        prevState = compressedImage
+        return prevState
+      });
+      console.log(localImage)
+    updateUser(localImage) // Show the success message
     } catch (error) {
       console.error("Error compressing image:", error);
     }
