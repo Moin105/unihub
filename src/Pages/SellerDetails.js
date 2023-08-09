@@ -191,7 +191,7 @@ function SellerDetails() {
         <UserProfile/>
         <div className="seller">
           <figure>
-            <img  style={{objectFit:"contain",border:"1px solid #cacaca",borderRadius:"1000px"}} src={user.profile_img ? `https://admin.myuni-hub.com/${user.profile_img}`  :profile}  onClick={handleImageClick}/>
+            <img  style={{objectFit:"contain",border:"1px solid #cacaca",borderRadius:"1000px"}} src={user?.profile_img ? `https://admin.myuni-hub.com/${user?.profile_img}`  :profile}  onClick={handleImageClick}/>
             <input
   id="fileInput"
   type="file"
