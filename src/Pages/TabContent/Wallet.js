@@ -9,6 +9,9 @@ import {
   Button,
   SimpleGrid,
 } from "@chakra-ui/react";
+import visa from '../../Images/003-visa.png'
+import google from '../../Images/google pay.png'
+import apple from '../../Images/Path 7173.png'
 import "./wallet.css";
 import "../../responsive.css";
 import { toast } from "react-toastify";
@@ -183,6 +186,10 @@ function Wallet() {
 
   return (
     <div className="tab-wallet">
+      <h2>My Wallets</h2>
+      <p style={{fontWeight:'300'}}>Save your credit and debit card details<br></br> for faster checkout.</p>
+ {!showForm  && <> <h3 style={{fontWeight:'300'}}>Your Wallet Balance is</h3>
+      <h1>215.23</h1></> }
       {showForm ? (
         <React.Fragment>
           <h2 style={{ textAlign: "center" }}>Add Card</h2>
@@ -299,7 +306,11 @@ function Wallet() {
                         makePaymentMethodPrimary(item.id);
                       }}
                     >
-                      <div className="card"></div>
+                      <div className="card">
+                   {item.brand === 'visa'  &&   <img src={visa}/>}
+                   {item.brand.includes("google") &&  <img src={google}/>}
+                   {item.brand.includes("apple") &&  <img src={apple}/>}
+                      </div>
                       <div className="card-text">
                         <h3>{item.brand}</h3>
                         <p> &#8226;&#8226;&#8226;&#8226;{item.last_digit}</p>

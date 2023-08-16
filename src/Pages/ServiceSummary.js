@@ -17,7 +17,7 @@ import {toast} from 'react-toastify'
 function ServiceSummary() {
   const serviceData = useSelector((state) => state.service);
   const location = useLocation();
-  const userData = useSelector((state)=> state.auth.user)
+  const userData = useSelector((state)=> state.user.user)
   const token = useSelector((state) => state.auth.token);
   const data = location.state ? location.state.data : null;
   const navigate = useNavigate();
@@ -131,7 +131,7 @@ function ServiceSummary() {
       value={phone}
       onChange={(e) => setPhone(e.target.value)}
       border="none"
-      type="text"
+      type="number"
       fontSize="41px"
     />
   </Box>

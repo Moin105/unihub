@@ -27,6 +27,7 @@ import SellerPage from "./Pages/SellerPage";
 import SellService from "./Pages/SignUpSeller/SellService";
 import Event from "./Pages/Event";
 import Messages from "./Pages/Messages";
+import Cart from "./Pages/TabContent/Cart";
 import SignUpSeller from "./Pages/SignUpSeller/SignUpSeller";
 import EventBuyer from "./Pages/EventBuyer";
 import EventPackage from "./Pages/EventPackage";
@@ -96,7 +97,7 @@ function App() {
     name: "Products",
   }
   const dynamicEvents = {
-    path: "/addEvent/:dynamicId",
+    path: "/event/:dynamicId",
     element: <PostEvent />,
     name: "Products",
   }
@@ -113,6 +114,8 @@ function App() {
   {path:"/eventsummary",element:<EventSummaryPage/> , name:"EventSummaryPage" } ,
     {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
     { path: "/signupseller", element: <SignUpSeller />, name: "SignupSeller" },
+    {path:'/cart',element:<Cart/>,name:"Cart"},
+    {path:"/qrcode",element:<Qrpage />,name:"Qrpage"},
     {path:"/booking" ,element:<OrderPlaced />,name:"OrderPlaced"},
     {path:"/order-booking",element:<BookingSummary/>,name:"BookingSummary"},
     {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
@@ -123,7 +126,7 @@ function App() {
     ,dynamicProducts,dynamicServices,
     {path:"/cleanerpayment",element:<CleanerPayment/>,name:"CleanerPayment"},
     {path:"/checkout",element:<CheckOutPage/>,name:"CheckOutPage"},
-    dynamicEventRoute,dynamicItemRoute,
+    dynamicEventRoute,dynamicItemRoute,dynamicEvents,
     
     {path:"/addservice", element:<PostCleaner/>,name:"PostCleaner"},
     // {path:'/event',element:<Event/>,name:"Event"},

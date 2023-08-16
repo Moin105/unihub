@@ -34,6 +34,10 @@
   display: flex;
   max-width: 550px;
 }
+.signup-page .container form select {
+  padding: 13px;
+  border-radius: 113px;
+}
 .signup-page .container form .forgetti-password {
   color: #91B375;
   font-size: 20px;

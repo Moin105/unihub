@@ -73,6 +73,52 @@
   flex-direction: column;
   width: 100%;
 }
+.tab-order .order-list .appointment-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ebf0e6;
+  padding: 10px 20px;
+  margin-top: 30px;
+  border-radius: 20px;
+  align-items: center;
+}
+.tab-order .order-list .appointment-row figure {
+  background-color: #e6f7e6;
+  border: none;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+.tab-order .order-list .appointment-row figure img {
+  width: 50%;
+  height: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.tab-order .order-list .appointment-row .order-details {
+  display: flex;
+  margin: 10px 0px;
+  width: 100%;
+  flex-direction: column;
+  color: black;
+}
+.tab-order .order-list .appointment-row .order-details .ordername {
+  display: flex;
+  justify-content: space-between;
+}
+.tab-order .order-list .appointment-row .order-details .ordername h3 {
+  font-size: 20px;
+}
+.tab-order .order-list .appointment-row .order-details .ordername p {
+  font-size: 16px;
+}
+.tab-order .order-list .appointment-row .order-details p {
+  font-size: 16px;
+}
 .tab-order .order-list .order-row {
   width: 100%;
   display: flex;

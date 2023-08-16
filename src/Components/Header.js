@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 function Header() {
   const token = useSelector((state) => state.auth.token); 
+  const  cartItems = useSelector((state) => state.cart.items.products);
   return (
     <div className="header">
       <div className="container">
@@ -24,10 +25,12 @@ function Header() {
               <img src={dropdown} />
             </figure>
           </Link>
-
+          <Link to="/cart">
           <figure className="media-icon">
             <img src={cart} />
+        {cartItems && cartItems?.length >= 1  ?  <span className="count">{cartItems.length}</span>:null}
           </figure>
+          </Link>
           <Link to={token?"/sellerdetails":"/login"}>
             <figure className="media-icon">
               <img src={user} />

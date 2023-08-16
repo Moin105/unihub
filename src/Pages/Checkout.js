@@ -13,13 +13,16 @@ import {
   Box,
   Select,
   Button,
-  Flex,
-  SimpleGrid,useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
+  Flex,useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
 } from "@chakra-ui/react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { setService } from "../features/serviceSlice";
 import { setProduct } from "../features/paymentSlice";
+import { fetchCart } from "../thunks/cartThunk";
+import visa from '../Images/003-visa.png'
+import google from '../Images/google pay.png'
+import apple from '../Images/Path 7173.png'
 import { setEvent } from "../features/eventSlice";
 import { toast } from "react-toastify";
 import {BiPlus} from 'react-icons/bi'
@@ -85,6 +88,19 @@ function CheckOutPage() {
       // return null;
     }
   };
+  const addToWishlist = async (productId, quantity, token) => {
+    const url = "https://admin.myuni-hub.com/api/wishlist";
+    const headers = { Authorization: `Bearer ${token}` };
+    const data = { id: productId, quantity: quantity };
+
+    try {
+      const response = await axios.post(url, data, { headers });
+      toast.success(response.data.message);
+      dispatch(fetchCart(token));
+    } catch (error) {
+      toast.error("Error adding product to wishlist: " + error);
+    }
+  };
   const handlecheckout =async () => {
     const response =  await postData("https://admin.myuni-hub.com/api/confirm_payment", token,payment);
       console.log("dasasdasd",response)
@@ -97,6 +113,8 @@ function CheckOutPage() {
             // service/
         } else if(status == 2){
           console.log("checkout",status,response)
+          console.log("product",response,response.product)
+          addToWishlist(productData.product[0].id,productData.product[1].quantity,token)
           return  setCheckout(response.payment.next_action.use_stripe_sdk.stripe_js)
           //  product
         } else if(status == 3){
@@ -114,10 +132,29 @@ function CheckOutPage() {
     phone: '',
   })
   const [card, setCard] = useState(null);
+  const fetchDatass = async () => {
+    try {
+      const response = await axios.get(
+        "https://admin.myuni-hub.com/api/get_cards",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setCard(response.data.cards);
+
+      if (response.data.cards.length === 0) {
+        setShow(true);
+      }
+    } catch (error) {
+      console.error(`Error: ${error}`);
+    }
+  };
   useEffect(() => {
     console.log("payment details", data?.type);
     if(data.type == "service"){
-      console.log(data.type,serviceData)
+      // console.log(data.type,serviceData.product[0].id,serviceData.product[1].quantity)
       setPayment({
         payment_intent: serviceData?.data?.intent,
         address:data.address,
@@ -126,6 +163,7 @@ function CheckOutPage() {
       setStatus(1)
     }else if(data.type == "product"){
       console.log(data.type,productData)
+      console.log("product",productData.product[0].id,productData.product[1].quantity)
       setStatus(2)
       setPayment({
         payment_intent: productData?.response,
@@ -204,6 +242,7 @@ function CheckOutPage() {
         console.log('Payment method set as primary successfully', response.data);
         toast.success(response.data.message)
         fetchData()
+        fetchDatass()
         // You can update state or navigate as needed here
       }
     } catch (error) {
@@ -265,7 +304,12 @@ const [showform ,setShowForm] = useState(false)
                 card?.map((item) => {
                   return (
                     <div className="card-row" onClick={()=>{makePaymentMethodPrimary(item.id)}}>
-                      <div className="card"></div>
+                      <div className="card">
+                      {item.brand === 'visa'  &&   <img src={visa}/>}
+                   {item.brand.includes("google") &&  <img src={google}/>}
+                   {item.brand.includes("apple") &&  <img src={apple}/>}
+                   
+                      </div>
                       <div className="card-text">
                         <h3>{item.brand}</h3>
                         <p> &#8226;&#8226;&#8226;&#8226;{item.last_digit}</p>
@@ -468,53 +512,7 @@ const [showform ,setShowForm] = useState(false)
                           fontSize="41px"
                         />
                       </Box>
-                      {/* <Flex width="100%" gap="10">     <Box
-                        className="input-container"
-                        flex="1"
-                        border="1px solid #7BB564"
-                        borderRadius={30}
-                        marginTop="103px"
-                      >
-                        <FormLabel
-                          padding="20px 0px 0px 20px"
-                          fontSize="37px"
-                          fontWeight={300}
-                        >
-                          Phone
-                        </FormLabel>
-                        <Input
-                          variant="unstyled"
-                          value={number}
-                          onChange={(e) => setNumber(e.target.value)}
-                          border="none"
-                          type="text"
-                          fontSize="41px"
-                        />
-                      </Box>
-                      <Box
-                        className="input-container"
-                        border="1px solid #7BB564"
-                        borderRadius={30}
-                        flex="1"
-                        marginTop="103px"
-                      >
-                        <FormLabel
-                          padding="20px 0px 0px 20px"
-                          fontSize="37px"
-                          fontWeight={300}
-                        >
-                          Phone
-                        </FormLabel>
-                        <Input
-                          variant="unstyled"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          border="none"
-                          type="text"
-                          fontSize="41px"
-                        />
-                      </Box>
-                      </Flex> */}
+                    
                         <Flex width="100%" gap="10">
       <Box
         className="input-container"

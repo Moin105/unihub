@@ -31,7 +31,7 @@ return  setRating(rating)
             <input
               type="radio"
               name="rating"
-              style={{opacity: 0, position: 'absolute', zIndex: -1}}
+              style={{opacity: 0, position: 'absolute', zIndex: -1,width:"100px"}}
               value={ratingValue}
               onClick={() => handleClick(ratingValue)}
               onMouseEnter={() => handleRatingHover(ratingValue)}

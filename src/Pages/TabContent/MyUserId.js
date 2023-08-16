@@ -78,7 +78,7 @@ const findById = (array, targetId) => {
         </div>
         <div className='nameboxs'>
         <label>Univeristy</label>
-             <h3>{findById(universities,user.univeristy_id)} <span><MdVerifiedUser/></span></h3>
+             <h3 style={{display:"flex"}}>{findById(universities,user.univeristy_id)} <span><MdVerifiedUser/></span></h3>
         </div>
         <div className='nameboxs'>
             <label>ID Status</label>

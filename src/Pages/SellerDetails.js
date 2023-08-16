@@ -16,8 +16,9 @@ import wallet from "../Images/wallet.png";
 import DetailsTab from "./TabContent/DetailsTab";
 import Order from "./TabContent/Order";
 import events from "../Images/events.png";
-import hub from "../Images/hub.png";
+import hub from "../Images/sales.png";
 import imageCompression from "browser-image-compression";
+import Sales from './TabContent/Sales'
 import ticket from '../Images/ticket.png'
 import Event from "./StudentSeller/Event";
 import Wallet from "./TabContent/Wallet";
@@ -234,7 +235,7 @@ function SellerDetails() {
               </Tab>
               <Tab className="tab-contents">
                 <Image src={hub} boxSize="90" />
-                <Text>Hub</Text>
+                <Text>Sales</Text>
               </Tab>{" "}
             </TabList>
             <TabPanels>
@@ -269,7 +270,7 @@ function SellerDetails() {
                 display="flex"
                 alignItems="center"
               >
-                {selectedTab === 3 && "Coming Soon"}
+                {selectedTab === 3 && <Sales/>}
                 {/* <Tickets /> */}
               </TabPanel>
             </TabPanels>

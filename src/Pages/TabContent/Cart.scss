@@ -1,0 +1,124 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  .wrapper {
+    height: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    justify-content: space-between;
+    .active-box{
+        border: 1px solid #91b375;
+    }
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    .cart-container {
+      max-width: 80%;
+      background-color: #f8ffeb;
+      border-radius: 8px;
+      width: 100%;
+      display: flex;
+      margin: 0 auto;
+      gap: 20px;
+      .cart-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        text-align: left;
+        color: #91b375;
+        .details-row {
+          display: flex;
+          justify-content: space-between;
+          .delete {
+            color: #adadad;
+            margin: 0px 20px 0px 0px;
+          }
+        }
+      }
+      figure {
+        max-width: 165px;
+        max-height: 165px;
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .cart {
+    .wrapper {
+      max-width: 600px;
+      gap: 40px;
+      .cart-container {
+        gap: 20px;
+        .cart-details {
+          color: #91b375;
+          .details-row {
+            display: flex;
+            justify-content: space-between;
+            .delete {
+              color: #adadad;
+              margin: 0px 20px 0px 0px;
+            }
+          }
+        }
+        figure {
+          max-width: 115px;
+          max-height: 115px;
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+    .cart {
+      .wrapper {
+        max-width: 600px;
+        gap: 40px;
+        .cart-container {
+          gap: 20px;
+          width: 380px;
+          .cart-details {
+            color: #91b375;
+            .details-row {
+              display: flex;
+              justify-content: space-between;
+              .delete {
+                color: #adadad;
+                margin: 0px 20px 0px 0px;
+              }
+            }
+          }
+          figure {
+            max-width: 85px;
+            max-height: 85px;
+            width: 100%;
+            height: 100%;
+            img {
+              width: 100%;
+              object-fit: cover;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  

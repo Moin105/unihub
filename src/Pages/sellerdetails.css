@@ -31,12 +31,22 @@
   padding: 5px 20px;
   font-size: 20px;
 }
+.sellerdetails .wrapper .chakra-tabs__tablist::-webkit-scrollbar {
+  display: none;
+}
 .sellerdetails .wrapper .chakra-tabs__tablist {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   justify-content: center;
   background-color: #F8F6F5;
   padding: 30px 20px;
   border: none;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.sellerdetails .wrapper .chakra-tabs__tablist::-webkit-scrollbar {
+  display: none;
 }
 .sellerdetails .wrapper .chakra-tabs__tablist .tab-content[aria-selected=false] {
   background-color: #ffffff;
@@ -115,6 +125,38 @@
   }
 }
 @media only screen and (max-width: 1024px) {
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-content {
+    max-width: 80px;
+    min-width: 80px;
+    height: 80px;
+    padding-inline: 5px;
+  }
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-content .chakra-image {
+    width: 20px;
+    height: 20px;
+  }
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-content p {
+    font-size: 12px;
+  }
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-contents {
+    max-width: 130px;
+    height: 100%;
+    padding-inline: 5px;
+  }
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-contents .chakra-image {
+    width: 65px;
+    height: 100%;
+  }
+  .sellerdetails .wrapper .chakra-tabs__tablist .tab-contents p {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 524px) {
+  .sellerdetails .wrapper .chakra-tabs__tablist {
+    padding: 0px 0px 0px 160px;
+    width: 100%;
+    gap: 10px;
+  }
   .sellerdetails .wrapper .chakra-tabs__tablist .tab-content {
     max-width: 80px;
     min-width: 80px;

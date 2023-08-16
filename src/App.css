@@ -114,3 +114,7 @@ body{
 button{
   outline: none !important;
 }
+.css-stuqe4[data-checked]{
+  background-color: #7BB564 !important;
+  border-color: #7BB564 !important;
+}

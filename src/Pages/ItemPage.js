@@ -1,16 +1,21 @@
 import React, { useEffect,useState } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import profile from '../Images/froe.png'
 import itemos from "./../Images/itemos.png";
 import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { useLocation,useNavigate } from "react-router-dom";
 import { setProduct } from "../features/paymentSlice";
 import { MdArrowForward } from "react-icons/md";
+import {FaStar} from 'react-icons/fa'
 import { useSelector,useDispatch } from "react-redux";
+import chat from '../Images/Path 7166.png'
 import "./itempage.css";
 import "../responsive.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import {fetchCart} from './../thunks/cartThunk'
 function ItemPage() {
   const location = useLocation();
   const token = useSelector((state) => state.auth.token);;
@@ -66,6 +71,21 @@ function ItemPage() {
     }
 
   };
+
+const addToWishlist =async (productId, quantity, token) => {
+  const url = 'https://admin.myuni-hub.com/api/wishlist';
+  const headers = { Authorization: `Bearer ${token}` };
+  const data = {id: productId, quantity:quantity };
+
+  try {
+    const response = await axios.post(url, data, { headers });
+    toast.success( response.data.message);
+    dispatch(fetchCart(token))
+  } catch (error) {
+    toast.error('Error adding product to wishlist: ' + error);
+  }
+};
+
   return (
     <div className="itempage">
       <Header />
@@ -91,7 +111,8 @@ function ItemPage() {
          
               {" "}
            { token ?  <Button
-              onClick={()=>{BookRequest(token,data.id,value,'EUR')}}
+              // onClick={()=>{BookRequest(token,data.id,value,'EUR')}}
+              onClick={()=>{addToWishlist(data.id,value,token)}}
                 rightIcon={<MdArrowForward />}
                 bg="#7BB564"
                 color={"white"}
@@ -112,17 +133,17 @@ function ItemPage() {
               </Button>
   }
           </div>
-          {/* <div className="seller-row">
-            <p></p>
-            <span></span>chat-icon
-          </div> */}
+          <div className="seller-row">
+            <p>Seller</p>
+            <span style={{display:"flex"}} onClick={()=>{handleRouteChange('/messages')}}>Chat with seller <img src={chat}/></span>
+          </div>
           <div className="seller-container">
             <div className="seller-box">
-              <figure>{/* <img/> */}</figure>
-              <span></span>
+              <figure> <img src={data.user.profile_img ?`https://admin.myuni-hub.com/${data.user.profile_img}`:profile}/></figure>
+              <span>{data.user.name}</span>
             </div>
             <div className="qwerty">
-              <p></p> | <span></span>
+              <p style={{display:"flex"}}> <span style={{color:"#7BB564",margin:"2px 2px 0px 0px"}}><FaStar/></span> {data.rating_count == null ? 0 :data.rating_count}</p> | <span>{ data.reviews_count}</span>
             </div>
           </div>
         </div>

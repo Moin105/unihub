@@ -6,6 +6,29 @@
   width: 100%;
   max-width: 550px;
 }
+.tab-tickets .transfer {
+  display: flex;
+  flex-direction: column;
+}
+.tab-tickets .transfer input {
+  padding: 15px 30px;
+  background-color: #FAFAFA;
+  border: 1px solid #cacaca;
+  border-radius: 6px;
+  width: 85%;
+  max-width: 500px;
+  margin: 10px auto;
+}
+.tab-tickets .transfer button {
+  padding: 10px 10px 4px 10px;
+  font-weight: 700;
+  color: white;
+  background-color: #98b27b;
+  font-size: 16px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
 .tab-tickets h2 {
   color: #7BB564;
 }
@@ -13,6 +36,51 @@
   font-size: 20px;
   font-weight: 300;
   color: #707070;
+}
+.tab-tickets .my-products h2 {
+  color: #98b27b;
+}
+.tab-tickets .my-products p {
+  color: black;
+  font-size: 14px;
+}
+.tab-tickets .my-products .product-heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center;
+}
+.tab-tickets .my-products .product-heading button {
+  padding: 10px 10px 4px 10px;
+  font-weight: 700;
+  color: white;
+  background-color: #98b27b;
+  font-size: 16px;
+}
+.tab-tickets .my-products .product-listing {
+  height: 200px;
+  overflow-y: scroll;
+}
+.tab-tickets .my-products .product-listing p {
+  padding: 80px;
+}
+.tab-tickets .my-products .product-listing table {
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+}
+.tab-tickets .my-products .product-listing table thead tr {
+  border-bottom: 1px solid #cacaca;
+}
+.tab-tickets .my-products .product-listing table td, .tab-tickets .my-products .product-listing table th {
+  font-weight: 300;
+  padding: 20px;
+}
+.tab-tickets .my-products ::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+.tab-tickets .my-products .servicehub {
+  background: transparent;
 }
 .tab-tickets .form-control {
   width: 100%;

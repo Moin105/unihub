@@ -8,6 +8,7 @@ import storage from 'redux-persist/lib/storage';
 import { productSlice } from '../features/paymentSlice';
 import { serviceSlice } from '../features/serviceSlice';
 import {userProfileSlice} from '../features/UserProfileSlice'
+import { cartSlice } from '../features/cartSlice';
 import { eventSlice } from '../features/eventSlice';
 import thunk from 'redux-thunk';
 
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     user: userProfileSlice.reducer,
     product:productSlice.reducer,
     service:serviceSlice.reducer,
-    event:eventSlice.reducer
+    event:eventSlice.reducer,
+    cart: cartSlice.reducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

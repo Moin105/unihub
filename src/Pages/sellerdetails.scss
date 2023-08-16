@@ -39,13 +39,24 @@
             }
 
         }
-
+.chakra-tabs__tablist::-webkit-scrollbar {
+    display: none;
+  }
         .chakra-tabs__tablist {
+            &::-webkit-scrollbar {
+                display: none;
+              }
+            
+              // Hide scrollbar for IE, Edge, and Firefox
+              -ms-overflow-style: none; // IE and Edge
+              scrollbar-width: none;
             justify-content: center;
             background-color: #F8F6F5;
             padding: 30px 20px;
             border: none;
             overflow: scroll;
+            -ms-overflow-style: none; 
+            scrollbar-width: none;  
 
             .tab-content[aria-selected=false] {
                 background-color: #ffffff;
@@ -167,6 +178,50 @@
         .wrapper {
             .chakra-tabs__tablist {
 
+                .tab-content {
+                    max-width: 80px;
+                    min-width: 80px;
+                    height: 80px;
+                    padding-inline: 5px;
+
+                    .chakra-image {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+
+                }
+                .tab-contents {
+                    max-width: 130px;
+                    height: 100%;
+                    padding-inline: 5px;
+
+                    .chakra-image {
+                        width: 65px;
+                        height: 100%;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 524px) {
+    .sellerdetails {
+
+        .wrapper {
+            .chakra-tabs__tablist {
+                       padding: 0px 0px 0px 160px ;
+                       width: 100%;
+                       gap: 10px;
                 .tab-content {
                     max-width: 80px;
                     min-width: 80px;

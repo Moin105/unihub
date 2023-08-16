@@ -4,6 +4,10 @@ import Footer from "../Components/Footer";
 import prolific from "../Images/prolific.png";
 import "./../Components/message.css";
 function Messages() {
+  const user_id = "current_user_id"; // Replace with actual current user ID
+  // const query = collection(db, 'chats').where('participants', 'array-contains', user_id);
+  // const [chatsSnapshot] = useCollection(query);
+
   return (
     <div className="messages">
       <Header />
