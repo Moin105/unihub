@@ -56,7 +56,7 @@ const postDatas = async (url, data, token, image, cover_img) => {
   formData.append("category_id", data.category_id);
   formData.append("title", data.title);
   formData.append("descreption", data.descreption);
-  formData.append("packages", JSON.stringify(data.packages));
+  formData.append("packages", data.packages);
   formData.append("university_id", data.university_id);
   formData.append("slot_ids", data.slot_ids);
   formData.append("_method", "PUT");

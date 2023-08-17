@@ -211,9 +211,9 @@ if(rating == null){
               
               </div>
               <div className="primary-btn">
-                {/* <Button
+                <Button
                   onClick={() => {
-                    setHide(false);
+                         handleRouteChange('/bookcleaner')
                   }}
                   rightIcon={<MdArrowForward />}
                   bg="#7BB564"
@@ -222,7 +222,7 @@ if(rating == null){
                   width={"100%"}
                 >
                   Start browsing
-                </Button> */}
+                </Button>
               </div>
             </React.Fragment>:<>
             <div className="summary" style={{textAlign:"left"}}>
@@ -319,8 +319,8 @@ if(rating == null){
       <ModalHeader>Cancel Appointment</ModalHeader>
       <ModalCloseButton />
       <ModalBody>
-      <p>Thank you for your purchase!</p>
-    <p>Are you ready to checkout?</p>
+    
+    <p>Are you sure you want to cancel booked appointment?</p>
       </ModalBody>
 
       <ModalFooter>

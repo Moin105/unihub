@@ -27,7 +27,7 @@ const PaymentForm = () => {
     phone: '',
     event_id: data?.event_id,
     price_id: data?.id,
-    currency: 'EUR',
+    currency: '£',
     card_number: '',
     year: '',
     month: '',

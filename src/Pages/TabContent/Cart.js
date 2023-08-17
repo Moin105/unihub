@@ -119,7 +119,7 @@ function Cart() {
        </div>
        {cartItems && cartItems?.length > 0 ?  <div className="primary-btn">
           <Button
-            onClick={()=>{BookRequest(token,data?.id,data?.pivot?.quantity,'EUR')}}
+            onClick={()=>{BookRequest(token,data?.id,data?.pivot?.quantity,'£')}}
             rightIcon={<MdArrowForward />}
             bg="#7BB564"
             color={"white"}

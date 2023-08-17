@@ -28,7 +28,7 @@ const handleRouteChange = (url,datas) => {
     date_time:'',
     service_id: receivedObject?.selectedOption?.service_id,
     price_id: receivedObject?.selectedOption?.id,
-    currency: 'EUR',
+    currency: '£',
     card_number: '',
     year: '',
     month: '',

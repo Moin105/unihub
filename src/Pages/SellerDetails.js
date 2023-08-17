@@ -16,7 +16,7 @@ import wallet from "../Images/wallet.png";
 import DetailsTab from "./TabContent/DetailsTab";
 import Order from "./TabContent/Order";
 import events from "../Images/events.png";
-import hub from "../Images/sales.png";
+import hub from "../Images/saless.png";
 import imageCompression from "browser-image-compression";
 import Sales from './TabContent/Sales'
 import ticket from '../Images/ticket.png'
@@ -141,7 +141,7 @@ function SellerDetails() {
         "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
         {profile_img: localImagea}, // Send formData directly, not inside an object
         {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` , 'Content-Type': 'multipart/form-data' }
         }
       );
       const updatedUser = response.data;
@@ -171,14 +171,12 @@ function SellerDetails() {
     try {
       const compressedImage = await imageCompression(imageFile, options);
       console.log("Compressed image:", compressedImage);
-      
-      // Set the compressed image to localImage state
-      setLocalImage(prevState =>{
-        prevState = compressedImage
-        return prevState
-      });
-      console.log(localImage)
-    updateUser(localImage) // Show the success message
+  
+        // Set the compressed image to localImage state as binary
+        setLocalImage(imageFile);
+  
+        // Optionally, you may call updateUser with the base64data
+        updateUser(imageFile) // Show the success message
     } catch (error) {
       console.error("Error compressing image:", error);
     }

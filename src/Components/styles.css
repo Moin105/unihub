@@ -30,6 +30,8 @@
 .header .container .nav .media-icon {
   margin-bottom: 0;
   position: relative;
+  color: white;
+  font-size: 40px;
 }
 .header .container .nav .media-icon .count {
   border: 1px solid #ffffff;
@@ -54,6 +56,9 @@
   .header .container {
     max-width: 90%;
   }
+  .header .container .nav .media-icon {
+    font-size: 30px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .header .container .nav {
@@ -64,6 +69,7 @@
   .header .container .media-icon {
     width: 20px;
     height: 20px;
+    font-size: 20px;
   }
   .header .container .nav {
     gap: 20px;

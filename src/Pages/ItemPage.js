@@ -25,7 +25,7 @@ function ItemPage() {
   const dispatch = useDispatch();
   const product = useSelector((state) => state);
   const sendData =()=>{
-    handleRouteChange("/productpayment",{data:data,quantity:value,currency:"EUR"})
+    handleRouteChange("/productpayment",{data:data,quantity:value,currency:"£"})
   }
   const handleRouteChange = (url,datas)  => {
     navigate(url, { state: { data: datas } });

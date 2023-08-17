@@ -98,7 +98,7 @@ function CleaningPackage() {
           const response = await axios.post(url, formData, config);
           if (response.status == 200) {
             dispatch(setService({data:response.data,datas:data,value:value,currency:"EUR"}));
-            handleRouteChange("/service-booking",data,value,"EUR");
+            handleRouteChange("/service-booking",data,value,"£");
             // handleRouteChange("/booking", response.data);
           }
           return response;

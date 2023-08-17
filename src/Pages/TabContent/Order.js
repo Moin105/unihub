@@ -169,7 +169,7 @@ if(rating == null){
                   </figure>
                   <div className="order-details">
                     <div className="ordername">
-                      <h3>Order#{order.id}</h3>  <p>{order.price.price || order.price }EUR</p>
+                      <h3>Order#{order.id}</h3>  <p>{order.price.price || order.price }£</p>
                     </div>
                     <p>{formatDate(order.created_at)}</p>
                   </div>

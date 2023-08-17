@@ -20,7 +20,7 @@ import { MdArrowForward } from "react-icons/md";
 function Order() {
   const token = useSelector((state)=> state.auth.token)
   const [ticket,setTicket] = useState([])
-  const [form,setForm] = useState({booking_id:"" ,price:"",quantity:"",email:'',currency:"EUR"})
+  const [form,setForm] = useState({booking_id:"" ,price:"",quantity:"",email:'',currency:"£"})
   const [ticketData,setTicketData] = useState([])
   const [hide,setHide] = useState(false)
   const getData = async () => {
