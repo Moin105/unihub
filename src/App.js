@@ -33,7 +33,7 @@ import EventBuyer from "./Pages/EventBuyer";
 import EventPackage from "./Pages/EventPackage";
 import GuestEvent from "./Pages/Guest/GuestEvent";
 import GuestMarketPlace from "./Pages/Guest/GuestMarketPlace";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import TwoFactor from "./Pages/TwoFactor";
 import NormalSellerDetails from "./Pages/SignUpSeller/SellerDetails";
 import PostCleaner from "./Pages/StudentSeller/PostCleaner";
@@ -47,9 +47,11 @@ import Loading from "./Pages/Spinner";
 import { ToastContainer } from "react-toastify";
 // import EventSummaryPage from "./Pages/EventSummaryPage"
 import EventSummaryPage from "./Pages/EventSummary";
+import { fetchUserProfile } from "./thunks/profileThunk";
 import ServiceSummary from "./Pages/ServiceSummary";
 import EventSummury from "./Pages/EventSummury";
 import Products from "./Pages/StudentSeller/Products";
+import Chat from "./Pages/Chat";
 function App() {
   // const  token  = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,6 +60,14 @@ function App() {
   const role  = useSelector((state) => state.auth.role);
   const seller = useSelector((state) => state.auth.user?.is_seller);
   const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const userProfileData = useSelector((state) => state.userProfile);
+
+  useEffect(() => {
+    console.log("start 1",userProfileData)
+    // console.log("hwlllooo",userProfileData.profile.email)
+    dispatch(fetchUserProfile());
+  }, [dispatch]);
   useEffect(() => {
     console.log(auth)
   if(token !== null){
@@ -94,12 +104,17 @@ function App() {
   const dynamicServices = {
     path: "/service/:dynamicId",
     element: <PostCleaner />,
-    name: "Products",
+    name: "Cleaner",
   }
   const dynamicEvents = {
     path: "/event/:dynamicId",
     element: <PostEvent />,
-    name: "Products",
+    name: "Events",
+  }
+  const dynamicChats = {
+    path:"/chat-with-seller",
+    element: <Chat/>,
+    name:"chat-with-seller"
   }
   const buyerRoutes = [
     { path: "/noprobs", element: <Details />, name: "Details" },
@@ -122,7 +137,7 @@ function App() {
     {path:"/service-booking",element:<ServiceSummary/>,name:"ServiceSummary"},
     {path:"/sellerpage", element:<SellerPage/>,name:"SellerPage"},
     {path:"/home" ,element:<Home />,name:"OrderPlaced"},
-    dynamicRoute,
+    dynamicRoute,dynamicChats,
     ,dynamicProducts,dynamicServices,
     {path:"/cleanerpayment",element:<CleanerPayment/>,name:"CleanerPayment"},
     {path:"/checkout",element:<CheckOutPage/>,name:"CheckOutPage"},
@@ -156,11 +171,19 @@ function App() {
   //   // other seller-only routes here
   // ];
   const NormalSellerRoutes = [
-    { path: "/", element: <SellService />, name: "Seller" },
+    { path: "/", element: <NormalSellerDetails />, name: "Seller" },
     // {path:"/bookservices" ,element:<BookServices />,name:"BookServices"},
     {path:"/seller-details" ,element:<NormalSellerDetails />,name:"SellerDetails"},
-     {path:"/sellService" ,element:<SellService/> , name:"SellService" },
-    {path:"/Home",element:<Details />,name:"Details"},
+     {path:"/sellService" ,element:<NormalSellerDetails/> , name:"SellService" },
+    {path:"/Home",element:<Details />,name:"Details"},    
+    {path:"/bankdetails",element:<BankPage/>,name:"BankPage"},
+    {path:"/addevent",element:<PostEvent/>,name:"PostCleaner"},
+    {path:'/messages',element:<Messages/>,name:"Messages"},
+    {path:"/addProduct",element:<PostProduct/>,name:"PostProduct"},dynamicProducts,
+    dynamicEvents,dynamicServices,dynamicChats,
+    {path:"/addservice", element:<PostCleaner/>,name:"PostCleaner"},
+
+    
     // other seller-only routes here
   ];
   const guestRoutes = [

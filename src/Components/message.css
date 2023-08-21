@@ -11,7 +11,7 @@
   max-width: 640px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: calc(100vh - 313px);
   padding-inline: 10px;
@@ -41,18 +41,23 @@
 .messages .wrapper .messenger-container .messenger-box {
   display: flex;
   width: 90%;
+  border: 1px solid #cacaca;
+  border-radius: 6px;
+  padding: 10px 0px 10px 15px;
   gap: 60px;
 }
 .messages .wrapper .messenger-container .messenger-box .figure {
   width: 110px;
 }
 .messages .wrapper .messenger-container .messenger-box .figure figure {
-  width: 100px;
-  height: 100px;
+  width: 100px !important;
+  height: 100px !important;
 }
 .messages .wrapper .messenger-container .messenger-box .figure figure img {
   width: 100%;
+  border-radius: 444px;
   height: 100%;
+  border: 1px solid #cacaca;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -109,12 +114,12 @@
     gap: 30px;
   }
   .messages .wrapper .messenger-container .messenger-box .figure {
-    width: 80px;
-    height: 80px;
+    width: 70px !important;
+    height: 70px !important;
   }
   .messages .wrapper .messenger-container .messenger-box .figure figure {
-    width: 100%;
-    height: 100%;
+    width: 70px !important;
+    height: 70px !important;
   }
   .messages .wrapper .messenger-container .messenger-box .figure figure img {
     width: 100%;
@@ -124,7 +129,7 @@
   }
   .messages .wrapper .messenger-container .messenger-box .upper-row {
     display: flex;
-    width: 80%;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
   }

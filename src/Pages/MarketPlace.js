@@ -112,5 +112,4 @@ const handleRouteChange = (url,datas) => {
     </div>
   );
 }
-
 export default MarketPlace;

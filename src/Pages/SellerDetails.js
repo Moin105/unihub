@@ -18,8 +18,8 @@ import Order from "./TabContent/Order";
 import events from "../Images/events.png";
 import hub from "../Images/saless.png";
 import imageCompression from "browser-image-compression";
-import Sales from './TabContent/Sales'
-import ticket from '../Images/ticket.png'
+import Sales from "./TabContent/Sales";
+import ticket from "../Images/ticket.png";
 import Event from "./StudentSeller/Event";
 import Wallet from "./TabContent/Wallet";
 import marketplace from "../Images/marketplace.png";
@@ -27,7 +27,7 @@ import MyUserId from "./TabContent/MyUserId";
 import Appointment from "./TabContent/Appointment";
 import axios from "axios";
 import Tickets from "./TabContent/Tickets";
-import appointment from '../Images/appointment.png'
+import appointment from "../Images/appointment.png";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,30 +39,24 @@ import "./sellerdetails.css";
 import { useNavigate } from "react-router-dom";
 // import Event from "./Event";
 import Products from "./StudentSeller/Products";
-import users from '../Images/users.png'
-import { is } from "date-fns/locale";
-import { set } from "date-fns";
+import users from "../Images/users.png";
 import Cleaner from "./StudentSeller/Cleaner";
 import UserProfile from "../features/UserProfile";
 import { toast } from "react-toastify";
 function SellerDetails() {
   const dispatch = useDispatch();
   const [selectedTab, setSelectedTab] = useState(0);
-  // const [tabsData, setTabsData] = useState([null, null, null]);
   const navigate = useNavigate();
+  const [localImage, setLocalImage] = useState(null);
 
-  const [isChecked, setIsChecked] = useState(false);
-  const [localImage , setLocalImage] = useState(null);
-  
   useEffect(() => {
     console.log("akbar", switch_profile);
     dispatch(fetchUserProfile());
-
   }, [dispatch]);
   const theme = extendTheme({
     colors: {
       customColor: {
-        200: "#91B375", // Use your desired custom color here
+        200: "#91B375",
       },
     },
   });
@@ -102,13 +96,9 @@ function SellerDetails() {
   };
   const switch_profile = useSelector((state) => state.auth.seller_switched);
   const token = useSelector((state) => state.auth.token);
-  
+
   const user = useSelector((state) => state.user.user);
   const status = useSelector((state) => state.user.status);
-  useEffect(() => {
-    console.log('helos pakistan',user)
-  }, [])
-  
   const switchUser = () => {
     if (!switch_profile) {
       postData(
@@ -116,32 +106,34 @@ function SellerDetails() {
         { is_seller: 1 },
         token
       );
-      setSelectedTab(1)
+      setSelectedTab(1);
     } else {
       const payload = {
         message: "seller",
       };
       console.log("payload", payload);
       dispatch(setStudentRole(payload));
-      setSelectedTab(1)
+      setSelectedTab(1);
     }
   };
 
   const userProfileData = useSelector((state) => state);
   const updateUser = async (localImagea) => {
-    if(localImagea === null){
-      return toast.error("Please Try Again")
+    if (localImagea === null) {
+      return toast.error("Please Try Again");
     }
     const formData = new FormData();
-    formData.append('profile_img', localImagea);
+    formData.append("profile_img", localImagea);
 
     try {
-      // Make the API call to update the user
       const response = await axios.put(
         "https://admin.myuni-hub.com/api/update_profile?_method=PUT",
-        {profile_img: localImagea}, // Send formData directly, not inside an object
+        { profile_img: localImagea },
         {
-          headers: { Authorization: `Bearer ${token}` , 'Content-Type': 'multipart/form-data' }
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       const updatedUser = response.data;
@@ -152,63 +144,74 @@ function SellerDetails() {
       console.log(error);
     }
   };
-  
+
   const handleChangeTab = (index) => {
     setSelectedTab(index);
   };
   const handleImageClick = () => {
-    document.getElementById('fileInput').click();
+    document.getElementById("fileInput").click();
   };
   const handleImageChange = async (event) => {
     const imageFile = event.target.files[0];
-  
+
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
-  
+
     try {
       const compressedImage = await imageCompression(imageFile, options);
       console.log("Compressed image:", compressedImage);
-  
-        // Set the compressed image to localImage state as binary
-        setLocalImage(imageFile);
-  
-        // Optionally, you may call updateUser with the base64data
-        updateUser(imageFile) // Show the success message
+
+      setLocalImage(imageFile);
+
+      updateUser(imageFile); 
     } catch (error) {
       console.error("Error compressing image:", error);
     }
   };
-  
-  
+
   return (
     <div className="sellerdetails">
       <Header />
       <div className="wrapper">
-        <UserProfile/>
+        <UserProfile />
         <div className="seller">
           <figure>
-            <img  style={{objectFit:"contain",border:"1px solid #cacaca",borderRadius:"1000px"}} src={user?.profile_img ? `https://admin.myuni-hub.com/${user?.profile_img}`  :profile}  onClick={handleImageClick}/>
+            <img
+              style={{
+                objectFit: "contain",
+                border: "1px solid #cacaca",
+                borderRadius: "1000px",
+              }}
+              src={
+                user?.profile_img
+                  ? `https://admin.myuni-hub.com/${user?.profile_img}`
+                  : profile
+              }
+              onClick={handleImageClick}
+            />
             <input
-  id="fileInput"
-  type="file"
-  style={{ display: 'none' }} // This hides the input field
-  onChange={handleImageChange}
-/>
+              id="fileInput"
+              type="file"
+              style={{ display: "none" }} 
+              onChange={handleImageChange}
+            />
           </figure>
           <h3>{user?.name}.</h3>
-          <Switch
-            id="email-alerts"
-            isChecked={switch_profile}
-            onChange={handleToggle}
-            colorScheme="green"
-            _checked={{ bg: "customColor.200" }}
-            _track={{ bg: "gray.200" }}
-          />
-
-          {/* <div><button onClick={switchUser}> sell services</button></div> */}
+          <div style={{display:"flex",gap:"10px",margin:"20px 0px 0px 0px"}}>
+            {" "}
+            <p style={{fontWeight:"300"}}>Seller Option</p>
+            <Switch
+              id="email-alerts"
+              isChecked={switch_profile}
+              onChange={handleToggle}
+              colorScheme="green"
+              _checked={{ bg: "customColor.200" }}
+              _track={{ bg: "gray.200" }}
+            />
+          </div>
         </div>
         {switch_profile ? (
           <Tabs
@@ -242,41 +245,41 @@ function SellerDetails() {
                 display="flex"
                 alignItems="center"
               >
-                {/* <Event /> */}
                 {selectedTab === 0 && <Cleaner />}
-                {/* <DetailsTab /> */}
               </TabPanel>
               <TabPanel
                 justifyContent={"center"}
                 display="flex"
                 alignItems="center"
               >
-                {/* <Order /> */}
                 {selectedTab === 1 && <Products />}
-                {/* <PostProduct/> */}
+       
               </TabPanel>
               <TabPanel
                 justifyContent={"center"}
                 display="flex"
                 alignItems="center"
               >
-                {selectedTab === 2 && <Event/>}
-                {/* <Wallet /> */}
+                {selectedTab === 2 && <Event />}
+        
               </TabPanel>
               <TabPanel
                 justifyContent={"center"}
                 display="flex"
                 alignItems="center"
               >
-                {selectedTab === 3 && <Sales/>}
-                {/* <Tickets /> */}
+                {selectedTab === 3 && <Sales />}
+    
               </TabPanel>
             </TabPanels>
           </Tabs>
         ) : (
-          <Tabs w="100%" mt="10" isFitted 
-          index={selectedTab}
-          onChange={handleChangeTab}
+          <Tabs
+            w="100%"
+            mt="10"
+            isFitted
+            index={selectedTab}
+            onChange={handleChangeTab}
           >
             <TabList display="flex">
               <Tab className="tab-content">

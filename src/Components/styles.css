@@ -69,7 +69,7 @@
   .header .container .media-icon {
     width: 20px;
     height: 20px;
-    font-size: 20px;
+    font-size: 20px !important;
   }
   .header .container .nav {
     gap: 20px;

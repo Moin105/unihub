@@ -171,36 +171,46 @@ const EventForm = () => {
   };
   const handleSubmits = async (event) => {
     event.preventDefault();
-    console.log(formData);
-
+    console.log("awari",formData);
+   
     // Prepare form data for submission
     const datas = new FormData();
+    datas.append('address',formData.address)
+    datas.append('title',formData.title)
+    datas.append('descreption',formData.descreption)
+    datas.append('date_time',formData.date_time)
+    datas.append('lat',formData.lat)
+    datas.append('lng',formData.lng)
+    datas.append('packages',JSON.stringify({"prices":formData.packages}))
+    datas.append("_method", "PUT");
     // for (const key in formData) {
     //   data.append(key, formData[key]);
     // }
-    for (const key in formData) {
-      if (key === "packages") {
-        formData[key].forEach((pkg, index) => {
-          for (const pkgKey in pkg) {
-            datas.append(`packages[${index}][${pkgKey}]`, pkg[pkgKey]);
-          }
-        });
-      } else if (key === "image") {
-        // datas.append("image", formData[key], formData[key].name);
-      } else if (key === "date_time") {
-        let date = new Date(value);
+    // for (const key in formData) {
+    //   if (key === "packages") {
+    //     datas.append("packages", JSON.stringify(formData[key]));
 
-        let yearMonthDay = date.toISOString().slice(0, 10); // Gets "2023-05-22"
-        let hoursMinutes = date.toISOString().slice(11, 16); // Gets "10:40"
+    //     // formData[key].forEach((pkg, index) => {
+    //     //   for (const pkgKey in pkg) {
+    //     //     datas.append(`packages[${index}][${pkgKey}]`, pkg[pkgKey]);
+    //     //   }
+    //     // });
+    //   } else if (key === "image") {
+    //     // datas.append("image", formData[key], formData[key].name);
+    //   } else if (key === "date_time") {
+    //     let date = new Date(value);
 
-        let formattedDate = `${yearMonthDay} ${hoursMinutes}`; // Combine date and time
+    //     let yearMonthDay = date.toISOString().slice(0, 10); // Gets "2023-05-22"
+    //     let hoursMinutes = date.toISOString().slice(11, 16); // Gets "10:40"
 
-        console.log(formattedDate); // Prints: "2
-        datas.append("date_time", formattedDate);
-      } else {
-        datas.append(key, formData[key]);
-      }
-    }
+    //     let formattedDate = `${yearMonthDay} ${hoursMinutes}`; // Combine date and time
+
+    //     console.log(formattedDate); // Prints: "2
+    //     datas.append("date_time", formattedDate);
+    //   } else {
+    //     datas.append(key, formData[key]);
+    //   }
+    // }
     // console.log(formd)
 
     // Setup axios config with Bearer token

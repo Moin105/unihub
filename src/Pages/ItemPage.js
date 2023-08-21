@@ -135,7 +135,7 @@ const addToWishlist =async (productId, quantity, token) => {
           </div>
           <div className="seller-row">
             <p>Seller</p>
-            <span style={{display:"flex"}} onClick={()=>{handleRouteChange('/messages')}}>Chat with seller <img src={chat}/></span>
+            <span style={{display:"flex"}} onClick={()=>{handleRouteChange('/chat-with-seller',data.user.email)}}>Chat with seller <img src={chat}/></span>
           </div>
           <div className="seller-container">
             <div className="seller-box">

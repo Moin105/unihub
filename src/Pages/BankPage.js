@@ -26,7 +26,8 @@ function BankPage() {
   const [ibanNumber, setIbanNumber] = useState('');
   const [swiftCode, setSwiftCode] = useState('');
   const [bankAddress, setBankAddress] = useState('');
-const token = useSelector((state) => state.auth.token);
+const token = useSelector((state) => state.auth.token)
+const role = useSelector((state)=>state.auth.role)
 const navigate = useNavigate();
 const handleRouteChange = (url,datas) => {
   navigate(url, { state: { data: datas } });
@@ -83,7 +84,10 @@ const handleRouteChange = (url,datas) => {
       try {
         const response = await axios.post('https://admin.myuni-hub.com/api/bank_details', data, config);
   if (response.data.status == 200) {
-    handleRouteChange('/sellerdetails')
+    if (role == "seller"){
+      handleRouteChange('/seller-details')
+    }else{
+    handleRouteChange('/sellerdetails')}
   }
         // If the request is successful, response.data will contain the data returned from the server
         console.log(response.data);

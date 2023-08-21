@@ -18,11 +18,7 @@ import { useSelector } from "react-redux";
 import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { get } from "react-hook-form";
-import StarRating from "./Rating";
 import {toast} from 'react-toastify'
-// import Rating from "../../Components/Rating";
-// import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 function Sales() {
   const [show, setShow] = useState(true);
@@ -114,6 +110,17 @@ if(rating == null){
   useEffect(() => {
     fetchData();
   }, []);
+  function getDateFromTimestamp(timestamp) {
+    // Extract the date part from the timestamp
+    const date = timestamp.split('T')[0];
+    return date; // Returns '2023-08-03' for the given example
+  }
+  
+  function getTimeFromTimestamp(timestamp) {
+    // Extract the time part from the timestamp
+    const time = timestamp.split('T')[1].split('.')[0];
+    return time; // Returns '10:04:27' for the given example
+  }
   function formatDate(dateStr) {
     const date = new Date(dateStr);
     const day = date.getDate();
@@ -194,11 +201,35 @@ if(rating == null){
               </div>
             </React.Fragment>:<>
             <div className="summary" style={{textAlign:"left"}}>
-              <h2>Sale Summary</h2>
-               <p style={{margin:"5px 0px",textTransform:"capitalize"}}>{ productData?.products[0]?.name}</p>
-               <p style={{margin:"5px 0px"}}>Quantity { productData.quantity}</p>
-               <h3 style={{color:"#7BB564",margin:"5px 0px"}}>{`£ ${productData.price}  `}</h3>
-               <div className="primary-btn">
+              {/* <h2>Sale Summary</h2> */}
+              <div className="sales-detail">
+                  <label>Order ID</label>
+                  <p>{productData.id}</p>
+                  <label>Order Detail</label>
+                  <p>{productData.products.map(item =>{return item.name})}</p>
+                  <label>Date & Time</label>
+                  <p>{getDateFromTimestamp(productData.created_at)},{getTimeFromTimestamp(productData.created_at)}</p>
+                  <label>Order Status</label>
+                  <p>Completed</p>
+              </div>
+               {/* <p style={{margin:"5px 0px",textTransform:"capitalize"}}>{ productData?.products[0]?.name}</p> */}
+               {/* <p style={{margin:"5px 0px"}}>Quantity { productData.quantity}</p> */}
+               {/* <h3 style={{color:"#7BB564",margin:"5px 0px"}}>{`£ ${productData.price}  `}</h3> */}
+               <div className="primary-btn"> 
+               <Button
+                  onClick={() => {
+                    console.log("assadasd")
+                    setShowData(false)
+                  }}
+                //   rightIcon={<MdArrowForward />}
+                  bg="#7BB564"
+                  color={"white"}
+                  variant="solid"
+                  width={"100%"}
+                >
+                  Back
+                </Button>
+               </div>
                 {/* <Button
                   onClick={() => {
                     console.log("assadasd")
@@ -212,7 +243,7 @@ if(rating == null){
                 >
                   Rate your order
                 </Button> */}
-          </div> 
+          
           </div>
             
             </>

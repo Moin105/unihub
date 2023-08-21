@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Heading, Input, Button } from "@chakra-ui/react";
-import axios from "axios";
+import axios from "axios"; 
 import { toast } from "react-toastify";
 import Footer from "../../Components/Footer";
 import "react-toastify/dist/ReactToastify.css";
