@@ -15,6 +15,8 @@ import { MdArrowForward } from "react-icons/md";
 import axios from "axios";
 import { fetchUserProfile } from "../../thunks/profileThunk";
 import { set } from "date-fns";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 // import { useSelector } from "react-redux";
 // const postData = async (url, data,token) => {
 //   try {
@@ -181,15 +183,16 @@ function DetailsTab() {
           >
             Phone
           </FormLabel>
-          <Input
-            variant="unstyled"
-            name="phone"
-            value={formDetails?.phone}
-            onChange={handleInputChange}
-            border="none"
-            type="tel"
-            fontSize="41px"
-          />
+          <PhoneInput
+           variant="unstyled"
+           name="phone"
+           value={formDetails?.phone}
+           onChange={handleInputChange}
+           border="none"
+           type="tel"
+           fontSize="41px"
+        />
+        
         </Box>
         {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
       </FormControl>

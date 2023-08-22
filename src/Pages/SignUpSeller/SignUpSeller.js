@@ -17,6 +17,8 @@ import { sellerSignUpUser } from "../../thunks/userThunks";
 import 'react-toastify/dist/ReactToastify.css';
 import { MdArrowForward } from "react-icons/md";
 import Footer from "../../Components/Footer";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 function SignUpSeller() {
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState(true);
@@ -196,17 +198,17 @@ function SignUpSeller() {
               >
                 Phone
               </FormLabel>
-              <Input
-                variant="unstyled"
-                value={formData.phone}
-                onChange={(e) => {
-                  handleInputChange(e);
-                }}
-                name="phone"
-                border="none"
-                type="tel"
-                fontSize="41px"
-              />
+              <PhoneInput
+          variant="unstyled"
+          value={formData.phone}
+          onChange={(e) => {
+            handleInputChange(e);
+          }}
+          name="phone"
+          border="none"
+          type="tel"
+          fontSize="41px"
+        />
             </Box>
             {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
           </FormControl>

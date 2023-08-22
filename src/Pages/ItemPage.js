@@ -139,7 +139,7 @@ const addToWishlist =async (productId, quantity, token) => {
           </div>
           <div className="seller-container">
             <div className="seller-box">
-              <figure> <img src={data.user.profile_img ?`https://admin.myuni-hub.com/${data.user.profile_img}`:profile}/></figure>
+              <figure> <img src={data?.user?.profile_img ?`https://admin.myuni-hub.com/${data.user.profile_img}`:profile}/></figure>
               <span>{data.user.name}</span>
             </div>
             <div className="qwerty">

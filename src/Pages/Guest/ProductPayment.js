@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { get } from 'react-hook-form';
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import {
 useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
 } from "@chakra-ui/react";
@@ -333,15 +334,15 @@ const handleRouteChange = (url,datas) => {
           <FormLabel padding="20px 0px 0px 20px" fontSize="37px" fontWeight={300}>
             Phone
           </FormLabel>
-          <Input
-            variant="unstyled"
-            border="none"
-            name="phone"
-            type="tel"
-            value={formData.phone}
-            onChange={handleInputChange}
-            fontSize="41px"
-          />
+            <PhoneInput
+          variant="unstyled"
+          border="none"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleInputChange}
+          fontSize="41px"
+        />
         </Box>
         <Box
           className="input-container"

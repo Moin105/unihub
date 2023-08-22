@@ -43,9 +43,7 @@ import PaymentForm from "./Pages/Guest/PaymentForm";
 import CleanerPayment from "./Pages/Guest/CleanerPayment";
 import BookingSummary from "./Pages/BookingSummary";
 import CheckOutPage from "./Pages/Checkout";
-import Loading from "./Pages/Spinner";
 import { ToastContainer } from "react-toastify";
-// import EventSummaryPage from "./Pages/EventSummaryPage"
 import EventSummaryPage from "./Pages/EventSummary";
 import { fetchUserProfile } from "./thunks/profileThunk";
 import ServiceSummary from "./Pages/ServiceSummary";
@@ -78,8 +76,10 @@ function App() {
   }
   }, [token])
   useEffect(() => {
-  
-  }, [])
+  if(token){  console.log("start 1",userProfileData)
+    // console.log("hwlllooo",userProfileData.profile.email)
+    dispatch(fetchUserProfile());}
+  }, []);
   
   const dynamicRoute = {
     path: "/bookcleaner/:dynamicId",
@@ -223,7 +223,7 @@ function App() {
     <div className="App">
       <ToastContainer/>
     <Router>
-      <Loading>
+      {/* <Loading> */}
   <Routes>
         {isAuthenticated ? (<>
       {/* {role == "student" && seller == 0  &&  sellerRoutes.map(route => (
@@ -260,7 +260,7 @@ function App() {
         )}
         <Route path="*" element={<>no page or page is restricted</>} />
       </Routes>
-      </Loading>
+      {/* </Loading> */}
     </Router>
 
     </div>

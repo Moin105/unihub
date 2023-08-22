@@ -99,6 +99,7 @@ function Chat() {
   const handleSendClick = () => {
     send(); // Call the send function
   };
+  
   return (
     <div className="chat">
       <Header />
@@ -107,8 +108,15 @@ function Chat() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h4>Messages</h4>
           </div>
-
-      <div>
+          <div className="chat-container">
+      {chat?.map((message, index) => (
+        <div key={index} className={`message ${message.sender === _encode(user.email) ? 'right' : 'left'}`}>
+          <div className="text">{message.text}</div>
+          {/* <div className="timestamp">{formatTime(message.createdAt)}</div> */}
+        </div>
+      ))}
+    </div>
+      <div className="chater-container">
         <input
           type="text"
           value={message}

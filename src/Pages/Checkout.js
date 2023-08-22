@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import axios from "axios";
 // import { Button } from "@chakra-ui/react";
 import "./checkout.css";

@@ -7,7 +7,7 @@ import Inquiry from "./Inquiry";
 import { useNavigate } from "react-router-dom";
 import "./../Components/message.css";
 import { useSelector } from "react-redux";
-import { ref, onChildAdded, get } from 'firebase/database';
+import { ref, onChildAdded, get,onValue } from 'firebase/database';
 
 // import {  ref, onValue, push, set } from 'firebase/database';
 import axios from 'axios'
@@ -40,46 +40,62 @@ const handleRouteChange = (url,datas)  => {
   navigate(url, { state: { data: datas } });
 };
 
+
 const loadUserChats = async () => {
-  console.log("==== inside load user chats =======",user);
+  console.log("==== inside load user chats =======");
   setUserChats([]);
-  // console.log()
   const chatlistRef = ref(database, "chatlist/" + _encode(user.email));
-   console.log("sadsfdgghmj",chatlistRef)
+
+  // Create a temporary array to store the chats
+  let tempUserChats = [];
+
   onChildAdded(chatlistRef, (snapshot) => {
     console.log("snapshot.val()", snapshot.val());
     let item1 = snapshot.val();
     const userRef = ref(database, "users/" + item1.id);
-    
+   console.log("userref",userRef.toJSON())
     get(userRef).then((snapshot) => {
-      console.log("sadsfdgghmj")
       let new_ob = snapshot.val();
-      let userChats = [
-        ...UserChats, 
-        {
+   console.log("new_obj",snapshot)
+      // Check if the array already contains an object with the same id
+      if (!tempUserChats.find(chat => chat.id === item1.id)) {
+        tempUserChats.push({
           ...item1,
-          name: user.name,
-          email: user.email,
-          avatar: user.profile_img,
-          getChatid:user.id
-        },
-      ];
-      
-      let dd = userChats.sort((a, b) =>
-        a.createdAt > b.createdAt ? -1 : b.createdAt > a.createdAt ? 1 : 0
-      );
-      console.log("=== user chats ===", dd);
-      setUserChats(dd);
-      console.log("chats",userChats)
+          // name: new_ob.name,
+          // email: new_ob.email,
+          // avatar: new_ob.avatar,
+        });
+
+        // Sort the array
+        let dd = tempUserChats.sort((a, b) =>
+          a.createdAt > b.createdAt ? -1 : b.createdAt > a.createdAt ? 1 : 0
+        );
+        console.log("============= user chats =============", dd);
+        setUserChats(dd);
+      }
+
       // setLoadingChats(false)
+    });
+    onValue(userRef, (snapshot) => {
+      const data = snapshot;
+      console.log("new object",data.val());
     });
   });
   // setLoadingChats(false)
 };
+
 useEffect(() => {
    loadUserChats()
 }, [])
+function timeAgo(timestamp) {
+  const now = new Date();
+  const date = new Date(timestamp);
+  const secondsAgo = Math.floor((now - date) / 1000);
 
+  if (secondsAgo < 60) return 'now';
+  if (secondsAgo < 3600) return `${Math.floor(secondsAgo / 60)} minutes ago`;
+  // Continue with other time formats, e.g., hours, days, etc.
+}
 
   return (
     <div className="messages">
@@ -87,7 +103,7 @@ useEffect(() => {
       <div className="wrapper">
         <div style={{display:"flex",flexDirection:"column"}}>
           <h4>Messages</h4>
-          <p className="count-message">You have 2 new messages</p>
+          {/* <p className="count-message">You have 2 new messages</p> */}
           {/* <Flex alignItems="center">
       <Text color={show ? 'black' :'white' } background={show? 'grey': '#88B46D' } padding={"5px 10px"} borderRadius={"4px"}>Off</Text>
       <Box mx={2}>
@@ -132,8 +148,8 @@ useEffect(() => {
                   </div>
                   <div className="name-message">
                     <div className="upper-row">
-                      <h3>{user.name}</h3>
-                      <span>Now</span>
+                      <h3>{user.id}</h3>
+                      <span>{timeAgo(user.timestamp)}</span>
                     </div>
                     <p>{user.text}</p>
                   </div>
